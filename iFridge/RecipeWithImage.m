@@ -27,15 +27,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"Recipe";
-    
-    
+    self.nameOfDish.text = self.name;
     
     self.navigationController.view.backgroundColor =
     [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     
     self.view.backgroundColor = [UIColor clearColor];
-    
     
     UISwipeGestureRecognizer * swipeleft=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeleft:)];
     swipeleft.direction=UISwipeGestureRecognizerDirectionLeft;
@@ -59,8 +56,6 @@
                                                            
                                                            [self.imageForDish setBackgroundColor:[UIColor colorWithPatternImage:image]];
                                                        }];
-    
-   
 }
 
 

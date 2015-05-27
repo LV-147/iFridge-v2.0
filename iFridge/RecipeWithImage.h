@@ -25,12 +25,12 @@
 @property (strong, nonatomic) NSArray *avaivableRecipes;
 @property (strong, nonatomic) NSArray *savedRecipes;
 
-@property (strong, nonatomic) NSMutableArray *recipeName;
-@property (weak, nonatomic) IBOutlet UILabel *name;
 
 @property (strong, nonatomic)NSString *dataSource;
 @property (nonatomic, assign) NSInteger recipeRow;
 - (void) setRecipeWithImageContents:(NSInteger)recipeIndexPath;
 
+@property (weak, nonatomic) IBOutlet UILabel *nameOfDish;
+@property (strong, nonatomic) NSString * name;
 
 @end

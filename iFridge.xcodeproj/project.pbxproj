@@ -44,6 +44,9 @@
 		35A9D7101B08F1B7005EF9BF /* GooglePlus.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 35A9D70D1B08F1B7005EF9BF /* GooglePlus.bundle */; };
 		35A9D7111B08F1B7005EF9BF /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35A9D70E1B08F1B7005EF9BF /* GooglePlus.framework */; };
 		35D8B24C1B147C8A007E4F6A /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D8B24B1B147C8A007E4F6A /* iCarousel.m */; };
+		43E3C9141B161188004E0306 /* note2.png in Resources */ = {isa = PBXBuildFile; fileRef = 43E3C9131B161188004E0306 /* note2.png */; };
+		43E3C9181B161369004E0306 /* image1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 43E3C9171B161369004E0306 /* image1.jpg */; };
+		43E3C91A1B161423004E0306 /* photo-frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 43E3C9191B161423004E0306 /* photo-frame.png */; };
 		BF9779961B132FA000DDD1ED /* PopAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9779931B132FA000DDD1ED /* PopAnimator.m */; };
 		BF9779971B132FA000DDD1ED /* PushAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9779951B132FA000DDD1ED /* PushAnimator.m */; };
 		BFEA48281B13475C008F5BEF /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFEA48241B13475C008F5BEF /* LoadingView.m */; };
@@ -127,6 +130,9 @@
 		35A9D70E1B08F1B7005EF9BF /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GooglePlus.framework; sourceTree = "<group>"; };
 		35D8B24A1B147C8A007E4F6A /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		35D8B24B1B147C8A007E4F6A /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		43E3C9131B161188004E0306 /* note2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = note2.png; sourceTree = "<group>"; };
+		43E3C9171B161369004E0306 /* image1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image1.jpg; sourceTree = "<group>"; };
+		43E3C9191B161423004E0306 /* photo-frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-frame.png"; sourceTree = "<group>"; };
 		7B6D530F70A59FB7713BE0D2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		BF9779921B132FA000DDD1ED /* PopAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopAnimator.h; sourceTree = "<group>"; };
 		BF9779931B132FA000DDD1ED /* PopAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopAnimator.m; sourceTree = "<group>"; };
@@ -308,14 +314,17 @@
 			isa = PBXGroup;
 			children = (
 				35185A6D1B13719F00D6503A /* search-icon.png */,
+				43E3C9171B161369004E0306 /* image1.jpg */,
 				35486D8F1B132C1300DC51D2 /* anim.jpg */,
 				3559BA841B064F6F0040DCB6 /* OperationFood.png */,
 				35A487931B023095008F31F3 /* image.jpg */,
+				43E3C9131B161188004E0306 /* note2.png */,
 				35A487941B023095008F31F3 /* note.png */,
 				35A487951B023095008F31F3 /* fridge.png */,
 				F3948BFE1B1392DE00D149D0 /* supermarket.png */,
 				F3948BF01B13857000D149D0 /* Plus.png */,
 				35A487961B023095008F31F3 /* fridge2.jpg */,
+				43E3C9191B161423004E0306 /* photo-frame.png */,
 				35A487971B023095008F31F3 /* door.png */,
 				357A58F11AFFDF3C0094B0AC /* Info.plist */,
 				357A58F21AFFDF3C0094B0AC /* main.m */,
@@ -532,6 +541,7 @@
 				357A59041AFFDF3C0094B0AC /* LaunchScreen.xib in Resources */,
 				357A59011AFFDF3C0094B0AC /* Images.xcassets in Resources */,
 				35185A6E1B13719F00D6503A /* search-icon.png in Resources */,
+				43E3C9141B161188004E0306 /* note2.png in Resources */,
 				3559BA7F1B0636DE0040DCB6 /* Main.storyboard in Resources */,
 				F3948BFF1B1392DE00D149D0 /* supermarket.png in Resources */,
 				3559BA851B064F6F0040DCB6 /* OperationFood.png in Resources */,
@@ -539,10 +549,12 @@
 				35A9D7101B08F1B7005EF9BF /* GooglePlus.bundle in Resources */,
 				35A487981B023095008F31F3 /* image.jpg in Resources */,
 				F3948BF11B13857000D149D0 /* Plus.png in Resources */,
+				43E3C91A1B161423004E0306 /* photo-frame.png in Resources */,
 				35A4879B1B023095008F31F3 /* fridge2.jpg in Resources */,
 				BFEA48291B13475C008F5BEF /* LoadingView.xib in Resources */,
 				35486D901B132C1300DC51D2 /* anim.jpg in Resources */,
 				35A4879C1B023095008F31F3 /* door.png in Resources */,
+				43E3C9181B161369004E0306 /* image1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
