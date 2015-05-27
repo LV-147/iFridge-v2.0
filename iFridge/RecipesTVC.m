@@ -13,6 +13,7 @@
 #import "UIViewController+Context.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIViewController+LoadingView.h"
+#import "DataDownloader.h"
 
 @import CoreGraphics;
 
@@ -29,40 +30,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-
+    
     if ([self.dataSource isEqualToString:@"Search results"]){
-    [self showLoadingViewInView:self.view];
-    [self performSelector:@selector(hideLoadingViewThreadSave) withObject:nil afterDelay:2.8];
+        [self showLoadingViewInView:self.view];
+        
     }
     self.navigationController.view.backgroundColor =
     [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     
     self.tableView.backgroundColor = [UIColor clearColor];
-
     
-    NSString *myRequest = [[NSString alloc] initWithFormat:@"%@%@%@", @"https://api.edamam.com/search?q=",self.query,@"&app_id=4e8543af&app_key=e1309c8e747bdd4d7363587a4435f5ee&from=0&to=100"];
-//    NSLog(@"myLink: %@", myRequest);
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:myRequest parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.allRecipes = (NSDictionary *) responseObject;
-        self.recipes = self.allRecipes[@"hits"];
-        //NSLog(@"JSON: %@", self.recipes);
+    DataDownloader *downloadManager = [[DataDownloader alloc] init];
+    [downloadManager downloadRecipesForQuery:self.query than:^{
         dispatch_async(dispatch_get_main_queue(), ^{
+            self.recipes = downloadManager.recipes;
             [self.tableView reloadData];
+            [self performSelector:@selector(hideLoadingViewThreadSave) withObject:nil afterDelay:0];
         });
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
     }];
-    
- 
-
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     cell.backgroundColor = [UIColor clearColor];
-
+    
     //cell.accessoryView = [UIImage]//[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"accessory.png"]];
 }
 
@@ -74,7 +65,7 @@
     NSError *error;
     
     self.coreDataRecipes = [self.currentContext executeFetchRequest:request error:&error];
-//    self.selectDataSourceButton.selectedSegmentIndex = 0;
+    //    self.selectDataSourceButton.selectedSegmentIndex = 0;
     [self.tableView reloadData];
 }
 
@@ -151,7 +142,7 @@
     RecipesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myCell" forIndexPath:indexPath];
     
     if ([self.dataSource isEqualToString:@"Search results"]) {
-//        NSDictionary *recipe = [[NSDictionary alloc] initWithDictionary:[[self.recipes objectAtIndex:indexPath.row] valueForKey:@"recipe"]];
+        //        NSDictionary *recipe = [[NSDictionary alloc] initWithDictionary:[[self.recipes objectAtIndex:indexPath.row] valueForKey:@"recipe"]];
         
         cell.nameOfDish.text = self.recipes[indexPath.row][@"recipe"][@"label"];
         

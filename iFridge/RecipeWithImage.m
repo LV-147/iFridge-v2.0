@@ -50,9 +50,7 @@
                                                            [self.imageForDish setBackgroundColor:[UIColor colorWithPatternImage:image]];
                                                        }];
     
-   
 }
-
 
 
 - (void) setRecipeWithImageContents:(NSInteger)recipeIndexPath
@@ -79,8 +77,8 @@
                                                          options:SDWebImageDownloaderLowPriority
                                                         progress:nil
                                                        completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
-        [self.imageForDish setBackgroundColor:[UIColor colorWithPatternImage:image]];
-    }];
+                                                           [self.imageForDish setBackgroundColor:[UIColor colorWithPatternImage:image]];
+                                                       }];
 }
 
 - (IBAction)saveRecipeToCoreData:(UIBarButtonItem *)sender {
@@ -128,7 +126,7 @@
 - (IBAction)swipe:(UISwipeGestureRecognizer *)sender {
     if (sender.direction == UISwipeGestureRecognizerDirectionLeft){
         ++self.recipeRow;
-        if(self.recipeRow == self.availableRecipes.count) self.recipeRow = 0;
+        if (self.recipeRow == self.availableRecipes.count) self.recipeRow = 0;
         self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%lu", (self.recipeRow + 1), self.availableRecipes.count];
         
     }else if (sender.direction == UISwipeGestureRecognizerDirectionRight){
