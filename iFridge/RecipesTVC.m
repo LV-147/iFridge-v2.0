@@ -32,7 +32,7 @@
 
     if ([self.dataSource isEqualToString:@"Search results"]){
     [self showLoadingViewInView:self.view];
-    [self performSelector:@selector(hideLoadingViewThreadSave) withObject:nil afterDelay:5];
+    [self performSelector:@selector(hideLoadingViewThreadSave) withObject:nil afterDelay:2.8];
     }
     self.navigationController.view.backgroundColor =
     [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
@@ -41,7 +41,7 @@
 
     
     NSString *myRequest = [[NSString alloc] initWithFormat:@"%@%@%@", @"https://api.edamam.com/search?q=",self.query,@"&app_id=4e8543af&app_key=e1309c8e747bdd4d7363587a4435f5ee&from=0&to=100"];
-    NSLog(@"myLink: %@", myRequest);
+//    NSLog(@"myLink: %@", myRequest);
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:myRequest parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -67,6 +67,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     self.coreDataRecipes = [[NSArray alloc] init];
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Recipe"];
     request.predicate = nil;
@@ -170,13 +171,14 @@
         cell.sugarsTotal.text = [NSString stringWithString:sugarsTotal];
         
         
-        double str3 = [self.recipes[indexPath.row][@"recipe"][@"totalWeight"] doubleValue];
-        NSString *weightTotal = [NSString stringWithFormat:@"weight: %2.3f", str3];
+        NSNumber *str3 = self.recipes[indexPath.row][@"recipe"][@"totalWeight"] ;
+        NSString *weightTotal = [NSString stringWithFormat:@"weight: %@", [str3 stringValue]];
         cell.weightTotal.text = [NSString stringWithString:weightTotal];
         
         double str2 = [self.recipes[indexPath.row][@"recipe"][@"totalNutrients"][@"FAT"][@"quantity"] doubleValue];
         NSString *fatTotal = [NSString stringWithFormat:@"fat: %2.3f", str2];
         cell.fatTotal.text = [NSString stringWithString:fatTotal];
+        
         [self doAnimation:cell];
         
         return cell;
@@ -208,11 +210,10 @@
         newController.imageLink = self.recipes[path.row][@"recipe"][@"image"];
         newController.ingredientsLines = self.recipes[path.row][@"recipe"][@"ingredientLines"];
         newController.recipeDict = [[self.recipes objectAtIndex:path.row] valueForKey:@"recipe"];
-        newController.avaivableRecipes = self.recipes;
+        newController.availableRecipes = self.recipes;
     }else{
         Recipe *recipe = self.coreDataRecipes[path.row];
         newController.imageLink = recipe.imageUrl;
-        newController.recipeSaved = YES;
         newController.recipe = recipe;
         
         NSMutableDictionary *ingredienteLines = [[NSMutableDictionary alloc] init];
@@ -223,7 +224,7 @@
             numb = [NSNumber numberWithInt:value + 1];
         }
         newController.ingredientsLines = ingredienteLines;
-        newController.avaivableRecipes = self.coreDataRecipes;
+        newController.availableRecipes = self.coreDataRecipes;
     }
     
     newController.recipeRow = [self.tableView indexPathForCell:cell].row;

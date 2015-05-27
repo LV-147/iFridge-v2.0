@@ -111,7 +111,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "104"
             endingLineNumber = "104"
-            landmarkName = "-saveRecipeToCoreData:"
+            landmarkName = "-ifCurrentRecipeSaved"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -127,7 +127,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "127"
             endingLineNumber = "127"
-            landmarkName = "-swiperight:"
+            landmarkName = "-swipe:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
