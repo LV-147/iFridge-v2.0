@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D58BD3AE-9A22-40E6-BAD6-FD9422F062DE</string>
+	<key>IDESourceControlProjectName</key>
+	<string>iFridge</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>67BA294E0748BD44FA313FE931CE6878994DE86E</key>
+		<string>https://github.com/AlexeyPelekh/iFridge.git</string>
+		<key>EF8555939AE26E06DFF0F368FA366E96F308D70E</key>
+		<string>https://github.com/LV-147/iFridge_public.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>iFridge.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>67BA294E0748BD44FA313FE931CE6878994DE86E</key>
+		<string>../../iFridge</string>
+		<key>EF8555939AE26E06DFF0F368FA366E96F308D70E</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/LV-147/iFridge_public.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>EF8555939AE26E06DFF0F368FA366E96F308D70E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>67BA294E0748BD44FA313FE931CE6878994DE86E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iFridge</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EF8555939AE26E06DFF0F368FA366E96F308D70E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iFridge_public</string>
+		</dict>
+	</array>
+</dict>
+</plist>
