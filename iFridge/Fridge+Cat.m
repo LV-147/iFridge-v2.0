@@ -31,6 +31,7 @@
         ingredient = [NSEntityDescription insertNewObjectForEntityForName:@"Ingredient" inManagedObjectContext:context];
         ingredient.label = [ingredientDict valueForKey:@"label"];
         ingredient.quantity = [ingredientDict valueForKey:@"quantity"];
+        ingredient.storagePer = [ingredientDict valueForKey:@"storagePer"];
         ingredient.fromFridge = fridge;
         [context save:NULL];
     }
