@@ -27,6 +27,7 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBar.tintColor = [UIColor redColor];
     GPPSignIn *signIn = [GPPSignIn sharedInstance];
     
     self.navigationController.view.backgroundColor =

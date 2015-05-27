@@ -29,23 +29,12 @@
     
     self.title = @"Recipe";
     
-    
-    
     self.navigationController.view.backgroundColor =
     [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     
     self.view.backgroundColor = [UIColor clearColor];
     
-    
-    UISwipeGestureRecognizer * swipeleft=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeleft:)];
-    swipeleft.direction=UISwipeGestureRecognizerDirectionLeft;
-    [self.view addGestureRecognizer:swipeleft];
-    
-    UISwipeGestureRecognizer * swiperight=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swiperight:)];
-    swiperight.direction=UISwipeGestureRecognizerDirectionRight;
-    [self.view addGestureRecognizer:swiperight];
-    
-    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%lu", (self.recipeRow + 1), (unsigned long)self.avaivableRecipes.count];
+    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%lu", (self.recipeRow + 1), (unsigned long)self.availableRecipes.count];
     
     if (self.recipeSaved) {
         self.saveButton.title = @"Delete";
@@ -68,11 +57,11 @@
 - (void) setRecipeWithImageContents:(NSInteger)recipeIndexPath
 {
     if ([self.dataSource isEqualToString:@"Search results"]) {
-        self.imageLink = self.avaivableRecipes[recipeIndexPath][@"recipe"][@"image"];
-        self.ingredientsLines = self.avaivableRecipes[recipeIndexPath][@"recipe"][@"ingredientLines"];
+        self.imageLink = self.availableRecipes[recipeIndexPath][@"recipe"][@"image"];
+        self.ingredientsLines = self.availableRecipes[recipeIndexPath][@"recipe"][@"ingredientLines"];
         
     }else{
-        Recipe *currentRecipe = [self.avaivableRecipes objectAtIndex:recipeIndexPath];
+        Recipe *currentRecipe = [self.availableRecipes objectAtIndex:recipeIndexPath];
         self.imageLink = currentRecipe.imageUrl;
         
         NSMutableDictionary *ingredienteLines = [[NSMutableDictionary alloc] init];
@@ -85,7 +74,10 @@
         self.ingredientsLines = ingredienteLines;
     }
     self.textViewForRecipe.text = [NSString stringWithFormat:@"%@", _ingredientsLines];
-    [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:_imageLink] options:SDWebImageDownloaderLowPriority progress:nil completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
+    [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:_imageLink]
+                                                         options:SDWebImageDownloaderLowPriority
+                                                        progress:nil
+                                                       completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
         [self.imageForDish setBackgroundColor:[UIColor colorWithPatternImage:image]];
     }];
 }
@@ -93,15 +85,15 @@
 - (IBAction)saveRecipeToCoreData:(UIBarButtonItem *)sender {
     
     if (!self.recipeSaved){
-        NSDictionary *recipeDict = [[self.avaivableRecipes objectAtIndex:self.recipeRow ] valueForKey:@"recipe"];
+        NSDictionary *recipeDict = [[self.availableRecipes objectAtIndex:self.recipeRow ] valueForKey:@"recipe"];
         self.recipe = [Recipe createRecipeWithInfo:recipeDict inManagedObiectContext:self.currentContext];
         self.recipeSaved = YES;
         sender.title = @"Delete";
         
     }else{
-        NSMutableArray *availibleRecipes = [[NSMutableArray alloc] initWithArray:self.avaivableRecipes];
+        NSMutableArray *availibleRecipes = [[NSMutableArray alloc] initWithArray:self.availableRecipes];
         [availibleRecipes removeObjectAtIndex:self.recipeRow];
-        self.avaivableRecipes = availibleRecipes;
+        self.availableRecipes = availibleRecipes;
         [Recipe deleteRecipe:self.recipe fromManagedObjectContext:self.currentContext];
         self.recipeSaved = NO;
         sender.title = @"Save";
@@ -109,30 +101,42 @@
     
 }
 
-- (void)swipeleft:(UISwipeGestureRecognizer*)gestureRecognizer
-{
-    self.recipeSaved = NO;
-    self.saveButton.title = @"Save";
+- (void)ifCurrentRecipeSaved{
+    //checking if current recipe is alredy in the data base
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Recipe"];
+    NSString *predicateString = [[NSString alloc] init];
+    if ([self.dataSource isEqualToString:@"Search results"]) {
+        predicateString = [[self.availableRecipes objectAtIndex:self.recipeRow] valueForKeyPath:@"recipe.label"];
+    }else {
+        Recipe *currentRecipe = [self.availableRecipes objectAtIndex:self.recipeRow];
+        predicateString = currentRecipe.label;
+    }
+    request.predicate = [NSPredicate predicateWithFormat:@"label = %@", predicateString];
     
-    //    if ([self.dataSource isEqualToString:@"Search results"]) {
-    //selected row
-    ++self.recipeRow;
-    if(self.recipeRow == self.avaivableRecipes.count) self.recipeRow = 0;
-    
-    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%lu", (self.recipeRow + 1), self.avaivableRecipes.count];
-    [self setRecipeWithImageContents:self.recipeRow];
+    NSError *error;
+    NSArray *mathes = [self.currentContext executeFetchRequest:request error:&error];
+    if (mathes && !error && mathes.count == 1) {
+        self.saveButton.title = @"Delete";
+        self.recipeSaved = YES;
+    }else{
+        self.saveButton.title = @"Save";
+        self.recipeSaved = NO;
+    }
 }
 
-- (void)swiperight:(UISwipeGestureRecognizer*)gestureRecognizer
-{
-    self.recipeSaved = NO;
-    self.saveButton.title = @"Save";
-    
-    --self.recipeRow;
-    if (self.recipeRow == -1) self.recipeRow = self.avaivableRecipes.count - 1;
-    
+- (IBAction)swipe:(UISwipeGestureRecognizer *)sender {
+    if (sender.direction == UISwipeGestureRecognizerDirectionLeft){
+        ++self.recipeRow;
+        if(self.recipeRow == self.availableRecipes.count) self.recipeRow = 0;
+        self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%lu", (self.recipeRow + 1), self.availableRecipes.count];
+        
+    }else if (sender.direction == UISwipeGestureRecognizerDirectionRight){
+        --self.recipeRow;
+        if (self.recipeRow == -1) self.recipeRow = self.availableRecipes.count - 1;
+        self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%lu", (self.recipeRow + 1), self.availableRecipes.count];
+    }
     [self setRecipeWithImageContents:self.recipeRow];
-    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%lu", (self.recipeRow + 1), self.avaivableRecipes.count];
+    [self ifCurrentRecipeSaved];
 }
 
 @end

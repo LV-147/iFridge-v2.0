@@ -22,7 +22,7 @@
 @property (nonatomic) BOOL recipeSaved;
 @property (nonatomic, strong)Recipe *recipe;
 
-@property (strong, nonatomic) NSArray *avaivableRecipes;
+@property (strong, nonatomic) NSArray *availableRecipes;
 @property (strong, nonatomic) NSArray *savedRecipes;
 
 @property (strong, nonatomic) NSMutableArray *recipeName;
