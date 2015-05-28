@@ -49,6 +49,10 @@
 
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
+    NSLog(@"%@",  self.ingredientsForReminder);
+    NSLog(@"%lu", (unsigned long)self.ingredientsForReminder.count) ;
+    
     self.title = @"To Buy!";
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureRecognized:)];
@@ -58,7 +62,7 @@
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"supermarket"]];
     self.tableView.backgroundView.alpha = 0.5f;
     
-    [super viewDidLoad];
+
 }
 
 - (void)dealloc {
@@ -67,8 +71,17 @@
 
 #pragma mark - UITableView data source and delegate methods
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    return 1;
+}
+
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.todoItems count];
+    //return (unsigned int)self.ingredientsForReminder.count;
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
