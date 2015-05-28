@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -10,8 +10,11 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="anim.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="McH-VQ-9es">
-                    <rect key="frame" x="38" y="184" width="300" height="300"/>
+                <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ZZg-ge-7lV">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="3.png" translatesAutoresizingMaskIntoConstraints="NO" id="McH-VQ-9es">
+                    <rect key="frame" x="37" y="124" width="300" height="300"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="300" id="Als-mW-thy"/>
                         <constraint firstAttribute="height" constant="300" id="oBh-Sd-kxX"/>
@@ -19,29 +22,14 @@
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstAttribute="trailing" secondItem="McH-VQ-9es" secondAttribute="trailing" id="3n7-Tk-VEZ"/>
-                <constraint firstItem="McH-VQ-9es" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="aIe-tO-Cej"/>
-                <constraint firstItem="McH-VQ-9es" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dgo-eb-Nv9"/>
-                <constraint firstAttribute="centerX" secondItem="McH-VQ-9es" secondAttribute="centerX" id="f9q-R4-YGn"/>
-                <constraint firstAttribute="centerY" secondItem="McH-VQ-9es" secondAttribute="centerY" id="jzE-4t-R8n"/>
-                <constraint firstAttribute="bottom" secondItem="McH-VQ-9es" secondAttribute="bottom" id="twL-ih-1Q8"/>
-            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="3n7-Tk-VEZ"/>
-                    <exclude reference="aIe-tO-Cej"/>
-                    <exclude reference="dgo-eb-Nv9"/>
-                    <exclude reference="twL-ih-1Q8"/>
-                </mask>
-            </variation>
             <connections>
                 <outlet property="animImageView" destination="McH-VQ-9es" id="2wC-tM-mHr"/>
             </connections>
         </view>
     </objects>
     <resources>
-        <image name="anim.jpg" width="500" height="500"/>
+        <image name="3.png" width="500" height="500"/>
+        <image name="image1.jpg" width="2000" height="1231"/>
     </resources>
 </document>
