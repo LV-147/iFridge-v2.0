@@ -29,11 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //Create number formatter to round NSNumbers
-    NSNumberFormatter *numbFormatter = [[NSNumberFormatter alloc] init];
-    [numbFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    [numbFormatter setMaximumFractionDigits:2];
-    [numbFormatter setRoundingMode: NSNumberFormatterRoundUp];
+    
     
     if ([self.dataSource isEqualToString:@"Search results"]){
         [self showLoadingViewInView:self.view];
@@ -52,9 +48,7 @@
             [self performSelector:@selector(hideLoadingViewThreadSave) withObject:nil afterDelay:0];
         });
     }];
-    
 }
-
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -159,7 +153,6 @@
         //    cell.caloriesTotal.text = [NSString stringWithFormat:@"caloriesTotal: %@",  self.recipes[indexPath.row][@"recipe"][@"calories"]];
         //    cell.caloriesTotal.text = [cell.caloriesTotal.text substringToIndex:22];
         
-        
         double str1 = [self.recipes[indexPath.row][@"recipe"][@"calories"] doubleValue];
         NSString *caloriesTotal = [NSString stringWithFormat:@"calories: %2.3f", str1];
         cell.caloriesTotal.text = [NSString stringWithString:caloriesTotal];
@@ -167,6 +160,7 @@
         double str4 = [self.recipes[indexPath.row][@"recipe"][@"totalNutrients"][@"SUGAR"][@"quantity"] doubleValue];
         NSString *sugarsTotal = [NSString stringWithFormat:@"sugar: %2.3f", str4];
         cell.sugarsTotal.text = [NSString stringWithString:sugarsTotal];
+        
         
         NSNumber *str3 = self.recipes[indexPath.row][@"recipe"][@"totalWeight"] ;
         NSString *weightTotal = [NSString stringWithFormat:@"weight: %@", [str3 stringValue]];
@@ -198,11 +192,34 @@
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    RecipesCell *cell = (RecipesCell *)sender;
+    NSIndexPath *path = [self.tableView indexPathForCell:cell];
+    
     RecipeWithImage *newController = segue.destinationViewController;
+    
     if ([self.dataSource isEqualToString:@"Search results"]) {
-    [newController initWithRecipes:self.recipes];
-    }else [newController initWithRecipes:self.coreDataRecipes];
-
+        newController.imageLink = self.recipes[path.row][@"recipe"][@"image"];
+        newController.ingredientsLines = self.recipes[path.row][@"recipe"][@"ingredientLines"];
+        newController.recipeDict = [[self.recipes objectAtIndex:path.row] valueForKey:@"recipe"];
+        newController.availableRecipes = self.recipes;
+    }else{
+        Recipe *recipe = self.coreDataRecipes[path.row];
+        newController.imageLink = recipe.imageUrl;
+        newController.recipe = recipe;
+        
+        NSMutableDictionary *ingredienteLines = [[NSMutableDictionary alloc] init];
+        NSNumber *numb = [[NSNumber alloc] initWithInt:0];
+        for (Ingredient *ingredient in recipe.ingredients) {
+            [ingredienteLines setObject:ingredient.label forKey:numb];
+            int value = [numb intValue];
+            numb = [NSNumber numberWithInt:value + 1];
+        }
+        newController.ingredientsLines = ingredienteLines;
+        newController.availableRecipes = self.coreDataRecipes;
+    }
+    
+    newController.recipeRow = [self.tableView indexPathForCell:cell].row;
+    newController.dataSource = self.dataSource;
 }
 
 @end

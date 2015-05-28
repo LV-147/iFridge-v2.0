@@ -15,7 +15,12 @@
 
 @property (strong, nonatomic) NSString *query;
 @property (strong, nonatomic) NSArray *recipes;
+<<<<<<< HEAD
 //@property (strong, nonatomic) IBOutlet UITableView *tableView;
+=======
+@property (strong, nonatomic) NSMutableArray *recipeName;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+>>>>>>> parent of ed1e83f... RecipeWithImage had been refactored
 @property (strong, nonatomic) IBOutlet UISegmentedControl *selectDataSourceButton;
 @property (strong, nonatomic) NSString *dataSource;
 @property (strong, nonatomic) IBOutlet UIView *viewWithAnimation;
