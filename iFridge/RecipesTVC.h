@@ -20,7 +20,7 @@
 //@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *selectDataSourceButton;
 @property (strong, nonatomic) NSString *dataSource;
-@property (strong, nonatomic) IBOutlet UIView *viewWithAnimation;
-@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+//@property (strong, nonatomic) IBOutlet UIView *viewWithAnimation;
+//@property (strong, nonatomic) IBOutlet UIImageView *imageView;
 
 @end

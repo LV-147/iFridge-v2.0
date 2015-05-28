@@ -29,6 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     //Create number formatter to round NSNumbers
     NSNumberFormatter *numbFormatter = [[NSNumberFormatter alloc] init];
     [numbFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
@@ -36,7 +37,9 @@
     [numbFormatter setRoundingMode: NSNumberFormatterRoundUp];
     
     if ([self.dataSource isEqualToString:@"Search results"]){
+       
         [self showLoadingViewInView:self.view];
+        
         
     }
     self.navigationController.view.backgroundColor =
@@ -49,6 +52,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             self.recipes = downloadManager.recipes;
             [self.tableView reloadData];
+            
             [self performSelector:@selector(hideLoadingViewThreadSave) withObject:nil afterDelay:0];
         });
     }];
