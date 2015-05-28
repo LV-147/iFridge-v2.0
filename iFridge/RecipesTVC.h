@@ -12,15 +12,7 @@
 
 
 @interface RecipesTVC : UITableViewController
-
 @property (strong, nonatomic) NSString *query;
-@property (strong, nonatomic) NSDictionary *allRecipes;
-@property (strong, nonatomic) NSArray *recipes;
-@property (strong, nonatomic) NSMutableArray *recipeName;
-//@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *selectDataSourceButton;
 @property (strong, nonatomic) NSString *dataSource;
-@property (strong, nonatomic) IBOutlet UIView *viewWithAnimation;
-@property (strong, nonatomic) IBOutlet UIImageView *imageView;
-
 @end

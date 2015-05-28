@@ -19,8 +19,9 @@
 
 
 @interface RecipesTVC ()
+@property (weak, nonatomic) IBOutlet UISearchBar *recipeSearchBar;
 
-
+@property (strong, nonatomic) NSArray *recipes;
 @property (strong, nonatomic)NSArray *coreDataRecipes;
 
 @end
@@ -43,6 +44,8 @@
     [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     
     self.tableView.backgroundColor = [UIColor clearColor];
+    
+    self.recipeSearchBar.text = self.query;
     
     DataDownloader *downloadManager = [[DataDownloader alloc] init];
     [downloadManager downloadRecipesForQuery:self.query than:^{
