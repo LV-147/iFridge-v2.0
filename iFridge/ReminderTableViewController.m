@@ -49,6 +49,9 @@
 
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
+    NSLog(@"%@",  self.ingredientsForReminder);
+    
     self.title = @"To Buy!";
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureRecognized:)];
@@ -58,7 +61,7 @@
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"supermarket"]];
     self.tableView.backgroundView.alpha = 0.5f;
     
-    [super viewDidLoad];
+    
 }
 
 - (void)dealloc {
