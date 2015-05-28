@@ -29,7 +29,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     //Create number formatter to round NSNumbers
     NSNumberFormatter *numbFormatter = [[NSNumberFormatter alloc] init];
     [numbFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
@@ -37,7 +36,6 @@
     [numbFormatter setRoundingMode: NSNumberFormatterRoundUp];
     
     if ([self.dataSource isEqualToString:@"Search results"]){
-        [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         [self showLoadingViewInView:self.view];
         
     }
@@ -52,7 +50,6 @@
             self.recipes = downloadManager.recipes;
             [self.tableView reloadData];
             [self performSelector:@selector(hideLoadingViewThreadSave) withObject:nil afterDelay:0];
-            [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
         });
     }];
     
