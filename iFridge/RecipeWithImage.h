@@ -13,6 +13,5 @@
 
 @interface RecipeWithImage : UIViewController
 
-- (void)initWithRecipes:(NSArray *)recipes;
-
+- (void)initWithRecipeAtIndex:(NSInteger)recipeIndex from:(NSArray *)recipes;
 @end

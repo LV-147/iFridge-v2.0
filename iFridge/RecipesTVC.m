@@ -201,10 +201,12 @@
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    RecipesCell *recipeCell = sender;
+    NSInteger recipeIndex = [self.tableView indexPathForCell:recipeCell].row;
     RecipeWithImage *newController = segue.destinationViewController;
     if ([self.dataSource isEqualToString:@"Search results"]) {
-    [newController initWithRecipes:self.recipes];
-    }else [newController initWithRecipes:self.coreDataRecipes];
+        [newController initWithRecipeAtIndex: recipeIndex from:self.recipes];
+    }else [newController initWithRecipeAtIndex: recipeIndex from:self.coreDataRecipes];
 
 }
 

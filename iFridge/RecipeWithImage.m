@@ -49,9 +49,9 @@
     
 }
 
-- (void)initWithRecipes:(NSArray *)recipes {
+- (void)initWithRecipeAtIndex:(NSInteger)recipeIndex from:(NSArray *)recipes {
     self.availableRecipes = recipes;
-    self.recipeRow = 0;
+    self.recipeRow = recipeIndex;
 }
 
 - (void)setRecipeImageWithLink:(NSString *)imageLink {
