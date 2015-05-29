@@ -9,16 +9,22 @@
 #import "ReminderTableViewController.h"
 #import "UIAlertView+ReminderBlock.h"
 #import "UIButton+ReminderBlock.h"
+#import "Fridge+Cat.h"
+#import "UIViewController+Context.h"
+
+
 
 @import EventKit;
 
 @interface ReminderTableViewController ()
 
 @property (strong, nonatomic) EKEventStore *eventStore;
-@property (strong, nonatomic) NSMutableArray *todoItems;
+@property (strong, nonatomic) NSArray *todoItems;
 @property (copy, nonatomic) NSArray *reminders;
 @property (strong, nonatomic) EKCalendar *calendar;
 @property (nonatomic) BOOL isAccessToEventStoreGranted;
+@property (nonatomic, assign) UIView *blurEffect;
+
 
 @end
 
@@ -35,11 +41,12 @@
 }
 
 
-- (NSMutableArray *)todoItems {
+
+- (NSArray *)todoItems {
     if (!_todoItems) {
         _todoItems = [@[@"You need to do smth!"] mutableCopy];
         
-        //        self.todoItems = ingredientLines;
+        self.todoItems = [NSArray arrayWithArray:self.ingredientsForReminder];
     }
     return _todoItems;
 }
@@ -50,8 +57,16 @@
 
 - (void)viewDidLoad {
     
+    
+    
     [super viewDidLoad];
+    
+//    Fridge *fridge = [[Fridge alloc] init];
+    
     NSLog(@"%@", self.ingredientsForReminder);
+    
+//    [Fridge addIngredientWithInfo:<#(NSDictionary *)#> toFridge:fridge inManagedObjectContext:[self currentContext]]
+    
     NSLog(@"%lu", (unsigned long)self.ingredientsForReminder.count);
     
     self.title = @"To Buy!";
@@ -62,6 +77,15 @@
     self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"supermarket"]];
     self.tableView.backgroundView.alpha = 0.5f;
+    
+    if (self.todoItems) {
+        self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"door"]];
+    }
+    
+    
+   
+    
+    
 }
 
 - (void)dealloc {
@@ -79,7 +103,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.todoItems count];
-    //return (unsigned int)self.ingredientsForReminder.count;
+    
 
 }
 
@@ -90,8 +114,14 @@
     
     // Update cell content from data source.
     NSString *object = self.todoItems[indexPath.row];
+    
     cell.backgroundColor = [UIColor clearColor];
+    
+    
     cell.textLabel.text = object;
+    cell.textLabel.textColor = [UIColor blackColor];
+   
+   
     
     [self addReminderForToDoItem:object];
     
@@ -110,12 +140,12 @@
     
     NSString *todoItem = self.todoItems[indexPath.row];
     
+    NSMutableArray *todoItems = [[NSMutableArray alloc] initWithArray:self.todoItems];
+    
+    self.todoItems = todoItems;
+    
     // Remove to-do item.
-    [self.todoItems removeObject:todoItem];
-    
-    
-    
-    
+    [todoItems removeObject:todoItem];
     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
@@ -138,7 +168,9 @@
             
             UITextField *textField = [alertView textFieldAtIndex:0];
             NSString *string = [textField.text capitalizedString];
-            [weakSelf.todoItems addObject:string];
+            NSMutableArray *todoItems = [[NSMutableArray alloc] initWithArray:self.todoItems];
+            [todoItems addObject:string];
+            weakSelf.todoItems = todoItems;
             
             NSUInteger row = [weakSelf.todoItems count] - 1;
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
@@ -198,7 +230,12 @@
             if (indexPath && ![indexPath isEqual:sourceIndexPath]) {
                 
                 // ... update data source.
-                [self.todoItems exchangeObjectAtIndex:indexPath.row withObjectAtIndex:sourceIndexPath.row];
+                NSMutableArray *todoItems = [[NSMutableArray alloc] initWithArray:self.todoItems];
+                
+                [todoItems exchangeObjectAtIndex:indexPath.row withObjectAtIndex:sourceIndexPath.row];
+                self.todoItems = todoItems;
+                
+ 
                 
                 // ... move the rows.
                 [self.tableView moveRowAtIndexPath:sourceIndexPath toIndexPath:indexPath];
