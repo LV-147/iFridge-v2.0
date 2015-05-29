@@ -49,26 +49,19 @@
 
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    
-  
-    
-        
-    NSLog(@"%@",  self.ingredientsForReminder);
-    NSLog(@"%lu", (unsigned long)self.ingredientsForReminder.count) ;
-    
+    NSLog(@"%@", self.ingredientsForReminder);
+    NSLog(@"%lu", (unsigned long)self.ingredientsForReminder.count);
     
     self.title = @"To Buy!";
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureRecognized:)];
     
     [self.tableView addGestureRecognizer:longPress];
-    
     self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"supermarket"]];
     self.tableView.backgroundView.alpha = 0.5f;
-    
-
 }
 
 - (void)dealloc {
