@@ -1,13 +1,13 @@
 //
-//  RecipeSearchBar.h
+//  Reminder+Cat.m
 //  iFridge
 //
 //  Created by Vladius on 5/29/15.
 //  Copyright (c) 2015 Alexey Pelekh. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "Reminder+Cat.h"
 
-@interface RecipeSearchBar : UISearchBar <UIBarPositioningDelegate>
+@implementation Reminder (Cat)
 
 @end

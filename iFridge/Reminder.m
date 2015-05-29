@@ -1,13 +1,17 @@
 //
-//  RecipeSearchBar.h
+//  Reminder.m
 //  iFridge
 //
 //  Created by Vladius on 5/29/15.
 //  Copyright (c) 2015 Alexey Pelekh. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "Reminder.h"
+#import "Ingredient.h"
 
-@interface RecipeSearchBar : UISearchBar <UIBarPositioningDelegate>
+
+@implementation Reminder
+
+@dynamic ingredientsToBuy;
 
 @end

@@ -10,6 +10,6 @@
 
 @interface DataDownloader : NSObject
 
-- (void)downloadRecipesForQuery:(NSString *)query
++ (void)downloadRecipesForQuery:(NSString *)query
                            than:(void(^)(NSArray *recipes))handler;
 @end

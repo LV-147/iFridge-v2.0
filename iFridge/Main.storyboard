@@ -94,11 +94,14 @@
                         <rect key="frame" x="0.0" y="-1" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="scb-5a-Kbu">
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="eaT-4u-ShA" customClass="RecipeSearchBar">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="barTintColor" red="1" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="barTintColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="LMa-eT-kqI" id="Ii6-1r-Dxl"/>
+                            </connections>
                         </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" showsReorderControl="YES" indentationWidth="10" reuseIdentifier="myCell" rowHeight="184" id="OYL-HI-rJD" customClass="RecipesCell">
@@ -187,7 +190,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="recipeSearchBar" destination="scb-5a-Kbu" id="eka-sd-I2Q"/>
+                        <outlet property="recipeSearchBar" destination="eaT-4u-ShA" id="oTC-0D-HLL"/>
                         <outlet property="selectDataSourceController" destination="cpg-Yt-joA" id="9M6-aV-bfF"/>
                         <outlet property="tableView" destination="tB7-Bw-lU0" id="0Eh-m2-LAi"/>
                     </connections>

@@ -123,7 +123,7 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 {
     if ([segue.identifier isEqualToString:@"SegueToRecipesTVC"]){
         RecipesTVC *newController = segue.destinationViewController;
-        newController.query = [self.searchTextField.text stringByReplacingOccurrencesOfString: @" " withString:@"+"];
+        newController.query = self.searchTextField.text;
         newController.dataSource = @"Search results";
     }
     if ([segue.identifier isEqualToString:@"SegueToMyRecipes"]){
