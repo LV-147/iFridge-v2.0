@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="h2X-tC-U0S">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="h2X-tC-U0S">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--Search View Controller-->
+        <!--Home-->
         <scene sceneID="Abh-Pj-b1l">
             <objects>
                 <viewController id="GfN-dv-fDj" customClass="SearchViewController" sceneMemberID="viewController">
@@ -16,19 +16,14 @@
                         <rect key="frame" x="1" y="-1" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="note.png" translatesAutoresizingMaskIntoConstraints="NO" id="h7c-do-j7v">
+                                <rect key="frame" x="2" y="64" width="195" height="77"/>
+                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HGG-sm-Rr1">
                                 <rect key="frame" x="205" y="86" width="159" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name of the food you are looking for:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTT-Yc-aKc">
-                                <rect key="frame" x="16" y="64" width="181" height="74"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="2" height="0.0"/>
-                            </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IxZ-Gj-Gej" customClass="GPPSignInButton">
                                 <rect key="frame" x="34" y="555" width="306" height="48"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -36,11 +31,12 @@
                             <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jN2-JV-tP4">
                                 <rect key="frame" x="62" y="206" width="250" height="130"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="40"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="-14" maxX="0.0" maxY="1"/>
                                 <state key="normal" title="Fridge" backgroundImage="note.png">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="DDj-R3-GaC" kind="push" id="MZa-Vf-TRy"/>
+                                    <segue destination="DDj-R3-GaC" kind="show" id="MZa-Vf-TRy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.79999999999999982" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Pq-83-9RR">
@@ -51,12 +47,13 @@
                                 </state>
                                 <connections>
                                     <action selector="searchButton:" destination="GfN-dv-fDj" eventType="touchUpInside" id="mMk-aP-603"/>
-                                    <segue destination="LMa-eT-kqI" kind="push" identifier="SegueToRecipesTVC" id="r9f-D3-hBv"/>
+                                    <segue destination="LMa-eT-kqI" kind="show" identifier="SegueToRecipesTVC" id="r9f-D3-hBv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Nh-kO-0cW">
                                 <rect key="frame" x="62" y="359" width="250" height="130"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="40"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="-15" maxX="-8" maxY="0.0"/>
                                 <state key="normal" title="My recipes" backgroundImage="note.png">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -65,14 +62,20 @@
                                     <rect key="frame" x="62" y="355" width="250" height="130"/>
                                 </variation>
                                 <connections>
-                                    <action selector="searchButton:" destination="GfN-dv-fDj" eventType="touchUpInside" id="ByA-gG-PmZ"/>
-                                    <segue destination="LMa-eT-kqI" kind="push" identifier="SegueToMyRecipes" id="y47-Cr-Jsy"/>
+                                    <segue destination="LMa-eT-kqI" kind="show" identifier="SegueToMyRecipes" id="y47-Cr-Jsy"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name of the food you are looking for:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTT-Yc-aKc">
+                                <rect key="frame" x="41" y="60" width="144" height="74"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="16"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="2" height="0.0"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="sAQ-ny-PJl"/>
+                    <navigationItem key="navigationItem" title="Home" id="sAQ-ny-PJl"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="searchTextField" destination="HGG-sm-Rr1" id="1UG-gG-Xs6"/>
@@ -81,61 +84,70 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N43-eS-79P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-339.75" y="-2377.5"/>
+            <point key="canvasLocation" x="-340.5" y="-2377.5"/>
         </scene>
         <!--RecipesTVC-->
         <scene sceneID="xTM-nS-cJI">
             <objects>
                 <tableViewController id="LMa-eT-kqI" customClass="RecipesTVC" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="161" sectionHeaderHeight="22" sectionFooterHeight="22" id="tB7-Bw-lU0">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="184" sectionHeaderHeight="22" sectionFooterHeight="22" id="tB7-Bw-lU0">
                         <rect key="frame" x="0.0" y="-1" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="eaT-4u-ShA" customClass="RecipeSearchBar">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="barTintColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="LMa-eT-kqI" id="Ii6-1r-Dxl"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="myCell" editingAccessoryType="checkmark" rowHeight="161" id="OYL-HI-rJD" customClass="RecipesCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" showsReorderControl="YES" indentationWidth="10" reuseIdentifier="myCell" rowHeight="184" id="OYL-HI-rJD" customClass="RecipesCell">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OYL-HI-rJD" id="1On-cw-p6f">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dil-cy-xMJ">
-                                            <rect key="frame" x="8" y="8" width="359" height="30"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="dil-cy-xMJ">
+                                            <rect key="frame" x="8" y="8" width="359" height="48"/>
                                             <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="28"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CookingTime" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxG-W3-epe">
-                                            <rect key="frame" x="8" y="89" width="173" height="21"/>
+                                            <rect key="frame" x="8" y="108" width="173" height="21"/>
                                             <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calories" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4Z-1N-qwg">
-                                            <rect key="frame" x="8" y="130" width="173" height="21"/>
+                                            <rect key="frame" x="8" y="149" width="173" height="21"/>
                                             <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cooking lvl" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsA-Kl-tVy">
-                                            <rect key="frame" x="8" y="47" width="154" height="21"/>
+                                            <rect key="frame" x="8" y="66" width="154" height="21"/>
                                             <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TotalWeight" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apx-cW-bbQ">
-                                            <rect key="frame" x="202" y="90" width="173" height="21"/>
+                                            <rect key="frame" x="202" y="109" width="173" height="21"/>
                                             <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fat" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYH-FU-obZ">
-                                            <rect key="frame" x="202" y="131" width="154" height="21"/>
+                                            <rect key="frame" x="202" y="150" width="154" height="21"/>
                                             <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sugars" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jaq-or-zY0">
-                                            <rect key="frame" x="202" y="48" width="154" height="20"/>
+                                            <rect key="frame" x="202" y="67" width="154" height="20"/>
                                             <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -152,7 +164,7 @@
                                     <outlet property="nameOfDish" destination="dil-cy-xMJ" id="wEt-Ha-Smg"/>
                                     <outlet property="sugarsTotal" destination="jaq-or-zY0" id="qst-14-Nss"/>
                                     <outlet property="weightTotal" destination="apx-cW-bbQ" id="gVe-BD-56E"/>
-                                    <segue destination="Oyr-fJ-N5i" kind="push" identifier="SegueToRecipeWithImage" id="7bg-pa-630"/>
+                                    <segue destination="Oyr-fJ-N5i" kind="show" identifier="SegueToRecipeWithImage" id="7bg-pa-630"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -163,27 +175,29 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="AA2-yN-rFa">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="JFK-o1-5WF">
+                        <segmentedControl key="titleView" opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="cpg-Yt-joA">
                             <rect key="frame" x="87" y="7" width="201" height="31"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Search results"/>
                                 <segment title="My recipes"/>
                             </segments>
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="selectDataSource:" destination="LMa-eT-kqI" eventType="valueChanged" id="zuF-Iu-Mxq"/>
+                                <action selector="selectDataSource:" destination="LMa-eT-kqI" eventType="valueChanged" id="ili-kG-ZvI"/>
                             </connections>
                         </segmentedControl>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="selectDataSourceButton" destination="JFK-o1-5WF" id="cy1-yn-3u8"/>
+                        <outlet property="recipeSearchBar" destination="eaT-4u-ShA" id="oTC-0D-HLL"/>
+                        <outlet property="selectDataSourceController" destination="cpg-Yt-joA" id="9M6-aV-bfF"/>
                         <outlet property="tableView" destination="tB7-Bw-lU0" id="0Eh-m2-LAi"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6x6-4m-JOl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="426.75" y="-2053.5"/>
+            <point key="canvasLocation" x="426.5" y="-2053.5"/>
         </scene>
         <!--Recipe With Image-->
         <scene sceneID="kOa-gB-sGC">
@@ -197,28 +211,20 @@
                         <rect key="frame" x="1" y="-1" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KiS-ua-e8m">
-                                <rect key="frame" x="134" y="638" width="106" height="21"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="recipeName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nf6-hO-VI1">
-                                <rect key="frame" x="16" y="81" width="343" height="21"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ulz-cA-xnm">
-                                <rect key="frame" x="59" y="122" width="256" height="256"/>
+                                <rect key="frame" x="69" y="102" width="230" height="230"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" directionalLockEnabled="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gry-kJ-tXI">
-                                <rect key="frame" x="16" y="380" width="343" height="228"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" directionalLockEnabled="YES" pagingEnabled="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gry-kJ-tXI">
+                                <rect key="frame" x="16" y="389" width="343" height="219"/>
                                 <color key="backgroundColor" white="1" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                             </textView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BYp-Xs-UYh">
+                                <rect key="frame" x="0.0" y="627" width="375" height="44"/>
+                                <items/>
+                            </toolbar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y6Z-7F-MCh">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
@@ -230,9 +236,24 @@
                                     <rect key="frame" x="276" y="630" width="83" height="30"/>
                                 </variation>
                                 <connections>
-                                    <segue destination="KUQ-L5-Ki6" kind="push" id="ec6-xV-Ywd"/>
+                                    <segue destination="KUQ-L5-Ki6" kind="show" id="ec6-xV-Ywd"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KiS-ua-e8m">
+                                <rect key="frame" x="134" y="638" width="106" height="21"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo-frame.png" translatesAutoresizingMaskIntoConstraints="NO" id="4ok-82-Ldc">
+                                <rect key="frame" x="49" y="67" width="277" height="341"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="BVk-zp-2z6">
+                                <rect key="frame" x="60" y="332" width="249" height="42"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="23"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -246,8 +267,8 @@
                             </mask>
                         </variation>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="cYu-Cd-Cfh" appends="YES" id="BJ9-3u-8d0"/>
-                            <outletCollection property="gestureRecognizers" destination="hTu-B8-0Kd" appends="YES" id="kew-y3-zId"/>
+                            <outletCollection property="gestureRecognizers" destination="WbT-KN-z8c" appends="YES" id="WVw-15-l4F"/>
+                            <outletCollection property="gestureRecognizers" destination="5kL-wy-Sfb" appends="YES" id="sQ3-ET-fMS"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="CLk-Aa-Bis">
@@ -260,25 +281,25 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="imageForDish" destination="Ulz-cA-xnm" id="UVS-a5-vFJ"/>
-                        <outlet property="name" destination="Nf6-hO-VI1" id="qZD-8r-hSb"/>
+                        <outlet property="nameOfDish" destination="BVk-zp-2z6" id="M86-mu-HWn"/>
                         <outlet property="recipeCountIndicator" destination="KiS-ua-e8m" id="fGF-RC-7MX"/>
+                        <outlet property="recipeIngredients" destination="Gry-kJ-tXI" id="Ima-bL-qNc"/>
                         <outlet property="saveButton" destination="xMc-09-5vp" id="IBW-Ov-Agk"/>
-                        <outlet property="textViewForRecipe" destination="Gry-kJ-tXI" id="au9-gs-C1a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v7d-bl-guy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="left" id="hTu-B8-0Kd">
+                <swipeGestureRecognizer direction="left" id="5kL-wy-Sfb">
                     <connections>
-                        <action selector="swipe:" destination="Oyr-fJ-N5i" id="bbX-Ly-N6Q"/>
+                        <action selector="swipe:" destination="Oyr-fJ-N5i" id="4SA-eh-QoO"/>
                     </connections>
                 </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="right" id="cYu-Cd-Cfh">
+                <swipeGestureRecognizer direction="right" id="WbT-KN-z8c">
                     <connections>
-                        <action selector="swipe:" destination="Oyr-fJ-N5i" id="2us-jn-Z7V"/>
+                        <action selector="swipe:" destination="Oyr-fJ-N5i" id="hMX-3C-dFj"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1088.25" y="-2053.5"/>
+            <point key="canvasLocation" x="1087.5" y="-2055.5"/>
         </scene>
         <!--Reminder Table View Controller-->
         <scene sceneID="zCW-zh-Q2R">
@@ -370,7 +391,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="oye-17-Qeq" kind="push" id="4Jc-RP-79u"/>
+                                            <segue destination="oye-17-Qeq" kind="show" id="4Jc-RP-79u"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -516,6 +537,7 @@
         <image name="fridge2.jpg" width="1800" height="2288"/>
         <image name="image.jpg" width="2560" height="1577"/>
         <image name="note.png" width="640" height="392"/>
+        <image name="photo-frame.png" width="1291" height="1600"/>
         <image name="search-icon.png" width="298" height="297"/>
     </resources>
     <inferredMetricsTieBreakers>

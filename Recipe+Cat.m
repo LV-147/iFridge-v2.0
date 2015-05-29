@@ -11,7 +11,7 @@
 
 @implementation Recipe (Cat)
 
-+ (Recipe *)createRecipeWithInfo:(NSDictionary *)recipeDict
++ (void)createRecipeWithInfo:(NSDictionary *)recipeDict
           inManagedObiectContext:(NSManagedObjectContext *)context{
     
     Recipe *recipe = nil;
@@ -47,7 +47,7 @@
         [context save:NULL];
     }
     
-    return recipe;
+//    return recipe;
 }
 
 + (void)deleteRecipe:(Recipe *)recipe fromManagedObjectContext:(NSManagedObjectContext *)context{
