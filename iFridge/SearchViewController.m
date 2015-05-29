@@ -121,13 +121,13 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-
-    RecipesTVC *newController = segue.destinationViewController;
-    newController.query = [self.searchTextField.text stringByReplacingOccurrencesOfString: @" " withString:@"+"];
     if ([segue.identifier isEqualToString:@"SegueToRecipesTVC"]){
+        RecipesTVC *newController = segue.destinationViewController;
+        newController.query = [self.searchTextField.text stringByReplacingOccurrencesOfString: @" " withString:@"+"];
         newController.dataSource = @"Search results";
     }
     if ([segue.identifier isEqualToString:@"SegueToMyRecipes"]){
+        RecipesTVC *newController = segue.destinationViewController;
         newController.dataSource = @"My recipes";
 
     }

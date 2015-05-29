@@ -23,18 +23,17 @@
 @property (strong, nonatomic) IBOutlet UISegmentedControl *selectDataSourceController;
 
 @property (strong, nonatomic) NSArray *recipes;
+@property (strong, nonatomic) NSArray *filteredRecipes;
 
 @end
 
 @implementation RecipesTVC
-
+@synthesize query;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.view.backgroundColor =
     [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     self.tableView.backgroundColor = [UIColor clearColor];
-    
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 
     //Create number formatter to round NSNumbers
     NSNumberFormatter *numbFormatter = [[NSNumberFormatter alloc] init];
@@ -43,19 +42,11 @@
     [numbFormatter setRoundingMode: NSNumberFormatterRoundUp];
     
     if ([self.dataSource isEqualToString:@"Search results"]){
-        self.selectDataSourceController.selectedSegmentIndex = 0;
-        [self showLoadingViewInView:self.view];
-        DataDownloader *downloadManager = [[DataDownloader alloc] init];
-        [downloadManager downloadRecipesForQuery:self.query than:^{
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.recipes = downloadManager.recipes;
-                [self.tableView reloadData];
-                [self performSelector:@selector(hideLoadingViewThreadSave) withObject:nil afterDelay:0];
-            });
-        }];
+        [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+        [self searchForRecipes];
     }else {
         self.selectDataSourceController.selectedSegmentIndex = 1;
-        self.recipes = [self getRecipesFromCoreData];
+        [self getRecipesFromCoreData];
     }
     self.recipeSearchBar.text = self.query;
 }
@@ -70,19 +61,31 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    if ([self.recipes.firstObject isKindOfClass:[Recipe class]]) {
-        self.recipes = [self getRecipesFromCoreData];
+    if ([self.dataSource isEqualToString:@"My recipes"]) {
+        [self getRecipesFromCoreData];
     }
 }
 
-- (NSArray *)getRecipesFromCoreData {
-    NSArray *coreDataRecipes = [[NSArray alloc] init];
+- (void)searchForRecipes {
+    self.selectDataSourceController.selectedSegmentIndex = 0;
+    [self showLoadingViewInView:self.view];
+    DataDownloader *downloadManager = [[DataDownloader alloc] init];
+    [downloadManager downloadRecipesForQuery:self.query than:^(NSArray *recipes){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.recipes = recipes;
+            [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
+            [self.tableView reloadData];
+            [self performSelector:@selector(hideLoadingViewThreadSave) withObject:nil afterDelay:0];
+        });
+    }];
+}
+
+- (void)getRecipesFromCoreData {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Recipe"];
     request.predicate = nil;
     NSError *error;
     
-    coreDataRecipes = [self.currentContext executeFetchRequest:request error:&error];
-    return coreDataRecipes;
+    self.recipes = [self.currentContext executeFetchRequest:request error:&error];
 }
 
 //-(void)loading{
@@ -128,10 +131,11 @@
     switch (sender.selectedSegmentIndex) {
         case 0:
             self.dataSource = @"Search results";
-            [self.tableView reloadData];
+            [self searchForRecipes];
             break;
         case 1:
             self.dataSource = @"My recipes";
+            [self getRecipesFromCoreData];
             [self.tableView reloadData];
             break;
         default:
