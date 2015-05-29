@@ -181,13 +181,14 @@
                             </segments>
                             <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="selectDataSource:" destination="LMa-eT-kqI" eventType="valueChanged" id="A0z-UN-uOV"/>
+                                <action selector="selectDataSource:" destination="LMa-eT-kqI" eventType="valueChanged" id="ili-kG-ZvI"/>
                             </connections>
                         </segmentedControl>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="recipeSearchBar" destination="scb-5a-Kbu" id="eka-sd-I2Q"/>
+                        <outlet property="selectDataSourceController" destination="cpg-Yt-joA" id="9M6-aV-bfF"/>
                         <outlet property="tableView" destination="tB7-Bw-lU0" id="0Eh-m2-LAi"/>
                     </connections>
                 </tableViewController>

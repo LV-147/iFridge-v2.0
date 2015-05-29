@@ -20,9 +20,9 @@
 
 @interface RecipesTVC ()
 @property (weak, nonatomic) IBOutlet UISearchBar *recipeSearchBar;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *selectDataSourceController;
 
 @property (strong, nonatomic) NSArray *recipes;
-@property (strong, nonatomic)NSArray *coreDataRecipes;
 
 @end
 
@@ -44,7 +44,7 @@
     [numbFormatter setRoundingMode: NSNumberFormatterRoundUp];
     
     if ([self.dataSource isEqualToString:@"Search results"]){
-//        self.selectDataSourceButton.state = 
+        self.selectDataSourceController.selectedSegmentIndex = 0;
         [self showLoadingViewInView:self.view];
         DataDownloader *downloadManager = [[DataDownloader alloc] init];
         [downloadManager downloadRecipesForQuery:self.query than:^{
@@ -55,6 +55,9 @@
             });
         }];
         
+    }else {
+        self.selectDataSourceController.selectedSegmentIndex = 1;
+        self.recipes = [self getRecipesFromCoreData];
     }
     self.recipeSearchBar.text = self.query;
 }
@@ -69,14 +72,19 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.coreDataRecipes = [[NSArray alloc] init];
+    if ([self.recipes.firstObject isKindOfClass:[Recipe class]]) {
+        self.recipes = [self getRecipesFromCoreData];
+    }
+}
+
+- (NSArray *)getRecipesFromCoreData {
+    NSArray *coreDataRecipes = [[NSArray alloc] init];
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Recipe"];
     request.predicate = nil;
     NSError *error;
     
-    self.coreDataRecipes = [self.currentContext executeFetchRequest:request error:&error];
-    //    self.selectDataSourceButton.selectedSegmentIndex = 0;
-    [self.tableView reloadData];
+    coreDataRecipes = [self.currentContext executeFetchRequest:request error:&error];
+    return coreDataRecipes;
 }
 
 //-(void)loading{
@@ -142,10 +150,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if ([self.dataSource isEqualToString:@"Search results"]) {
         return self.recipes.count;
-    }else
-        return self.coreDataRecipes.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -186,7 +191,7 @@
         
     }else{
         
-        Recipe *recipe = self.coreDataRecipes[indexPath.row];
+        Recipe *recipe = self.recipes[indexPath.row];
         cell.nameOfDish.text = recipe.label;
         cell.cookingTime.text = [NSString stringWithFormat:@"Cooking time: %@ s", recipe.cookingTime];
         cell.caloriesTotal.text = [NSString stringWithFormat:@"Total calories %@", recipe.calories];
@@ -203,10 +208,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     RecipeWithImage *newController = segue.destinationViewController;
-    if ([self.dataSource isEqualToString:@"Search results"]) {
     [newController initWithRecipes:self.recipes];
-    }else [newController initWithRecipes:self.coreDataRecipes];
-
 }
 
 @end
