@@ -10,4 +10,6 @@
 
 @interface ReminderTableViewController : UITableViewController
 
+@property (strong, nonatomic) NSArray *ingredientsForReminder;
+
 @end
