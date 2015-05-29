@@ -62,7 +62,6 @@
                                     <rect key="frame" x="62" y="355" width="250" height="130"/>
                                 </variation>
                                 <connections>
-                                    <action selector="searchButton:" destination="GfN-dv-fDj" eventType="touchUpInside" id="ByA-gG-PmZ"/>
                                     <segue destination="LMa-eT-kqI" kind="show" identifier="SegueToMyRecipes" id="y47-Cr-Jsy"/>
                                 </connections>
                             </button>
