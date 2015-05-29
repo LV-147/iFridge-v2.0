@@ -30,13 +30,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.navigationController.view.backgroundColor =
     [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
-    
     self.tableView.backgroundColor = [UIColor clearColor];
-
     
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+
     //Create number formatter to round NSNumbers
     NSNumberFormatter *numbFormatter = [[NSNumberFormatter alloc] init];
     [numbFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
@@ -54,7 +53,6 @@
                 [self performSelector:@selector(hideLoadingViewThreadSave) withObject:nil afterDelay:0];
             });
         }];
-        
     }else {
         self.selectDataSourceController.selectedSegmentIndex = 1;
         self.recipes = [self getRecipesFromCoreData];
@@ -207,8 +205,12 @@
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    RecipesCell *recipeCell = sender;
+    NSInteger recipeIndex = [self.tableView indexPathForCell:recipeCell].row;
     RecipeWithImage *newController = segue.destinationViewController;
-    [newController initWithRecipes:self.recipes];
+
+    [newController initWithRecipeAtIndex:recipeIndex from:self.recipes];
+
 }
 
 @end
