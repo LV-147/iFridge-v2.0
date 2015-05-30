@@ -10,7 +10,6 @@
 #import <SDWebImage/SDWebImageDownloader.h>
 #import <SDWebImage/SDWebImageManager.h>
 #import "Recipe.h"
-#import "ReminderTableViewController.h"
 
 @interface RecipeWithImage : UIViewController
 

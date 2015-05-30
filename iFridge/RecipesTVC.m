@@ -19,22 +19,17 @@
 
 
 @interface RecipesTVC ()
-@property (weak, nonatomic) IBOutlet UISearchBar *recipeSearchBar;
-@property (strong, nonatomic) IBOutlet UISegmentedControl *selectDataSourceController;
 
-@property (strong, nonatomic) NSArray *recipes;
-@property (strong, nonatomic) NSArray *filteredRecipes;
+
+@property (strong, nonatomic)NSArray *coreDataRecipes;
 
 @end
 
 @implementation RecipesTVC
-@synthesize query;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.view.backgroundColor =
-    [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
-    self.tableView.backgroundColor = [UIColor clearColor];
-
+    
     //Create number formatter to round NSNumbers
     NSNumberFormatter *numbFormatter = [[NSNumberFormatter alloc] init];
     [numbFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
@@ -43,48 +38,44 @@
     
     if ([self.dataSource isEqualToString:@"Search results"]){
         [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-        [self searchForRecipes];
-    }else {
-        self.selectDataSourceController.selectedSegmentIndex = 1;
-        [self getRecipesFromCoreData];
+        [self showLoadingViewInView:self.view];
+        
     }
-    self.recipeSearchBar.text = self.query;
+    self.navigationController.view.backgroundColor =
+    [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
+    
+    self.tableView.backgroundColor = [UIColor clearColor];
+    
+    DataDownloader *downloadManager = [[DataDownloader alloc] init];
+    [downloadManager downloadRecipesForQuery:self.query than:^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.recipes = downloadManager.recipes;
+            [self.tableView reloadData];
+            [self performSelector:@selector(hideLoadingViewThreadSave) withObject:nil afterDelay:0];
+            [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
+        });
+    }];
+    
 }
 
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     cell.backgroundColor = [UIColor clearColor];
+    
     //cell.accessoryView = [UIImage]//[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"accessory.png"]];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    if ([self.dataSource isEqualToString:@"My recipes"]) {
-        [self getRecipesFromCoreData];
-    }
-}
-
-- (void)searchForRecipes {
-    self.selectDataSourceController.selectedSegmentIndex = 0;
-    [self showLoadingViewInView:self.view];
-    DataDownloader *downloadManager = [[DataDownloader alloc] init];
-    [downloadManager downloadRecipesForQuery:self.query than:^(NSArray *recipes){
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.recipes = recipes;
-            [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
-            [self.tableView reloadData];
-            [self performSelector:@selector(hideLoadingViewThreadSave) withObject:nil afterDelay:0];
-        });
-    }];
-}
-
-- (void)getRecipesFromCoreData {
+    self.coreDataRecipes = [[NSArray alloc] init];
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Recipe"];
     request.predicate = nil;
     NSError *error;
     
-    self.recipes = [self.currentContext executeFetchRequest:request error:&error];
+    self.coreDataRecipes = [self.currentContext executeFetchRequest:request error:&error];
+    //    self.selectDataSourceButton.selectedSegmentIndex = 0;
+    [self.tableView reloadData];
 }
 
 //-(void)loading{
@@ -98,19 +89,27 @@
 //}
 
 -(void) doAnimation:(RecipesCell*) cell{
-    
+    //    [cell.layer setBackgroundColor:[UIColor blackColor].CGColor];
+    //    [UIView beginAnimations:nil context:NULL];
+    //    [UIView setAnimationDuration:0.1];
+    //    [cell.layer setBackgroundColor:[UIColor whiteColor].CGColor];
+    //    [UIView commitAnimations];
     [cell setBackgroundColor:[UIColor blackColor]];
     
-    [UIView animateWithDuration:0.1
+    [UIView animateWithDuration:0.2
                           delay:0.0
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^(void) {
+                         //Leave it empty
                          [cell setBackgroundColor:[UIColor whiteColor]];
                      }
                      completion:^(BOOL finished){
+                         
+                         //                         // Your code goes here
+                         //                         [UIView animateWithDuration:1.0 delay:0.0 options:
+                         //                          UIViewAnimationOptionCurveEaseIn animations:^{
+                         //                          } completion:^ (BOOL completed) {}];
                      }];
-    
-    cell.nameOfDish.alpha = 0.0;
     
     [UIView animateWithDuration:1.0
                           delay:0.0
@@ -120,8 +119,6 @@
                          cell.nameOfDish.center = CGPointMake(300.0, 100.0);
                      }
                      completion:^(BOOL finished){}];
-
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -133,11 +130,10 @@
     switch (sender.selectedSegmentIndex) {
         case 0:
             self.dataSource = @"Search results";
-            [self searchForRecipes];
+            [self.tableView reloadData];
             break;
         case 1:
             self.dataSource = @"My recipes";
-            [self getRecipesFromCoreData];
             [self.tableView reloadData];
             break;
         default:
@@ -154,7 +150,10 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if ([self.dataSource isEqualToString:@"Search results"]) {
         return self.recipes.count;
+    }else
+        return self.coreDataRecipes.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -195,7 +194,7 @@
         
     }else{
         
-        Recipe *recipe = self.recipes[indexPath.row];
+        Recipe *recipe = self.coreDataRecipes[indexPath.row];
         cell.nameOfDish.text = recipe.label;
         cell.cookingTime.text = [NSString stringWithFormat:@"Cooking time: %@ s", recipe.cookingTime];
         cell.caloriesTotal.text = [NSString stringWithFormat:@"Total calories %@", recipe.calories];
@@ -208,25 +207,15 @@
     }
 }
 
-- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    RecipesCell *recCell = [tableView dequeueReusableCellWithIdentifier:@"myCell" forIndexPath:indexPath];
-    
-    if ([tableView.indexPathsForVisibleRows indexOfObject:indexPath] == NSNotFound)
-    {
-        // This indeed is an indexPath no longer visible
-        // Do something to this non-visible cell...
-    }
-}
-
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     RecipesCell *recipeCell = sender;
     NSInteger recipeIndex = [self.tableView indexPathForCell:recipeCell].row;
     RecipeWithImage *newController = segue.destinationViewController;
-
-    [newController initWithRecipeAtIndex:recipeIndex from:self.recipes];
+    if ([self.dataSource isEqualToString:@"Search results"]) {
+        [newController initWithRecipeAtIndex: recipeIndex from:self.recipes];
+    }else [newController initWithRecipeAtIndex: recipeIndex from:self.coreDataRecipes];
 
 }
 

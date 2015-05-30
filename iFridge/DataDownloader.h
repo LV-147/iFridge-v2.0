@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface DataDownloader : NSObject
+@property (strong, nonatomic) NSArray *recipes;
 
 - (void)downloadRecipesForQuery:(NSString *)query
-                           than:(void(^)(NSArray *recipes))handler;
+                           than:(void(^)())handler;
 @end

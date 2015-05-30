@@ -19,5 +19,6 @@
 @property (retain, nonatomic) IBOutlet GPPSignInButton *signInButton;
 
 - (IBAction)searchButton:(id)sender;
+- (IBAction)signOutButton:(id)sender;
 
 @end
