@@ -11,13 +11,12 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <GoogleOpenSource/GTLPlusConstants.h>
 #import <GooglePlus/GPPSignInButton.h>
-
+#import "PushAnimator.h"
+#import "PopAnimator.h"
 
 static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1kpc.apps.googleusercontent.com";
 
-
-
-@interface SearchViewController ()
+@interface SearchViewController () <UINavigationControllerDelegate>
 
 @end
 
@@ -30,6 +29,7 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
     self.navigationController.navigationBar.tintColor = [UIColor redColor];
     GPPSignIn *signIn = [GPPSignIn sharedInstance];
     
+    self.navigationController.delegate = self;
     self.navigationController.view.backgroundColor =
     [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     
@@ -121,16 +121,28 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    RecipesTVC *newController = segue.destinationViewController;
+    
     if ([segue.identifier isEqualToString:@"SegueToRecipesTVC"]){
-        RecipesTVC *newController = segue.destinationViewController;
-        newController.query = self.searchTextField.text;
+        newController.query = [self.searchTextField.text stringByReplacingOccurrencesOfString: @" " withString:@"+"];
         newController.dataSource = @"Search results";
-    }
-    if ([segue.identifier isEqualToString:@"SegueToMyRecipes"]){
-        RecipesTVC *newController = segue.destinationViewController;
+    }else{
         newController.dataSource = @"My recipes";
-
     }
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+                                  animationControllerForOperation:(UINavigationControllerOperation)operation
+                                               fromViewController:(UIViewController*)fromVC
+                                                 toViewController:(UIViewController*)toVC
+{
+    if (operation == UINavigationControllerOperationPush)
+        return [[PushAnimator alloc] init];
+    
+    if (operation == UINavigationControllerOperationPop)
+        return [[PopAnimator alloc] init];
+    
+    return nil;
 }
 
 @end

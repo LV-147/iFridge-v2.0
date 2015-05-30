@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RecipeSearchBar : UISearchBar <UIBarPositioningDelegate>
+@interface RecipeSearchBar : UISearchBar
 
 @end
