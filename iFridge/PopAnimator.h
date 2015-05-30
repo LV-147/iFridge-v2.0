@@ -7,8 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+<<<<<<< HEAD
 #import <UIKit/UIKit.h>
 #import "SearchViewController.h"
+=======
+#import "SearchViewController.h"
+#import <UIKit/UIKit.h>
+>>>>>>> Taras_Hates_GitHub_branch
 
 @interface PopAnimator : NSObject <UIViewControllerAnimatedTransitioning>
 

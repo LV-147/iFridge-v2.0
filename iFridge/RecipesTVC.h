@@ -12,7 +12,21 @@
 
 
 @interface RecipesTVC : UITableViewController
+<<<<<<< HEAD
+=======
+
+>>>>>>> Taras_Hates_GitHub_branch
 @property (strong, nonatomic) NSString *query;
+
+@property (strong, nonatomic) NSArray *recipes;
+
+
+@property (strong, nonatomic) IBOutlet UISegmentedControl *selectDataSourceButton;
 @property (strong, nonatomic) NSString *dataSource;
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> Taras_Hates_GitHub_branch
 @end

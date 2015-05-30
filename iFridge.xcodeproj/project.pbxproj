@@ -31,6 +31,9 @@
 		357A59011AFFDF3C0094B0AC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 357A59001AFFDF3C0094B0AC /* Images.xcassets */; };
 		357A59041AFFDF3C0094B0AC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 357A59021AFFDF3C0094B0AC /* LaunchScreen.xib */; };
 		357A59101AFFDF3D0094B0AC /* iFridgeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 357A590F1AFFDF3D0094B0AC /* iFridgeTests.m */; };
+		3584A22D1B19E00400D21AF8 /* RegExCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 3584A22C1B19E00400D21AF8 /* RegExCategories.m */; };
+		3584A2301B19F99800D21AF8 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3584A22F1B19F99800D21AF8 /* iCarousel.m */; };
+		3584A2341B1A040B00D21AF8 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3584A2331B1A040A00D21AF8 /* FacebookSDK.framework */; };
 		359709671B04E9D3005064C0 /* RecipesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 359709661B04E9D3005064C0 /* RecipesTVC.m */; };
 		3597096F1B04FD98005064C0 /* RecipesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3597096E1B04FD98005064C0 /* RecipesCell.m */; };
 		35A487981B023095008F31F3 /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 35A487931B023095008F31F3 /* image.jpg */; };
@@ -61,7 +64,10 @@
 		D992EE4F1B0B9D220093B3F7 /* Recipe+Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = D992EE4A1B0B9D220093B3F7 /* Recipe+Cat.m */; };
 		D9E1B2121B162F1A002AD39F /* photo-frame.png in Resources */ = {isa = PBXBuildFile; fileRef = D9E1B2111B162F1A002AD39F /* photo-frame.png */; };
 		D9E1B2141B172283002AD39F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9E1B2131B172283002AD39F /* Main.storyboard */; };
+<<<<<<< HEAD
 		D9E1B2171B1880C0002AD39F /* RecipeSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E1B2161B1880C0002AD39F /* RecipeSearchBar.m */; };
+=======
+>>>>>>> Taras_Hates_GitHub_branch
 		EF56840EE7AA6C558D3C459C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4825B68449CDFCB0DC868FD /* libPods.a */; };
 		F3948BE91B137AE500D149D0 /* FridgeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3948BE81B137AE500D149D0 /* FridgeTableViewController.m */; };
 		F3948BEC1B137BB300D149D0 /* UIButton+FridgeBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = F3948BEB1B137BB300D149D0 /* UIButton+FridgeBlock.m */; };
@@ -115,6 +121,11 @@
 		357A59091AFFDF3D0094B0AC /* iFridgeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iFridgeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		357A590E1AFFDF3D0094B0AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		357A590F1AFFDF3D0094B0AC /* iFridgeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iFridgeTests.m; sourceTree = "<group>"; };
+		3584A22B1B19E00400D21AF8 /* RegExCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegExCategories.h; sourceTree = "<group>"; };
+		3584A22C1B19E00400D21AF8 /* RegExCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegExCategories.m; sourceTree = "<group>"; };
+		3584A22E1B19F99800D21AF8 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		3584A22F1B19F99800D21AF8 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		3584A2331B1A040A00D21AF8 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		359709651B04E9D3005064C0 /* RecipesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesTVC.h; sourceTree = "<group>"; };
 		359709661B04E9D3005064C0 /* RecipesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesTVC.m; sourceTree = "<group>"; };
 		3597096D1B04FD98005064C0 /* RecipesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesCell.h; sourceTree = "<group>"; };
@@ -161,8 +172,11 @@
 		D992EE4A1B0B9D220093B3F7 /* Recipe+Cat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Recipe+Cat.m"; path = "../Recipe+Cat.m"; sourceTree = "<group>"; };
 		D9E1B2111B162F1A002AD39F /* photo-frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-frame.png"; sourceTree = "<group>"; };
 		D9E1B2131B172283002AD39F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		D9E1B2151B1880C0002AD39F /* RecipeSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeSearchBar.h; sourceTree = "<group>"; };
 		D9E1B2161B1880C0002AD39F /* RecipeSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeSearchBar.m; sourceTree = "<group>"; };
+=======
+>>>>>>> Taras_Hates_GitHub_branch
 		E4825B68449CDFCB0DC868FD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3948BE71B137AE500D149D0 /* FridgeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FridgeTableViewController.h; sourceTree = "<group>"; };
 		F3948BE81B137AE500D149D0 /* FridgeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FridgeTableViewController.m; sourceTree = "<group>"; };
@@ -187,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35486D8E1B132BFB00DC51D2 /* QuartzCore.framework in Frameworks */,
+				3584A2341B1A040B00D21AF8 /* FacebookSDK.framework in Frameworks */,
 				35486D8C1B13249900DC51D2 /* MediaPlayer.framework in Frameworks */,
 				35A9D70A1B08F16F005EF9BF /* FBSDKLoginKit.framework in Frameworks */,
 				35A9D7091B08F16F005EF9BF /* FBSDKCoreKit.framework in Frameworks */,
@@ -220,6 +235,7 @@
 		2148CB0A076F4DE6CA217E2F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3584A2331B1A040A00D21AF8 /* FacebookSDK.framework */,
 				35486D8D1B132BFB00DC51D2 /* QuartzCore.framework */,
 				35A9D70C1B08F1B7005EF9BF /* GoogleOpenSource.framework */,
 				35A9D70D1B08F1B7005EF9BF /* GooglePlus.bundle */,
@@ -247,8 +263,6 @@
 		353567C31B131CAD00B7E0FD /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				D9E1B2151B1880C0002AD39F /* RecipeSearchBar.h */,
-				D9E1B2161B1880C0002AD39F /* RecipeSearchBar.m */,
 				3559BA801B064EB30040DCB6 /* SearchViewController.h */,
 				3559BA811B064EB30040DCB6 /* SearchViewController.m */,
 			);
@@ -299,6 +313,10 @@
 		357A58EF1AFFDF3C0094B0AC /* iFridge */ = {
 			isa = PBXGroup;
 			children = (
+				3584A22E1B19F99800D21AF8 /* iCarousel.h */,
+				3584A22F1B19F99800D21AF8 /* iCarousel.m */,
+				3584A22B1B19E00400D21AF8 /* RegExCategories.h */,
+				3584A22C1B19E00400D21AF8 /* RegExCategories.m */,
 				D97245E91B1612D000735EE0 /* DataDownloader.h */,
 				D97245EA1B1612D000735EE0 /* DataDownloader.m */,
 				BFEA48231B13475C008F5BEF /* LoadingView.h */,
@@ -608,6 +626,7 @@
 				35A8704B1B061CD8006343B5 /* RecipeWithImage.m in Sources */,
 				BFEA48281B13475C008F5BEF /* LoadingView.m in Sources */,
 				BFEA482A1B13475C008F5BEF /* UIViewController+LoadingView.m in Sources */,
+				3584A2301B19F99800D21AF8 /* iCarousel.m in Sources */,
 				D992EE441B0B73090093B3F7 /* Recipe.m in Sources */,
 				D992EE2D1B0A339A0093B3F7 /* Ingredient.m in Sources */,
 				D992EE3C1B0B54090093B3F7 /* UIViewController+Context.m in Sources */,
@@ -624,9 +643,9 @@
 				D992EE331B0A34DA0093B3F7 /* Fridge+Cat.m in Sources */,
 				F3948BEC1B137BB300D149D0 /* UIButton+FridgeBlock.m in Sources */,
 				359709671B04E9D3005064C0 /* RecipesTVC.m in Sources */,
-				D9E1B2171B1880C0002AD39F /* RecipeSearchBar.m in Sources */,
 				F3948BE91B137AE500D149D0 /* FridgeTableViewController.m in Sources */,
 				357A58F31AFFDF3C0094B0AC /* main.m in Sources */,
+				3584A22D1B19E00400D21AF8 /* RegExCategories.m in Sources */,
 				3559BA821B064EB30040DCB6 /* SearchViewController.m in Sources */,
 				BF9779961B132FA000DDD1ED /* PopAnimator.m in Sources */,
 				D97245EB1B1612D000735EE0 /* DataDownloader.m in Sources */,

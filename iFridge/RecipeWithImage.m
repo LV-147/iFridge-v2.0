@@ -148,11 +148,4 @@
     [self ifCurrentRecipeSaved];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    ReminderTableViewController *newController = segue.destinationViewController;
-    newController.ingredientsForReminder = [[self.availableRecipes objectAtIndex:self.recipeRow] valueForKeyPath:@"recipe.ingredientLines"];
-    
-}
-
 @end

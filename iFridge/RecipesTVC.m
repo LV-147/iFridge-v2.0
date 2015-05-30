@@ -19,22 +19,33 @@
 
 
 @interface RecipesTVC ()
+<<<<<<< HEAD
 @property (weak, nonatomic) IBOutlet UISearchBar *recipeSearchBar;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *selectDataSourceController;
 
 @property (strong, nonatomic) NSArray *recipes;
 @property (strong, nonatomic) NSArray *filteredRecipes;
 
+=======
+
+
+@property (strong, nonatomic)NSArray *coreDataRecipes;
+
+>>>>>>> Taras_Hates_GitHub_branch
 @end
 
 @implementation RecipesTVC
-@synthesize query;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+<<<<<<< HEAD
     self.navigationController.view.backgroundColor =
     [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     self.tableView.backgroundColor = [UIColor clearColor];
 
+=======
+    
+>>>>>>> Taras_Hates_GitHub_branch
     //Create number formatter to round NSNumbers
     NSNumberFormatter *numbFormatter = [[NSNumberFormatter alloc] init];
     [numbFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
@@ -43,12 +54,31 @@
     
     if ([self.dataSource isEqualToString:@"Search results"]){
         [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+<<<<<<< HEAD
         [self searchForRecipes];
     }else {
         self.selectDataSourceController.selectedSegmentIndex = 1;
         [self getRecipesFromCoreData];
+=======
+        [self showLoadingViewInView:self.view];
+        
+>>>>>>> Taras_Hates_GitHub_branch
     }
-    self.recipeSearchBar.text = self.query;
+    self.navigationController.view.backgroundColor =
+    [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
+    
+    self.tableView.backgroundColor = [UIColor clearColor];
+    
+    DataDownloader *downloadManager = [[DataDownloader alloc] init];
+    [downloadManager downloadRecipesForQuery:self.query than:^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.recipes = downloadManager.recipes;
+            [self.tableView reloadData];
+            [self performSelector:@selector(hideLoadingViewThreadSave) withObject:nil afterDelay:0];
+            [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
+        });
+    }];
+    
 }
 
 
@@ -60,6 +90,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+<<<<<<< HEAD
     if ([self.dataSource isEqualToString:@"My recipes"]) {
         [self getRecipesFromCoreData];
     }
@@ -80,11 +111,16 @@
 }
 
 - (void)getRecipesFromCoreData {
+=======
+    self.coreDataRecipes = [[NSArray alloc] init];
+>>>>>>> Taras_Hates_GitHub_branch
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Recipe"];
     request.predicate = nil;
     NSError *error;
     
-    self.recipes = [self.currentContext executeFetchRequest:request error:&error];
+    self.coreDataRecipes = [self.currentContext executeFetchRequest:request error:&error];
+    //    self.selectDataSourceButton.selectedSegmentIndex = 0;
+    [self.tableView reloadData];
 }
 
 //-(void)loading{
@@ -97,7 +133,7 @@
 //    }
 //}
 
--(void) doAnimation:(UITableViewCell*) cell{
+-(void) doAnimation:(RecipesCell*) cell{
     //    [cell.layer setBackgroundColor:[UIColor blackColor].CGColor];
     //    [UIView beginAnimations:nil context:NULL];
     //    [UIView setAnimationDuration:0.1];
@@ -119,6 +155,15 @@
                          //                          UIViewAnimationOptionCurveEaseIn animations:^{
                          //                          } completion:^ (BOOL completed) {}];
                      }];
+    
+    [UIView animateWithDuration:1.0
+                          delay:0.0
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^(void) {
+                         cell.nameOfDish.alpha = 0.7;
+                         cell.nameOfDish.center = CGPointMake(300.0, 100.0);
+                     }
+                     completion:^(BOOL finished){}];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -130,11 +175,14 @@
     switch (sender.selectedSegmentIndex) {
         case 0:
             self.dataSource = @"Search results";
+<<<<<<< HEAD
             [self searchForRecipes];
+=======
+            [self.tableView reloadData];
+>>>>>>> Taras_Hates_GitHub_branch
             break;
         case 1:
             self.dataSource = @"My recipes";
-            [self getRecipesFromCoreData];
             [self.tableView reloadData];
             break;
         default:
@@ -151,7 +199,14 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+<<<<<<< HEAD
         return self.recipes.count;
+=======
+    if ([self.dataSource isEqualToString:@"Search results"]) {
+        return self.recipes.count;
+    }else
+        return self.coreDataRecipes.count;
+>>>>>>> Taras_Hates_GitHub_branch
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -192,7 +247,7 @@
         
     }else{
         
-        Recipe *recipe = self.recipes[indexPath.row];
+        Recipe *recipe = self.coreDataRecipes[indexPath.row];
         cell.nameOfDish.text = recipe.label;
         cell.cookingTime.text = [NSString stringWithFormat:@"Cooking time: %@ s", recipe.cookingTime];
         cell.caloriesTotal.text = [NSString stringWithFormat:@"Total calories %@", recipe.calories];
@@ -220,8 +275,9 @@
     RecipesCell *recipeCell = sender;
     NSInteger recipeIndex = [self.tableView indexPathForCell:recipeCell].row;
     RecipeWithImage *newController = segue.destinationViewController;
-
-    [newController initWithRecipeAtIndex:recipeIndex from:self.recipes];
+    if ([self.dataSource isEqualToString:@"Search results"]) {
+        [newController initWithRecipeAtIndex: recipeIndex from:self.recipes];
+    }else [newController initWithRecipeAtIndex: recipeIndex from:self.coreDataRecipes];
 
 }
 
