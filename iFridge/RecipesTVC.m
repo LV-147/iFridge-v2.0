@@ -97,28 +97,31 @@
 //    }
 //}
 
--(void) doAnimation:(UITableViewCell*) cell{
-    //    [cell.layer setBackgroundColor:[UIColor blackColor].CGColor];
-    //    [UIView beginAnimations:nil context:NULL];
-    //    [UIView setAnimationDuration:0.1];
-    //    [cell.layer setBackgroundColor:[UIColor whiteColor].CGColor];
-    //    [UIView commitAnimations];
+-(void) doAnimation:(RecipesCell*) cell{
+    
     [cell setBackgroundColor:[UIColor blackColor]];
     
-    [UIView animateWithDuration:0.2
+    [UIView animateWithDuration:0.1
                           delay:0.0
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^(void) {
-                         //Leave it empty
                          [cell setBackgroundColor:[UIColor whiteColor]];
                      }
                      completion:^(BOOL finished){
-                         
-                         //                         // Your code goes here
-                         //                         [UIView animateWithDuration:1.0 delay:0.0 options:
-                         //                          UIViewAnimationOptionCurveEaseIn animations:^{
-                         //                          } completion:^ (BOOL completed) {}];
                      }];
+    
+    cell.nameOfDish.alpha = 0.0;
+    
+    [UIView animateWithDuration:1.0
+                          delay:0.0
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^(void) {
+                         cell.nameOfDish.alpha = 0.7;
+                         cell.nameOfDish.center = CGPointMake(300.0, 100.0);
+                     }
+                     completion:^(BOOL finished){}];
+
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -207,6 +210,8 @@
 
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    RecipesCell *recCell = [tableView dequeueReusableCellWithIdentifier:@"myCell" forIndexPath:indexPath];
+    
     if ([tableView.indexPathsForVisibleRows indexOfObject:indexPath] == NSNotFound)
     {
         // This indeed is an indexPath no longer visible
