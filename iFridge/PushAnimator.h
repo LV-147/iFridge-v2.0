@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "SearchViewController.h"
 
-@interface PushAnimator : NSObject
+@interface PushAnimator : NSObject <UIViewControllerAnimatedTransitioning>
 
 @end

@@ -18,14 +18,13 @@
 @import CoreGraphics;
 
 
-@interface RecipesTVC ()  {
-    BOOL isSearching; //for dynamic search feature
-}
+@interface RecipesTVC ()
 @property (weak, nonatomic) IBOutlet UISearchBar *recipeSearchBar;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *selectDataSourceController;
 
 @property (strong, nonatomic) NSArray *recipes;
-@property (strong, nonatomic) NSArray *filteredRecipes; //for dynamic search feature
+@property (strong, nonatomic) NSArray *filteredRecipes;
+
 @end
 
 @implementation RecipesTVC
@@ -35,7 +34,6 @@
     self.navigationController.view.backgroundColor =
     [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     self.tableView.backgroundColor = [UIColor clearColor];
-    self.recipeSearchBar.delegate = self;
 
     //Create number formatter to round NSNumbers
     NSNumberFormatter *numbFormatter = [[NSNumberFormatter alloc] init];
@@ -43,11 +41,9 @@
     [numbFormatter setMaximumFractionDigits:2];
     [numbFormatter setRoundingMode: NSNumberFormatterRoundUp];
     
-    self.filteredRecipes = [[NSMutableArray alloc] init];
-    
     if ([self.dataSource isEqualToString:@"Search results"]){
         [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-        [self searchForRecipesForQuery:self.query];
+        [self searchForRecipes];
     }else {
         self.selectDataSourceController.selectedSegmentIndex = 1;
         [self getRecipesFromCoreData];
@@ -55,10 +51,10 @@
     self.recipeSearchBar.text = self.query;
 }
 
+
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     cell.backgroundColor = [UIColor clearColor];
-    
     //cell.accessoryView = [UIImage]//[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"accessory.png"]];
 }
 
@@ -69,23 +65,11 @@
     }
 }
 
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
-
-    [self searchForRecipesForQuery:searchText];
-}
-
-- (void)searchForRecipesForQuery:(NSString *)newQuery {
-    if (!newQuery) {
-        newQuery = @"";
-        [[[UIAlertView alloc] initWithTitle:@"Table is empty because of empty request!"
-                                    message:@"Please, enter some text in Search field!"
-                                   delegate:self
-                          cancelButtonTitle:@"Ok!"
-                          otherButtonTitles:nil] show];
-    }
+- (void)searchForRecipes {
     self.selectDataSourceController.selectedSegmentIndex = 0;
     [self showLoadingViewInView:self.view];
-    [DataDownloader downloadRecipesForQuery:newQuery than:^(NSArray *recipes){
+    DataDownloader *downloadManager = [[DataDownloader alloc] init];
+    [downloadManager downloadRecipesForQuery:self.query than:^(NSArray *recipes){
         dispatch_async(dispatch_get_main_queue(), ^{
             self.recipes = recipes;
             [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
@@ -93,7 +77,6 @@
             [self performSelector:@selector(hideLoadingViewThreadSave) withObject:nil afterDelay:0];
         });
     }];
-    
 }
 
 - (void)getRecipesFromCoreData {
@@ -147,7 +130,7 @@
     switch (sender.selectedSegmentIndex) {
         case 0:
             self.dataSource = @"Search results";
-            [self searchForRecipesForQuery:self.query];
+            [self searchForRecipes];
             break;
         case 1:
             self.dataSource = @"My recipes";
@@ -168,8 +151,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (isSearching) return self.filteredRecipes.count;
-    else return self.recipes.count;
+        return self.recipes.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -220,6 +202,15 @@
         cell.cookingLevel.text = [NSString stringWithFormat:@"Cooking level: %@", recipe.cookingLevel];
         
         return cell;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([tableView.indexPathsForVisibleRows indexOfObject:indexPath] == NSNotFound)
+    {
+        // This indeed is an indexPath no longer visible
+        // Do something to this non-visible cell...
     }
 }
 
