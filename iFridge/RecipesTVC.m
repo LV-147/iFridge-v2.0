@@ -27,8 +27,11 @@
 
 @implementation RecipesTVC
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
     
     //Create number formatter to round NSNumbers
     NSNumberFormatter *numbFormatter = [[NSNumberFormatter alloc] init];
@@ -58,6 +61,12 @@
     
 }
 
+-(void) viewWillDisappear:(BOOL)animated {
+    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
+        [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    }
+    [super viewWillDisappear:animated];
+}
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -88,7 +97,7 @@
 //    }
 //}
 
--(void) doAnimation:(UITableViewCell*) cell{
+-(void) doAnimation:(RecipesCell*) cell{
     //    [cell.layer setBackgroundColor:[UIColor blackColor].CGColor];
     //    [UIView beginAnimations:nil context:NULL];
     //    [UIView setAnimationDuration:0.1];
@@ -110,6 +119,15 @@
                          //                          UIViewAnimationOptionCurveEaseIn animations:^{
                          //                          } completion:^ (BOOL completed) {}];
                      }];
+    
+    [UIView animateWithDuration:1.0
+                          delay:0.0
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^(void) {
+                         cell.nameOfDish.alpha = 0.7;
+                         cell.nameOfDish.center = CGPointMake(300.0, 100.0);
+                     }
+                     completion:^(BOOL finished){}];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -147,24 +165,40 @@
         return self.coreDataRecipes.count;
 }
 
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     RecipesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myCell" forIndexPath:indexPath];
     
     if ([self.dataSource isEqualToString:@"Search results"]) {
         //        NSDictionary *recipe = [[NSDictionary alloc] initWithDictionary:[[self.recipes objectAtIndex:indexPath.row] valueForKey:@"recipe"]];
+        self.urlImageString = [[self.recipes objectAtIndex:indexPath.row] valueForKeyPath:@"recipe.image"];
+        __block UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        activityIndicator.center = cell.recipeImageCell.center;
+        activityIndicator.hidesWhenStopped = YES;
+        
+        [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:self.urlImageString]
+                                                             options:SDWebImageDownloaderLowPriority
+                                                            progress:nil
+                                                           completed:^(UIImage* image, NSData* data, NSError *error, BOOL finished) {
+                                                               [activityIndicator removeFromSuperview];
+                                                               [cell.recipeImageCell setBackgroundColor:[UIColor colorWithPatternImage:image]];
+                                                           }];
+        [cell.recipeImageCell addSubview:activityIndicator];
+        [activityIndicator startAnimating];
         
         cell.nameOfDish.text = self.recipes[indexPath.row][@"recipe"][@"label"];
         
         cell.cookingLevel.text = self.recipes[indexPath.row][@"recipe"][@"level"];
         
-        cell.cookingTime.text = [NSString stringWithFormat:@"cookingTime: %@", self.recipes[indexPath.row][@"recipe"][@"cookingTime"]];
+        cell.cookingTime.text = [NSString stringWithFormat:@"Cooking time: %@ min", self.recipes[indexPath.row][@"recipe"][@"cookingTime"]];
         
         //    cell.caloriesTotal.text = [NSString stringWithFormat:@"caloriesTotal: %@",  self.recipes[indexPath.row][@"recipe"][@"calories"]];
         //    cell.caloriesTotal.text = [cell.caloriesTotal.text substringToIndex:22];
         
         
         double str1 = [self.recipes[indexPath.row][@"recipe"][@"calories"] doubleValue];
-        NSString *caloriesTotal = [NSString stringWithFormat:@"calories: %2.3f", str1];
+        NSString *caloriesTotal = [NSString stringWithFormat:@"Calories: %2.2f ccal", str1];
         cell.caloriesTotal.text = [NSString stringWithString:caloriesTotal];
         
         double str4 = [self.recipes[indexPath.row][@"recipe"][@"totalNutrients"][@"SUGAR"][@"quantity"] doubleValue];
@@ -172,7 +206,7 @@
         cell.sugarsTotal.text = [NSString stringWithString:sugarsTotal];
         
         NSNumber *str3 = self.recipes[indexPath.row][@"recipe"][@"totalWeight"] ;
-        NSString *weightTotal = [NSString stringWithFormat:@"weight: %@", [str3 stringValue]];
+        NSString *weightTotal = [NSString stringWithFormat:@"Weight %@ g", [str3 stringValue]];
         cell.weightTotal.text = [NSString stringWithString:weightTotal];
         
         double str2 = [self.recipes[indexPath.row][@"recipe"][@"totalNutrients"][@"FAT"][@"quantity"] doubleValue];

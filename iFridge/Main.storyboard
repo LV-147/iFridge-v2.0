@@ -17,16 +17,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="note.png" translatesAutoresizingMaskIntoConstraints="NO" id="h7c-do-j7v">
-                                <rect key="frame" x="2" y="64" width="195" height="77"/>
+                                <rect key="frame" x="6" y="95" width="195" height="77"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HGG-sm-Rr1">
-                                <rect key="frame" x="205" y="86" width="159" height="30"/>
+                                <rect key="frame" x="209" y="117" width="159" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IxZ-Gj-Gej" customClass="GPPSignInButton">
-                                <rect key="frame" x="34" y="555" width="306" height="48"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="78" y="28" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.83921568627450982" green="0.20000000000000001" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jN2-JV-tP4">
                                 <rect key="frame" x="62" y="206" width="250" height="130"/>
@@ -40,7 +40,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.79999999999999982" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Pq-83-9RR">
-                                <rect key="frame" x="335" y="89" width="24" height="24"/>
+                                <rect key="frame" x="339" y="120" width="24" height="24"/>
                                 <state key="normal" image="search-icon.png">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -62,25 +62,125 @@
                                     <rect key="frame" x="62" y="355" width="250" height="130"/>
                                 </variation>
                                 <connections>
-                                    <action selector="searchButton:" destination="GfN-dv-fDj" eventType="touchUpInside" id="ByA-gG-PmZ"/>
                                     <segue destination="LMa-eT-kqI" kind="show" identifier="SegueToMyRecipes" id="y47-Cr-Jsy"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name of the food you are looking for:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTT-Yc-aKc">
-                                <rect key="frame" x="41" y="60" width="144" height="74"/>
+                                <rect key="frame" x="45" y="91" width="144" height="74"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="2" height="0.0"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3xL-Un-Md0">
+                                <rect key="frame" x="276" y="28" width="83" height="50"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="19"/>
+                                <state key="normal" title="Sign Out" backgroundImage="note.png">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="signOutButton:" destination="GfN-dv-fDj" eventType="touchUpInside" id="n4w-iC-RPc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R0q-1n-3nf" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="16" y="28" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="off-HA-Eq7">
+                                <rect key="frame" x="218" y="28" width="50" height="50"/>
+                                <state key="normal" image="info_information_user_about_card_button_symbol_icon-128.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getUserInformationButton:" destination="GfN-dv-fDj" eventType="touchUpInside" id="IFH-W8-FGd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Cj-Tk-D8a">
+                                <rect key="frame" x="226" y="547" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="Martz90-Circle-Google-plus.ico">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="19"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="goToGooglePlusGroup:" destination="GfN-dv-fDj" eventType="touchUpInside" id="dp8-oo-TkS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2f1-k7-g7r">
+                                <rect key="frame" x="98" y="547" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="Vk-icon.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="19"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="goToVkGroup:" destination="GfN-dv-fDj" eventType="touchUpInside" id="RRx-0a-blj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UbZ-Dj-In0">
+                                <rect key="frame" x="163" y="547" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="Facebook_icon.101114329_std.jpg">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="19"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="goToFacebookGroup:" destination="GfN-dv-fDj" eventType="touchUpInside" id="830-Nb-e1X"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rla-bS-pYF">
+                                <rect key="frame" x="99" y="594" width="178" height="36"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="21"/>
+                                <state key="normal" title="http://www.ifridge.tk/">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goToOurWebSite:" destination="GfN-dv-fDj" eventType="touchUpInside" id="ZtS-aL-251"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0V-Vg-Sm7">
+                                <rect key="frame" x="98" y="623" width="178" height="36"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="21"/>
+                                <state key="normal" title="info@ifridge.tk">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="writeAnEmailButton:" destination="GfN-dv-fDj" eventType="touchUpInside" id="euy-Qt-7jm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="sAQ-ny-PJl"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="facebookSignInButton" destination="R0q-1n-3nf" id="LfU-vq-pTu"/>
+                        <outlet property="googlePlusSignInButton" destination="IxZ-Gj-Gej" id="7Av-Tg-wbo"/>
                         <outlet property="searchTextField" destination="HGG-sm-Rr1" id="1UG-gG-Xs6"/>
-                        <outlet property="signInButton" destination="IxZ-Gj-Gej" id="PE6-7t-5vU"/>
+                        <outlet property="signOutButton" destination="3xL-Un-Md0" id="4Sg-Dd-2pD"/>
+                        <outlet property="userInformationButton" destination="off-HA-Eq7" id="fAZ-2L-HeL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N43-eS-79P" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -91,55 +191,40 @@
         <scene sceneID="xTM-nS-cJI">
             <objects>
                 <tableViewController id="LMa-eT-kqI" customClass="RecipesTVC" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="184" sectionHeaderHeight="22" sectionFooterHeight="22" id="tB7-Bw-lU0">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="154" sectionHeaderHeight="22" sectionFooterHeight="22" id="tB7-Bw-lU0">
                         <rect key="frame" x="0.0" y="-1" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" showsReorderControl="YES" indentationWidth="10" reuseIdentifier="myCell" rowHeight="184" id="OYL-HI-rJD" customClass="RecipesCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" showsReorderControl="YES" indentationWidth="10" reuseIdentifier="myCell" rowHeight="154" id="OYL-HI-rJD" customClass="RecipesCell">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OYL-HI-rJD" id="1On-cw-p6f">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="dil-cy-xMJ">
-                                            <rect key="frame" x="8" y="8" width="359" height="48"/>
+                                            <rect key="frame" x="150" y="8" width="165" height="48"/>
                                             <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="28"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CookingTime" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxG-W3-epe">
-                                            <rect key="frame" x="8" y="108" width="173" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CookingTime :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxG-W3-epe">
+                                            <rect key="frame" x="150" y="64" width="173" height="21"/>
                                             <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calories" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4Z-1N-qwg">
-                                            <rect key="frame" x="8" y="149" width="173" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TotalWeight :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apx-cW-bbQ">
+                                            <rect key="frame" x="150" y="93" width="173" height="21"/>
                                             <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cooking lvl" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsA-Kl-tVy">
-                                            <rect key="frame" x="8" y="66" width="154" height="21"/>
-                                            <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TotalWeight" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apx-cW-bbQ">
-                                            <rect key="frame" x="202" y="109" width="173" height="21"/>
-                                            <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fat" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYH-FU-obZ">
-                                            <rect key="frame" x="202" y="150" width="154" height="21"/>
-                                            <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sugars" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jaq-or-zY0">
-                                            <rect key="frame" x="202" y="67" width="154" height="20"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nkx-da-kkz">
+                                            <rect key="frame" x="8" y="8" width="134" height="134"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calories :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4Z-1N-qwg">
+                                            <rect key="frame" x="150" y="121" width="173" height="21"/>
                                             <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -150,11 +235,9 @@
                                 <color key="backgroundColor" white="1" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="caloriesTotal" destination="O4Z-1N-qwg" id="RUQ-lp-u25"/>
-                                    <outlet property="cookingLevel" destination="hsA-Kl-tVy" id="TVB-dS-xoC"/>
                                     <outlet property="cookingTime" destination="bxG-W3-epe" id="05U-6d-itJ"/>
-                                    <outlet property="fatTotal" destination="xYH-FU-obZ" id="u48-w9-Kum"/>
                                     <outlet property="nameOfDish" destination="dil-cy-xMJ" id="wEt-Ha-Smg"/>
-                                    <outlet property="sugarsTotal" destination="jaq-or-zY0" id="qst-14-Nss"/>
+                                    <outlet property="recipeImageCell" destination="Nkx-da-kkz" id="rKh-DY-Bfb"/>
                                     <outlet property="weightTotal" destination="apx-cW-bbQ" id="gVe-BD-56E"/>
                                     <segue destination="Oyr-fJ-N5i" kind="show" identifier="SegueToRecipeWithImage" id="7bg-pa-630"/>
                                 </connections>
@@ -525,8 +608,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Facebook_icon.101114329_std.jpg" width="256" height="256"/>
+        <image name="Martz90-Circle-Google-plus.ico" width="256" height="256"/>
+        <image name="Vk-icon.png" width="512" height="512"/>
         <image name="fridge2.jpg" width="1800" height="2288"/>
         <image name="image.jpg" width="2560" height="1577"/>
+        <image name="info_information_user_about_card_button_symbol_icon-128.png" width="128" height="128"/>
         <image name="note.png" width="640" height="392"/>
         <image name="photo-frame.png" width="1291" height="1600"/>
         <image name="search-icon.png" width="298" height="297"/>
