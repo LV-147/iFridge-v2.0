@@ -26,6 +26,7 @@
 - (IBAction)goToFacebookGroup:(id)sender;
 - (IBAction)goToGooglePlusGroup:(id)sender;
 - (IBAction)goToOurWebSite:(id)sender;
+- (IBAction)writeAnEmailButton:(id)sender;
 
 
 

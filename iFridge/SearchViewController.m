@@ -235,6 +235,10 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.ifridge.tk/"]];
 }
 
+- (IBAction)writeAnEmailButton:(id)sender {
+    
+}
+
 -(void)refreshInterfaceBasedOnSignIn
 {
     
