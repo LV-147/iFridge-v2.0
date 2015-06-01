@@ -9,13 +9,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iFridge/SearchViewController.m"
-            timestampString = "454608891.422356"
+            filePath = "Recipe+Cat.m"
+            timestampString = "454859117.569385"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "-prepareForSegue:sender:"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "+deleteRecipe:fromManagedObjectContext:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iFridge/RecipeWithImage.m"
+            timestampString = "454858951.798545"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "-setRecipeForRecipeIndex:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

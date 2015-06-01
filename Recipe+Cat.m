@@ -11,13 +11,13 @@
 
 @implementation Recipe (Cat)
 
-+ (void)createRecipeWithInfo:(NSDictionary *)recipeDict
++ (Recipe *)createRecipeWithInfo:(NSDictionary *)recipeDict
           inManagedObiectContext:(NSManagedObjectContext *)context{
     
     Recipe *recipe = nil;
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Recipe"];
-    request.predicate = [NSPredicate predicateWithFormat:@"label = %@", [recipeDict valueForKey:@"label"]];
+    request.predicate = [NSPredicate predicateWithFormat:@"label = %@", [recipeDict valueForKeyPath:@"recipe.label"]];
     
     NSError *error;
     NSArray *mathes = [context executeFetchRequest:request error:&error];
@@ -30,16 +30,16 @@
         
     }else{
         recipe = [NSEntityDescription insertNewObjectForEntityForName:@"Recipe" inManagedObjectContext:context];
-        recipe.label = [recipeDict valueForKey:@"label"];
-        recipe.imageUrl = [recipeDict valueForKey:@"image"];
-        recipe.cookingTime = [recipeDict valueForKey:@"cookingTime"];
-        recipe.weight = [recipeDict valueForKey:@"totalWeight"];
-        recipe.fat = [recipeDict valueForKeyPath:@"totalNutrients.FAT.quantity"];
-        recipe.sugars = [recipeDict valueForKeyPath:@"totalNutrients.SUGAR.quantity"];
-        recipe.cookingLevel = [recipeDict valueForKey:@"level"];
+        recipe.label = [recipeDict valueForKeyPath:@"recipe.label"];
+        recipe.imageUrl = [recipeDict valueForKeyPath:@"recipe.image"];
+        recipe.cookingTime = [recipeDict valueForKeyPath:@"recipe.cookingTime"];
+        recipe.weight = [recipeDict valueForKeyPath:@"recipe.totalWeight"];
+        recipe.fat = [recipeDict valueForKeyPath:@"recipe.totalNutrients.FAT.quantity"];
+        recipe.sugars = [recipeDict valueForKeyPath:@"recipe.totalNutrients.SUGAR.quantity"];
+        recipe.cookingLevel = [recipeDict valueForKeyPath:@"recipe.level"];
         
         NSMutableSet *ingredients = [[NSMutableSet alloc]init];
-        NSArray *recipeIngredients = [recipeDict valueForKey:@"ingredients"];
+        NSArray *recipeIngredients = [recipeDict valueForKeyPath:@"recipe.ingredients"];
         for(NSDictionary* ingredient in recipeIngredients){
         [ingredients addObject:[Ingredient addIngredientForRecipe:recipe withInfo:ingredient inManagedObiectContext:context]];
         }
@@ -47,11 +47,31 @@
         [context save:NULL];
     }
     
-//    return recipe;
+    return recipe;
 }
 
-+ (void)deleteRecipe:(Recipe *)recipe fromManagedObjectContext:(NSManagedObjectContext *)context{
++ (NSDictionary *)deleteRecipe:(Recipe *)recipe fromManagedObjectContext:(NSManagedObjectContext *)context{
+    
+    NSMutableDictionary *recipeDict = [[NSMutableDictionary alloc] init];
+    [recipeDict setObject:recipe.label forKey:@"label"];
+    [recipeDict setObject:recipe.imageUrl forKey:@"image"];
+    [recipeDict setObject:recipe.cookingTime forKey:@"cookingTime"];
+    [recipeDict setObject:recipe.weight forKey:@"totalWeight"];
+//    [recipeDict setValue:recipe.fat forKeyPath:@"recipe.totalNutrients.FAT.quantity"];
+//    [recipeDict setValue:recipe.sugars forKeyPath:@"recipe.totalNutrients.SUGAR.quantity"];
+    [recipeDict setObject:recipe.cookingLevel forKey:@"level"];
+    
+    NSMutableArray *ingredients = [[NSMutableArray alloc] init];
+
+    for (Ingredient *ingredient in recipe.ingredients) {
+        [ingredients addObject:ingredient.label];
+    }
+    [recipeDict setObject:ingredients forKey:@"ingredientLines"];
+    NSDictionary *deletedRecipe = [NSDictionary dictionaryWithObjects:@[recipeDict] forKeys:@[@"recipe"]];
+
     [context deleteObject:recipe];
     [context save:NULL];
+    
+    return deletedRecipe;
 }
 @end
