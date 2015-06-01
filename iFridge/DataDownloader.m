@@ -30,11 +30,20 @@
 
 
 - (void)downloadRecipesForQuery:(NSString *)query
+<<<<<<< HEAD
+                           than:(void(^)(NSArray *recipes))handler
+{
+    NSString *myRequest = [[NSString alloc] initWithFormat:@"%@%@%@", @"https://api.edamam.com/search?q=",query,@"&app_id=4e8543af&app_key=e1309c8e747bdd4d7363587a4435f5ee&from=0&to=100"];
+//    NSLog(@"myLink: %@", myRequest);
+    __block
+
+=======
                            than:(void(^)())handler
 {
     NSString *myRequest = [[NSString alloc] initWithFormat:@"%@%@%@", @"https://api.edamam.com/search?q=",query,@"&app_id=4e8543af&app_key=e1309c8e747bdd4d7363587a4435f5ee&from=0&to=100"];
 //    NSLog(@"myLink: %@", myRequest);
     
+>>>>>>> Taras_Hates_GitHub_branch
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:myRequest
       parameters:nil

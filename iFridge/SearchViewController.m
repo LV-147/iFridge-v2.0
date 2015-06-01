@@ -11,20 +11,32 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <GoogleOpenSource/GTLPlusConstants.h>
 #import <GooglePlus/GPPSignInButton.h>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 19cc4b354bb2e0b81fce5fd3619da3a2af31a787
 #import <GoogleOpenSource/GTLQueryPlus.h>
 #import <GooglePlus/GPPSignIn.h>
 #import <GooglePlus/GPPURLHandler.h>
 #import <FacebookSDK/FacebookSDK.h>
+<<<<<<< HEAD
+=======
+>>>>>>> Taras_Hates_GitHub_branch
+>>>>>>> 19cc4b354bb2e0b81fce5fd3619da3a2af31a787
 #import "PushAnimator.h"
 #import "PopAnimator.h"
 
 static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1kpc.apps.googleusercontent.com";
 
 @interface SearchViewController () <UINavigationControllerDelegate>
+<<<<<<< HEAD
 @property (nonatomic, strong) NSString* googlePlusUserInfromation;
 @property (nonatomic, strong) NSString* facebookUserInfromation;
 @property (strong, nonatomic) IBOutlet UIButton *signOutButton;
 @property (strong, nonatomic) IBOutlet UIButton *userInformationButton;
+=======
+>>>>>>> 19cc4b354bb2e0b81fce5fd3619da3a2af31a787
 
 @end
 
@@ -34,6 +46,23 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+<<<<<<< HEAD
+=======
+    self.navigationController.navigationBar.tintColor = [UIColor redColor];
+    
+    GPPSignIn *signIn = [GPPSignIn sharedInstance];
+    signIn = [GPPSignIn sharedInstance];
+    signIn.clientID= kClientID;
+    signIn.scopes= [NSArray arrayWithObjects:kGTLAuthScopePlusLogin, nil];
+    signIn.shouldFetchGoogleUserID=YES;
+    signIn.shouldFetchGoogleUserEmail=YES;
+    signIn.shouldFetchGooglePlusUser=YES;
+    signIn.delegate=self;
+    
+    self.navigationController.delegate = self;
+    self.navigationController.view.backgroundColor =
+    [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
+>>>>>>> 19cc4b354bb2e0b81fce5fd3619da3a2af31a787
     
     [self refreshInterfaceBasedOnSignIn];
     self.navigationController.delegate = self;
@@ -41,11 +70,15 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
     self.navigationController.navigationBar.tintColor = [UIColor redColor];
     self.navigationController.view.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     self.view.backgroundColor = [UIColor clearColor];
+<<<<<<< HEAD
     
     UIImage *buttonImageForGooglePlusSignInButton = [UIImage imageNamed:@"gplus-128.png"];
     [self.googlePlusSignInButton setImage:buttonImageForGooglePlusSignInButton forState:UIControlStateNormal];
     [self.googlePlusSignInButton setBackgroundImage:buttonImageForGooglePlusSignInButton forState:UIControlStateNormal];
     [self.view addSubview:self.googlePlusSignInButton];
+=======
+    self.navigationController.delegate = self;
+>>>>>>> 19cc4b354bb2e0b81fce5fd3619da3a2af31a787
     
     GPPSignIn *signIn = [GPPSignIn sharedInstance];
     signIn = [GPPSignIn sharedInstance];
@@ -59,6 +92,7 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 
     FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
     loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
+<<<<<<< HEAD
     
 }
 
@@ -91,13 +125,88 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
     if( (FBSession.activeSession.state == FBSessionStateOpen) || (FBSession.activeSession.state == FBSessionStateOpenTokenExtended) || (FBSession.activeSession.isOpen == YES) )
         return YES;
     else return NO;
+=======
+    loginButton.frame = CGRectMake(34, 611, 306, 46);
+
+    [self.view addSubview:loginButton];
+    [signIn trySilentAuthentication];
 }
 
+- (void)finishedWithAuth:(GTMOAuth2Authentication *)auth
+                   error:(NSError *)error
+{
+    
+    NSLog(@"Received Access Token:%@",auth);
+    NSLog(@"user google user email  %@",[GPPSignIn sharedInstance].userEmail); //logged in user's email id
+    NSLog(@"user google user id  %@",[GPPSignIn sharedInstance].userID);
+    NSLog(@"user %@", [GPPSignIn sharedInstance].googlePlusUser);
+    
+    
+    
+>>>>>>> 19cc4b354bb2e0b81fce5fd3619da3a2af31a787
+}
+
+//-(void)finishedWithAuth:(GTMOAuth2Authentication *)auth error:(NSError *)error{
+//    
+//    NSLog(@"Received Error %@  and auth object==%@",error,auth);
+//    
+//    if (error) {
+//        // Do some error handling here.
+//    } else {
+//        [self refreshInterfaceBasedOnSignIn];
+//        
+//        NSLog(@"email %@ ",[NSString stringWithFormat:@"Email: %@", [[GPPSignIn sharedInstance].authentication].userEmail]);
+//        NSLog(@"Received error %@ and auth object %@",error, auth);
+//        
+//        // 1. Create a |GTLServicePlus| instance to send a request to Google+.
+//        GTLServicePlus* plusService = [[GTLServicePlus alloc] init] ;
+//        plusService.retryEnabled = YES;
+//        
+//        // 2. Set a valid |GTMOAuth2Authentication| object as the authorizer.
+//        [plusService setAuthorizer:[GPPSignIn sharedInstance].authentication];
+//        
+//        
+//        GTLQueryPlus *query = [GTLQueryPlus queryForPeopleGetWithUserId:@"me"];
+//        
+//        // *4. Use the "v1" version of the Google+ API.*
+//        plusService.apiVersion = @"v1";
+//        
+//        [plusService executeQuery:query
+//                completionHandler:^(GTLServiceTicket *ticket,
+//                                    GTLPlusPerson *person,
+//                                    NSError *error) {
+//                    if (error) {
+//                        
+//                        
+//                        
+//                        //Handle Error
+//                        
+//                    } else
+//                    {
+//                        
+//                        
+//                        NSLog(@"Email= %@",[GPPSignIn sharedInstance].authentication.userEmail);
+//                        NSLog(@"GoogleID=%@",person.identifier);
+//                        NSLog(@"User Name=%@",[person.name.givenName stringByAppendingFormat:@" %@",person.name.familyName]);
+//                        NSLog(@"Gender=%@",person.gender);
+//                        
+//                    }
+//                }];
+//    }
+//    
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 
 }
+<<<<<<< HEAD
+=======
+//
+//- (void)signOut {
+//    [[GPPSignIn sharedInstance] signOut];
+//}
+>>>>>>> 19cc4b354bb2e0b81fce5fd3619da3a2af31a787
 
 - (void)disconnect {
     [[GPPSignIn sharedInstance] disconnect];
@@ -107,6 +216,7 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
     [self refreshInterfaceBasedOnSignIn];
 }
 
+<<<<<<< HEAD
 -(void) viewDidAppear:(BOOL)animated{
     [self refreshInterfaceBasedOnSignIn];
 }
@@ -121,6 +231,33 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 
 
 - (IBAction)searchButton:(id)sender {
+=======
+
+
+- (IBAction)searchButton:(id)sender {
+    FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
+                                  initWithGraphPath:@"me?fields=id,name"
+                                  parameters:nil
+                                  HTTPMethod:@"GET"];
+    [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
+                                          id result1,
+                                          NSError *error) {
+        
+        
+        NSLog(@"id,name: %@", result1);
+    }];
+    
+    if ([FBSDKAccessToken currentAccessToken]) {
+        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
+         startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
+                                      id result, NSError *error) {
+             if (!error) {
+                 NSLog(@"fetched user:%@", result);
+                  NSLog(@"email:%@", [result objectForKey:@"email"]);
+             }
+         }];
+    }
+>>>>>>> 19cc4b354bb2e0b81fce5fd3619da3a2af31a787
     
     UIAlertView *noText = [[UIAlertView alloc] initWithTitle:@"Table is empty because of empty request!" message:@"Please, enter some text in Search field!" delegate:self cancelButtonTitle:@"Ok!" otherButtonTitles:nil];
     
@@ -142,6 +279,7 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 }
 
 - (IBAction)signOutButton:(id)sender {
+<<<<<<< HEAD
     
     
     if ([[GPPSignIn sharedInstance] authentication] || [self isSessionOpen]) {
@@ -154,6 +292,11 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
     }
     
     self.facebookSignInButton.hidden = NO;
+=======
+    [[GPPSignIn sharedInstance] signOut];
+    [[GPPSignIn sharedInstance] disconnect];
+    
+>>>>>>> 19cc4b354bb2e0b81fce5fd3619da3a2af31a787
     [[FBSDKLoginManager new] logOut];
     [FBSession.activeSession closeAndClearTokenInformation];
     [FBSession.activeSession close];
@@ -173,6 +316,7 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
     
 }
 
+<<<<<<< HEAD
 - (IBAction)getUserInformationButton:(id)sender {
     
     UIAlertView *userNotLoggedIn = [[UIAlertView alloc] initWithTitle:@"You are not currently logged in" message:@"Try to log in first!" delegate:self cancelButtonTitle:@"Ok!" otherButtonTitles:nil];
@@ -238,6 +382,8 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 - (IBAction)writeAnEmailButton:(id)sender {
     
 }
+=======
+>>>>>>> 19cc4b354bb2e0b81fce5fd3619da3a2af31a787
 
 -(void)refreshInterfaceBasedOnSignIn
 {
@@ -260,6 +406,7 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+<<<<<<< HEAD
     if ([segue.identifier isEqualToString:@"SegueToRecipesTVC"]){
         RecipesTVC *newController = segue.destinationViewController;
         newController.query = [self.searchTextField.text stringByReplacingOccurrencesOfString: @" " withString:@"+"];
@@ -269,7 +416,50 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
         RecipesTVC *newController = segue.destinationViewController;
         newController.dataSource = @"My recipes";
         
+=======
+    RecipesTVC *newController = segue.destinationViewController;
+<<<<<<< HEAD
+    
+    if ([segue.identifier isEqualToString:@"SegueToRecipesTVC"]){
+        newController.query = [self.searchTextField.text stringByReplacingOccurrencesOfString: @" " withString:@"+"];
+        newController.dataSource = @"Search results";
+    }else{
+        newController.dataSource = @"My recipes";
+>>>>>>> 19cc4b354bb2e0b81fce5fd3619da3a2af31a787
     }
+=======
+    newController.query = [self.searchTextField.text stringByReplacingOccurrencesOfString: @" " withString:@"+"];
+    
+    ([segue.identifier isEqualToString:@"SegueToRecipesTVC"])? (newController.dataSource = @"Search results") : (newController.dataSource = @"My recipes");
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+                                  animationControllerForOperation:(UINavigationControllerOperation)operation
+                                               fromViewController:(UIViewController*)fromVC
+                                                 toViewController:(UIViewController*)toVC
+{
+    if (operation == UINavigationControllerOperationPush)
+        return [[PushAnimator alloc] init];
+    
+    if (operation == UINavigationControllerOperationPop)
+        return [[PopAnimator alloc] init];
+    
+    return nil;
+>>>>>>> Taras_Hates_GitHub_branch
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+                                  animationControllerForOperation:(UINavigationControllerOperation)operation
+                                               fromViewController:(UIViewController*)fromVC
+                                                 toViewController:(UIViewController*)toVC
+{
+    if (operation == UINavigationControllerOperationPush)
+        return [[PushAnimator alloc] init];
+    
+    if (operation == UINavigationControllerOperationPop)
+        return [[PopAnimator alloc] init];
+    
+    return nil;
 }
 
 

@@ -15,9 +15,16 @@
 @property (strong, nonatomic) NSArray *recipes;
 
 - (void)downloadRecipesForQuery:(NSString *)query
+<<<<<<< HEAD
+                           than:(void(^)(NSArray *recipes))handler;
+=======
                            than:(void(^)())handler;
+<<<<<<< HEAD
 
 - (void)setImageWithURL:(NSString *)imageLink
          usingImageView:(UIImageView *) imageView;
 
+=======
+>>>>>>> Taras_Hates_GitHub_branch
+>>>>>>> 19cc4b354bb2e0b81fce5fd3619da3a2af31a787
 @end
