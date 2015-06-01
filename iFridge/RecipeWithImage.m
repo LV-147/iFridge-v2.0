@@ -61,7 +61,6 @@
 - (void) setRecipeForRecipeIndex:(NSInteger)recipeIndexPath
 {
     if ([[self.availableRecipes objectAtIndex:self.recipeRow] isKindOfClass:[NSDictionary class]]) {
-        [self setRecipeImageWithLink:[[self.availableRecipes objectAtIndex:recipeIndexPath] valueForKeyPath:@"recipe.image"]];
         DataDownloader *dataDownloader = [[DataDownloader alloc] init];
         [dataDownloader setImageWithURL:[[self.availableRecipes objectAtIndex:recipeIndexPath] valueForKeyPath:@"recipe.image"] usingImageView:self.imageForDish];
         NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:self.recipeRow] valueForKeyPath:@"recipe.ingredientLines"];
