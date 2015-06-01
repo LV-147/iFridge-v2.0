@@ -9,22 +9,16 @@
 #import "ReminderTableViewController.h"
 #import "UIAlertView+ReminderBlock.h"
 #import "UIButton+ReminderBlock.h"
-#import "Fridge+Cat.h"
-#import "UIViewController+Context.h"
-
-
 
 @import EventKit;
 
 @interface ReminderTableViewController ()
 
 @property (strong, nonatomic) EKEventStore *eventStore;
-@property (strong, nonatomic) NSArray *todoItems;
+@property (strong, nonatomic) NSMutableArray *todoItems;
 @property (copy, nonatomic) NSArray *reminders;
 @property (strong, nonatomic) EKCalendar *calendar;
 @property (nonatomic) BOOL isAccessToEventStoreGranted;
-@property (nonatomic, assign) UIView *blurEffect;
-
 
 @end
 
@@ -41,12 +35,11 @@
 }
 
 
-
-- (NSArray *)todoItems {
+- (NSMutableArray *)todoItems {
     if (!_todoItems) {
         _todoItems = [@[@"You need to do smth!"] mutableCopy];
         
-        self.todoItems = [NSArray arrayWithArray:self.ingredientsForReminder];
+        //        self.todoItems = ingredientLines;
     }
     return _todoItems;
 }
@@ -56,56 +49,26 @@
 
 
 - (void)viewDidLoad {
-    
-    
-    
-    [super viewDidLoad];
-    
-
-    
-
-    
     self.title = @"To Buy!";
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureRecognized:)];
-    
     [self.tableView addGestureRecognizer:longPress];
-
-    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"image22.jpg"]];
-
-    self.tableView.backgroundView.alpha = 0.2f;
     
-   
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    self.tableView.backgroundColor = [UIColor whiteColor];
+    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"supermarket"]];
+    self.tableView.backgroundView.alpha = 0.5f;
     
+    [super viewDidLoad];
 }
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
--(void) viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
--(void) viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-
-
 #pragma mark - UITableView data source and delegate methods
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
-    return 1;
-}
-
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.todoItems count];
-    
-
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -115,15 +78,8 @@
     
     // Update cell content from data source.
     NSString *object = self.todoItems[indexPath.row];
-    
     cell.backgroundColor = [UIColor clearColor];
-    
-    
     cell.textLabel.text = object;
-    cell.textLabel.textColor = [UIColor blackColor];
-    
-   
-   
     
     [self addReminderForToDoItem:object];
     
@@ -142,12 +98,12 @@
     
     NSString *todoItem = self.todoItems[indexPath.row];
     
-    NSMutableArray *todoItems = [[NSMutableArray alloc] initWithArray:self.todoItems];
-    
-    self.todoItems = todoItems;
-    
     // Remove to-do item.
-    [todoItems removeObject:todoItem];
+    [self.todoItems removeObject:todoItem];
+    
+    
+    
+    
     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
@@ -170,9 +126,7 @@
             
             UITextField *textField = [alertView textFieldAtIndex:0];
             NSString *string = [textField.text capitalizedString];
-            NSMutableArray *todoItems = [[NSMutableArray alloc] initWithArray:self.todoItems];
-            [todoItems addObject:string];
-            weakSelf.todoItems = todoItems;
+            [weakSelf.todoItems addObject:string];
             
             NSUInteger row = [weakSelf.todoItems count] - 1;
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
@@ -217,7 +171,7 @@
                     snapshot.alpha = 0.98;
                     
                     // Black out.
-                    cell.backgroundColor = [UIColor clearColor];
+                    cell.backgroundColor = [UIColor lightGrayColor];
                 } completion:nil];
             }
             break;
@@ -232,12 +186,7 @@
             if (indexPath && ![indexPath isEqual:sourceIndexPath]) {
                 
                 // ... update data source.
-                NSMutableArray *todoItems = [[NSMutableArray alloc] initWithArray:self.todoItems];
-                
-                [todoItems exchangeObjectAtIndex:indexPath.row withObjectAtIndex:sourceIndexPath.row];
-                self.todoItems = todoItems;
-                
- 
+                [self.todoItems exchangeObjectAtIndex:indexPath.row withObjectAtIndex:sourceIndexPath.row];
                 
                 // ... move the rows.
                 [self.tableView moveRowAtIndexPath:sourceIndexPath toIndexPath:indexPath];

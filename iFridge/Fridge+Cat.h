@@ -13,4 +13,7 @@
 + (Ingredient *)addIngredientWithInfo:(NSDictionary *)ingredientDict
                              toFridge:(Fridge *)fridge
                inManagedObjectContext:(NSManagedObjectContext *)context;
+
+- (void)removeIngredient:(Ingredient *)ingredient from:(NSManagedObjectContext *)context;
+
 @end
