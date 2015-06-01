@@ -12,6 +12,8 @@
 #import "UIViewController+Context.h"
 #import "AppDelegate.h"
 #import "Ingredient.h"
+#import "DataDownloader.h"
+#import "ReminderTableViewController.h"
 
 
 
@@ -22,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageForDish;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 @property (strong, nonatomic) IBOutlet UILabel *recipeCountIndicator;
+@property (strong , nonatomic) DataDownloader *dataDownloader;
 
 @property (strong, nonatomic) NSArray *availableRecipes;
 @property (nonatomic, assign) NSInteger recipeRow;
@@ -47,7 +50,7 @@
     [self ifCurrentRecipeSaved];
     
     [self setRecipeForRecipeIndex:self.recipeRow];
-    
+
 }
 
 - (void)initWithRecipeAtIndex:(NSInteger)recipeIndex from:(NSArray *)recipes {
@@ -55,22 +58,12 @@
     self.recipeRow = recipeIndex;
 }
 
-- (void)setRecipeImageWithLink:(NSString *)imageLink {
-//    if ([imageLink isMemberOfClass:[NSString class]]) {
-    [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:imageLink]
-                                                         options:SDWebImageDownloaderLowPriority
-                                                        progress:nil
-                                                       completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
-                                                           
-                                                           [self.imageForDish setBackgroundColor:[UIColor colorWithPatternImage:image]];
-                                                       }];
-//    }
-}
-
 - (void) setRecipeForRecipeIndex:(NSInteger)recipeIndexPath
 {
     if ([[self.availableRecipes objectAtIndex:self.recipeRow] isKindOfClass:[NSDictionary class]]) {
         [self setRecipeImageWithLink:[[self.availableRecipes objectAtIndex:recipeIndexPath] valueForKeyPath:@"recipe.image"]];
+        DataDownloader *dataDownloader = [[DataDownloader alloc] init];
+        [dataDownloader setImageWithURL:[[self.availableRecipes objectAtIndex:recipeIndexPath] valueForKeyPath:@"recipe.image"] usingImageView:self.imageForDish];
         NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:self.recipeRow] valueForKeyPath:@"recipe.ingredientLines"];
         self.recipeIngredients.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
         self.nameOfDish.text = [[self.availableRecipes objectAtIndex:recipeIndexPath] valueForKeyPath:@"recipe.label"];
@@ -78,7 +71,7 @@
     }else if ([[self.availableRecipes objectAtIndex:self.recipeRow] isKindOfClass:[Recipe class]]){
         Recipe *currentRecipe = [self.availableRecipes objectAtIndex:recipeIndexPath];
         
-        [self setRecipeImageWithLink:currentRecipe.imageUrl];
+        [self.dataDownloader setImageWithURL:currentRecipe.imageUrl usingImageView:self.imageForDish];
         self.nameOfDish.text = currentRecipe.label;
         
         NSMutableDictionary *ingredientLines = [[NSMutableDictionary alloc] init];
@@ -147,6 +140,13 @@
     }
     [self setRecipeForRecipeIndex:self.recipeRow];
     [self ifCurrentRecipeSaved];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    ReminderTableViewController *newController = segue.destinationViewController;
+    newController.ingredientsForReminder = [[self.availableRecipes objectAtIndex:self.recipeRow] valueForKeyPath:@"recipe.ingredientLines"];
+    
 }
 
 @end
