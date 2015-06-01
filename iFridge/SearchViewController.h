@@ -21,16 +21,12 @@
 
 - (IBAction)searchButton:(id)sender;
 - (IBAction)signOutButton:(id)sender;
-<<<<<<< HEAD
 - (IBAction)getUserInformationButton:(id)sender;
 - (IBAction)goToVkGroup:(id)sender;
 - (IBAction)goToFacebookGroup:(id)sender;
 - (IBAction)goToGooglePlusGroup:(id)sender;
 - (IBAction)goToOurWebSite:(id)sender;
-- (IBAction)writeAnEmailButton:(id)sender;
 
 
-=======
->>>>>>> 19cc4b354bb2e0b81fce5fd3619da3a2af31a787
 
 @end

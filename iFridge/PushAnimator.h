@@ -7,18 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-<<<<<<< HEAD
 #import "SearchViewController.h"
 #import <UIKit/UIKit.h>
-=======
-<<<<<<< HEAD
-#import <UIKit/UIKit.h>
-#import "SearchViewController.h"
-=======
-#import "SearchViewController.h"
-#import <UIKit/UIKit.h>
->>>>>>> Taras_Hates_GitHub_branch
->>>>>>> 19cc4b354bb2e0b81fce5fd3619da3a2af31a787
 
 @interface PushAnimator : NSObject <UIViewControllerAnimatedTransitioning>
 

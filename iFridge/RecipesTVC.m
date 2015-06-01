@@ -19,19 +19,10 @@
 
 
 @interface RecipesTVC ()
-<<<<<<< HEAD
-@property (weak, nonatomic) IBOutlet UISearchBar *recipeSearchBar;
-@property (strong, nonatomic) IBOutlet UISegmentedControl *selectDataSourceController;
-
-@property (strong, nonatomic) NSArray *recipes;
-@property (strong, nonatomic) NSArray *filteredRecipes;
-
-=======
 
 
 @property (strong, nonatomic)NSArray *coreDataRecipes;
 
->>>>>>> Taras_Hates_GitHub_branch
 @end
 
 @implementation RecipesTVC
@@ -39,19 +30,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-<<<<<<< HEAD
-    self.navigationController.view.backgroundColor =
-    [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
-    self.tableView.backgroundColor = [UIColor clearColor];
-
-=======
     
-<<<<<<< HEAD
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     
-=======
->>>>>>> Taras_Hates_GitHub_branch
->>>>>>> 19cc4b354bb2e0b81fce5fd3619da3a2af31a787
     //Create number formatter to round NSNumbers
     NSNumberFormatter *numbFormatter = [[NSNumberFormatter alloc] init];
     [numbFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
@@ -60,15 +41,8 @@
     
     if ([self.dataSource isEqualToString:@"Search results"]){
         [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-<<<<<<< HEAD
-        [self searchForRecipes];
-    }else {
-        self.selectDataSourceController.selectedSegmentIndex = 1;
-        [self getRecipesFromCoreData];
-=======
         [self showLoadingViewInView:self.view];
         
->>>>>>> Taras_Hates_GitHub_branch
     }
     self.navigationController.view.backgroundColor =
     [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
@@ -97,35 +71,13 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     cell.backgroundColor = [UIColor clearColor];
+    
     //cell.accessoryView = [UIImage]//[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"accessory.png"]];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-<<<<<<< HEAD
-    if ([self.dataSource isEqualToString:@"My recipes"]) {
-        [self getRecipesFromCoreData];
-    }
-}
-
-- (void)searchForRecipes {
-    self.selectDataSourceController.selectedSegmentIndex = 0;
-    [self showLoadingViewInView:self.view];
-    DataDownloader *downloadManager = [[DataDownloader alloc] init];
-    [downloadManager downloadRecipesForQuery:self.query than:^(NSArray *recipes){
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.recipes = recipes;
-            [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
-            [self.tableView reloadData];
-            [self performSelector:@selector(hideLoadingViewThreadSave) withObject:nil afterDelay:0];
-        });
-    }];
-}
-
-- (void)getRecipesFromCoreData {
-=======
     self.coreDataRecipes = [[NSArray alloc] init];
->>>>>>> Taras_Hates_GitHub_branch
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Recipe"];
     request.predicate = nil;
     NSError *error;
@@ -187,11 +139,7 @@
     switch (sender.selectedSegmentIndex) {
         case 0:
             self.dataSource = @"Search results";
-<<<<<<< HEAD
-            [self searchForRecipes];
-=======
             [self.tableView reloadData];
->>>>>>> Taras_Hates_GitHub_branch
             break;
         case 1:
             self.dataSource = @"My recipes";
@@ -211,14 +159,10 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-<<<<<<< HEAD
-        return self.recipes.count;
-=======
     if ([self.dataSource isEqualToString:@"Search results"]) {
         return self.recipes.count;
     }else
         return self.coreDataRecipes.count;
->>>>>>> Taras_Hates_GitHub_branch
 }
 
 
@@ -285,15 +229,6 @@
         cell.cookingLevel.text = [NSString stringWithFormat:@"Cooking level: %@", recipe.cookingLevel];
         
         return cell;
-    }
-}
-
-- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([tableView.indexPathsForVisibleRows indexOfObject:indexPath] == NSNotFound)
-    {
-        // This indeed is an indexPath no longer visible
-        // Do something to this non-visible cell...
     }
 }
 
