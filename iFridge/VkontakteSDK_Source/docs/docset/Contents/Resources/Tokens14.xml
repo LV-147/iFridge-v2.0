@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/VKStatus.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/VKStatus</TokenIdentifier>
+			<Abstract type="html">Класс предназначен для работы со статусами пользователя/группы.
+Детальная информация находится по этой ссылке: https://vk.com/dev/status</Abstract>
+			<DeclaredIn>VKStatus.h</DeclaredIn>
+			
+			<NodeRef refid="14"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKStatus/status</TokenIdentifier>
+			<Abstract type="html">Получает текст статуса текущего пользователя</Abstract>
+			<DeclaredIn>VKStatus.h</DeclaredIn>			
+			
+			<Declaration>- (id)status</Declaration>
+			
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="14"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKStatus/userID:</TokenIdentifier>
+			<Abstract type="html">Получает текст статуса пользователя c указанным идентификатором</Abstract>
+			<DeclaredIn>VKStatus.h</DeclaredIn>			
+			
+			<Declaration>- (id)userID:(NSUInteger)userID</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>userID</Name>
+					<Abstract type="html">идентификатор пользователя статус которого необходимо получить</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/userID:</Anchor>
+            <NodeRef refid="14"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKStatus/groupID:</TokenIdentifier>
+			<Abstract type="html">Получает текст статуса сообщества c указанным идентификатором</Abstract>
+			<DeclaredIn>VKStatus.h</DeclaredIn>			
+			
+			<Declaration>- (id)groupID:(NSUInteger)groupID</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>groupID</Name>
+					<Abstract type="html">идентификатор сообщества, информацию о статусе которого необходимо получить</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/groupID:</Anchor>
+            <NodeRef refid="14"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKStatus/setStatus:</TokenIdentifier>
+			<Abstract type="html">Устанавливает новый статус текущему пользователю</Abstract>
+			<DeclaredIn>VKStatus.h</DeclaredIn>			
+			
+			<Declaration>- (id)setStatus:(NSString *)newStatusText</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>newStatusText</Name>
+					<Abstract type="html">текст нового статуса</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/setStatus:</Anchor>
+            <NodeRef refid="14"/>
+		</Token>
+		
+	</File>
+</Tokens>
