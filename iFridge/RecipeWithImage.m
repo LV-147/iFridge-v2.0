@@ -25,7 +25,6 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 @property (strong, nonatomic) IBOutlet UILabel *recipeCountIndicator;
 @property (strong , nonatomic) DataDownloader *dataDownloader;
-@property (nonatomic) BOOL recipeSaved;
 @property (strong, nonatomic) NSArray *availableRecipes;
 @property (nonatomic, assign) NSInteger recipeRow;
 
@@ -84,24 +83,22 @@
 
 - (IBAction)saveRecipeToCoreData:(UIBarButtonItem *)sender {
     
-    if (!self.recipeSaved){
+    if (![self ifCurrentRecipeSaved]){
         NSDictionary *recipeDict = [[self.availableRecipes objectAtIndex:self.recipeRow ] valueForKey:@"recipe"];
         [Recipe createRecipeWithInfo:recipeDict inManagedObiectContext:self.currentContext];
-        self.recipeSaved = YES;
         sender.title = @"Delete";
         
     }else{
         NSMutableArray *availibleRecipes = [[NSMutableArray alloc] initWithArray:self.availableRecipes];
         [availibleRecipes removeObjectAtIndex:self.recipeRow];
-        self.availableRecipes = availibleRecipes;
         [Recipe deleteRecipe:[self.availableRecipes objectAtIndex:self.recipeRow] fromManagedObjectContext:self.currentContext];
-        self.recipeSaved = NO;
+        self.availableRecipes = availibleRecipes;
         sender.title = @"Save";
     }
     
 }
 
-- (void)ifCurrentRecipeSaved{
+- (BOOL)ifCurrentRecipeSaved{
     //checking if current recipe is alredy in the data base
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Recipe"];
     NSString *predicateString = [[NSString alloc] init];
@@ -117,10 +114,10 @@
     NSArray *mathes = [self.currentContext executeFetchRequest:request error:&error];
     if (mathes && !error && mathes.count == 1) {
         self.saveButton.title = @"Delete";
-        self.recipeSaved = YES;
+        return YES;
     }else{
         self.saveButton.title = @"Save";
-        self.recipeSaved = NO;
+        return NO;
     }
 }
 

@@ -36,7 +36,7 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
     [super viewDidLoad];
     
     [self refreshInterfaceBasedOnSignIn];
-    self.navigationController.delegate = self;
+
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
     self.navigationController.navigationBar.tintColor = [UIColor redColor];
     self.navigationController.view.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
