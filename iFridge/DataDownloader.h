@@ -12,4 +12,6 @@
 
 + (void)downloadRecipesForQuery:(NSString *)query
                            than:(void(^)(NSArray *recipes))handler;
+
++ (void)setRecipeImageWithURL:(NSString *)imageLink usingImageView:(UIImageView *)imageView;
 @end

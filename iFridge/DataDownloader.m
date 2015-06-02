@@ -8,6 +8,7 @@
 
 #import "DataDownloader.h"
 #import <AFNetworking/AFNetworking.h>
+#import <SDWebImage/SDWebImageManager.h>
 
 @interface DataDownloader()
 
@@ -35,5 +36,16 @@
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"Downloading failed with error: %@", error);
          }];
+}
+
++ (void)setRecipeImageWithURL:(NSString *)imageLink usingImageView:(UIImageView *)imageView {
+    
+    [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:imageLink]
+                                                         options:SDWebImageDownloaderLowPriority
+                                                        progress:nil
+                                                       completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
+                                                           
+                                                           [imageView setBackgroundColor:[UIColor colorWithPatternImage:image]];
+                                                       }];
 }
 @end

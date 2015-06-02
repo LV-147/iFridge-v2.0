@@ -12,6 +12,7 @@
 #import "UIViewController+Context.h"
 #import "AppDelegate.h"
 #import "Ingredient.h"
+#import "DataDownloader.h"
 
 
 
@@ -55,36 +56,17 @@
     self.recipeRow = recipeIndex;
 }
 
-- (void)setRecipeImageWithLink:(NSString *)imageLink {
-//    if ([imageLink isMemberOfClass:[NSString class]]) {
-    [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:imageLink]
-                                                         options:SDWebImageDownloaderLowPriority
-                                                        progress:nil
-                                                       completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
-                                                           
-                                                           [self.imageForDish setBackgroundColor:[UIColor colorWithPatternImage:image]];
-                                                       }];
-//    }
-}
-
 - (void) setRecipeForRecipeIndex:(NSInteger)recipeIndexPath
 {
-    DataDownloader *dataDownloader = [[DataDownloader alloc] init];
     if ([[self.availableRecipes objectAtIndex:self.recipeRow] isKindOfClass:[NSDictionary class]]) {
-<<<<<<< HEAD
-        [self setRecipeImageWithLink:[[self.availableRecipes objectAtIndex:recipeIndexPath] valueForKeyPath:@"recipe.image"]];
-=======
-        
-        [dataDownloader setImageWithURL:[[self.availableRecipes objectAtIndex:recipeIndexPath] valueForKeyPath:@"recipe.image"] usingImageView:self.imageForDish];
->>>>>>> master
+        [DataDownloader setRecipeImageWithURL:[[self.availableRecipes objectAtIndex:self.recipeRow] valueForKeyPath:@"recipe.image"] usingImageView:self.imageForDish];
         NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:self.recipeRow] valueForKeyPath:@"recipe.ingredientLines"];
         self.recipeIngredients.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
         self.nameOfDish.text = [[self.availableRecipes objectAtIndex:recipeIndexPath] valueForKeyPath:@"recipe.label"];
         
     }else if ([[self.availableRecipes objectAtIndex:self.recipeRow] isKindOfClass:[Recipe class]]){
         Recipe *currentRecipe = [self.availableRecipes objectAtIndex:recipeIndexPath];
-        
-        [self setRecipeImageWithLink:currentRecipe.imageUrl];
+        [DataDownloader setRecipeImageWithURL:currentRecipe.imageUrl usingImageView:self.imageForDish];
         self.nameOfDish.text = currentRecipe.label;
         
         NSMutableDictionary *ingredientLines = [[NSMutableDictionary alloc] init];
