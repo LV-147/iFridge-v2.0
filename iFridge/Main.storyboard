@@ -106,6 +106,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="goToGooglePlusGroup:" destination="GfN-dv-fDj" eventType="touchUpInside" id="dp8-oo-TkS"/>
+                                    <action selector="googleButtton:" destination="GfN-dv-fDj" eventType="touchUpInside" id="aOC-9f-t8f"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2f1-k7-g7r">
@@ -176,11 +177,12 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="facebookSignInButton" destination="R0q-1n-3nf" id="LfU-vq-pTu"/>
+                        <outlet property="facebookSignInButton" destination="R0q-1n-3nf" id="I69-S6-Qgv"/>
+                        <outlet property="googlePlusSignInButton" destination="IxZ-Gj-Gej" id="luf-yG-cUi"/>
                         <outlet property="searchTextField" destination="HGG-sm-Rr1" id="1UG-gG-Xs6"/>
                         <outlet property="signInButton" destination="IxZ-Gj-Gej" id="dJw-iO-atq"/>
-                        <outlet property="signOutButton" destination="3xL-Un-Md0" id="4Sg-Dd-2pD"/>
-                        <outlet property="userInformationButton" destination="off-HA-Eq7" id="fAZ-2L-HeL"/>
+                        <outlet property="signOutButton" destination="3xL-Un-Md0" id="VN0-xW-TWF"/>
+                        <outlet property="userInformationButton" destination="off-HA-Eq7" id="o9S-ur-YfY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N43-eS-79P" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -614,6 +616,6 @@
         <image name="search-icon.png" width="298" height="297"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="r9f-D3-hBv"/>
+        <segue reference="y47-Cr-Jsy"/>
     </inferredMetricsTieBreakers>
 </document>
