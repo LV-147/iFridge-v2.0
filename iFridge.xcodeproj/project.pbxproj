@@ -25,7 +25,6 @@
 		357A59041AFFDF3C0094B0AC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 357A59021AFFDF3C0094B0AC /* LaunchScreen.xib */; };
 		357A59101AFFDF3D0094B0AC /* iFridgeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 357A590F1AFFDF3D0094B0AC /* iFridgeTests.m */; };
 		359709671B04E9D3005064C0 /* RecipesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 359709661B04E9D3005064C0 /* RecipesTVC.m */; };
-		3597096F1B04FD98005064C0 /* RecipesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3597096E1B04FD98005064C0 /* RecipesCell.m */; };
 		35A8704B1B061CD8006343B5 /* RecipeWithImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A8704A1B061CD8006343B5 /* RecipeWithImage.m */; };
 		35A9D7091B08F16F005EF9BF /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35A9D7061B08F16E005EF9BF /* FBSDKCoreKit.framework */; };
 		35A9D70A1B08F16F005EF9BF /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35A9D7071B08F16E005EF9BF /* FBSDKLoginKit.framework */; };
@@ -48,35 +47,36 @@
 		D992EE4D1B0B9D220093B3F7 /* iFridge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D992EE451B0B9D220093B3F7 /* iFridge.xcdatamodeld */; };
 		D992EE4E1B0B9D220093B3F7 /* Ingredient+Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = D992EE481B0B9D220093B3F7 /* Ingredient+Cat.m */; };
 		D992EE4F1B0B9D220093B3F7 /* Recipe+Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = D992EE4A1B0B9D220093B3F7 /* Recipe+Cat.m */; };
+		D9B7D8011B1DE05A00D5787E /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = D9B7D7EA1B1DE05A00D5787E /* 3.png */; };
+		D9B7D8021B1DE05A00D5787E /* anim.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D9B7D7EB1B1DE05A00D5787E /* anim.jpg */; };
+		D9B7D8031B1DE05A00D5787E /* anim2.png in Resources */ = {isa = PBXBuildFile; fileRef = D9B7D7EC1B1DE05A00D5787E /* anim2.png */; };
+		D9B7D8041B1DE05A00D5787E /* door.png in Resources */ = {isa = PBXBuildFile; fileRef = D9B7D7ED1B1DE05A00D5787E /* door.png */; };
+		D9B7D8051B1DE05A00D5787E /* download.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D9B7D7EE1B1DE05A00D5787E /* download.jpeg */; };
+		D9B7D8061B1DE05A00D5787E /* Facebook_icon.101114329_std.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D9B7D7EF1B1DE05A00D5787E /* Facebook_icon.101114329_std.jpg */; };
+		D9B7D8071B1DE05A00D5787E /* fridge.png in Resources */ = {isa = PBXBuildFile; fileRef = D9B7D7F01B1DE05A00D5787E /* fridge.png */; };
+		D9B7D8081B1DE05A00D5787E /* fridge2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D9B7D7F11B1DE05A00D5787E /* fridge2.jpg */; };
+		D9B7D8091B1DE05A00D5787E /* google_plus-128.png in Resources */ = {isa = PBXBuildFile; fileRef = D9B7D7F21B1DE05A00D5787E /* google_plus-128.png */; };
+		D9B7D80A1B1DE05A00D5787E /* gplus-128.png in Resources */ = {isa = PBXBuildFile; fileRef = D9B7D7F31B1DE05A00D5787E /* gplus-128.png */; };
+		D9B7D80B1B1DE05A00D5787E /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D9B7D7F41B1DE05A00D5787E /* image.jpg */; };
+		D9B7D80C1B1DE05A00D5787E /* image1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D9B7D7F51B1DE05A00D5787E /* image1.jpg */; };
+		D9B7D80D1B1DE05A00D5787E /* image22.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D9B7D7F61B1DE05A00D5787E /* image22.jpg */; };
+		D9B7D80E1B1DE05A00D5787E /* info_information_user_about_card_button_symbol_icon-128.png in Resources */ = {isa = PBXBuildFile; fileRef = D9B7D7F71B1DE05A00D5787E /* info_information_user_about_card_button_symbol_icon-128.png */; };
+		D9B7D80F1B1DE05A00D5787E /* Martz90-Circle-Google-plus.ico in Resources */ = {isa = PBXBuildFile; fileRef = D9B7D7F81B1DE05A00D5787E /* Martz90-Circle-Google-plus.ico */; };
+		D9B7D8101B1DE05A00D5787E /* note.png in Resources */ = {isa = PBXBuildFile; fileRef = D9B7D7F91B1DE05A00D5787E /* note.png */; };
+		D9B7D8111B1DE05A00D5787E /* OperationFood.png in Resources */ = {isa = PBXBuildFile; fileRef = D9B7D7FA1B1DE05A00D5787E /* OperationFood.png */; };
+		D9B7D8121B1DE05A00D5787E /* photo-frame.png in Resources */ = {isa = PBXBuildFile; fileRef = D9B7D7FB1B1DE05A00D5787E /* photo-frame.png */; };
+		D9B7D8131B1DE05A00D5787E /* Plus.png in Resources */ = {isa = PBXBuildFile; fileRef = D9B7D7FC1B1DE05A00D5787E /* Plus.png */; };
+		D9B7D8141B1DE05A00D5787E /* search-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D9B7D7FD1B1DE05A00D5787E /* search-icon.png */; };
+		D9B7D8151B1DE05A00D5787E /* social_facebook_box_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = D9B7D7FE1B1DE05A00D5787E /* social_facebook_box_blue.png */; };
+		D9B7D8161B1DE05A00D5787E /* supermarket.png in Resources */ = {isa = PBXBuildFile; fileRef = D9B7D7FF1B1DE05A00D5787E /* supermarket.png */; };
+		D9B7D8171B1DE05A00D5787E /* Vk-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D9B7D8001B1DE05A00D5787E /* Vk-icon.png */; };
 		D9E1B2171B1880C0002AD39F /* RecipeSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E1B2161B1880C0002AD39F /* RecipeSearchBar.m */; };
 		D9E1B21D1B189877002AD39F /* Reminder.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E1B21C1B189877002AD39F /* Reminder.m */; };
 		D9E1B2201B1898A0002AD39F /* Reminder+Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E1B21F1B1898A0002AD39F /* Reminder+Cat.m */; };
-		D9F862D11B1DC3DC00D53EBD /* anim.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D9F862B91B1DC3DC00D53EBD /* anim.jpg */; };
-		D9F862D21B1DC3DC00D53EBD /* download.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D9F862BA1B1DC3DC00D53EBD /* download.jpeg */; };
-		D9F862D31B1DC3DC00D53EBD /* Facebook_icon.101114329_std.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D9F862BB1B1DC3DC00D53EBD /* Facebook_icon.101114329_std.jpg */; };
-		D9F862D41B1DC3DC00D53EBD /* fridge2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D9F862BC1B1DC3DC00D53EBD /* fridge2.jpg */; };
-		D9F862D51B1DC3DC00D53EBD /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D9F862BD1B1DC3DC00D53EBD /* image.jpg */; };
-		D9F862D61B1DC3DC00D53EBD /* image1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D9F862BE1B1DC3DC00D53EBD /* image1.jpg */; };
-		D9F862D71B1DC3DC00D53EBD /* image22.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D9F862BF1B1DC3DC00D53EBD /* image22.jpg */; };
-		D9F862D81B1DC3DC00D53EBD /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F862C01B1DC3DC00D53EBD /* 3.png */; };
-		D9F862D91B1DC3DC00D53EBD /* anim2.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F862C11B1DC3DC00D53EBD /* anim2.png */; };
-		D9F862DA1B1DC3DC00D53EBD /* door.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F862C21B1DC3DC00D53EBD /* door.png */; };
-		D9F862DB1B1DC3DC00D53EBD /* fridge.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F862C31B1DC3DC00D53EBD /* fridge.png */; };
-		D9F862DC1B1DC3DC00D53EBD /* google_plus-128.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F862C41B1DC3DC00D53EBD /* google_plus-128.png */; };
-		D9F862DD1B1DC3DC00D53EBD /* gplus-128.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F862C51B1DC3DC00D53EBD /* gplus-128.png */; };
-		D9F862DE1B1DC3DC00D53EBD /* info_information_user_about_card_button_symbol_icon-128.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F862C61B1DC3DC00D53EBD /* info_information_user_about_card_button_symbol_icon-128.png */; };
-		D9F862DF1B1DC3DC00D53EBD /* note.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F862C71B1DC3DC00D53EBD /* note.png */; };
-		D9F862E01B1DC3DC00D53EBD /* OperationFood.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F862C81B1DC3DC00D53EBD /* OperationFood.png */; };
-		D9F862E11B1DC3DC00D53EBD /* photo-frame-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F862C91B1DC3DC00D53EBD /* photo-frame-1.png */; };
-		D9F862E21B1DC3DC00D53EBD /* photo-frame.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F862CA1B1DC3DC00D53EBD /* photo-frame.png */; };
-		D9F862E31B1DC3DC00D53EBD /* Plus.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F862CB1B1DC3DC00D53EBD /* Plus.png */; };
-		D9F862E41B1DC3DC00D53EBD /* search-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F862CC1B1DC3DC00D53EBD /* search-icon.png */; };
-		D9F862E51B1DC3DC00D53EBD /* social_facebook_box_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F862CD1B1DC3DC00D53EBD /* social_facebook_box_blue.png */; };
-		D9F862E61B1DC3DC00D53EBD /* supermarket.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F862CE1B1DC3DC00D53EBD /* supermarket.png */; };
-		D9F862E71B1DC3DC00D53EBD /* Vk-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F862CF1B1DC3DC00D53EBD /* Vk-icon.png */; };
-		D9F862E81B1DC3DC00D53EBD /* Martz90-Circle-Google-plus.ico in Resources */ = {isa = PBXBuildFile; fileRef = D9F862D01B1DC3DC00D53EBD /* Martz90-Circle-Google-plus.ico */; };
 		D9F862EB1B1DCDDC00D53EBD /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F862EA1B1DCDDC00D53EBD /* SearchViewController.m */; };
 		D9F862ED1B1DD07400D53EBD /* FacebookSDKs-iOS-20150528.pkg in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F862EC1B1DD07400D53EBD /* FacebookSDKs-iOS-20150528.pkg */; };
+		D9F862EF1B1DD93F00D53EBD /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F862EE1B1DD93F00D53EBD /* FacebookSDK.framework */; };
+		D9F863231B1DDE6B00D53EBD /* RecipesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F863221B1DDE6B00D53EBD /* RecipesCell.m */; };
 		EF56840EE7AA6C558D3C459C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4825B68449CDFCB0DC868FD /* libPods.a */; };
 		F3948BE91B137AE500D149D0 /* FridgeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3948BE81B137AE500D149D0 /* FridgeTableViewController.m */; };
 		F3948BEC1B137BB300D149D0 /* UIButton+FridgeBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = F3948BEB1B137BB300D149D0 /* UIButton+FridgeBlock.m */; };
@@ -122,8 +122,6 @@
 		357A590F1AFFDF3D0094B0AC /* iFridgeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iFridgeTests.m; sourceTree = "<group>"; };
 		359709651B04E9D3005064C0 /* RecipesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesTVC.h; sourceTree = "<group>"; };
 		359709661B04E9D3005064C0 /* RecipesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesTVC.m; sourceTree = "<group>"; };
-		3597096D1B04FD98005064C0 /* RecipesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesCell.h; sourceTree = "<group>"; };
-		3597096E1B04FD98005064C0 /* RecipesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesCell.m; sourceTree = "<group>"; };
 		35A870491B061CD8006343B5 /* RecipeWithImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeWithImage.h; sourceTree = "<group>"; };
 		35A8704A1B061CD8006343B5 /* RecipeWithImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeWithImage.m; sourceTree = "<group>"; };
 		35A9D7061B08F16E005EF9BF /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -160,39 +158,41 @@
 		D992EE481B0B9D220093B3F7 /* Ingredient+Cat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Ingredient+Cat.m"; path = "../Ingredient+Cat.m"; sourceTree = "<group>"; };
 		D992EE491B0B9D220093B3F7 /* Recipe+Cat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Recipe+Cat.h"; path = "../Recipe+Cat.h"; sourceTree = "<group>"; };
 		D992EE4A1B0B9D220093B3F7 /* Recipe+Cat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Recipe+Cat.m"; path = "../Recipe+Cat.m"; sourceTree = "<group>"; };
+		D9B7D7EA1B1DE05A00D5787E /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 3.png; path = Images/3.png; sourceTree = SOURCE_ROOT; };
+		D9B7D7EB1B1DE05A00D5787E /* anim.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = anim.jpg; path = Images/anim.jpg; sourceTree = SOURCE_ROOT; };
+		D9B7D7EC1B1DE05A00D5787E /* anim2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = anim2.png; path = Images/anim2.png; sourceTree = SOURCE_ROOT; };
+		D9B7D7ED1B1DE05A00D5787E /* door.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = door.png; path = Images/door.png; sourceTree = SOURCE_ROOT; };
+		D9B7D7EE1B1DE05A00D5787E /* download.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = download.jpeg; path = Images/download.jpeg; sourceTree = SOURCE_ROOT; };
+		D9B7D7EF1B1DE05A00D5787E /* Facebook_icon.101114329_std.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Facebook_icon.101114329_std.jpg; path = Images/Facebook_icon.101114329_std.jpg; sourceTree = SOURCE_ROOT; };
+		D9B7D7F01B1DE05A00D5787E /* fridge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fridge.png; path = Images/fridge.png; sourceTree = SOURCE_ROOT; };
+		D9B7D7F11B1DE05A00D5787E /* fridge2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = fridge2.jpg; path = Images/fridge2.jpg; sourceTree = SOURCE_ROOT; };
+		D9B7D7F21B1DE05A00D5787E /* google_plus-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "google_plus-128.png"; path = "Images/google_plus-128.png"; sourceTree = SOURCE_ROOT; };
+		D9B7D7F31B1DE05A00D5787E /* gplus-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gplus-128.png"; path = "Images/gplus-128.png"; sourceTree = SOURCE_ROOT; };
+		D9B7D7F41B1DE05A00D5787E /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image.jpg; path = Images/image.jpg; sourceTree = SOURCE_ROOT; };
+		D9B7D7F51B1DE05A00D5787E /* image1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image1.jpg; path = Images/image1.jpg; sourceTree = SOURCE_ROOT; };
+		D9B7D7F61B1DE05A00D5787E /* image22.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image22.jpg; path = Images/image22.jpg; sourceTree = SOURCE_ROOT; };
+		D9B7D7F71B1DE05A00D5787E /* info_information_user_about_card_button_symbol_icon-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "info_information_user_about_card_button_symbol_icon-128.png"; path = "Images/info_information_user_about_card_button_symbol_icon-128.png"; sourceTree = SOURCE_ROOT; };
+		D9B7D7F81B1DE05A00D5787E /* Martz90-Circle-Google-plus.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; name = "Martz90-Circle-Google-plus.ico"; path = "Images/Martz90-Circle-Google-plus.ico"; sourceTree = SOURCE_ROOT; };
+		D9B7D7F91B1DE05A00D5787E /* note.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = note.png; path = Images/note.png; sourceTree = SOURCE_ROOT; };
+		D9B7D7FA1B1DE05A00D5787E /* OperationFood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = OperationFood.png; path = Images/OperationFood.png; sourceTree = SOURCE_ROOT; };
+		D9B7D7FB1B1DE05A00D5787E /* photo-frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "photo-frame.png"; path = "Images/photo-frame.png"; sourceTree = SOURCE_ROOT; };
+		D9B7D7FC1B1DE05A00D5787E /* Plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Plus.png; path = Images/Plus.png; sourceTree = SOURCE_ROOT; };
+		D9B7D7FD1B1DE05A00D5787E /* search-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "search-icon.png"; path = "Images/search-icon.png"; sourceTree = SOURCE_ROOT; };
+		D9B7D7FE1B1DE05A00D5787E /* social_facebook_box_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = social_facebook_box_blue.png; path = Images/social_facebook_box_blue.png; sourceTree = SOURCE_ROOT; };
+		D9B7D7FF1B1DE05A00D5787E /* supermarket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = supermarket.png; path = Images/supermarket.png; sourceTree = SOURCE_ROOT; };
+		D9B7D8001B1DE05A00D5787E /* Vk-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Vk-icon.png"; path = "Images/Vk-icon.png"; sourceTree = SOURCE_ROOT; };
 		D9E1B2151B1880C0002AD39F /* RecipeSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeSearchBar.h; sourceTree = "<group>"; };
 		D9E1B2161B1880C0002AD39F /* RecipeSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeSearchBar.m; sourceTree = "<group>"; };
 		D9E1B21B1B189877002AD39F /* Reminder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reminder.h; sourceTree = "<group>"; };
 		D9E1B21C1B189877002AD39F /* Reminder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reminder.m; sourceTree = "<group>"; };
 		D9E1B21E1B1898A0002AD39F /* Reminder+Cat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Reminder+Cat.h"; sourceTree = "<group>"; };
 		D9E1B21F1B1898A0002AD39F /* Reminder+Cat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Reminder+Cat.m"; sourceTree = "<group>"; };
-		D9F862B91B1DC3DC00D53EBD /* anim.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = anim.jpg; path = ../../Downloads/anim.jpg; sourceTree = "<group>"; };
-		D9F862BA1B1DC3DC00D53EBD /* download.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = download.jpeg; path = ../../Downloads/download.jpeg; sourceTree = "<group>"; };
-		D9F862BB1B1DC3DC00D53EBD /* Facebook_icon.101114329_std.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Facebook_icon.101114329_std.jpg; path = ../../Downloads/Facebook_icon.101114329_std.jpg; sourceTree = "<group>"; };
-		D9F862BC1B1DC3DC00D53EBD /* fridge2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = fridge2.jpg; path = ../../Downloads/fridge2.jpg; sourceTree = "<group>"; };
-		D9F862BD1B1DC3DC00D53EBD /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image.jpg; path = ../../Downloads/image.jpg; sourceTree = "<group>"; };
-		D9F862BE1B1DC3DC00D53EBD /* image1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image1.jpg; path = ../../Downloads/image1.jpg; sourceTree = "<group>"; };
-		D9F862BF1B1DC3DC00D53EBD /* image22.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image22.jpg; path = ../../Downloads/image22.jpg; sourceTree = "<group>"; };
-		D9F862C01B1DC3DC00D53EBD /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 3.png; path = ../../Downloads/3.png; sourceTree = "<group>"; };
-		D9F862C11B1DC3DC00D53EBD /* anim2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = anim2.png; path = ../../Downloads/anim2.png; sourceTree = "<group>"; };
-		D9F862C21B1DC3DC00D53EBD /* door.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = door.png; path = ../../Downloads/door.png; sourceTree = "<group>"; };
-		D9F862C31B1DC3DC00D53EBD /* fridge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fridge.png; path = ../../Downloads/fridge.png; sourceTree = "<group>"; };
-		D9F862C41B1DC3DC00D53EBD /* google_plus-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "google_plus-128.png"; path = "../../Downloads/google_plus-128.png"; sourceTree = "<group>"; };
-		D9F862C51B1DC3DC00D53EBD /* gplus-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gplus-128.png"; path = "../../Downloads/gplus-128.png"; sourceTree = "<group>"; };
-		D9F862C61B1DC3DC00D53EBD /* info_information_user_about_card_button_symbol_icon-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "info_information_user_about_card_button_symbol_icon-128.png"; path = "../../Downloads/info_information_user_about_card_button_symbol_icon-128.png"; sourceTree = "<group>"; };
-		D9F862C71B1DC3DC00D53EBD /* note.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = note.png; path = ../../Downloads/note.png; sourceTree = "<group>"; };
-		D9F862C81B1DC3DC00D53EBD /* OperationFood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = OperationFood.png; path = ../../Downloads/OperationFood.png; sourceTree = "<group>"; };
-		D9F862C91B1DC3DC00D53EBD /* photo-frame-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "photo-frame-1.png"; path = "../../Downloads/photo-frame-1.png"; sourceTree = "<group>"; };
-		D9F862CA1B1DC3DC00D53EBD /* photo-frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "photo-frame.png"; path = "../../Downloads/photo-frame.png"; sourceTree = "<group>"; };
-		D9F862CB1B1DC3DC00D53EBD /* Plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Plus.png; path = ../../Downloads/Plus.png; sourceTree = "<group>"; };
-		D9F862CC1B1DC3DC00D53EBD /* search-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "search-icon.png"; path = "../../Downloads/search-icon.png"; sourceTree = "<group>"; };
-		D9F862CD1B1DC3DC00D53EBD /* social_facebook_box_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = social_facebook_box_blue.png; path = ../../Downloads/social_facebook_box_blue.png; sourceTree = "<group>"; };
-		D9F862CE1B1DC3DC00D53EBD /* supermarket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = supermarket.png; path = ../../Downloads/supermarket.png; sourceTree = "<group>"; };
-		D9F862CF1B1DC3DC00D53EBD /* Vk-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Vk-icon.png"; path = "../../Downloads/Vk-icon.png"; sourceTree = "<group>"; };
-		D9F862D01B1DC3DC00D53EBD /* Martz90-Circle-Google-plus.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; name = "Martz90-Circle-Google-plus.ico"; path = "../../Downloads/Martz90-Circle-Google-plus.ico"; sourceTree = "<group>"; };
 		D9F862E91B1DCDC800D53EBD /* SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		D9F862EA1B1DCDDC00D53EBD /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
-		D9F862EC1B1DD07400D53EBD /* FacebookSDKs-iOS-20150528.pkg */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FacebookSDKs-iOS-20150528.pkg"; sourceTree = "<group>"; };
+		D9F862EC1B1DD07400D53EBD /* FacebookSDKs-iOS-20150528.pkg */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.installer-pkg"; path = "FacebookSDKs-iOS-20150528.pkg"; sourceTree = "<group>"; };
+		D9F862EE1B1DD93F00D53EBD /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		D9F863211B1DDE6B00D53EBD /* RecipesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesCell.h; sourceTree = "<group>"; };
+		D9F863221B1DDE6B00D53EBD /* RecipesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesCell.m; sourceTree = "<group>"; };
 		E4825B68449CDFCB0DC868FD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3948BE71B137AE500D149D0 /* FridgeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FridgeTableViewController.h; sourceTree = "<group>"; };
 		F3948BE81B137AE500D149D0 /* FridgeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FridgeTableViewController.m; sourceTree = "<group>"; };
@@ -215,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9F862ED1B1DD07400D53EBD /* FacebookSDKs-iOS-20150528.pkg in Frameworks */,
+				D9F862EF1B1DD93F00D53EBD /* FacebookSDK.framework in Frameworks */,
 				35486D8E1B132BFB00DC51D2 /* QuartzCore.framework in Frameworks */,
 				35486D8C1B13249900DC51D2 /* MediaPlayer.framework in Frameworks */,
 				35A9D70A1B08F16F005EF9BF /* FBSDKLoginKit.framework in Frameworks */,
@@ -250,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				D9F862EC1B1DD07400D53EBD /* FacebookSDKs-iOS-20150528.pkg */,
+				D9F862EE1B1DD93F00D53EBD /* FacebookSDK.framework */,
 				35486D8D1B132BFB00DC51D2 /* QuartzCore.framework */,
 				35A9D70C1B08F1B7005EF9BF /* GoogleOpenSource.framework */,
 				35A9D70D1B08F1B7005EF9BF /* GooglePlus.bundle */,
@@ -290,8 +292,8 @@
 			children = (
 				359709651B04E9D3005064C0 /* RecipesTVC.h */,
 				359709661B04E9D3005064C0 /* RecipesTVC.m */,
-				3597096D1B04FD98005064C0 /* RecipesCell.h */,
-				3597096E1B04FD98005064C0 /* RecipesCell.m */,
+				D9F863211B1DDE6B00D53EBD /* RecipesCell.h */,
+				D9F863221B1DDE6B00D53EBD /* RecipesCell.m */,
 			);
 			name = Recipes;
 			sourceTree = "<group>";
@@ -351,30 +353,29 @@
 		357A58F01AFFDF3C0094B0AC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D9F862B91B1DC3DC00D53EBD /* anim.jpg */,
-				D9F862BA1B1DC3DC00D53EBD /* download.jpeg */,
-				D9F862BB1B1DC3DC00D53EBD /* Facebook_icon.101114329_std.jpg */,
-				D9F862BC1B1DC3DC00D53EBD /* fridge2.jpg */,
-				D9F862BD1B1DC3DC00D53EBD /* image.jpg */,
-				D9F862BE1B1DC3DC00D53EBD /* image1.jpg */,
-				D9F862BF1B1DC3DC00D53EBD /* image22.jpg */,
-				D9F862C01B1DC3DC00D53EBD /* 3.png */,
-				D9F862C11B1DC3DC00D53EBD /* anim2.png */,
-				D9F862C21B1DC3DC00D53EBD /* door.png */,
-				D9F862C31B1DC3DC00D53EBD /* fridge.png */,
-				D9F862C41B1DC3DC00D53EBD /* google_plus-128.png */,
-				D9F862C51B1DC3DC00D53EBD /* gplus-128.png */,
-				D9F862C61B1DC3DC00D53EBD /* info_information_user_about_card_button_symbol_icon-128.png */,
-				D9F862C71B1DC3DC00D53EBD /* note.png */,
-				D9F862C81B1DC3DC00D53EBD /* OperationFood.png */,
-				D9F862C91B1DC3DC00D53EBD /* photo-frame-1.png */,
-				D9F862CA1B1DC3DC00D53EBD /* photo-frame.png */,
-				D9F862CB1B1DC3DC00D53EBD /* Plus.png */,
-				D9F862CC1B1DC3DC00D53EBD /* search-icon.png */,
-				D9F862CD1B1DC3DC00D53EBD /* social_facebook_box_blue.png */,
-				D9F862CE1B1DC3DC00D53EBD /* supermarket.png */,
-				D9F862CF1B1DC3DC00D53EBD /* Vk-icon.png */,
-				D9F862D01B1DC3DC00D53EBD /* Martz90-Circle-Google-plus.ico */,
+				D9B7D7EA1B1DE05A00D5787E /* 3.png */,
+				D9B7D7EB1B1DE05A00D5787E /* anim.jpg */,
+				D9B7D7EC1B1DE05A00D5787E /* anim2.png */,
+				D9B7D7ED1B1DE05A00D5787E /* door.png */,
+				D9B7D7EE1B1DE05A00D5787E /* download.jpeg */,
+				D9B7D7EF1B1DE05A00D5787E /* Facebook_icon.101114329_std.jpg */,
+				D9B7D7F01B1DE05A00D5787E /* fridge.png */,
+				D9B7D7F11B1DE05A00D5787E /* fridge2.jpg */,
+				D9B7D7F21B1DE05A00D5787E /* google_plus-128.png */,
+				D9B7D7F31B1DE05A00D5787E /* gplus-128.png */,
+				D9B7D7F41B1DE05A00D5787E /* image.jpg */,
+				D9B7D7F51B1DE05A00D5787E /* image1.jpg */,
+				D9B7D7F61B1DE05A00D5787E /* image22.jpg */,
+				D9B7D7F71B1DE05A00D5787E /* info_information_user_about_card_button_symbol_icon-128.png */,
+				D9B7D7F81B1DE05A00D5787E /* Martz90-Circle-Google-plus.ico */,
+				D9B7D7F91B1DE05A00D5787E /* note.png */,
+				D9B7D7FA1B1DE05A00D5787E /* OperationFood.png */,
+				D9B7D7FB1B1DE05A00D5787E /* photo-frame.png */,
+				D9B7D7FC1B1DE05A00D5787E /* Plus.png */,
+				D9B7D7FD1B1DE05A00D5787E /* search-icon.png */,
+				D9B7D7FE1B1DE05A00D5787E /* social_facebook_box_blue.png */,
+				D9B7D7FF1B1DE05A00D5787E /* supermarket.png */,
+				D9B7D8001B1DE05A00D5787E /* Vk-icon.png */,
 				357A58F11AFFDF3C0094B0AC /* Info.plist */,
 				357A58F21AFFDF3C0094B0AC /* main.m */,
 			);
@@ -580,35 +581,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9F862E41B1DC3DC00D53EBD /* search-icon.png in Resources */,
-				D9F862DC1B1DC3DC00D53EBD /* google_plus-128.png in Resources */,
-				D9F862DF1B1DC3DC00D53EBD /* note.png in Resources */,
+				D9B7D8141B1DE05A00D5787E /* search-icon.png in Resources */,
 				357A59041AFFDF3C0094B0AC /* LaunchScreen.xib in Resources */,
-				D9F862D41B1DC3DC00D53EBD /* fridge2.jpg in Resources */,
-				D9F862DD1B1DC3DC00D53EBD /* gplus-128.png in Resources */,
+				D9B7D80C1B1DE05A00D5787E /* image1.jpg in Resources */,
+				D9B7D8021B1DE05A00D5787E /* anim.jpg in Resources */,
+				D9B7D8041B1DE05A00D5787E /* door.png in Resources */,
+				D9B7D80A1B1DE05A00D5787E /* gplus-128.png in Resources */,
 				357A59011AFFDF3C0094B0AC /* Images.xcassets in Resources */,
-				D9F862E11B1DC3DC00D53EBD /* photo-frame-1.png in Resources */,
-				D9F862D21B1DC3DC00D53EBD /* download.jpeg in Resources */,
-				D9F862E71B1DC3DC00D53EBD /* Vk-icon.png in Resources */,
-				D9F862E01B1DC3DC00D53EBD /* OperationFood.png in Resources */,
+				D9B7D8031B1DE05A00D5787E /* anim2.png in Resources */,
 				D97A062E1B1DBE7A0041A017 /* Main.storyboard in Resources */,
-				D9F862D71B1DC3DC00D53EBD /* image22.jpg in Resources */,
-				D9F862D61B1DC3DC00D53EBD /* image1.jpg in Resources */,
+				D9B7D8171B1DE05A00D5787E /* Vk-icon.png in Resources */,
+				D9B7D80F1B1DE05A00D5787E /* Martz90-Circle-Google-plus.ico in Resources */,
+				D9B7D8011B1DE05A00D5787E /* 3.png in Resources */,
+				D9B7D8081B1DE05A00D5787E /* fridge2.jpg in Resources */,
+				D9B7D8091B1DE05A00D5787E /* google_plus-128.png in Resources */,
+				D9B7D8051B1DE05A00D5787E /* download.jpeg in Resources */,
+				D9B7D80B1B1DE05A00D5787E /* image.jpg in Resources */,
+				D9B7D8121B1DE05A00D5787E /* photo-frame.png in Resources */,
+				D9B7D8131B1DE05A00D5787E /* Plus.png in Resources */,
+				D9B7D8061B1DE05A00D5787E /* Facebook_icon.101114329_std.jpg in Resources */,
+				D9B7D8161B1DE05A00D5787E /* supermarket.png in Resources */,
 				35A9D7101B08F1B7005EF9BF /* GooglePlus.bundle in Resources */,
-				D9F862D81B1DC3DC00D53EBD /* 3.png in Resources */,
-				D9F862E21B1DC3DC00D53EBD /* photo-frame.png in Resources */,
-				D9F862E31B1DC3DC00D53EBD /* Plus.png in Resources */,
-				D9F862D11B1DC3DC00D53EBD /* anim.jpg in Resources */,
-				D9F862E61B1DC3DC00D53EBD /* supermarket.png in Resources */,
-				D9F862D31B1DC3DC00D53EBD /* Facebook_icon.101114329_std.jpg in Resources */,
-				D9F862DA1B1DC3DC00D53EBD /* door.png in Resources */,
-				D9F862D91B1DC3DC00D53EBD /* anim2.png in Resources */,
-				D9F862DE1B1DC3DC00D53EBD /* info_information_user_about_card_button_symbol_icon-128.png in Resources */,
+				D9B7D80E1B1DE05A00D5787E /* info_information_user_about_card_button_symbol_icon-128.png in Resources */,
+				D9B7D8071B1DE05A00D5787E /* fridge.png in Resources */,
 				BFEA48291B13475C008F5BEF /* LoadingView.xib in Resources */,
-				D9F862DB1B1DC3DC00D53EBD /* fridge.png in Resources */,
-				D9F862E51B1DC3DC00D53EBD /* social_facebook_box_blue.png in Resources */,
-				D9F862D51B1DC3DC00D53EBD /* image.jpg in Resources */,
-				D9F862E81B1DC3DC00D53EBD /* Martz90-Circle-Google-plus.ico in Resources */,
+				D9B7D80D1B1DE05A00D5787E /* image22.jpg in Resources */,
+				D9B7D8101B1DE05A00D5787E /* note.png in Resources */,
+				D9B7D8151B1DE05A00D5787E /* social_facebook_box_blue.png in Resources */,
+				D9B7D8111B1DE05A00D5787E /* OperationFood.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -674,8 +674,8 @@
 				F3948BFB1B138AE600D149D0 /* UIButton+ReminderBlock.m in Sources */,
 				D992EE2A1B0A339A0093B3F7 /* Fridge.m in Sources */,
 				D992EE4F1B0B9D220093B3F7 /* Recipe+Cat.m in Sources */,
+				D9F863231B1DDE6B00D53EBD /* RecipesCell.m in Sources */,
 				F3948BF51B1389CE00D149D0 /* ReminderTableViewController.m in Sources */,
-				3597096F1B04FD98005064C0 /* RecipesCell.m in Sources */,
 				D992EE4E1B0B9D220093B3F7 /* Ingredient+Cat.m in Sources */,
 				F3948BEF1B137BDB00D149D0 /* UIAlertView+FridgeBlock.m in Sources */,
 				D992EE331B0A34DA0093B3F7 /* Fridge+Cat.m in Sources */,

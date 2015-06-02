@@ -180,7 +180,6 @@
                         <outlet property="facebookSignInButton" destination="R0q-1n-3nf" id="I69-S6-Qgv"/>
                         <outlet property="googlePlusSignInButton" destination="IxZ-Gj-Gej" id="luf-yG-cUi"/>
                         <outlet property="searchTextField" destination="HGG-sm-Rr1" id="1UG-gG-Xs6"/>
-                        <outlet property="signInButton" destination="IxZ-Gj-Gej" id="dJw-iO-atq"/>
                         <outlet property="signOutButton" destination="3xL-Un-Md0" id="VN0-xW-TWF"/>
                         <outlet property="userInformationButton" destination="off-HA-Eq7" id="o9S-ur-YfY"/>
                     </connections>
@@ -239,7 +238,6 @@
                                     <outlet property="caloriesTotal" destination="O4Z-1N-qwg" id="RUQ-lp-u25"/>
                                     <outlet property="cookingTime" destination="bxG-W3-epe" id="05U-6d-itJ"/>
                                     <outlet property="nameOfDish" destination="dil-cy-xMJ" id="wEt-Ha-Smg"/>
-                                    <outlet property="recipeImageCell" destination="Nkx-da-kkz" id="rKh-DY-Bfb"/>
                                     <outlet property="recipeImageView" destination="Nkx-da-kkz" id="R4r-a2-0dc"/>
                                     <outlet property="weightTotal" destination="apx-cW-bbQ" id="gVe-BD-56E"/>
                                     <segue destination="Oyr-fJ-N5i" kind="show" identifier="SegueToRecipeWithImage" id="7bg-pa-630"/>
@@ -268,7 +266,6 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="selectDataSourceButton" destination="JFK-o1-5WF" id="cy1-yn-3u8"/>
                         <outlet property="tableView" destination="tB7-Bw-lU0" id="0Eh-m2-LAi"/>
                     </connections>
                 </tableViewController>
