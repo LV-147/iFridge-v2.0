@@ -151,6 +151,10 @@
     
 }
 
+- (void)setRecipeImage {
+    
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -170,23 +174,27 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     RecipesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myCell" forIndexPath:indexPath];
     
+    if ([self.dataSource isEqualToString:@"Search results"]) self.urlImageString = [[self.recipes objectAtIndex:indexPath.row] valueForKeyPath:@"recipe.image"];
+    else {
+        Recipe *recipe = [self.coreDataRecipes objectAtIndex:indexPath.row];
+        self.urlImageString = recipe.imageUrl;
+    }
+    __block UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    activityIndicator.center = cell.recipeImageCell.center;
+    activityIndicator.hidesWhenStopped = YES;
+    
+    [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:self.urlImageString]
+                                                         options:SDWebImageDownloaderLowPriority
+                                                        progress:nil
+                                                       completed:^(UIImage* image, NSData* data, NSError *error, BOOL finished) {
+                                                           [activityIndicator removeFromSuperview];
+                                                           [cell.recipeImageCell setBackgroundColor:[UIColor colorWithPatternImage:image]];
+                                                       }];
+    [cell.recipeImageCell addSubview:activityIndicator];
+    [activityIndicator startAnimating];
+    
     if ([self.dataSource isEqualToString:@"Search results"]) {
         //        NSDictionary *recipe = [[NSDictionary alloc] initWithDictionary:[[self.recipes objectAtIndex:indexPath.row] valueForKey:@"recipe"]];
-        self.urlImageString = [[self.recipes objectAtIndex:indexPath.row] valueForKeyPath:@"recipe.image"];
-        __block UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        activityIndicator.center = cell.recipeImageCell.center;
-        activityIndicator.hidesWhenStopped = YES;
-        
-        [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:self.urlImageString]
-                                                             options:SDWebImageDownloaderLowPriority
-                                                            progress:nil
-                                                           completed:^(UIImage* image, NSData* data, NSError *error, BOOL finished) {
-                                                               [activityIndicator removeFromSuperview];
-                                                               [cell.recipeImageCell setBackgroundColor:[UIColor colorWithPatternImage:image]];
-                                                           }];
-        [cell.recipeImageCell addSubview:activityIndicator];
-        [activityIndicator startAnimating];
-        
         cell.nameOfDish.text = self.recipes[indexPath.row][@"recipe"][@"label"];
         
         cell.cookingLevel.text = self.recipes[indexPath.row][@"recipe"][@"level"];

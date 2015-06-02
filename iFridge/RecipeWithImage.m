@@ -60,8 +60,9 @@
 
 - (void) setRecipeForRecipeIndex:(NSInteger)recipeIndexPath
 {
+    DataDownloader *dataDownloader = [[DataDownloader alloc] init];
     if ([[self.availableRecipes objectAtIndex:self.recipeRow] isKindOfClass:[NSDictionary class]]) {
-        DataDownloader *dataDownloader = [[DataDownloader alloc] init];
+        
         [dataDownloader setImageWithURL:[[self.availableRecipes objectAtIndex:recipeIndexPath] valueForKeyPath:@"recipe.image"] usingImageView:self.imageForDish];
         NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:self.recipeRow] valueForKeyPath:@"recipe.ingredientLines"];
         self.recipeIngredients.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
