@@ -34,10 +34,9 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self refreshInterfaceBasedOnSignIn];
     self.navigationController.delegate = self;
-    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+//    [[self navigationController] setNavigationBarHidden:YES animated:YES];
     self.navigationController.navigationBar.tintColor = [UIColor redColor];
     self.navigationController.view.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     self.view.backgroundColor = [UIColor clearColor];
@@ -60,6 +59,13 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
     FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
     loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self refreshInterfaceBasedOnSignIn];
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
@@ -104,10 +110,6 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 
 - (void)disconnect {
     [[GPPSignIn sharedInstance] disconnect];
-}
-
--(void) viewWillAppear:(BOOL)animated {
-    [self refreshInterfaceBasedOnSignIn];
 }
 
 -(void) viewDidAppear:(BOOL)animated{

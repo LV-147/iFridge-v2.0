@@ -32,8 +32,8 @@
 @synthesize query;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.view.backgroundColor =
-    [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     self.tableView.backgroundColor = [UIColor clearColor];
     self.recipeSearchBar.delegate = self;
 
