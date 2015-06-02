@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="h2X-tC-U0S">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="h2X-tC-U0S">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
         <!--Home-->
@@ -83,13 +83,6 @@
                                     <action selector="signOutButton:" destination="GfN-dv-fDj" eventType="touchUpInside" id="n4w-iC-RPc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R0q-1n-3nf" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="16" y="28" width="50" height="50"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="off-HA-Eq7">
                                 <rect key="frame" x="218" y="28" width="50" height="50"/>
                                 <state key="normal" image="info_information_user_about_card_button_symbol_icon-128.png">
@@ -169,6 +162,13 @@
                                     <action selector="goToOurWebSite:" destination="GfN-dv-fDj" eventType="touchUpInside" id="ZtS-aL-251"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R0q-1n-3nf" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="16" y="28" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -177,8 +177,8 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="facebookSignInButton" destination="R0q-1n-3nf" id="LfU-vq-pTu"/>
-                        <outlet property="googlePlusSignInButton" destination="IxZ-Gj-Gej" id="7Av-Tg-wbo"/>
                         <outlet property="searchTextField" destination="HGG-sm-Rr1" id="1UG-gG-Xs6"/>
+                        <outlet property="signInButton" destination="IxZ-Gj-Gej" id="dJw-iO-atq"/>
                         <outlet property="signOutButton" destination="3xL-Un-Md0" id="4Sg-Dd-2pD"/>
                         <outlet property="userInformationButton" destination="off-HA-Eq7" id="fAZ-2L-HeL"/>
                     </connections>
@@ -238,6 +238,7 @@
                                     <outlet property="cookingTime" destination="bxG-W3-epe" id="05U-6d-itJ"/>
                                     <outlet property="nameOfDish" destination="dil-cy-xMJ" id="wEt-Ha-Smg"/>
                                     <outlet property="recipeImageCell" destination="Nkx-da-kkz" id="rKh-DY-Bfb"/>
+                                    <outlet property="recipeImageView" destination="Nkx-da-kkz" id="R4r-a2-0dc"/>
                                     <outlet property="weightTotal" destination="apx-cW-bbQ" id="gVe-BD-56E"/>
                                     <segue destination="Oyr-fJ-N5i" kind="show" identifier="SegueToRecipeWithImage" id="7bg-pa-630"/>
                                 </connections>
