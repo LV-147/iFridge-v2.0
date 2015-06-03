@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/VKFriends.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/VKFriends</TokenIdentifier>
+			<Abstract type="html">Класс предназначен для работы с друзьями пользователя, списками друзей,
+запросами в друзья и тд.</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>
+			
+			<NodeRef refid="6"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/count:</TokenIdentifier>
+			<Abstract type="html">Возвращает список идентификаторов друзей пользователя</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)count:(NSUInteger)count</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>count</Name>
+					<Abstract type="html">количество друзей, которое нужно вернуть</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/count:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/count:fields:</TokenIdentifier>
+			<Abstract type="html">Возвращает список идентификаторов друзей пользователя и расширенную информацию о друзьях пользователя</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)count:(NSUInteger)count fields:(NSString *)fields</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>count</Name>
+					<Abstract type="html">количество друзей, которое нужно вернуть</Abstract>
+				</Parameter><Parameter>
+					<Name>fields</Name>
+					<Abstract type="html">перечисленные через запятую поля анкет, необходимые для получения</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/count:fields:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/count:offset:</TokenIdentifier>
+			<Abstract type="html">Возвращает список идентификаторов друзей пользователя</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)count:(NSUInteger)count offset:(NSUInteger)offset</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>count</Name>
+					<Abstract type="html">количество друзей, которое нужно вернуть</Abstract>
+				</Parameter><Parameter>
+					<Name>offset</Name>
+					<Abstract type="html">смещение, необходимое для выборки определенного подмножества друзей</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/count:offset:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/count:offset:fields:</TokenIdentifier>
+			<Abstract type="html">Возвращает список идентификаторов друзей пользователя или расширенную информацию о друзьях пользователя</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)count:(NSUInteger)count offset:(NSUInteger)offset fields:(NSString *)fields</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>count</Name>
+					<Abstract type="html">количество друзей, которое нужно вернуть</Abstract>
+				</Parameter><Parameter>
+					<Name>offset</Name>
+					<Abstract type="html">смещение, необходимое для выборки определенного подмножества друзей</Abstract>
+				</Parameter><Parameter>
+					<Name>fields</Name>
+					<Abstract type="html">перечисленные через запятую поля анкет, необходимые для получения</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/count:offset:fields:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/count:offset:order:fields:</TokenIdentifier>
+			<Abstract type="html">Возвращает список идентификаторов друзей пользователя или расширенную информацию о друзьях пользователя</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)count:(NSUInteger)count offset:(NSUInteger)offset order:(NSString *)order fields:(NSString *)fields</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>count</Name>
+					<Abstract type="html">количество друзей, которое нужно вернуть</Abstract>
+				</Parameter><Parameter>
+					<Name>offset</Name>
+					<Abstract type="html">смещение, необходимое для выборки определенного подмножества друзей</Abstract>
+				</Parameter><Parameter>
+					<Name>order</Name>
+					<Abstract type="html">порядок, в котором нужно вернуть список друзей.
+Допустимые значения: name - сортировать по имени (работает только при переданном
+параметре fields). hints - сортировать по рейтингу, аналогично тому, как друзья
+сортируются в разделе Мои друзья.
+random - возвращает друзей в случайном порядке.</Abstract>
+				</Parameter><Parameter>
+					<Name>fields</Name>
+					<Abstract type="html">перечисленные через запятую поля анкет, необходимые для получения</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/count:offset:order:fields:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/customOptions:</TokenIdentifier>
+			<Abstract type="html">Возвращает список идентификаторов друзей пользователя или расширенную информацию о друзьях пользователя (при использовании параметра fields).</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)customOptions:(NSDictionary *)options</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>options</Name>
+					<Abstract type="html">словарь ключи-значения ( со списком ключей можно ознакомиться по этой ссылке https://vk.com/dev/friends.get )</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/customOptions:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/online</TokenIdentifier>
+			<Abstract type="html">Возвращает список идентификаторов друзей пользователя, находящихся на сайте</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)online</Declaration>
+			
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/online</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/onlineCount:offset:</TokenIdentifier>
+			<Abstract type="html">Возвращает список идентификаторов друзей пользователя, находящихся на сайте</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)onlineCount:(NSUInteger)count offset:(NSUInteger)offset</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>count</Name>
+					<Abstract type="html">количество друзей онлайн, которое нужно вернуть</Abstract>
+				</Parameter><Parameter>
+					<Name>offset</Name>
+					<Abstract type="html">смещение, необходимое для выборки определенного подмножества друзей онлайн</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/onlineCount:offset:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/onlineCustomOptions:</TokenIdentifier>
+			<Abstract type="html">Возвращает список идентификаторов друзей пользователя, находящихся на сайте</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)onlineCustomOptions:(NSDictionary *)options</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>options</Name>
+					<Abstract type="html">словарь ключи-значения ( со списком ключей можно ознакомиться по этой ссылке https://vk.com/dev/friends.getOnline )</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/onlineCustomOptions:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/mutualWithUserID:</TokenIdentifier>
+			<Abstract type="html">Возвращает список идентификаторов общих друзей между текущим пользователем и указанным пользователем</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)mutualWithUserID:(NSUInteger)userID</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>userID</Name>
+					<Abstract type="html">идентификатор пользователя общих друзей с котором необходимо определить</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/mutualWithUserID:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/mutualWithUserID:count:</TokenIdentifier>
+			<Abstract type="html">Возвращает список идентификаторов общих друзей между текущим пользователем и указанным пользователем</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)mutualWithUserID:(NSUInteger)userID count:(NSUInteger)count</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>userID</Name>
+					<Abstract type="html">идентификатор пользователя общих друзей с котором необходимо определить</Abstract>
+				</Parameter><Parameter>
+					<Name>count</Name>
+					<Abstract type="html">количество общих друзей, которое нужно вернуть</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/mutualWithUserID:count:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/mutualWithUserID:count:offset:</TokenIdentifier>
+			<Abstract type="html">Возвращает список идентификаторов общих друзей между текущим пользователем и указанным пользователем</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)mutualWithUserID:(NSUInteger)userID count:(NSUInteger)count offset:(NSUInteger)offset</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>userID</Name>
+					<Abstract type="html">идентификатор пользователя общих друзей с котором необходимо определить</Abstract>
+				</Parameter><Parameter>
+					<Name>count</Name>
+					<Abstract type="html">количество общих друзей, которое нужно вернуть</Abstract>
+				</Parameter><Parameter>
+					<Name>offset</Name>
+					<Abstract type="html">смещение, необходимое для выборки определенного подмножества общих друзей</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/mutualWithUserID:count:offset:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/mutualCustomOptions:</TokenIdentifier>
+			<Abstract type="html">Возвращает список идентификаторов общих друзей между парой пользователей</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)mutualCustomOptions:(NSDictionary *)options</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>options</Name>
+					<Abstract type="html">словарь ключи-значения</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/mutualCustomOptions:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/recent</TokenIdentifier>
+			<Abstract type="html">Возвращает список идентификаторов недавно добавленных друзей текущего пользователя</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)recent</Declaration>
+			
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/recent</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/recentCount:</TokenIdentifier>
+			<Abstract type="html">Возвращает список идентификаторов недавно добавленных друзей текущего пользователя</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)recentCount:(NSUInteger)count</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>count</Name>
+					<Abstract type="html">максимальное количество недавно добавленных друзей, которое необходимо получить (не более 1000).</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/recentCount:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/inRequestsCount:</TokenIdentifier>
+			<Abstract type="html">Возвращает информацию о полученных заявках на добавление в друзья для текущего пользователя</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)inRequestsCount:(NSUInteger)count</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>count</Name>
+					<Abstract type="html">максимальное количество заявок на добавление в друзья, которые необходимо получить (не более 1000)</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/inRequestsCount:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/inRequestsCount:offset:</TokenIdentifier>
+			<Abstract type="html">Возвращает информацию о полученных заявках на добавление в друзья для текущего пользователя</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)inRequestsCount:(NSUInteger)count offset:(NSUInteger)offset</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>count</Name>
+					<Abstract type="html">максимальное количество заявок на добавление в друзья, которые необходимо получить (не более 1000)</Abstract>
+				</Parameter><Parameter>
+					<Name>offset</Name>
+					<Abstract type="html">смещение, необходимое для выборки определенного подмножества заявок на добавление в друзья</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/inRequestsCount:offset:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/outRequestsCount:</TokenIdentifier>
+			<Abstract type="html">Возвращает информацию об отправленных заявках на добавление в друзья для текущего пользователя</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)outRequestsCount:(NSUInteger)count</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>count</Name>
+					<Abstract type="html">максимальное количество заявок на добавление в друзья, которые необходимо получить (не более 1000)</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/outRequestsCount:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/outRequestsCount:offset:</TokenIdentifier>
+			<Abstract type="html">Возвращает информацию об отправленных заявках на добавление в друзья для текущего пользователя</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)outRequestsCount:(NSUInteger)count offset:(NSUInteger)offset</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>count</Name>
+					<Abstract type="html">максимальное количество заявок на добавление в друзья, которые необходимо получить (не более 1000)</Abstract>
+				</Parameter><Parameter>
+					<Name>offset</Name>
+					<Abstract type="html">смещение, необходимое для выборки определенного подмножества заявок на добавление в друзья</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/outRequestsCount:offset:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/requestsCustomOptions:</TokenIdentifier>
+			<Abstract type="html">Возвращает информацию о полученных или отправленных заявках на добавление в друзья для текущего пользователя</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)requestsCustomOptions:(NSDictionary *)options</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>options</Name>
+					<Abstract type="html">словарь ключи-значения</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/requestsCustomOptions:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/addUserID:</TokenIdentifier>
+			<Abstract type="html">Одобряет или создает заявку на добавление в друзья.</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)addUserID:(NSUInteger)userID</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>userID</Name>
+					<Abstract type="html">идентификатор пользователя</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/addUserID:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/addUserID:text:</TokenIdentifier>
+			<Abstract type="html">Одобряет или создает заявку на добавление в друзья.</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)addUserID:(NSUInteger)userID text:(NSString *)text</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>userID</Name>
+					<Abstract type="html">идентификатор пользователя</Abstract>
+				</Parameter><Parameter>
+					<Name>text</Name>
+					<Abstract type="html">текст сопроводительного сообщения для заявки на добавление в друзья. Максимальная длина сообщения — 500 символов.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/addUserID:text:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/editCustomOptions:</TokenIdentifier>
+			<Abstract type="html">Редактирует списки друзей для выбранного друга</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)editCustomOptions:(NSDictionary *)options</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>options</Name>
+					<Abstract type="html">словарь ключи-значения</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/editCustomOptions:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/removeUserID:</TokenIdentifier>
+			<Abstract type="html">Удаляет пользователя из списка друзей или отклоняет заявку в друзья.</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)removeUserID:(NSUInteger)userID</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>userID</Name>
+					<Abstract type="html">идентификатор пользователя</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/removeUserID:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/lists</TokenIdentifier>
+			<Abstract type="html">Возвращает список меток друзей текущего пользователя</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)lists</Declaration>
+			
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/lists</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/createNewList:</TokenIdentifier>
+			<Abstract type="html">Создает новый список друзей у текущего пользователя</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)createNewList:(NSString *)listName</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>listName</Name>
+					<Abstract type="html">название создаваемого списка друзей</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/createNewList:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/createNewList:friendsIDs:</TokenIdentifier>
+			<Abstract type="html">Создает новый список друзей у текущего пользователя</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)createNewList:(NSString *)listName friendsIDs:(NSArray *)friendsIDs</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>listName</Name>
+					<Abstract type="html">название создаваемого списка друзей</Abstract>
+				</Parameter><Parameter>
+					<Name>friendsIDs</Name>
+					<Abstract type="html">идентификаторы друзей пользователя, которых необходимо включить в создаваемый список. Идентификаторы пользователей, не являющихся друзьями текущего пользователя, игнорируются</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/createNewList:friendsIDs:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/editListCustomOptions:</TokenIdentifier>
+			<Abstract type="html">Редактирует существующий список друзей текущего пользователя</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)editListCustomOptions:(NSDictionary *)options</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>options</Name>
+					<Abstract type="html">словарь ключей-значений, детальная информация по этой ссылке : https://vk.com/dev/friends.editList</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/editListCustomOptions:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/deleteListID:</TokenIdentifier>
+			<Abstract type="html">Удаляет существующий список друзей текущего пользователя</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)deleteListID:(NSUInteger)listID</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>listID</Name>
+					<Abstract type="html">идентификатор списка друзей, который необходимо удалить</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/deleteListID:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/inCurrentApplication</TokenIdentifier>
+			<Abstract type="html">Возвращает список идентификаторов друзей текущего пользователя, которые установили данное приложение</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)inCurrentApplication</Declaration>
+			
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/inCurrentApplication</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/byPhones:fields:</TokenIdentifier>
+			<Abstract type="html">Возвращает список друзей пользователя, у которых завалидированные или указанные в профиле телефонные номера входят в заданный список</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)byPhones:(NSArray *)phones fields:(NSArray *)fields</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>phones</Name>
+					<Abstract type="html">список телефонных номеров в формате MSISDN. Максимальное количество номеров в списке — 1000.</Abstract>
+				</Parameter><Parameter>
+					<Name>fields</Name>
+					<Abstract type="html">перечисленные через запятую поля анкет, необходимые для получения</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/byPhones:fields:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/deleteRequests</TokenIdentifier>
+			<Abstract type="html">Отмечает все входящие заявки на добавление в друзья как просмотренные</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)deleteRequests</Declaration>
+			
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/deleteRequests</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/suggestions</TokenIdentifier>
+			<Abstract type="html">Возвращает список профилей пользователей, которые могут быть друзьями текущего пользователя</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)suggestions</Declaration>
+			
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/suggestions</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/suggestionsCount:</TokenIdentifier>
+			<Abstract type="html">Возвращает список профилей пользователей, которые могут быть друзьями текущего пользователя</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)suggestionsCount:(NSUInteger)count</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>count</Name>
+					<Abstract type="html">количество рекомендаций, которое необходимо вернуть</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/suggestionsCount:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/suggestionsCount:offset:</TokenIdentifier>
+			<Abstract type="html">Возвращает список профилей пользователей, которые могут быть друзьями текущего пользователя</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)suggestionsCount:(NSUInteger)count offset:(NSUInteger)offset</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>count</Name>
+					<Abstract type="html">количество рекомендаций, которое необходимо вернуть</Abstract>
+				</Parameter><Parameter>
+					<Name>offset</Name>
+					<Abstract type="html">смещение, необходимое для выбора определённого подмножества списка</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/suggestionsCount:offset:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/suggestionsCount:offset:fields:</TokenIdentifier>
+			<Abstract type="html">Возвращает список профилей пользователей, которые могут быть друзьями текущего пользователя</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)suggestionsCount:(NSUInteger)count offset:(NSUInteger)offset fields:(NSArray *)fields</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>count</Name>
+					<Abstract type="html">количество рекомендаций, которое необходимо вернуть</Abstract>
+				</Parameter><Parameter>
+					<Name>offset</Name>
+					<Abstract type="html">смещение, необходимое для выбора определённого подмножества списка</Abstract>
+				</Parameter><Parameter>
+					<Name>fields</Name>
+					<Abstract type="html">перечисленные через запятую поля анкет, необходимые для получения</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/suggestionsCount:offset:fields:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/suggestionsCustomOptions:</TokenIdentifier>
+			<Abstract type="html">Возвращает список профилей пользователей, которые могут быть друзьями текущего пользователя</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)suggestionsCustomOptions:(NSDictionary *)options</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>options</Name>
+					<Abstract type="html">словарь ключей-значений, детальная информация по этой ссылке : https://vk.com/dev/friends.getSuggestions</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/suggestionsCustomOptions:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/VKFriends/withUsers:</TokenIdentifier>
+			<Abstract type="html">Возвращает информацию о том, добавлен ли текущий пользователь в друзья у указанных пользователей.</Abstract>
+			<DeclaredIn>VKFriends.h</DeclaredIn>			
+			
+			<Declaration>- (id)withUsers:(NSArray *)userIDs</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>userIDs</Name>
+					<Abstract type="html">Список идентификаторов пользователей, статус дружбы с которыми необходимо получить</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">ответ на запрос в виде Foundation объекта</Abstract></ReturnValue>
+			<Anchor>//api/name/withUsers:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+	</File>
+</Tokens>
