@@ -27,33 +27,27 @@
 
 @implementation RecipesTVC
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
     
-<<<<<<< HEAD
+    //Create number formatter to round NSNumbers
+    NSNumberFormatter *numbFormatter = [[NSNumberFormatter alloc] init];
+    [numbFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    [numbFormatter setMaximumFractionDigits:2];
+    [numbFormatter setRoundingMode: NSNumberFormatterRoundUp];
+    
     if ([self.dataSource isEqualToString:@"Search results"]){
+        [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         [self showLoadingViewInView:self.view];
         
-=======
-    if ([self.dataSource isEqualToString:@"Search results"] && ![self.query  isEqualToString:@""]){
-        [self showLoadingViewInView:self.view];
-        [self performSelector:@selector(hideLoadingViewThreadSave) withObject:nil afterDelay:5];
->>>>>>> 62cb4275d985fd4f218244d100ef7974e112a5c2
     }
     self.navigationController.view.backgroundColor =
     [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     
     self.tableView.backgroundColor = [UIColor clearColor];
-<<<<<<< HEAD
-=======
-    self.tableView.separatorColor = [UIColor clearColor];
-    
-    
-    
-    NSString *myRequest = [[NSString alloc] initWithFormat:@"%@%@%@", @"https://api.edamam.com/search?q=",self.query,@"&app_id=4e8543af&app_key=e1309c8e747bdd4d7363587a4435f5ee&from=0&to=100"];
-    NSLog(@"myLink: %@", myRequest);
->>>>>>> 62cb4275d985fd4f218244d100ef7974e112a5c2
     
     DataDownloader *downloadManager = [[DataDownloader alloc] init];
     [downloadManager downloadRecipesForQuery:self.query than:^{
@@ -61,8 +55,17 @@
             self.recipes = downloadManager.recipes;
             [self.tableView reloadData];
             [self performSelector:@selector(hideLoadingViewThreadSave) withObject:nil afterDelay:0];
+            [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
         });
     }];
+    
+}
+
+-(void) viewWillDisappear:(BOOL)animated {
+    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
+        [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    }
+    [super viewWillDisappear:animated];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -94,7 +97,7 @@
 //    }
 //}
 
--(void) doAnimation:(UITableViewCell*) cell{
+-(void) doAnimation:(RecipesCell*) cell{
     //    [cell.layer setBackgroundColor:[UIColor blackColor].CGColor];
     //    [UIView beginAnimations:nil context:NULL];
     //    [UIView setAnimationDuration:0.1];
@@ -116,6 +119,15 @@
                          //                          UIViewAnimationOptionCurveEaseIn animations:^{
                          //                          } completion:^ (BOOL completed) {}];
                      }];
+    
+    [UIView animateWithDuration:1.0
+                          delay:0.0
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^(void) {
+                         cell.nameOfDish.alpha = 0.7;
+                         cell.nameOfDish.center = CGPointMake(300.0, 100.0);
+                     }
+                     completion:^(BOOL finished){}];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -153,32 +165,48 @@
         return self.coreDataRecipes.count;
 }
 
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     RecipesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myCell" forIndexPath:indexPath];
     
     if ([self.dataSource isEqualToString:@"Search results"]) {
         //        NSDictionary *recipe = [[NSDictionary alloc] initWithDictionary:[[self.recipes objectAtIndex:indexPath.row] valueForKey:@"recipe"]];
+        self.urlImageString = [[self.recipes objectAtIndex:indexPath.row] valueForKeyPath:@"recipe.image"];
+        __block UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        activityIndicator.center = cell.recipeImageCell.center;
+        activityIndicator.hidesWhenStopped = YES;
+        
+        [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:self.urlImageString]
+                                                             options:SDWebImageDownloaderLowPriority
+                                                            progress:nil
+                                                           completed:^(UIImage* image, NSData* data, NSError *error, BOOL finished) {
+                                                               [activityIndicator removeFromSuperview];
+                                                               [cell.recipeImageCell setBackgroundColor:[UIColor colorWithPatternImage:image]];
+                                                           }];
+        [cell.recipeImageCell addSubview:activityIndicator];
+        [activityIndicator startAnimating];
         
         cell.nameOfDish.text = self.recipes[indexPath.row][@"recipe"][@"label"];
         
         cell.cookingLevel.text = self.recipes[indexPath.row][@"recipe"][@"level"];
         
-        cell.cookingTime.text = [NSString stringWithFormat:@"cookingTime: %@", self.recipes[indexPath.row][@"recipe"][@"cookingTime"]];
+        cell.cookingTime.text = [NSString stringWithFormat:@"Cooking time: %@ min", self.recipes[indexPath.row][@"recipe"][@"cookingTime"]];
         
         //    cell.caloriesTotal.text = [NSString stringWithFormat:@"caloriesTotal: %@",  self.recipes[indexPath.row][@"recipe"][@"calories"]];
         //    cell.caloriesTotal.text = [cell.caloriesTotal.text substringToIndex:22];
         
+        
         double str1 = [self.recipes[indexPath.row][@"recipe"][@"calories"] doubleValue];
-        NSString *caloriesTotal = [NSString stringWithFormat:@"calories: %2.3f", str1];
+        NSString *caloriesTotal = [NSString stringWithFormat:@"Calories: %2.2f ccal", str1];
         cell.caloriesTotal.text = [NSString stringWithString:caloriesTotal];
         
         double str4 = [self.recipes[indexPath.row][@"recipe"][@"totalNutrients"][@"SUGAR"][@"quantity"] doubleValue];
         NSString *sugarsTotal = [NSString stringWithFormat:@"sugar: %2.3f", str4];
         cell.sugarsTotal.text = [NSString stringWithString:sugarsTotal];
         
-        
         NSNumber *str3 = self.recipes[indexPath.row][@"recipe"][@"totalWeight"] ;
-        NSString *weightTotal = [NSString stringWithFormat:@"weight: %@", [str3 stringValue]];
+        NSString *weightTotal = [NSString stringWithFormat:@"Weight %@ g", [str3 stringValue]];
         cell.weightTotal.text = [NSString stringWithString:weightTotal];
         
         double str2 = [self.recipes[indexPath.row][@"recipe"][@"totalNutrients"][@"FAT"][@"quantity"] doubleValue];
@@ -207,41 +235,13 @@
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    RecipesCell *cell = (RecipesCell *)sender;
-    NSIndexPath *path = [self.tableView indexPathForCell:cell];
-    
+    RecipesCell *recipeCell = sender;
+    NSInteger recipeIndex = [self.tableView indexPathForCell:recipeCell].row;
     RecipeWithImage *newController = segue.destinationViewController;
-    
     if ([self.dataSource isEqualToString:@"Search results"]) {
-        newController.imageLink = self.recipes[path.row][@"recipe"][@"image"];
-        newController.ingredientsLines = self.recipes[path.row][@"recipe"][@"ingredientLines"];
-        newController.recipeDict = [[self.recipes objectAtIndex:path.row] valueForKey:@"recipe"];
-<<<<<<< HEAD
-        newController.availableRecipes = self.recipes;
-=======
-        newController.avaivableRecipes = self.recipes;
-        newController.name = self.recipes[path.row][@"recipe"][@"label"];
->>>>>>> 62cb4275d985fd4f218244d100ef7974e112a5c2
-    }else{
-        Recipe *recipe = self.coreDataRecipes[path.row];
-        newController.imageLink = recipe.imageUrl;
-        newController.recipe = recipe;
-        newController.name = self.recipes[path.row][@"recipe"][@"label"];
+        [newController initWithRecipeAtIndex: recipeIndex from:self.recipes];
+    }else [newController initWithRecipeAtIndex: recipeIndex from:self.coreDataRecipes];
 
-        
-        NSMutableDictionary *ingredienteLines = [[NSMutableDictionary alloc] init];
-        NSNumber *numb = [[NSNumber alloc] initWithInt:0];
-        for (Ingredient *ingredient in recipe.ingredients) {
-            [ingredienteLines setObject:ingredient.label forKey:numb];
-            int value = [numb intValue];
-            numb = [NSNumber numberWithInt:value + 1];
-        }
-        newController.ingredientsLines = ingredienteLines;
-        newController.availableRecipes = self.coreDataRecipes;
-    }
-    
-    newController.recipeRow = [self.tableView indexPathForCell:cell].row;
-    newController.dataSource = self.dataSource;
 }
 
 @end

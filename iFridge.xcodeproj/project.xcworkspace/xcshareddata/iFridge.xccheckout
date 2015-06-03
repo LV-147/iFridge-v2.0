@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E5AD0C04-80D3-437A-B208-6814FA07CF1C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>iFridge</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>67BA294E0748BD44FA313FE931CE6878994DE86E</key>
+		<string>https://github.com/AlexeyPelekh/iFridge.git</string>
+		<key>9EDB87A06CD6FA972BC5A938730E62084699250B</key>
+		<string>https://github.com/LV-147/iFridge-v2.0.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>iFridge.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>67BA294E0748BD44FA313FE931CE6878994DE86E</key>
+		<string>../../../iFridge</string>
+		<key>9EDB87A06CD6FA972BC5A938730E62084699250B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/LV-147/iFridge-v2.0.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9EDB87A06CD6FA972BC5A938730E62084699250B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>67BA294E0748BD44FA313FE931CE6878994DE86E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iFridge</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9EDB87A06CD6FA972BC5A938730E62084699250B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iFridge-v2.0</string>
+		</dict>
+	</array>
+</dict>
+</plist>
