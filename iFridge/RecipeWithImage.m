@@ -49,6 +49,7 @@
     
     [self setRecipeForRecipeIndex:self.recipeRow];
 
+    
 }
 
 - (void)initWithRecipeAtIndex:(NSInteger)recipeIndex from:(NSArray *)recipes {
