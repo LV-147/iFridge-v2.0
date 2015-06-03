@@ -31,14 +31,29 @@
     [super viewDidLoad];
     
     
+<<<<<<< HEAD
     if ([self.dataSource isEqualToString:@"Search results"]){
         [self showLoadingViewInView:self.view];
         
+=======
+    if ([self.dataSource isEqualToString:@"Search results"] && ![self.query  isEqualToString:@""]){
+        [self showLoadingViewInView:self.view];
+        [self performSelector:@selector(hideLoadingViewThreadSave) withObject:nil afterDelay:5];
+>>>>>>> 62cb4275d985fd4f218244d100ef7974e112a5c2
     }
     self.navigationController.view.backgroundColor =
     [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     
     self.tableView.backgroundColor = [UIColor clearColor];
+<<<<<<< HEAD
+=======
+    self.tableView.separatorColor = [UIColor clearColor];
+    
+    
+    
+    NSString *myRequest = [[NSString alloc] initWithFormat:@"%@%@%@", @"https://api.edamam.com/search?q=",self.query,@"&app_id=4e8543af&app_key=e1309c8e747bdd4d7363587a4435f5ee&from=0&to=100"];
+    NSLog(@"myLink: %@", myRequest);
+>>>>>>> 62cb4275d985fd4f218244d100ef7974e112a5c2
     
     DataDownloader *downloadManager = [[DataDownloader alloc] init];
     [downloadManager downloadRecipesForQuery:self.query than:^{
@@ -201,11 +216,18 @@
         newController.imageLink = self.recipes[path.row][@"recipe"][@"image"];
         newController.ingredientsLines = self.recipes[path.row][@"recipe"][@"ingredientLines"];
         newController.recipeDict = [[self.recipes objectAtIndex:path.row] valueForKey:@"recipe"];
+<<<<<<< HEAD
         newController.availableRecipes = self.recipes;
+=======
+        newController.avaivableRecipes = self.recipes;
+        newController.name = self.recipes[path.row][@"recipe"][@"label"];
+>>>>>>> 62cb4275d985fd4f218244d100ef7974e112a5c2
     }else{
         Recipe *recipe = self.coreDataRecipes[path.row];
         newController.imageLink = recipe.imageUrl;
         newController.recipe = recipe;
+        newController.name = self.recipes[path.row][@"recipe"][@"label"];
+
         
         NSMutableDictionary *ingredienteLines = [[NSMutableDictionary alloc] init];
         NSNumber *numb = [[NSNumber alloc] initWithInt:0];

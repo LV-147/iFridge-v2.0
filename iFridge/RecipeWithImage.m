@@ -27,16 +27,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+<<<<<<< HEAD
     self.title = @"Recipe";
+=======
+    self.nameOfDish.text = self.name;
+>>>>>>> 62cb4275d985fd4f218244d100ef7974e112a5c2
     
     self.navigationController.view.backgroundColor =
     [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     
     self.view.backgroundColor = [UIColor clearColor];
     
+<<<<<<< HEAD
     self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%lu", (self.recipeRow + 1), (unsigned long)self.availableRecipes.count];
     
     [self ifCurrentRecipeSaved];
+=======
+    UISwipeGestureRecognizer * swipeleft=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeleft:)];
+    swipeleft.direction=UISwipeGestureRecognizerDirectionLeft;
+    [self.view addGestureRecognizer:swipeleft];
+    
+    UISwipeGestureRecognizer * swiperight=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swiperight:)];
+    swiperight.direction=UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:swiperight];
+    
+    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%lu", (self.recipeRow + 1), (unsigned long)self.avaivableRecipes.count];
+    
+>>>>>>> 62cb4275d985fd4f218244d100ef7974e112a5c2
     if (self.recipeSaved) {
         self.saveButton.title = @"Delete";
     }else self.saveButton.title = @"Save";
@@ -49,7 +66,10 @@
                                                            
                                                            [self.imageForDish setBackgroundColor:[UIColor colorWithPatternImage:image]];
                                                        }];
+<<<<<<< HEAD
     
+=======
+>>>>>>> 62cb4275d985fd4f218244d100ef7974e112a5c2
 }
 
 
