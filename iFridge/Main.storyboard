@@ -179,6 +179,7 @@
                     <connections>
                         <outlet property="facebookSignInButton" destination="R0q-1n-3nf" id="I69-S6-Qgv"/>
                         <outlet property="googlePlusSignInButton" destination="IxZ-Gj-Gej" id="luf-yG-cUi"/>
+                        <outlet property="recipeSearchBar" destination="nOF-C3-dSd" id="eZX-7A-8iv"/>
                         <outlet property="searchTextField" destination="HGG-sm-Rr1" id="1UG-gG-Xs6"/>
                         <outlet property="signOutButton" destination="3xL-Un-Md0" id="VN0-xW-TWF"/>
                         <outlet property="userInformationButton" destination="off-HA-Eq7" id="o9S-ur-YfY"/>
@@ -196,6 +197,12 @@
                         <rect key="frame" x="0.0" y="-1" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" text="" id="nOF-C3-dSd">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="barTintColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" showsReorderControl="YES" indentationWidth="10" reuseIdentifier="myCell" rowHeight="154" id="OYL-HI-rJD" customClass="RecipesCell">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -266,6 +273,8 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="recipeSearchBar" destination="nOF-C3-dSd" id="jfB-WD-ZhQ"/>
+                        <outlet property="selectDataSourceController" destination="JFK-o1-5WF" id="oWg-Mw-P1v"/>
                         <outlet property="tableView" destination="tB7-Bw-lU0" id="0Eh-m2-LAi"/>
                     </connections>
                 </tableViewController>

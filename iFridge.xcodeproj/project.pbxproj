@@ -70,7 +70,6 @@
 		D9B7D8151B1DE05A00D5787E /* social_facebook_box_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = D9B7D7FE1B1DE05A00D5787E /* social_facebook_box_blue.png */; };
 		D9B7D8161B1DE05A00D5787E /* supermarket.png in Resources */ = {isa = PBXBuildFile; fileRef = D9B7D7FF1B1DE05A00D5787E /* supermarket.png */; };
 		D9B7D8171B1DE05A00D5787E /* Vk-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D9B7D8001B1DE05A00D5787E /* Vk-icon.png */; };
-		D9E1B2171B1880C0002AD39F /* RecipeSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E1B2161B1880C0002AD39F /* RecipeSearchBar.m */; };
 		D9E1B21D1B189877002AD39F /* Reminder.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E1B21C1B189877002AD39F /* Reminder.m */; };
 		D9E1B2201B1898A0002AD39F /* Reminder+Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E1B21F1B1898A0002AD39F /* Reminder+Cat.m */; };
 		D9F862EB1B1DCDDC00D53EBD /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F862EA1B1DCDDC00D53EBD /* SearchViewController.m */; };
@@ -181,8 +180,6 @@
 		D9B7D7FE1B1DE05A00D5787E /* social_facebook_box_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = social_facebook_box_blue.png; path = Images/social_facebook_box_blue.png; sourceTree = SOURCE_ROOT; };
 		D9B7D7FF1B1DE05A00D5787E /* supermarket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = supermarket.png; path = Images/supermarket.png; sourceTree = SOURCE_ROOT; };
 		D9B7D8001B1DE05A00D5787E /* Vk-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Vk-icon.png"; path = "Images/Vk-icon.png"; sourceTree = SOURCE_ROOT; };
-		D9E1B2151B1880C0002AD39F /* RecipeSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeSearchBar.h; sourceTree = "<group>"; };
-		D9E1B2161B1880C0002AD39F /* RecipeSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeSearchBar.m; sourceTree = "<group>"; };
 		D9E1B21B1B189877002AD39F /* Reminder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reminder.h; sourceTree = "<group>"; };
 		D9E1B21C1B189877002AD39F /* Reminder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reminder.m; sourceTree = "<group>"; };
 		D9E1B21E1B1898A0002AD39F /* Reminder+Cat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Reminder+Cat.h"; sourceTree = "<group>"; };
@@ -279,8 +276,6 @@
 		353567C31B131CAD00B7E0FD /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				D9E1B2151B1880C0002AD39F /* RecipeSearchBar.h */,
-				D9E1B2161B1880C0002AD39F /* RecipeSearchBar.m */,
 				D9F862E91B1DCDC800D53EBD /* SearchViewController.h */,
 				D9F862EA1B1DCDDC00D53EBD /* SearchViewController.m */,
 			);
@@ -681,7 +676,6 @@
 				D992EE331B0A34DA0093B3F7 /* Fridge+Cat.m in Sources */,
 				F3948BEC1B137BB300D149D0 /* UIButton+FridgeBlock.m in Sources */,
 				359709671B04E9D3005064C0 /* RecipesTVC.m in Sources */,
-				D9E1B2171B1880C0002AD39F /* RecipeSearchBar.m in Sources */,
 				F3948BE91B137AE500D149D0 /* FridgeTableViewController.m in Sources */,
 				357A58F31AFFDF3C0094B0AC /* main.m in Sources */,
 				BF9779961B132FA000DDD1ED /* PopAnimator.m in Sources */,

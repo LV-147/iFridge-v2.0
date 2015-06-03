@@ -20,18 +20,16 @@
 
 static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1kpc.apps.googleusercontent.com";
 
-@interface SearchViewController () <UINavigationControllerDelegate>
+@interface SearchViewController () <UINavigationControllerDelegate, UISearchBarDelegate>
 @property (nonatomic, strong) NSString* googlePlusUserInfromation;
 @property (nonatomic, strong) NSString* facebookUserInfromation;
 @property (strong, nonatomic) IBOutlet UIButton *signOutButton;
 @property (strong, nonatomic) IBOutlet UIButton *userInformationButton;
+@property (weak, nonatomic) IBOutlet UISearchBar *recipeSearchBar;
 
 @end
 
 @implementation SearchViewController
-
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self refreshInterfaceBasedOnSignIn];
@@ -124,6 +122,15 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
     [self refreshInterfaceBasedOnSignIn];
 }
 
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    
+}
 
 - (IBAction)searchButton:(id)sender {
     

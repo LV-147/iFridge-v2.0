@@ -15,5 +15,4 @@
 @property (strong, nonatomic) NSString *query;
 @property (strong, nonatomic) NSString *dataSource;
 
-- (void)searchForRecipesForQuery:(NSString *)query;
 @end

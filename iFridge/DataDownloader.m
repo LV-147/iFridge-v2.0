@@ -17,7 +17,7 @@
 @implementation DataDownloader
 
 + (void)downloadRecipesForQuery:(NSString *)query
-                           than:(void(^)(NSArray *recipes))handler
+          withCompletionHandler:(void(^)(NSArray *recipes))handler
 {
     query = [query stringByReplacingOccurrencesOfString: @" " withString:@"+"];
     if (!query) return;
@@ -26,6 +26,7 @@
 
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager.operationQueue cancelAllOperations];
     [manager GET:myRequest
       parameters:nil
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
