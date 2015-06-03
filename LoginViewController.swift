@@ -2,7 +2,7 @@
 //  LoginViewController.swift
 //  iFridge
 //
-//  Created by apple on 03.07.15.
+//  Created by apple on 03.06.15.
 //  Copyright (c) 2015 Alexey Pelekh. All rights reserved.
 //
 
@@ -35,7 +35,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // 1.
-       self.view.backgroundColor = UIColor(patternImage: UIImage(named: "image.jpg")!)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "image.jpg")!)
         let hasLogin = NSUserDefaults.standardUserDefaults().boolForKey("hasLoginKey")
         
         // 2.
@@ -66,10 +66,10 @@ class LoginViewController: UIViewController {
         }
         
         // 3.
-        let storedUsername : NSString? = NSUserDefaults.standardUserDefaults().valueForKey("username") as? NSString
-        self.usernameTextField.text = storedUsername as? String
+        let storedUsername : String? = NSUserDefaults.standardUserDefaults().valueForKey("username") as? String
+        self.usernameTextField.text  = storedUsername
         
-    
+        
         
         if context.canEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, error: &error) {
             self.touchIDButton.hidden = false
@@ -218,7 +218,7 @@ class LoginViewController: UIViewController {
                 }
                 
                 // 3.
-                var foundUsername = loginDict["username"] as! String
+                var foundUsername = loginDict["uas!rname"] as! String
                 var foundPassword = loginDict["password"] as! String
                 
                 if self.checkLogin(foundUsername, password: foundPassword) {

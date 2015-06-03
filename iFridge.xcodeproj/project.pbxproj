@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1802C40D1B457E6600713E41 /* OnePasswordExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1802C40C1B457E6600713E41 /* OnePasswordExtension.m */; };
 		1802C4101B457E7C00713E41 /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1802C40F1B457E7C00713E41 /* KeychainWrapper.m */; };
+		1809DBA71B1EF47400925E25 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1809DBA61B1EF47400925E25 /* LoginViewController.swift */; };
+		1809DBA91B1EF48B00925E25 /* MasterViewControlller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1809DBA81B1EF48B00925E25 /* MasterViewControlller.swift */; };
 		3508A0821B3AC2E7005F4D30 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3508A0801B3AC2E7005F4D30 /* Bolts.framework */; };
 		3508A0831B3AC2E7005F4D30 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3508A0811B3AC2E7005F4D30 /* Parse.framework */; };
 		3508A0851B3AC2FC005F4D30 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3508A0841B3AC2FC005F4D30 /* Social.framework */; };
@@ -97,6 +99,8 @@
 		1802C40C1B457E6600713E41 /* OnePasswordExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnePasswordExtension.m; sourceTree = "<group>"; };
 		1802C40E1B457E7C00713E41 /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainWrapper.h; sourceTree = "<group>"; };
 		1802C40F1B457E7C00713E41 /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
+		1809DBA61B1EF47400925E25 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1809DBA81B1EF48B00925E25 /* MasterViewControlller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewControlller.swift; sourceTree = "<group>"; };
 		3508A0801B3AC2E7005F4D30 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		3508A0811B3AC2E7005F4D30 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		3508A0841B3AC2FC005F4D30 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -262,6 +266,8 @@
 				1802C40C1B457E6600713E41 /* OnePasswordExtension.m */,
 				1802C40E1B457E7C00713E41 /* KeychainWrapper.h */,
 				1802C40F1B457E7C00713E41 /* KeychainWrapper.m */,
+				1809DBA61B1EF47400925E25 /* LoginViewController.swift */,
+				1809DBA81B1EF48B00925E25 /* MasterViewControlller.swift */,
 			);
 			name = Swift;
 			sourceTree = "<group>";
@@ -697,6 +703,7 @@
 				35AFA3461B1C5FC1006013AC /* PushAnimator.m in Sources */,
 				D9267F591B3AF16E00A551BA /* Recipe+Cat.m in Sources */,
 				BFEA48281B13475C008F5BEF /* LoadingView.m in Sources */,
+				1809DBA71B1EF47400925E25 /* LoginViewController.swift in Sources */,
 				D984A5D01B3EA4FF00F83CB4 /* RecipesTVC.m in Sources */,
 				BFEA482A1B13475C008F5BEF /* UIViewController+LoadingView.m in Sources */,
 				3584A2301B19F99800D21AF8 /* iCarousel.m in Sources */,
@@ -723,6 +730,7 @@
 				BFF69BBD1B2860500085736A /* SortingStringClass.swift in Sources */,
 				357A58F31AFFDF3C0094B0AC /* main.m in Sources */,
 				D926FC231B2B3FC1003FB68C /* Ingredient.m in Sources */,
+				1809DBA91B1EF48B00925E25 /* MasterViewControlller.swift in Sources */,
 				3584A22D1B19E00400D21AF8 /* RegExCategories.m in Sources */,
 				3559BA821B064EB30040DCB6 /* SearchViewController.m in Sources */,
 				35AFA3451B1C5FC1006013AC /* PopAnimator.m in Sources */,
