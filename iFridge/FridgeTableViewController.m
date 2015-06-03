@@ -10,9 +10,14 @@
 #import "UIButton+FridgeBlock.h"
 #import "UIAlertView+FridgeBlock.h"
 
+@class UITableView;
+
+
 @interface FridgeTableViewController ()
 
 @property (strong, nonatomic) NSMutableArray *toaddItems;
+
+
 
 @end
 
@@ -29,19 +34,21 @@
 #pragma mark - View life cycle
 
 - (void)viewDidLoad {
-    
+     [super viewDidLoad];
+      [[self navigationController] setNavigationBarHidden:NO animated:YES];
     self.title = @"My Fridge";
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureRecognized:)];
     [self.tableView addGestureRecognizer:longPress];
     
-    self.tableView.backgroundColor = [UIColor whiteColor];
-    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"fridge"]];
-    self.tableView.backgroundView.alpha = 0.5f;
+
+    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"image22.jpg"]];
+
+    self.tableView.backgroundView.alpha = 0.2f;
     
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
-    
-    [super viewDidLoad];
+   
     
 }
 
@@ -50,6 +57,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.toaddItems count];
 }
+
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *kIdentifier = @"Cell Identifier";
@@ -61,17 +70,7 @@
     cell.backgroundColor = [UIColor clearColor];
     cell.textLabel.text = object;
     
-    /*    // Add a button as accessory view that says 'Add Reminder'.
-     UIButton *addReminderButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-     addReminderButton.frame = CGRectMake(0.0, 0.0, 100.0, 30.0);
-     [addReminderButton setTitle:@"Add Reminder" forState:UIControlStateNormal];
-     
-     [addReminderButton addActionblock:^(UIButton *sender) {
-     // Add the reminder to the store
-     } forControlEvents:UIControlEventTouchUpInside];
-     
-     cell.accessoryView = addReminderButton;
-     */
+
     return cell;
 }
 
