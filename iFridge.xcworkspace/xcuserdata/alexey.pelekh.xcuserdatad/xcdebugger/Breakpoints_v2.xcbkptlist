@@ -42,6 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iFridge/RecipesTVC.m"
+<<<<<<< HEAD
             timestampString = "454850567.860607"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -219,10 +220,14 @@
             continueAfterRunningActions = "No"
             filePath = "iFridge/DataDownloader.m"
             timestampString = "454848632.860709"
+=======
+            timestampString = "454258235.816452"
+>>>>>>> 08ecd23b9da1d61cf3648fc291dfb732a0d47cc6
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "43"
             endingLineNumber = "43"
+<<<<<<< HEAD
             landmarkName = "-downloadRecipesForQuery:than:"
             landmarkType = "5">
          </BreakpointContent>
@@ -301,5 +306,11 @@
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
+=======
+            landmarkName = "-viewDidLoad"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+>>>>>>> 08ecd23b9da1d61cf3648fc291dfb732a0d47cc6
    </Breakpoints>
 </Bucket>

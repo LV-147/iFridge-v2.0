@@ -7,6 +7,7 @@
 //
 
 #import "PopAnimator.h"
+#import "SearchViewController.h"
 
 @implementation PopAnimator
 

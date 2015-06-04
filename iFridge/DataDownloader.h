@@ -7,17 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <SDWebImage/SDWebImageDownloader.h>
-#import <SDWebImage/SDWebImageManager.h>
+#import <UIKit/UIKit.h>
 
 @interface DataDownloader : NSObject
 
-@property (strong, nonatomic) NSArray *recipes;
++ (void)downloadRecipesForQuery:(NSString *)query
+          withCompletionHandler:(void(^)(NSArray *recipes))handler;
 
-- (void)downloadRecipesForQuery:(NSString *)query
-                           than:(void(^)())handler;
-
-- (void)setImageWithURL:(NSString *)imageLink
-         usingImageView:(UIImageView *) imageView;
-
++ (void)setRecipeImageWithURL:(NSString *)imageLink usingImageView:(UIImageView *)imageView;
 @end
