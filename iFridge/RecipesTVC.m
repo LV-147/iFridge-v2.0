@@ -45,8 +45,6 @@
         [self getRecipesFromCoreDataForQuery:nil];
     }
     self.recipeSearchBar.text = self.query;
-    
-    self.searchController = [[UISearchController alloc] initWithSearchResultsController:<#(UIViewController *)#>]
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
