@@ -18,9 +18,10 @@
 @import CoreGraphics;
 
 
-@interface RecipesTVC ()  {
-    BOOL isSearching; //for dynamic search feature
-}
+@interface RecipesTVC () <UISearchBarDelegate, UISearchControllerDelegate>
+//dealing with search bar
+@property (nonatomic, strong) UISearchController *searchController;
+
 @property (weak, nonatomic) IBOutlet UISearchBar *recipeSearchBar;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *selectDataSourceController;
 
@@ -31,19 +32,10 @@
 @synthesize query;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //dealing with search bar
-    [self.tableView setTableHeaderView:self.recipeSearchBar];
-    //
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     self.tableView.backgroundColor = [UIColor clearColor];
     self.recipeSearchBar.delegate = self;
-
-    //Create number formatter to round NSNumbers
-    NSNumberFormatter *numbFormatter = [[NSNumberFormatter alloc] init];
-    [numbFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    [numbFormatter setMaximumFractionDigits:2];
-    [numbFormatter setRoundingMode: NSNumberFormatterRoundUp];
     
     if ([self.dataSource isEqualToString:@"Search results"]){
         [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
@@ -53,6 +45,8 @@
         [self getRecipesFromCoreDataForQuery:nil];
     }
     self.recipeSearchBar.text = self.query;
+    
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:<#(UIViewController *)#>]
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -91,6 +85,7 @@
                                    delegate:self
                           cancelButtonTitle:@"Ok!"
                           otherButtonTitles:nil] show];
+        [self.tableView reloadData];
     }else
     {
         self.selectDataSourceController.selectedSegmentIndex = 0;
@@ -109,6 +104,7 @@
 
 - (void)getRecipesFromCoreDataForQuery:(NSString *)newQuery
 {
+    newQuery = nil;
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Recipe"];
     if (newQuery)
         request.predicate = [NSPredicate predicateWithFormat:@"label = %@", newQuery];
@@ -217,6 +213,10 @@
     [cell.recipeImageView addSubview:activityIndicator];
     [activityIndicator startAnimating];
     
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    [numberFormatter setMaximumFractionDigits:0];
+    
     if ([self.dataSource isEqualToString:@"Search results"]) {
         //        NSDictionary *recipe = [[NSDictionary alloc] initWithDictionary:[[self.recipes objectAtIndex:indexPath.row] valueForKey:@"recipe"]];
 
@@ -227,13 +227,12 @@
         //    cell.caloriesTotal.text = [NSString stringWithFormat:@"caloriesTotal: %@",  self.recipes[indexPath.row][@"recipe"][@"calories"]];
         //    cell.caloriesTotal.text = [cell.caloriesTotal.text substringToIndex:22];
         
-        
-        double str1 = [self.recipes[indexPath.row][@"recipe"][@"calories"] doubleValue];
-        NSString *caloriesTotal = [NSString stringWithFormat:@"calories: %2.3f", str1];
+        NSNumber *str1 = self.recipes[indexPath.row][@"recipe"][@"calories"];
+        NSString *caloriesTotal = [NSString stringWithFormat:@"calories: %@", [numberFormatter stringFromNumber:str1]];
         cell.caloriesTotal.text = [NSString stringWithString:caloriesTotal];
         
-        NSNumber *str3 = self.recipes[indexPath.row][@"recipe"][@"totalWeight"] ;
-        NSString *weightTotal = [NSString stringWithFormat:@"weight: %@", [str3 stringValue]];
+        NSNumber *str3 = self.recipes[indexPath.row][@"recipe"][@"totalWeight"];
+        NSString *weightTotal = [NSString stringWithFormat:@"weight: %@ g", [numberFormatter stringFromNumber:str3]];
         cell.weightTotal.text = [NSString stringWithString:weightTotal];
         
         [self doAnimation:cell];
@@ -244,9 +243,9 @@
         
         Recipe *recipe = self.recipes[indexPath.row];
         cell.nameOfDish.text = recipe.label;
-        cell.cookingTime.text = [NSString stringWithFormat:@"Cooking time: %@ s", recipe.cookingTime];
-        cell.caloriesTotal.text = [NSString stringWithFormat:@"Total calories %@", recipe.calories];
-        cell.weightTotal.text = [NSString stringWithFormat:@"Total weight: %@ g", recipe.weight];
+        cell.cookingTime.text = [NSString stringWithFormat:@"Cooking time: %@ s", [numberFormatter stringFromNumber:recipe.cookingTime]];
+        cell.caloriesTotal.text = [NSString stringWithFormat:@"Total calories %@", [numberFormatter stringFromNumber:recipe.calories]];
+        cell.weightTotal.text = [NSString stringWithFormat:@"Total weight: %@ g", [numberFormatter stringFromNumber:recipe.weight]];
         
         return cell;
     }

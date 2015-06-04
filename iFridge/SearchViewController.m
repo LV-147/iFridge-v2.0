@@ -25,7 +25,6 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 @property (nonatomic, strong) NSString* facebookUserInfromation;
 @property (strong, nonatomic) IBOutlet UIButton *signOutButton;
 @property (strong, nonatomic) IBOutlet UIButton *userInformationButton;
-@property (weak, nonatomic) IBOutlet UISearchBar *recipeSearchBar;
 
 @end
 
@@ -34,7 +33,6 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
     [super viewDidLoad];
     [self refreshInterfaceBasedOnSignIn];
     self.navigationController.delegate = self;
-//    [[self navigationController] setNavigationBarHidden:YES animated:YES];
     self.navigationController.navigationBar.tintColor = [UIColor redColor];
     self.navigationController.view.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     self.view.backgroundColor = [UIColor clearColor];
@@ -122,16 +120,6 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
     [self refreshInterfaceBasedOnSignIn];
 }
 
-- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
-{
-    
-}
-
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-{
-    
-}
-
 - (IBAction)searchButton:(id)sender {
     
     UIAlertView *noText = [[UIAlertView alloc] initWithTitle:@"Table is empty because of empty request!" message:@"Please, enter some text in Search field!" delegate:self cancelButtonTitle:@"Ok!" otherButtonTitles:nil];
@@ -154,7 +142,6 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 }
 
 - (IBAction)signOutButton:(id)sender {
-    
     
     if ([[GPPSignIn sharedInstance] authentication] || [self isSessionOpen]) {
         [[GPPSignIn sharedInstance] signOut];
