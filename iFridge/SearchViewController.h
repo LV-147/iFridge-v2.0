@@ -10,6 +10,8 @@
 #import "RecipesTVC.h"
 #import <GooglePlus/GPPSignIn.h>
 
+
+
 @class GPPSignInButton;
 
 
@@ -19,6 +21,7 @@
 @property (retain, nonatomic) IBOutlet GPPSignInButton *googlePlusSignInButton;
 @property (strong, nonatomic) IBOutlet UIButton *facebookSignInButton;
 
+
 - (IBAction)searchButton:(id)sender;
 - (IBAction)signOutButton:(id)sender;
 - (IBAction)getUserInformationButton:(id)sender;
@@ -27,6 +30,8 @@
 - (IBAction)goToGooglePlusGroup:(id)sender;
 - (IBAction)goToOurWebSite:(id)sender;
 - (IBAction)writeAnEmailButton:(id)sender;
+- (IBAction)goToTwiter:(id)sender;
+
 
 
 

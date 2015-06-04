@@ -35,21 +35,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+      NSLog(@"did");
     
     self.title = @"Recipe";
-    
-    self.navigationController.view.backgroundColor =
-    [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
-    
+
     self.view.backgroundColor = [UIColor clearColor];
     
     self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%lu", (self.recipeRow + 1), (unsigned long)self.availableRecipes.count];
-    
+  
     [self ifCurrentRecipeSaved];
     
     [self setRecipeForRecipeIndex:self.recipeRow];
 
 }
+
+- (void)viewWillAppear:(BOOL)animated{
+      NSLog(@"will");
+    self.view.backgroundColor =
+    [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
+}
+
 
 - (void)initWithRecipeAtIndex:(NSInteger)recipeIndex from:(NSArray *)recipes {
     self.availableRecipes = recipes;
@@ -142,7 +147,16 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     ReminderTableViewController *newController = segue.destinationViewController;
-    newController.ingredientsForReminder = [[self.availableRecipes objectAtIndex:self.recipeRow] valueForKeyPath:@"recipe.ingredientLines"];
+    if ([[self.availableRecipes objectAtIndex:self.recipeRow] isKindOfClass:[NSDictionary class]]) {
+        newController.ingredientsForReminder = [[self.availableRecipes objectAtIndex:self.recipeRow] valueForKeyPath:@"recipe.ingredientLines"];
+    } else {
+        Recipe *currRecipe = [self.availableRecipes objectAtIndex:self.recipeRow];
+        NSMutableArray *ingredient = [[NSMutableArray alloc] init];
+        for (Ingredient *ingr in currRecipe.ingredients) {
+            [ingredient addObject:ingr.label];
+        }
+        newController.ingredientsForReminder = [NSArray arrayWithArray:ingredient];
+    }
     
 }
 
