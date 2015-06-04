@@ -14,7 +14,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="3.png" translatesAutoresizingMaskIntoConstraints="NO" id="McH-VQ-9es">
-                    <rect key="frame" x="37" y="184" width="300" height="300"/>
+                    <rect key="frame" x="37" y="124" width="300" height="300"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="300" id="Als-mW-thy"/>
                         <constraint firstAttribute="height" constant="300" id="oBh-Sd-kxX"/>

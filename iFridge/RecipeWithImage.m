@@ -12,15 +12,8 @@
 #import "UIViewController+Context.h"
 #import "AppDelegate.h"
 #import "Ingredient.h"
-#import "DataDownloader.h"
-<<<<<<< HEAD
-#import "ReminderTableViewController.h"
-#import <GooglePlus/GPPShare.h>
-#import <FacebookSDK/FacebookSDK.h>
-=======
 
 
->>>>>>> 08ecd23b9da1d61cf3648fc291dfb732a0d47cc6
 
 @interface RecipeWithImage ()
 
@@ -29,15 +22,10 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageForDish;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 @property (strong, nonatomic) IBOutlet UILabel *recipeCountIndicator;
-<<<<<<< HEAD
-@property (nonatomic) BOOL recipeSaved;
-=======
 
->>>>>>> 08ecd23b9da1d61cf3648fc291dfb732a0d47cc6
+@property (nonatomic) BOOL recipeSaved;
 @property (strong, nonatomic) NSArray *availableRecipes;
 @property (nonatomic, assign) NSInteger recipeRow;
-@property (nonatomic, strong) NSDictionary *currentRecipeDict;
-@property (strong, nonatomic) Recipe *currentRecipe;
 
 @end
 
@@ -46,15 +34,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    FBLikeControl *like = [[FBLikeControl alloc] init];
-    like.frame = CGRectMake(16, 589, like.frame.size.width, like.frame.size.height);
-    like.objectID = @"https://www.facebook.com/groups/1599931206891002";
-    like.likeControlStyle = FBLikeControlStyleButton;
-    like.objectType = FBLikeControlObjectTypePage;
-    [self.view addSubview:like];
-    
     self.title = @"Recipe";
-
+    
+    self.navigationController.view.backgroundColor =
+    [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
+    
     self.view.backgroundColor = [UIColor clearColor];
     
     self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%lu", (self.recipeRow + 1), (unsigned long)self.availableRecipes.count];
@@ -63,15 +47,6 @@
     
     [self setRecipeForRecipeIndex:self.recipeRow];
     
-<<<<<<< HEAD
-}
-- (void) viewWillAppear:(BOOL)animated {
-   self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
-
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
-    
-=======
->>>>>>> 08ecd23b9da1d61cf3648fc291dfb732a0d47cc6
 }
 
 - (void)initWithRecipeAtIndex:(NSInteger)recipeIndex from:(NSArray *)recipes {
@@ -79,33 +54,30 @@
     self.recipeRow = recipeIndex;
 }
 
-- (IBAction)googlePlusShareButton:(id)sender {
-    id<GPPNativeShareBuilder> shareBuilder = [[GPPShare sharedInstance] nativeShareDialog];
-    [shareBuilder open];
+- (void)setRecipeImageWithLink:(NSString *)imageLink {
+//    if ([imageLink isMemberOfClass:[NSString class]]) {
+    [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:imageLink]
+                                                         options:SDWebImageDownloaderLowPriority
+                                                        progress:nil
+                                                       completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
+                                                           
+                                                           [self.imageForDish setBackgroundColor:[UIColor colorWithPatternImage:image]];
+                                                       }];
+//    }
 }
 
 - (void) setRecipeForRecipeIndex:(NSInteger)recipeIndexPath
 {
-<<<<<<< HEAD
-    DataDownloader *dataDownloader = [[DataDownloader alloc] init];
     if ([self.availableRecipes.firstObject isKindOfClass:[NSDictionary class]]) {
-        [dataDownloader setImageWithURL:[[self.availableRecipes objectAtIndex:recipeIndexPath] valueForKeyPath:@"recipe.image"] usingImageView:self.imageForDish];
-=======
-    if ([[self.availableRecipes objectAtIndex:self.recipeRow] isKindOfClass:[NSDictionary class]]) {
-        [DataDownloader setRecipeImageWithURL:[[self.availableRecipes objectAtIndex:self.recipeRow] valueForKeyPath:@"recipe.image"] usingImageView:self.imageForDish];
->>>>>>> 08ecd23b9da1d61cf3648fc291dfb732a0d47cc6
+        [self setRecipeImageWithLink:[[self.availableRecipes objectAtIndex:recipeIndexPath] valueForKeyPath:@"recipe.image"]];
         NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:self.recipeRow] valueForKeyPath:@"recipe.ingredientLines"];
-        
-        self.recipeIngredients.text = @"Ingredient needed:";
-        for(NSString* str in ingredientLines){
-            self.recipeIngredients.text = [NSString stringWithFormat:@"%@ \n\t \"%@\"", self.recipeIngredients.text, str];
-        }
-        
+        self.recipeIngredients.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
         self.nameOfDish.text = [[self.availableRecipes objectAtIndex:recipeIndexPath] valueForKeyPath:@"recipe.label"];
         
-    }else if ([[self.availableRecipes objectAtIndex:self.recipeRow] isKindOfClass:[Recipe class]]){
+    }else if ([self.availableRecipes.firstObject isKindOfClass:[Recipe class]]){
         Recipe *currentRecipe = [self.availableRecipes objectAtIndex:recipeIndexPath];
-        [DataDownloader setRecipeImageWithURL:currentRecipe.imageUrl usingImageView:self.imageForDish];
+        
+        [self setRecipeImageWithLink:currentRecipe.imageUrl];
         self.nameOfDish.text = currentRecipe.label;
         
         NSMutableDictionary *ingredientLines = [[NSMutableDictionary alloc] init];
@@ -121,35 +93,30 @@
 
 - (IBAction)saveRecipeToCoreData:(UIBarButtonItem *)sender {
     
-    NSMutableArray *availibleRecipes = [[NSMutableArray alloc] initWithArray:self.availableRecipes];
-    
-    if (![self ifCurrentRecipeSaved]){
-        NSDictionary *recipeDict = [self.availableRecipes objectAtIndex:self.recipeRow ];
-        Recipe *currentRecipe = [Recipe createRecipeWithInfo:recipeDict inManagedObiectContext:self.currentContext];
-        [availibleRecipes replaceObjectAtIndex:self.recipeRow withObject:currentRecipe];
+    if (!self.recipeSaved){
+        NSDictionary *recipeDict = [[self.availableRecipes objectAtIndex:self.recipeRow ] valueForKey:@"recipe"];
+        [Recipe createRecipeWithInfo:recipeDict inManagedObiectContext:self.currentContext];
+        self.recipeSaved = YES;
         sender.title = @"Delete";
         
     }else{
-        NSDictionary *currentRecipeDict = [Recipe deleteRecipe:[self.availableRecipes objectAtIndex:self.recipeRow] fromManagedObjectContext:self.currentContext];
-        [availibleRecipes replaceObjectAtIndex:self.recipeRow withObject:currentRecipeDict];
+        NSMutableArray *availibleRecipes = [[NSMutableArray alloc] initWithArray:self.availableRecipes];
+        [availibleRecipes removeObjectAtIndex:self.recipeRow];
+        self.availableRecipes = availibleRecipes;
+        [Recipe deleteRecipe:[self.availableRecipes objectAtIndex:self.recipeRow] fromManagedObjectContext:self.currentContext];
+        self.recipeSaved = NO;
         sender.title = @"Save";
     }
-    self.availableRecipes = availibleRecipes;
     
 }
 
-<<<<<<< HEAD
-
 - (void)ifCurrentRecipeSaved{
-=======
-- (BOOL)ifCurrentRecipeSaved{
->>>>>>> 08ecd23b9da1d61cf3648fc291dfb732a0d47cc6
     //checking if current recipe is alredy in the data base
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Recipe"];
     NSString *predicateString = [[NSString alloc] init];
-    if ([[self.availableRecipes objectAtIndex:self.recipeRow] isKindOfClass:[NSDictionary class]]) {
+    if ([self.availableRecipes.firstObject isKindOfClass:[NSDictionary class]]) {
         predicateString = [[self.availableRecipes objectAtIndex:self.recipeRow] valueForKeyPath:@"recipe.label"];
-    }else if ([[self.availableRecipes objectAtIndex:self.recipeRow] isKindOfClass:[Recipe class]]) {
+    }else if ([self.availableRecipes.firstObject isKindOfClass:[Recipe class]]) {
         Recipe *currentRecipe = [self.availableRecipes objectAtIndex:self.recipeRow];
         predicateString = currentRecipe.label;
     }
@@ -159,10 +126,10 @@
     NSArray *mathes = [self.currentContext executeFetchRequest:request error:&error];
     if (mathes && !error && mathes.count == 1) {
         self.saveButton.title = @"Delete";
-        return YES;
+        self.recipeSaved = YES;
     }else{
         self.saveButton.title = @"Save";
-        return NO;
+        self.recipeSaved = NO;
     }
 }
 
@@ -180,25 +147,5 @@
     [self setRecipeForRecipeIndex:self.recipeRow];
     [self ifCurrentRecipeSaved];
 }
-<<<<<<< HEAD
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    ReminderTableViewController *newController = segue.destinationViewController;
-    if ([[self.availableRecipes objectAtIndex:self.recipeRow] isKindOfClass:[NSDictionary class]]) {
-        newController.ingredientsForReminder = [[self.availableRecipes objectAtIndex:self.recipeRow] valueForKeyPath:@"recipe.ingredientLines"];
-        newController.nameOfEventForCalendar = [[self.availableRecipes objectAtIndex:self.recipeRow] valueForKeyPath:@"recipe.label"];
-
-    } else {
-        Recipe *currRecipe = [self.availableRecipes objectAtIndex:self.recipeRow];
-        NSMutableArray *ingredient = [[NSMutableArray alloc] init];
-        for (Ingredient *ingr in currRecipe.ingredients) {
-            [ingredient addObject:ingr.label];
-        }
-        newController.ingredientsForReminder = [NSArray arrayWithArray:ingredient];
-    }
-    
-}
-=======
->>>>>>> 08ecd23b9da1d61cf3648fc291dfb732a0d47cc6
 
 @end
