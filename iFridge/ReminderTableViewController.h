@@ -10,10 +10,7 @@
 
 @interface ReminderTableViewController : UITableViewController
 
-<<<<<<< HEAD
 @property (strong, nonatomic) NSArray *ingredientsForReminder;
 @property (strong, nonatomic) NSString *nameOfEventForCalendar;
 
-=======
->>>>>>> 08ecd23b9da1d61cf3648fc291dfb732a0d47cc6
 @end
