@@ -34,9 +34,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-      NSLog(@"did");
     
-<<<<<<< HEAD
     FBLikeControl *like = [[FBLikeControl alloc] init];
     like.frame = CGRectMake(16, 589, like.frame.size.width, like.frame.size.height);
     like.objectID = @"https://www.facebook.com/groups/1599931206891002";
@@ -44,14 +42,12 @@
     like.objectType = FBLikeControlObjectTypePage;
     [self.view addSubview:like];
     
-=======
->>>>>>> af28b810fe0f2ef1aeb9be6380e28721b1857ec8
     self.title = @"Recipe";
 
     self.view.backgroundColor = [UIColor clearColor];
     
     self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%lu", (self.recipeRow + 1), (unsigned long)self.availableRecipes.count];
-  
+    
     [self ifCurrentRecipeSaved];
     
     [self setRecipeForRecipeIndex:self.recipeRow];
@@ -63,13 +59,6 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     
 }
-
-- (void)viewWillAppear:(BOOL)animated{
-      NSLog(@"will");
-    self.view.backgroundColor =
-    [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
-}
-
 
 - (void)initWithRecipeAtIndex:(NSInteger)recipeIndex from:(NSArray *)recipes {
     self.availableRecipes = recipes;
@@ -174,11 +163,8 @@
     ReminderTableViewController *newController = segue.destinationViewController;
     if ([[self.availableRecipes objectAtIndex:self.recipeRow] isKindOfClass:[NSDictionary class]]) {
         newController.ingredientsForReminder = [[self.availableRecipes objectAtIndex:self.recipeRow] valueForKeyPath:@"recipe.ingredientLines"];
-<<<<<<< HEAD
         newController.nameOfEventForCalendar = [[self.availableRecipes objectAtIndex:self.recipeRow] valueForKeyPath:@"recipe.label"];
 
-=======
->>>>>>> af28b810fe0f2ef1aeb9be6380e28721b1857ec8
     } else {
         Recipe *currRecipe = [self.availableRecipes objectAtIndex:self.recipeRow];
         NSMutableArray *ingredient = [[NSMutableArray alloc] init];
@@ -186,6 +172,7 @@
             [ingredient addObject:ingr.label];
         }
         newController.ingredientsForReminder = [NSArray arrayWithArray:ingredient];
+        newController.nameOfEventForCalendar = currRecipe.label;
     }
     
 }

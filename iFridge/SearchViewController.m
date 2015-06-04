@@ -18,7 +18,6 @@
 #import "PushAnimator.h"
 #import "PopAnimator.h"
 
-
 static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1kpc.apps.googleusercontent.com";
 
 @interface SearchViewController () <UINavigationControllerDelegate>
@@ -26,7 +25,6 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 @property (nonatomic, strong) NSString* facebookUserInfromation;
 @property (strong, nonatomic) IBOutlet UIButton *signOutButton;
 @property (strong, nonatomic) IBOutlet UIButton *userInformationButton;
-@property (strong, nonatomic) IBOutlet UIButton *twitterButton;
 
 @end
 
@@ -36,8 +34,6 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
- 
     
     [self refreshInterfaceBasedOnSignIn];
     self.navigationController.delegate = self;
@@ -237,20 +233,6 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 - (IBAction)emailUsButton:(id)sender {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"mailto:info@ifridge.tk"]]];
 }
-
-- (IBAction)goToTwiter:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://twitter.com/"]];
-}
-
-
-
-#pragma mark -
-
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
-}
-
 
 -(void)refreshInterfaceBasedOnSignIn
 {

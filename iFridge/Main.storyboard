@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="h2X-tC-U0S">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="h2X-tC-U0S">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
         <!--Home-->
@@ -100,11 +100,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Cj-Tk-D8a">
-<<<<<<< HEAD
                                 <rect key="frame" x="220" y="552" width="50" height="50"/>
-=======
-                                <rect key="frame" x="258" y="549" width="50" height="50"/>
->>>>>>> af28b810fe0f2ef1aeb9be6380e28721b1857ec8
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="Martz90-Circle-Google-plus.ico">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -120,11 +116,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2f1-k7-g7r">
-<<<<<<< HEAD
                                 <rect key="frame" x="104" y="552" width="50" height="50"/>
-=======
-                                <rect key="frame" x="130" y="549" width="50" height="50"/>
->>>>>>> af28b810fe0f2ef1aeb9be6380e28721b1857ec8
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="vk.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -140,11 +132,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UbZ-Dj-In0">
-<<<<<<< HEAD
                                 <rect key="frame" x="162" y="552" width="50" height="50"/>
-=======
-                                <rect key="frame" x="195" y="549" width="50" height="50"/>
->>>>>>> af28b810fe0f2ef1aeb9be6380e28721b1857ec8
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="facebook.jpg">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -181,15 +169,6 @@
                                     <action selector="goToOurWebSite:" destination="GfN-dv-fDj" eventType="touchUpInside" id="ZtS-aL-251"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bph-55-1I8">
-                                <rect key="frame" x="66" y="549" width="50" height="50"/>
-                                <state key="normal" image="twitter-icon.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="goToTwiter:" destination="GfN-dv-fDj" eventType="touchUpInside" id="vZC-NV-tlp"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -201,7 +180,6 @@
                         <outlet property="googlePlusSignInButton" destination="IxZ-Gj-Gej" id="7Av-Tg-wbo"/>
                         <outlet property="searchTextField" destination="HGG-sm-Rr1" id="1UG-gG-Xs6"/>
                         <outlet property="signOutButton" destination="3xL-Un-Md0" id="4Sg-Dd-2pD"/>
-                        <outlet property="twitterButton" destination="Bph-55-1I8" id="gll-wP-cN8"/>
                         <outlet property="userInformationButton" destination="off-HA-Eq7" id="fAZ-2L-HeL"/>
                     </connections>
                 </viewController>
@@ -550,7 +528,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7G9-gR-llf">
-                                <rect key="frame" x="157" y="418" width="288" height="142"/>
+                                <rect key="frame" x="16" y="417" width="288" height="142"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -649,11 +627,7 @@
         <image name="note.png" width="640" height="392"/>
         <image name="photo-frame.png" width="1291" height="1600"/>
         <image name="search-icon.png" width="298" height="297"/>
-<<<<<<< HEAD
         <image name="vk.png" width="256" height="256"/>
-=======
-        <image name="twitter-icon.png" width="300" height="300"/>
->>>>>>> af28b810fe0f2ef1aeb9be6380e28721b1857ec8
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="y47-Cr-Jsy"/>

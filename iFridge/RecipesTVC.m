@@ -62,11 +62,10 @@
 }
 
 -(void) viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
     if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
         [[self navigationController] setNavigationBarHidden:YES animated:YES];
     }
-
+    [super viewWillDisappear:animated];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
