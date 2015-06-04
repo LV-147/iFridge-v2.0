@@ -13,4 +13,6 @@
 @property (strong, nonatomic) NSArray *ingredientsForReminder;
 @property (strong, nonatomic) NSString *nameOfEventForCalendar;
 
+
+
 @end
