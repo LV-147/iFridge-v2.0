@@ -87,6 +87,7 @@
 		F3948BF81B138AC900D149D0 /* UIAlertView+ReminderBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = F3948BF71B138AC900D149D0 /* UIAlertView+ReminderBlock.m */; };
 		F3948BFB1B138AE600D149D0 /* UIButton+ReminderBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = F3948BFA1B138AE600D149D0 /* UIButton+ReminderBlock.m */; };
 		F3948BFF1B1392DE00D149D0 /* supermarket.png in Resources */ = {isa = PBXBuildFile; fileRef = F3948BFE1B1392DE00D149D0 /* supermarket.png */; };
+		F3E87DDA1B20974D0021B2CD /* send_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = F3E87DD91B20974D0021B2CD /* send_arrow.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -211,6 +212,7 @@
 		F3948BF91B138AE600D149D0 /* UIButton+ReminderBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+ReminderBlock.h"; sourceTree = "<group>"; };
 		F3948BFA1B138AE600D149D0 /* UIButton+ReminderBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ReminderBlock.m"; sourceTree = "<group>"; };
 		F3948BFE1B1392DE00D149D0 /* supermarket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = supermarket.png; sourceTree = "<group>"; };
+		F3E87DD91B20974D0021B2CD /* send_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = send_arrow.png; path = ../../Downloads/send_arrow.png; sourceTree = "<group>"; };
 		FF46D8F0A983B94B8040C4CE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -363,6 +365,7 @@
 				358ED21D1B2059D40053FCFE /* google-plus-icon.png */,
 				35D022EE1B1B356E001A3813 /* info_information_user_about_card_button_symbol_icon-128.png */,
 				35A5D2CD1B1F64B200E70128 /* vk.png */,
+				F3E87DD91B20974D0021B2CD /* send_arrow.png */,
 				35AFA34E1B1C7B1B006013AC /* Martz90-Circle-Google-plus.ico */,
 				35AFA34F1B1C7B1B006013AC /* download.jpeg */,
 				35AFA3501B1C7B1B006013AC /* Vk-icon.png */,
@@ -604,6 +607,7 @@
 				35A4879A1B023095008F31F3 /* fridge.png in Resources */,
 				35D022E91B1B1258001A3813 /* Facebook_icon.101114329_std.jpg in Resources */,
 				35A9D7101B08F1B7005EF9BF /* GooglePlus.bundle in Resources */,
+				F3E87DDA1B20974D0021B2CD /* send_arrow.png in Resources */,
 				35A487981B023095008F31F3 /* image.jpg in Resources */,
 				F3948BF11B13857000D149D0 /* Plus.png in Resources */,
 				D9E1B2141B172283002AD39F /* Main.storyboard in Resources */,
