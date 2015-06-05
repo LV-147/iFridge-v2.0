@@ -12,7 +12,16 @@
 
 @class GPPSignInButton;
 
+<<<<<<< HEAD
 @interface SearchViewController : UIViewController <GPPSignInDelegate>
+=======
+<<<<<<< HEAD
+
+@interface SearchViewController : UIViewController <GPPSignInDelegate, UITextFieldDelegate>
+=======
+@interface SearchViewController : UIViewController <GPPSignInDelegate>
+>>>>>>> fb2a596d08adff39858c46a8aae7f5a006f90f05
+>>>>>>> 0d1649ca4b818c5beaed2ebf267da006482fa445
 
 @property (strong, nonatomic) IBOutlet UITextField *searchTextField;
 @property (retain, nonatomic) IBOutlet GPPSignInButton *googlePlusSignInButton;
