@@ -38,4 +38,10 @@
     
     return ingredient;
 }
+
+- (void)removeIngredient:(Ingredient *)ingredient from:(NSManagedObjectContext *)context {
+    
+    [context deleteObject:ingredient];
+    [context save:NULL];
+}
 @end

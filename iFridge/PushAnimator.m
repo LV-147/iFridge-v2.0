@@ -7,6 +7,7 @@
 //
 
 #import "PushAnimator.h"
+#import "SearchViewController.h"
 
 @implementation PushAnimator
 

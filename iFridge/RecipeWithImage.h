@@ -14,7 +14,4 @@
 @interface RecipeWithImage : UIViewController
 
 - (void)initWithRecipeAtIndex:(NSInteger)recipeIndex from:(NSArray *)recipes;
-- (IBAction)googlePlusShareButton:(id)sender;
-
-
 @end
