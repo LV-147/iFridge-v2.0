@@ -12,12 +12,7 @@
 #import "UIViewController+Context.h"
 #import "AppDelegate.h"
 #import "Ingredient.h"
-<<<<<<< HEAD
 #import "DataDownloader.h"
-=======
->>>>>>> b8563adc2d5babcbdf973b81b0746a3fb1d9df67
-
-
 
 @interface RecipeWithImage ()
 
@@ -27,10 +22,7 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 @property (strong, nonatomic) IBOutlet UILabel *recipeCountIndicator;
 
-<<<<<<< HEAD
-=======
 @property (nonatomic) BOOL recipeSaved;
->>>>>>> b8563adc2d5babcbdf973b81b0746a3fb1d9df67
 @property (strong, nonatomic) NSArray *availableRecipes;
 @property (nonatomic, assign) NSInteger recipeRow;
 
@@ -61,29 +53,10 @@
     self.recipeRow = recipeIndex;
 }
 
-<<<<<<< HEAD
 - (void) setRecipeForRecipeIndex:(NSInteger)recipeIndexPath
 {
     if ([[self.availableRecipes objectAtIndex:self.recipeRow] isKindOfClass:[NSDictionary class]]) {
         [DataDownloader setRecipeImageWithURL:[[self.availableRecipes objectAtIndex:self.recipeRow] valueForKeyPath:@"recipe.image"] usingImageView:self.imageForDish];
-=======
-- (void)setRecipeImageWithLink:(NSString *)imageLink {
-//    if ([imageLink isMemberOfClass:[NSString class]]) {
-    [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:imageLink]
-                                                         options:SDWebImageDownloaderLowPriority
-                                                        progress:nil
-                                                       completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
-                                                           
-                                                           [self.imageForDish setBackgroundColor:[UIColor colorWithPatternImage:image]];
-                                                       }];
-//    }
-}
-
-- (void) setRecipeForRecipeIndex:(NSInteger)recipeIndexPath
-{
-    if ([self.availableRecipes.firstObject isKindOfClass:[NSDictionary class]]) {
-        [self setRecipeImageWithLink:[[self.availableRecipes objectAtIndex:recipeIndexPath] valueForKeyPath:@"recipe.image"]];
->>>>>>> b8563adc2d5babcbdf973b81b0746a3fb1d9df67
         NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:self.recipeRow] valueForKeyPath:@"recipe.ingredientLines"];
         self.recipeIngredients.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
         self.nameOfDish.text = [[self.availableRecipes objectAtIndex:recipeIndexPath] valueForKeyPath:@"recipe.label"];
@@ -124,11 +97,9 @@
     
 }
 
-<<<<<<< HEAD
+
 - (BOOL)ifCurrentRecipeSaved{
-=======
-- (void)ifCurrentRecipeSaved{
->>>>>>> b8563adc2d5babcbdf973b81b0746a3fb1d9df67
+
     //checking if current recipe is alredy in the data base
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Recipe"];
     NSString *predicateString = [[NSString alloc] init];
