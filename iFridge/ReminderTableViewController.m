@@ -176,13 +176,13 @@
         EKEvent *event = [EKEvent eventWithEventStore:eventStore];
         NSString *eventForCalendarTitle = [NSString stringWithFormat:@"To buy for %@", _nameOfEventForCalendar];
         event.title = eventForCalendarTitle;
-        event.notes = [self.ingredientsForReminder componentsJoinedByString:@"\n"];
+        event.notes = [self.todoItems componentsJoinedByString:@"\n"];
         event.startDate = [NSDate date]; //today
         event.endDate = [event.startDate dateByAddingTimeInterval:60*60];  //set 1 hour meeting
         event.calendar = [eventStore defaultCalendarForNewEvents];
         NSError *err = nil;
         
-        for (NSString *savedEvent in self.ingredientsForReminder) {
+        for (NSString *savedEvent in self.todoItems) {
             [eventStore saveEvent:event span:EKSpanThisEvent commit:YES error:&err];
         }
         
@@ -199,6 +199,15 @@
             [eventStore removeEvent:eventToRemove span:EKSpanThisEvent commit:YES error:&error];
         }
     }];
+    
+    if(self.todoItems)
+    {
+        [sender setEnabled:YES];
+    }
+    else
+    {
+        [sender setEnabled:NO];
+    }
 
     
     

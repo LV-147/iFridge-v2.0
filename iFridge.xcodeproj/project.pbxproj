@@ -36,7 +36,6 @@
 		3584A2341B1A040B00D21AF8 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3584A2331B1A040A00D21AF8 /* FacebookSDK.framework */; };
 		358ED21E1B2059D40053FCFE /* google-plus-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 358ED21D1B2059D40053FCFE /* google-plus-icon.png */; };
 		358ED2201B205DA70053FCFE /* 330273-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 358ED21F1B205DA70053FCFE /* 330273-64.png */; };
-		358ED2221B206CB90053FCFE /* ReminderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 358ED2211B206CB90053FCFE /* ReminderTableViewController.m */; };
 		359709671B04E9D3005064C0 /* RecipesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 359709661B04E9D3005064C0 /* RecipesTVC.m */; };
 		3597096F1B04FD98005064C0 /* RecipesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3597096E1B04FD98005064C0 /* RecipesCell.m */; };
 		35A487981B023095008F31F3 /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 35A487931B023095008F31F3 /* image.jpg */; };
@@ -69,6 +68,7 @@
 		BFEA48281B13475C008F5BEF /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFEA48241B13475C008F5BEF /* LoadingView.m */; };
 		BFEA48291B13475C008F5BEF /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFEA48251B13475C008F5BEF /* LoadingView.xib */; };
 		BFEA482A1B13475C008F5BEF /* UIViewController+LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFEA48271B13475C008F5BEF /* UIViewController+LoadingView.m */; };
+		D9180D4B1B21CFE0005854C6 /* ReminderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9180D4A1B21CFE0005854C6 /* ReminderTableViewController.m */; };
 		D992EE2A1B0A339A0093B3F7 /* Fridge.m in Sources */ = {isa = PBXBuildFile; fileRef = D992EE291B0A339A0093B3F7 /* Fridge.m */; };
 		D992EE2D1B0A339A0093B3F7 /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = D992EE2C1B0A339A0093B3F7 /* Ingredient.m */; };
 		D992EE331B0A34DA0093B3F7 /* Fridge+Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = D992EE321B0A34DA0093B3F7 /* Fridge+Cat.m */; };
@@ -139,7 +139,6 @@
 		3584A2331B1A040A00D21AF8 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		358ED21D1B2059D40053FCFE /* google-plus-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "google-plus-icon.png"; sourceTree = "<group>"; };
 		358ED21F1B205DA70053FCFE /* 330273-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "330273-64.png"; sourceTree = "<group>"; };
-		358ED2211B206CB90053FCFE /* ReminderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderTableViewController.m; sourceTree = "<group>"; };
 		359709651B04E9D3005064C0 /* RecipesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesTVC.h; sourceTree = "<group>"; };
 		359709661B04E9D3005064C0 /* RecipesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesTVC.m; sourceTree = "<group>"; };
 		3597096D1B04FD98005064C0 /* RecipesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesCell.h; sourceTree = "<group>"; };
@@ -181,6 +180,7 @@
 		BFEA48251B13475C008F5BEF /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		BFEA48261B13475C008F5BEF /* UIViewController+LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LoadingView.h"; sourceTree = "<group>"; };
 		BFEA48271B13475C008F5BEF /* UIViewController+LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+LoadingView.m"; sourceTree = "<group>"; };
+		D9180D4A1B21CFE0005854C6 /* ReminderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderTableViewController.m; sourceTree = "<group>"; };
 		D992EE281B0A339A0093B3F7 /* Fridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fridge.h; sourceTree = "<group>"; };
 		D992EE291B0A339A0093B3F7 /* Fridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fridge.m; sourceTree = "<group>"; };
 		D992EE2B1B0A339A0093B3F7 /* Ingredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ingredient.h; sourceTree = "<group>"; };
@@ -499,7 +499,7 @@
 			isa = PBXGroup;
 			children = (
 				35AFA3491B1C7279006013AC /* ReminderTableViewController.h */,
-				358ED2211B206CB90053FCFE /* ReminderTableViewController.m */,
+				D9180D4A1B21CFE0005854C6 /* ReminderTableViewController.m */,
 				F3948BF61B138AC900D149D0 /* UIAlertView+ReminderBlock.h */,
 				F3948BF71B138AC900D149D0 /* UIAlertView+ReminderBlock.m */,
 				F3948BF91B138AE600D149D0 /* UIButton+ReminderBlock.h */,
@@ -685,7 +685,7 @@
 				35AFA34D1B1C728F006013AC /* FridgeTableViewController.m in Sources */,
 				357A58F61AFFDF3C0094B0AC /* AppDelegate.m in Sources */,
 				D992EE4D1B0B9D220093B3F7 /* iFridge.xcdatamodeld in Sources */,
-				358ED2221B206CB90053FCFE /* ReminderTableViewController.m in Sources */,
+				D9180D4B1B21CFE0005854C6 /* ReminderTableViewController.m in Sources */,
 				F3948BFB1B138AE600D149D0 /* UIButton+ReminderBlock.m in Sources */,
 				D9B7D82D1B21C64200D5787E /* DataDownloader.m in Sources */,
 				D992EE2A1B0A339A0093B3F7 /* Fridge.m in Sources */,
