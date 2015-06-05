@@ -11,8 +11,10 @@
 #import <AFNetworking/AFNetworking.h>
 
 
-@interface RecipesTVC : UITableViewController <UISearchBarDelegate>
+@interface RecipesTVC : UITableViewController
+
 @property (strong, nonatomic) NSString *query;
+@property (strong, nonatomic) NSArray *recipes;
 @property (strong, nonatomic) NSString *dataSource;
 
 @end

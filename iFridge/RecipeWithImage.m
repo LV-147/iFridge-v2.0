@@ -13,6 +13,9 @@
 #import "AppDelegate.h"
 #import "Ingredient.h"
 #import "DataDownloader.h"
+#import "ReminderTableViewController.h"
+#import <GooglePlus/GPPShare.h>
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface RecipeWithImage ()
 
@@ -21,7 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageForDish;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 @property (strong, nonatomic) IBOutlet UILabel *recipeCountIndicator;
-
+@property (nonatomic) BOOL recipeSaved;
 @property (strong, nonatomic) NSArray *availableRecipes;
 @property (nonatomic, assign) NSInteger recipeRow;
 
@@ -32,11 +35,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    FBLikeControl *like = [[FBLikeControl alloc] init];
+    like.frame = CGRectMake(16, 589, like.frame.size.width, like.frame.size.height);
+    like.objectID = @"https://www.facebook.com/groups/1599931206891002";
+    like.likeControlStyle = FBLikeControlStyleButton;
+    like.objectType = FBLikeControlObjectTypePage;
+    [self.view addSubview:like];
+    
     self.title = @"Recipe";
-    
-    self.navigationController.view.backgroundColor =
-    [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
-    
+
     self.view.backgroundColor = [UIColor clearColor];
     
     self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%lu", (self.recipeRow + 1), (unsigned long)self.availableRecipes.count];
@@ -46,10 +53,21 @@
     [self setRecipeForRecipeIndex:self.recipeRow];
     
 }
+- (void) viewWillAppear:(BOOL)animated {
+   self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
+
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
+    
+}
 
 - (void)initWithRecipeAtIndex:(NSInteger)recipeIndex from:(NSArray *)recipes {
     self.availableRecipes = recipes;
     self.recipeRow = recipeIndex;
+}
+
+- (IBAction)googlePlusShareButton:(id)sender {
+    id<GPPNativeShareBuilder> shareBuilder = [[GPPShare sharedInstance] nativeShareDialog];
+    [shareBuilder open];
 }
 
 - (void) setRecipeForRecipeIndex:(NSInteger)recipeIndexPath
@@ -77,6 +95,7 @@
     }
 }
 
+
 - (IBAction)saveRecipeToCoreData:(UIBarButtonItem *)sender {
     
     NSMutableArray *availibleRecipes = [[NSMutableArray alloc] initWithArray:self.availableRecipes];
@@ -95,6 +114,7 @@
     self.availableRecipes = availibleRecipes;
     
 }
+
 
 - (BOOL)ifCurrentRecipeSaved{
     //checking if current recipe is alredy in the data base
@@ -132,6 +152,24 @@
     }
     [self setRecipeForRecipeIndex:self.recipeRow];
     [self ifCurrentRecipeSaved];
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    ReminderTableViewController *newController = segue.destinationViewController;
+    if ([[self.availableRecipes objectAtIndex:self.recipeRow] isKindOfClass:[NSDictionary class]]) {
+        newController.ingredientsForReminder = [[self.availableRecipes objectAtIndex:self.recipeRow] valueForKeyPath:@"recipe.ingredientLines"];
+        newController.nameOfEventForCalendar = [[self.availableRecipes objectAtIndex:self.recipeRow] valueForKeyPath:@"recipe.label"];
+
+    } else {
+        Recipe *currRecipe = [self.availableRecipes objectAtIndex:self.recipeRow];
+        NSMutableArray *ingredient = [[NSMutableArray alloc] init];
+        for (Ingredient *ingr in currRecipe.ingredients) {
+            [ingredient addObject:ingr.label];
+        }
+        newController.ingredientsForReminder = [NSArray arrayWithArray:ingredient];
+        newController.nameOfEventForCalendar = currRecipe.label;
+    }
+    
 }
 
 @end

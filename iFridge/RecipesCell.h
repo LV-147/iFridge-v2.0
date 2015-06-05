@@ -13,5 +13,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *cookingTime;
 @property (strong, nonatomic) IBOutlet UILabel *caloriesTotal;
 @property (strong, nonatomic) IBOutlet UILabel *weightTotal;
-@property (weak, nonatomic) IBOutlet UIImageView *recipeImageView;
+@property (strong, nonatomic) IBOutlet UILabel *fatTotal;
+@property (strong, nonatomic) IBOutlet UILabel *sugarsTotal;
+@property (strong, nonatomic) IBOutlet UIImageView *recipeImageCell;
+@property (strong, nonatomic) IBOutlet UILabel *cookingLevel;
 @end

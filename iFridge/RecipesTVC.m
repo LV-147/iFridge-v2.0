@@ -19,17 +19,13 @@
 
 
 @interface RecipesTVC () <UISearchBarDelegate, UISearchControllerDelegate>
-//dealing with search bar
-@property (nonatomic, strong) UISearchController *searchController;
-
 @property (weak, nonatomic) IBOutlet UISearchBar *recipeSearchBar;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *selectDataSourceController;
-
-@property (strong, nonatomic) NSArray *recipes;
 @end
 
 @implementation RecipesTVC
-@synthesize query;
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
@@ -47,6 +43,21 @@
     self.recipeSearchBar.text = self.query;
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if ([self.dataSource isEqualToString:@"My recipes"]) {
+        [self getRecipesFromCoreDataForQuery:nil];
+        [self.tableView reloadData];
+    }
+}
+
+-(void) viewWillDisappear:(BOOL)animated {
+    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
+        [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    }
+    [super viewWillDisappear:animated];
+}
+
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     cell.backgroundColor = [UIColor clearColor];
@@ -54,12 +65,47 @@
     //cell.accessoryView = [UIImage]//[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"accessory.png"]];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    if ([self.dataSource isEqualToString:@"My recipes"]) {
-        [self getRecipesFromCoreDataForQuery:nil];
-        [self.tableView reloadData];
-    }
+//-(void)loading{
+//    if (self.recipes.count <= 100 && self.recipes.count != 0) {
+//        [activityIndicator stopAnimating];
+//        activityIndicator.hidesWhenStopped = YES;
+//    }
+//    else{
+//        [activityIndicator startAnimating];
+//    }
+//}
+
+-(void) doAnimation:(RecipesCell*) cell{
+    //    [cell.layer setBackgroundColor:[UIColor blackColor].CGColor];
+    //    [UIView beginAnimations:nil context:NULL];
+    //    [UIView setAnimationDuration:0.1];
+    //    [cell.layer setBackgroundColor:[UIColor whiteColor].CGColor];
+    //    [UIView commitAnimations];
+    [cell setBackgroundColor:[UIColor blackColor]];
+    
+    [UIView animateWithDuration:0.2
+                          delay:0.0
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^(void) {
+                         //Leave it empty
+                         [cell setBackgroundColor:[UIColor whiteColor]];
+                     }
+                     completion:^(BOOL finished){
+                         
+                         //                         // Your code goes here
+                         //                         [UIView animateWithDuration:1.0 delay:0.0 options:
+                         //                          UIViewAnimationOptionCurveEaseIn animations:^{
+                         //                          } completion:^ (BOOL completed) {}];
+                     }];
+    
+    [UIView animateWithDuration:1.0
+                          delay:0.0
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^(void) {
+                         cell.nameOfDish.alpha = 0.7;
+                         cell.nameOfDish.center = CGPointMake(300.0, 100.0);
+                     }
+                     completion:^(BOOL finished){}];
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
@@ -114,39 +160,6 @@
     [self.tableView reloadData];
 }
 
-//-(void)loading{
-//    if (self.recipes.count <= 100 && self.recipes.count != 0) {
-//        [activityIndicator stopAnimating];
-//        activityIndicator.hidesWhenStopped = YES;
-//    }
-//    else{
-//        [activityIndicator startAnimating];
-//    }
-//}
-
--(void) doAnimation:(UITableViewCell*) cell{
-    //    [cell.layer setBackgroundColor:[UIColor blackColor].CGColor];
-    //    [UIView beginAnimations:nil context:NULL];
-    //    [UIView setAnimationDuration:0.1];
-    //    [cell.layer setBackgroundColor:[UIColor whiteColor].CGColor];
-    //    [UIView commitAnimations];
-    [cell setBackgroundColor:[UIColor blackColor]];
-    
-    [UIView animateWithDuration:0.2
-                          delay:0.0
-                        options:UIViewAnimationOptionCurveEaseInOut
-                     animations:^(void) {
-                         //Leave it empty
-                         [cell setBackgroundColor:[UIColor whiteColor]];
-                     }
-                     completion:^(BOOL finished){
-                         
-                         //                         // Your code goes here
-                         //                         [UIView animateWithDuration:1.0 delay:0.0 options:
-                         //                          UIViewAnimationOptionCurveEaseIn animations:^{
-                         //                          } completion:^ (BOOL completed) {}];
-                     }];
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -171,10 +184,6 @@
     
 }
 
-- (void)setRecipeImage {
-    
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -183,9 +192,10 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+    
     return self.recipes.count;
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     RecipesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myCell" forIndexPath:indexPath];
@@ -198,7 +208,7 @@
         urlImageString = recipe.imageUrl;
     }
     __block UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    activityIndicator.center = cell.recipeImageView.center;
+    activityIndicator.center = cell.recipeImageCell.center;
     activityIndicator.hidesWhenStopped = YES;
     
     [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:urlImageString]
@@ -206,9 +216,9 @@
                                                         progress:nil
                                                        completed:^(UIImage* image, NSData* data, NSError *error, BOOL finished) {
                                                            [activityIndicator removeFromSuperview];
-                                                           [cell.recipeImageView setBackgroundColor:[UIColor colorWithPatternImage:image]];
+                                                           [cell.recipeImageCell setBackgroundColor:[UIColor colorWithPatternImage:image]];
                                                        }];
-    [cell.recipeImageView addSubview:activityIndicator];
+    [cell.recipeImageCell addSubview:activityIndicator];
     [activityIndicator startAnimating];
     
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
@@ -217,7 +227,7 @@
     
     if ([self.dataSource isEqualToString:@"Search results"]) {
         //        NSDictionary *recipe = [[NSDictionary alloc] initWithDictionary:[[self.recipes objectAtIndex:indexPath.row] valueForKey:@"recipe"]];
-
+        
         cell.nameOfDish.text = self.recipes[indexPath.row][@"recipe"][@"label"];
         
         cell.cookingTime.text = [NSString stringWithFormat:@"cookingTime: %@", self.recipes[indexPath.row][@"recipe"][@"cookingTime"]];
@@ -248,16 +258,14 @@
         return cell;
     }
 }
-
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     RecipesCell *recipeCell = sender;
     NSInteger recipeIndex = [self.tableView indexPathForCell:recipeCell].row;
     RecipeWithImage *newController = segue.destinationViewController;
-
+    
     [newController initWithRecipeAtIndex:recipeIndex from:self.recipes];
-
+    
 }
-
 @end
