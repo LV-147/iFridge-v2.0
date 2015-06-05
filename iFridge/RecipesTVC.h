@@ -15,8 +15,6 @@
 
 @property (strong, nonatomic) NSString *query;
 @property (strong, nonatomic) NSArray *recipes;
-@property (strong, nonatomic) NSString *urlImageString;
-@property (strong, nonatomic) IBOutlet UISegmentedControl *selectDataSourceButton;
 @property (strong, nonatomic) NSString *dataSource;
 
 @end

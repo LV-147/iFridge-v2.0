@@ -69,7 +69,6 @@
 		BFEA48281B13475C008F5BEF /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFEA48241B13475C008F5BEF /* LoadingView.m */; };
 		BFEA48291B13475C008F5BEF /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFEA48251B13475C008F5BEF /* LoadingView.xib */; };
 		BFEA482A1B13475C008F5BEF /* UIViewController+LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFEA48271B13475C008F5BEF /* UIViewController+LoadingView.m */; };
-		D97245EB1B1612D000735EE0 /* DataDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = D97245EA1B1612D000735EE0 /* DataDownloader.m */; };
 		D992EE2A1B0A339A0093B3F7 /* Fridge.m in Sources */ = {isa = PBXBuildFile; fileRef = D992EE291B0A339A0093B3F7 /* Fridge.m */; };
 		D992EE2D1B0A339A0093B3F7 /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = D992EE2C1B0A339A0093B3F7 /* Ingredient.m */; };
 		D992EE331B0A34DA0093B3F7 /* Fridge+Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = D992EE321B0A34DA0093B3F7 /* Fridge+Cat.m */; };
@@ -77,7 +76,9 @@
 		D992EE441B0B73090093B3F7 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = D992EE431B0B73090093B3F7 /* Recipe.m */; };
 		D992EE4D1B0B9D220093B3F7 /* iFridge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D992EE451B0B9D220093B3F7 /* iFridge.xcdatamodeld */; };
 		D992EE4E1B0B9D220093B3F7 /* Ingredient+Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = D992EE481B0B9D220093B3F7 /* Ingredient+Cat.m */; };
-		D992EE4F1B0B9D220093B3F7 /* Recipe+Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = D992EE4A1B0B9D220093B3F7 /* Recipe+Cat.m */; };
+		D9B7D82A1B21C4FE00D5787E /* send_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D9B7D8291B21C4FE00D5787E /* send_arrow.png */; };
+		D9B7D82D1B21C64200D5787E /* DataDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B7D82C1B21C64200D5787E /* DataDownloader.m */; };
+		D9B7D8301B21C6E100D5787E /* Recipe+Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B7D82F1B21C6E100D5787E /* Recipe+Cat.m */; };
 		D9E1B2121B162F1A002AD39F /* photo-frame.png in Resources */ = {isa = PBXBuildFile; fileRef = D9E1B2111B162F1A002AD39F /* photo-frame.png */; };
 		D9E1B2141B172283002AD39F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9E1B2131B172283002AD39F /* Main.storyboard */; };
 		EF56840EE7AA6C558D3C459C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4825B68449CDFCB0DC868FD /* libPods.a */; };
@@ -87,7 +88,6 @@
 		F3948BF81B138AC900D149D0 /* UIAlertView+ReminderBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = F3948BF71B138AC900D149D0 /* UIAlertView+ReminderBlock.m */; };
 		F3948BFB1B138AE600D149D0 /* UIButton+ReminderBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = F3948BFA1B138AE600D149D0 /* UIButton+ReminderBlock.m */; };
 		F3948BFF1B1392DE00D149D0 /* supermarket.png in Resources */ = {isa = PBXBuildFile; fileRef = F3948BFE1B1392DE00D149D0 /* supermarket.png */; };
-		F3E87DDA1B20974D0021B2CD /* send_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = F3E87DD91B20974D0021B2CD /* send_arrow.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -181,8 +181,6 @@
 		BFEA48251B13475C008F5BEF /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		BFEA48261B13475C008F5BEF /* UIViewController+LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LoadingView.h"; sourceTree = "<group>"; };
 		BFEA48271B13475C008F5BEF /* UIViewController+LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+LoadingView.m"; sourceTree = "<group>"; };
-		D97245E91B1612D000735EE0 /* DataDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataDownloader.h; sourceTree = "<group>"; };
-		D97245EA1B1612D000735EE0 /* DataDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataDownloader.m; sourceTree = "<group>"; };
 		D992EE281B0A339A0093B3F7 /* Fridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fridge.h; sourceTree = "<group>"; };
 		D992EE291B0A339A0093B3F7 /* Fridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fridge.m; sourceTree = "<group>"; };
 		D992EE2B1B0A339A0093B3F7 /* Ingredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ingredient.h; sourceTree = "<group>"; };
@@ -196,8 +194,11 @@
 		D992EE461B0B9D220093B3F7 /* iFridge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iFridge.xcdatamodel; sourceTree = "<group>"; };
 		D992EE471B0B9D220093B3F7 /* Ingredient+Cat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Ingredient+Cat.h"; path = "../Ingredient+Cat.h"; sourceTree = "<group>"; };
 		D992EE481B0B9D220093B3F7 /* Ingredient+Cat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Ingredient+Cat.m"; path = "../Ingredient+Cat.m"; sourceTree = "<group>"; };
-		D992EE491B0B9D220093B3F7 /* Recipe+Cat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Recipe+Cat.h"; path = "../Recipe+Cat.h"; sourceTree = "<group>"; };
-		D992EE4A1B0B9D220093B3F7 /* Recipe+Cat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Recipe+Cat.m"; path = "../Recipe+Cat.m"; sourceTree = "<group>"; };
+		D9B7D8291B21C4FE00D5787E /* send_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = send_arrow.png; sourceTree = "<group>"; };
+		D9B7D82B1B21C64200D5787E /* DataDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataDownloader.h; sourceTree = "<group>"; };
+		D9B7D82C1B21C64200D5787E /* DataDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataDownloader.m; sourceTree = "<group>"; };
+		D9B7D82E1B21C6E100D5787E /* Recipe+Cat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Recipe+Cat.h"; sourceTree = "<group>"; };
+		D9B7D82F1B21C6E100D5787E /* Recipe+Cat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Recipe+Cat.m"; sourceTree = "<group>"; };
 		D9E1B2111B162F1A002AD39F /* photo-frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-frame.png"; sourceTree = "<group>"; };
 		D9E1B2131B172283002AD39F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E4825B68449CDFCB0DC868FD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -212,7 +213,6 @@
 		F3948BF91B138AE600D149D0 /* UIButton+ReminderBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+ReminderBlock.h"; sourceTree = "<group>"; };
 		F3948BFA1B138AE600D149D0 /* UIButton+ReminderBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ReminderBlock.m"; sourceTree = "<group>"; };
 		F3948BFE1B1392DE00D149D0 /* supermarket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = supermarket.png; sourceTree = "<group>"; };
-		F3E87DD91B20974D0021B2CD /* send_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = send_arrow.png; path = ../../Downloads/send_arrow.png; sourceTree = "<group>"; };
 		FF46D8F0A983B94B8040C4CE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -338,12 +338,12 @@
 				3584A22F1B19F99800D21AF8 /* iCarousel.m */,
 				3584A22B1B19E00400D21AF8 /* RegExCategories.h */,
 				3584A22C1B19E00400D21AF8 /* RegExCategories.m */,
-				D97245E91B1612D000735EE0 /* DataDownloader.h */,
-				D97245EA1B1612D000735EE0 /* DataDownloader.m */,
 				BFEA48231B13475C008F5BEF /* LoadingView.h */,
 				BFEA48241B13475C008F5BEF /* LoadingView.m */,
 				BFEA48261B13475C008F5BEF /* UIViewController+LoadingView.h */,
 				BFEA48271B13475C008F5BEF /* UIViewController+LoadingView.m */,
+				D9B7D82B1B21C64200D5787E /* DataDownloader.h */,
+				D9B7D82C1B21C64200D5787E /* DataDownloader.m */,
 				357A58F41AFFDF3C0094B0AC /* AppDelegate.h */,
 				357A58F51AFFDF3C0094B0AC /* AppDelegate.m */,
 				D9E1B2131B172283002AD39F /* Main.storyboard */,
@@ -365,7 +365,7 @@
 				358ED21D1B2059D40053FCFE /* google-plus-icon.png */,
 				35D022EE1B1B356E001A3813 /* info_information_user_about_card_button_symbol_icon-128.png */,
 				35A5D2CD1B1F64B200E70128 /* vk.png */,
-				F3E87DD91B20974D0021B2CD /* send_arrow.png */,
+				D9B7D8291B21C4FE00D5787E /* send_arrow.png */,
 				35AFA34E1B1C7B1B006013AC /* Martz90-Circle-Google-plus.ico */,
 				35AFA34F1B1C7B1B006013AC /* download.jpeg */,
 				35AFA3501B1C7B1B006013AC /* Vk-icon.png */,
@@ -474,8 +474,8 @@
 			children = (
 				D992EE471B0B9D220093B3F7 /* Ingredient+Cat.h */,
 				D992EE481B0B9D220093B3F7 /* Ingredient+Cat.m */,
-				D992EE491B0B9D220093B3F7 /* Recipe+Cat.h */,
-				D992EE4A1B0B9D220093B3F7 /* Recipe+Cat.m */,
+				D9B7D82E1B21C6E100D5787E /* Recipe+Cat.h */,
+				D9B7D82F1B21C6E100D5787E /* Recipe+Cat.m */,
 				D992EE311B0A34DA0093B3F7 /* Fridge+Cat.h */,
 				D992EE321B0A34DA0093B3F7 /* Fridge+Cat.m */,
 			);
@@ -593,6 +593,7 @@
 				35A487991B023095008F31F3 /* note.png in Resources */,
 				35A5D2CE1B1F64B200E70128 /* vk.png in Resources */,
 				3563A6831B174F8E00EFB608 /* image1.jpg in Resources */,
+				D9B7D82A1B21C4FE00D5787E /* send_arrow.png in Resources */,
 				357A59041AFFDF3C0094B0AC /* LaunchScreen.xib in Resources */,
 				3563A6851B174FC000EFB608 /* 3.png in Resources */,
 				357A59011AFFDF3C0094B0AC /* Images.xcassets in Resources */,
@@ -607,7 +608,6 @@
 				35A4879A1B023095008F31F3 /* fridge.png in Resources */,
 				35D022E91B1B1258001A3813 /* Facebook_icon.101114329_std.jpg in Resources */,
 				35A9D7101B08F1B7005EF9BF /* GooglePlus.bundle in Resources */,
-				F3E87DDA1B20974D0021B2CD /* send_arrow.png in Resources */,
 				35A487981B023095008F31F3 /* image.jpg in Resources */,
 				F3948BF11B13857000D149D0 /* Plus.png in Resources */,
 				D9E1B2141B172283002AD39F /* Main.storyboard in Resources */,
@@ -687,8 +687,8 @@
 				D992EE4D1B0B9D220093B3F7 /* iFridge.xcdatamodeld in Sources */,
 				358ED2221B206CB90053FCFE /* ReminderTableViewController.m in Sources */,
 				F3948BFB1B138AE600D149D0 /* UIButton+ReminderBlock.m in Sources */,
+				D9B7D82D1B21C64200D5787E /* DataDownloader.m in Sources */,
 				D992EE2A1B0A339A0093B3F7 /* Fridge.m in Sources */,
-				D992EE4F1B0B9D220093B3F7 /* Recipe+Cat.m in Sources */,
 				3597096F1B04FD98005064C0 /* RecipesCell.m in Sources */,
 				D992EE4E1B0B9D220093B3F7 /* Ingredient+Cat.m in Sources */,
 				F3948BEF1B137BDB00D149D0 /* UIAlertView+FridgeBlock.m in Sources */,
@@ -698,9 +698,9 @@
 				357A58F31AFFDF3C0094B0AC /* main.m in Sources */,
 				3584A22D1B19E00400D21AF8 /* RegExCategories.m in Sources */,
 				3559BA821B064EB30040DCB6 /* SearchViewController.m in Sources */,
-				D97245EB1B1612D000735EE0 /* DataDownloader.m in Sources */,
 				35AFA3451B1C5FC1006013AC /* PopAnimator.m in Sources */,
 				F3948BF81B138AC900D149D0 /* UIAlertView+ReminderBlock.m in Sources */,
+				D9B7D8301B21C6E100D5787E /* Recipe+Cat.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
