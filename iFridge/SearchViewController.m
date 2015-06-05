@@ -11,31 +11,26 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <GoogleOpenSource/GTLPlusConstants.h>
 #import <GooglePlus/GPPSignInButton.h>
-
+#import <GoogleOpenSource/GTLQueryPlus.h>
+#import <GooglePlus/GPPSignIn.h>
+#import <GooglePlus/GPPURLHandler.h>
+#import <FacebookSDK/FacebookSDK.h>
+#import "PushAnimator.h"
+#import "PopAnimator.h"
 
 static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1kpc.apps.googleusercontent.com";
 
-<<<<<<< HEAD
 @interface SearchViewController () <UINavigationControllerDelegate, UISearchBarDelegate>
 @property (nonatomic, strong) NSString* googlePlusUserInfromation;
 @property (nonatomic, strong) NSString* facebookUserInfromation;
 @property (strong, nonatomic) IBOutlet UIButton *signOutButton;
 @property (strong, nonatomic) IBOutlet UIButton *userInformationButton;
-=======
-
-
-@interface SearchViewController ()
->>>>>>> b8563adc2d5babcbdf973b81b0746a3fb1d9df67
 
 @end
 
 @implementation SearchViewController
-
-@synthesize signInButton;
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-<<<<<<< HEAD
     [self refreshInterfaceBasedOnSignIn];
     self.navigationController.delegate = self;
     self.navigationController.navigationBar.tintColor = [UIColor redColor];
@@ -47,41 +42,60 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
     [self.googlePlusSignInButton setBackgroundImage:buttonImageForGooglePlusSignInButton forState:UIControlStateNormal];
     [self.view addSubview:self.googlePlusSignInButton];
     
-=======
-    self.navigationController.navigationBar.tintColor = [UIColor redColor];
->>>>>>> b8563adc2d5babcbdf973b81b0746a3fb1d9df67
     GPPSignIn *signIn = [GPPSignIn sharedInstance];
-    
-    self.navigationController.view.backgroundColor =
-    [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
-    
-    self.view.backgroundColor = [UIColor clearColor];
-    
-    signIn.clientID = kClientID;
-    signIn.scopes = [NSArray arrayWithObjects:
-                     kGTLAuthScopePlusLogin,nil];
-    signIn.delegate = self;
-    
-    
-    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
-    loginButton.frame = CGRectMake(34, 611, 306, 46);
-    
-    [self.view addSubview:loginButton];
+    signIn = [GPPSignIn sharedInstance];
+    signIn.clientID= kClientID;
+    signIn.scopes= [NSArray arrayWithObjects:kGTLAuthScopePlusLogin, nil];
+    signIn.shouldFetchGoogleUserID=YES;
+    signIn.shouldFetchGoogleUserEmail=YES;
+    signIn.shouldFetchGooglePlusUser=YES;
+    signIn.delegate=self;
     [signIn trySilentAuthentication];
-    //[signIn signOut];
+
+    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
+    loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
+    
 }
 
-
-
-- (void)finishedWithAuth: (GTMOAuth2Authentication *)auth
-                   error: (NSError *) error
+- (void)viewWillAppear:(BOOL)animated
 {
-    NSLog(@"Received error %@ and auth object %@",error, auth);
-    if (error) {
-        // Обработка ошибок
-    } else {
-        [self refreshInterfaceBasedOnSignIn];
-    }
+    [super viewWillAppear:animated];
+    [self refreshInterfaceBasedOnSignIn];
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+                                  animationControllerForOperation:(UINavigationControllerOperation)operation
+                                               fromViewController:(UIViewController*)fromVC
+                                                 toViewController:(UIViewController*)toVC
+{
+    if (operation == UINavigationControllerOperationPush)
+        return [[PushAnimator alloc] init];
+    
+    if (operation == UINavigationControllerOperationPop)
+        return [[PopAnimator alloc] init];
+    
+    return nil;
+}
+
+- (void)finishedWithAuth:(GTMOAuth2Authentication *)auth
+                   error:(NSError *)error
+{
+    
+    
+    NSLog(@"Received Access Token:%@",auth);
+    self.googlePlusUserInfromation = (NSString *)([GPPSignIn sharedInstance].googlePlusUser);
+    NSLog(@"user %@", self.googlePlusUserInfromation);
+    
+    [self refreshInterfaceBasedOnSignIn];
+    
+}
+
+- (BOOL)isSessionOpen
+{
+    if( (FBSession.activeSession.state == FBSessionStateOpen) || (FBSession.activeSession.state == FBSessionStateOpenTokenExtended) || (FBSession.activeSession.isOpen == YES) )
+        return YES;
+    else return NO;
 }
 
 
@@ -90,27 +104,24 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 
 }
 
-- (void)signOut {
-    [[GPPSignIn sharedInstance] signOut];
-}
-
-<<<<<<< HEAD
-=======
 - (void)disconnect {
     [[GPPSignIn sharedInstance] disconnect];
 }
 
-- (void)didDisconnectWithError:(NSError *)error {
-    if (error) {
-        NSLog(@"Received error %@", error);
-    } else {
-        // Пользователь вышел и отключился.
-        // Удалим данные пользователя в соответствии с Условиями использования Google+.
-    }
+-(void) viewDidAppear:(BOOL)animated{
+    [self refreshInterfaceBasedOnSignIn];
 }
 
->>>>>>> b8563adc2d5babcbdf973b81b0746a3fb1d9df67
+-(void) viewDidDisappear:(BOOL)animated{
+    [self refreshInterfaceBasedOnSignIn];
+}
+
+-(void) viewWillDissapear:(BOOL)animated {
+    [self refreshInterfaceBasedOnSignIn];
+}
+
 - (IBAction)searchButton:(id)sender {
+    
     UIAlertView *noText = [[UIAlertView alloc] initWithTitle:@"Table is empty because of empty request!" message:@"Please, enter some text in Search field!" delegate:self cancelButtonTitle:@"Ok!" otherButtonTitles:nil];
     
     if([self.searchTextField.text  isEqual: @""]) [noText show];
@@ -130,7 +141,6 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
     
 }
 
-<<<<<<< HEAD
 - (IBAction)signOutButton:(id)sender {
     
     if ([[GPPSignIn sharedInstance] authentication] || [self isSessionOpen]) {
@@ -223,37 +233,39 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 - (IBAction)googleButtton:(id)sender {
     self.googlePlusSignInButton.hidden = YES;
 }
-=======
->>>>>>> b8563adc2d5babcbdf973b81b0746a3fb1d9df67
 
 -(void)refreshInterfaceBasedOnSignIn
 {
-    if ([[GPPSignIn sharedInstance] authentication]) {
+    
+    
+    if ([[GPPSignIn sharedInstance] authentication] || [self isSessionOpen]) {
         // Пользователь вошел.
-        self.signInButton.hidden = YES;
+        self.googlePlusSignInButton.hidden = YES;
+        self.facebookSignInButton.hidden = YES;
+         //self.signOutButton.hidden = NO;
         // Прочие действия, например отображение кнопки выхода
     } else {
-        self.signInButton.hidden = NO;
+        //self.signOutButton.hidden = YES;
+        self.googlePlusSignInButton.hidden = NO;
+         self.facebookSignInButton.hidden = NO;
         // Прочие действия
     }
+    
 }
-
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-
     if ([segue.identifier isEqualToString:@"SegueToRecipesTVC"]){
-       
         RecipesTVC *newController = segue.destinationViewController;
         newController.query = [self.searchTextField.text stringByReplacingOccurrencesOfString: @" " withString:@"+"];
         newController.dataSource = @"Search results";
     }
     if ([segue.identifier isEqualToString:@"SegueToMyRecipes"]){
         RecipesTVC *newController = segue.destinationViewController;
-        newController.query = [self.searchTextField.text stringByReplacingOccurrencesOfString: @" " withString:@"+"];
         newController.dataSource = @"My recipes";
-        newController.selectDataSourceButton.selectedSegmentIndex = 1;
+        
     }
 }
+
 
 @end
