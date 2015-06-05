@@ -37,14 +37,7 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
     
     [self refreshInterfaceBasedOnSignIn];
     self.navigationController.delegate = self;
-<<<<<<< HEAD
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
-=======
-<<<<<<< HEAD
-=======
-    [[self navigationController] setNavigationBarHidden:YES animated:YES];
->>>>>>> fb2a596d08adff39858c46a8aae7f5a006f90f05
->>>>>>> 0d1649ca4b818c5beaed2ebf267da006482fa445
     self.navigationController.navigationBar.tintColor = [UIColor redColor];
     self.navigationController.view.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     self.view.backgroundColor = [UIColor clearColor];
@@ -128,14 +121,7 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
     [self refreshInterfaceBasedOnSignIn];
 }
 
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> fb2a596d08adff39858c46a8aae7f5a006f90f05
->>>>>>> 0d1649ca4b818c5beaed2ebf267da006482fa445
 - (IBAction)searchButton:(id)sender {
     
     UIAlertView *noText = [[UIAlertView alloc] initWithTitle:@"Table is empty because of empty request!" message:@"Please, enter some text in Search field!" delegate:self cancelButtonTitle:@"Ok!" otherButtonTitles:nil];

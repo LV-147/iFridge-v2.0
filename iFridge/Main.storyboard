@@ -176,18 +176,8 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-<<<<<<< HEAD
                         <outlet property="facebookSignInButton" destination="R0q-1n-3nf" id="LfU-vq-pTu"/>
                         <outlet property="googlePlusSignInButton" destination="IxZ-Gj-Gej" id="7Av-Tg-wbo"/>
-=======
-<<<<<<< HEAD
-                        <outlet property="facebookSignInButton" destination="R0q-1n-3nf" id="I69-S6-Qgv"/>
-                        <outlet property="googlePlusSignInButton" destination="IxZ-Gj-Gej" id="luf-yG-cUi"/>
-=======
-                        <outlet property="facebookSignInButton" destination="R0q-1n-3nf" id="LfU-vq-pTu"/>
-                        <outlet property="googlePlusSignInButton" destination="IxZ-Gj-Gej" id="7Av-Tg-wbo"/>
->>>>>>> fb2a596d08adff39858c46a8aae7f5a006f90f05
->>>>>>> 0d1649ca4b818c5beaed2ebf267da006482fa445
                         <outlet property="searchTextField" destination="HGG-sm-Rr1" id="1UG-gG-Xs6"/>
                         <outlet property="signOutButton" destination="3xL-Un-Md0" id="4Sg-Dd-2pD"/>
                         <outlet property="userInformationButton" destination="off-HA-Eq7" id="fAZ-2L-HeL"/>
@@ -205,22 +195,12 @@
                         <rect key="frame" x="0.0" y="-1" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-<<<<<<< HEAD
                         <searchBar key="tableHeaderView" contentMode="redraw" id="rPw-FD-ydj">
-=======
-<<<<<<< HEAD
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="j1J-xX-lRx">
->>>>>>> 0d1649ca4b818c5beaed2ebf267da006482fa445
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="barTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
-<<<<<<< HEAD
-=======
-=======
->>>>>>> fb2a596d08adff39858c46a8aae7f5a006f90f05
->>>>>>> 0d1649ca4b818c5beaed2ebf267da006482fa445
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" showsReorderControl="YES" indentationWidth="10" reuseIdentifier="myCell" rowHeight="154" id="OYL-HI-rJD" customClass="RecipesCell">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -291,17 +271,8 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-<<<<<<< HEAD
                         <outlet property="recipeSearchBar" destination="rPw-FD-ydj" id="vLe-tq-EJo"/>
                         <outlet property="selectDataSourceController" destination="JFK-o1-5WF" id="UrB-w6-AXW"/>
-=======
-<<<<<<< HEAD
-                        <outlet property="recipeSearchBar" destination="j1J-xX-lRx" id="XBP-D3-guY"/>
-                        <outlet property="selectDataSourceController" destination="JFK-o1-5WF" id="oWg-Mw-P1v"/>
-=======
-                        <outlet property="selectDataSourceButton" destination="JFK-o1-5WF" id="cy1-yn-3u8"/>
->>>>>>> fb2a596d08adff39858c46a8aae7f5a006f90f05
->>>>>>> 0d1649ca4b818c5beaed2ebf267da006482fa445
                         <outlet property="tableView" destination="tB7-Bw-lU0" id="0Eh-m2-LAi"/>
                     </connections>
                 </tableViewController>
