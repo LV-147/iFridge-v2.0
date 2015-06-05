@@ -43,8 +43,10 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
     self.view.backgroundColor = [UIColor clearColor];
     
     UIImage *buttonImageForGooglePlusSignInButton = [UIImage imageNamed:@"gplus-128.png"];
+    UIImage *buttonImageForGooglePlusSignInButtonWhenPressed = [UIImage imageNamed:@"gplus-120.png"];
     [self.googlePlusSignInButton setImage:buttonImageForGooglePlusSignInButton forState:UIControlStateNormal];
-    [self.googlePlusSignInButton setBackgroundImage:buttonImageForGooglePlusSignInButton forState:UIControlStateNormal];
+    [self.googlePlusSignInButton setImage:buttonImageForGooglePlusSignInButtonWhenPressed forState:UIControlStateHighlighted];
+
     [self.view addSubview:self.googlePlusSignInButton];
     
     GPPSignIn *signIn = [GPPSignIn sharedInstance];
@@ -178,13 +180,6 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
     UIAlertView *userNotLoggedIn = [[UIAlertView alloc] initWithTitle:@"You are not currently logged in" message:@"Try to log in first!" delegate:self cancelButtonTitle:@"Ok!" otherButtonTitles:nil];
     
     if([[GPPSignIn sharedInstance] authentication]){
-        
-    
-      //  NSString * str = [dict displayName];
-      //  NSLog(@"%@", (NSString*)((GTLPlusPerson*)dict[@"displayName"]);
-        
-      //  self.googlePlusUserInfromation
-        
      
         NSString *strForJson = [NSString stringWithFormat:@"%@",[GPPSignIn sharedInstance].googlePlusUser];
         
@@ -199,11 +194,11 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
         NSArray *testArray2 = [[strForJson substringWithRange:matchRange] componentsSeparatedByString:@"\""];
         NSString *userName = testArray2[1];
 
-        NSLog(@"g+ %@", userName);
+        NSString *googleUserInformation = [NSString stringWithFormat:@"User name: %@\r User e-mail: %@\r User id: %@\r", userName, [GPPSignIn sharedInstance].userEmail, [GPPSignIn sharedInstance].userID];
 
-        //        UIAlertView *userInfo = [[UIAlertView alloc] initWithTitle:@"Current user information" message:self.googlePlusUserInfromation delegate:self cancelButtonTitle:@"Ok!" otherButtonTitles:nil];
-        //
-        //        [userInfo show];
+                UIAlertView *userInfo = [[UIAlertView alloc] initWithTitle:@"Current user information" message:googleUserInformation delegate:self cancelButtonTitle:@"Ok!" otherButtonTitles:nil];
+        
+                [userInfo show];
     }else if ([FBSDKAccessToken currentAccessToken]) {
         [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
          startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
@@ -235,8 +230,8 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.ifridge.tk/"]];
 }
 
-- (IBAction)writeAnEmailButton:(id)sender {
-    
+- (IBAction)emailUsButton:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"mailto:info@ifridge.tk"]]];
 }
 
 -(void)refreshInterfaceBasedOnSignIn

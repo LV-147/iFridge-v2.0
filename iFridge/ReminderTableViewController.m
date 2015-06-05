@@ -13,7 +13,6 @@
 #import "UIViewController+Context.h"
 
 
-
 @import EventKit;
 
 @interface ReminderTableViewController ()
@@ -23,8 +22,7 @@
 @property (copy, nonatomic) NSArray *reminders;
 @property (strong, nonatomic) EKCalendar *calendar;
 @property (nonatomic) BOOL isAccessToEventStoreGranted;
-@property (nonatomic, assign) UIView *blurEffect;
-
+@property (nonatomic, strong) NSString *savedEvent;
 
 @end
 
@@ -42,6 +40,7 @@
 
 
 
+
 - (NSArray *)todoItems {
     if (!_todoItems) {
         _todoItems = [@[@"You need to do smth!"] mutableCopy];
@@ -56,26 +55,49 @@
 
 
 - (void)viewDidLoad {
-    
-    
-    
     [super viewDidLoad];
     
-
-    
-
+//    EKEventStore *eventStore = [EKEventStore new];
+//    [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
+//        if (!granted) { return; }
+//        EKEvent *event = [EKEvent eventWithEventStore:eventStore];
+//        NSString *eventForCalendarTitle = [NSString stringWithFormat:@"To buy for %@", _nameOfEventForCalendar];
+//        event.title = eventForCalendarTitle;
+//        event.notes = [self.ingredientsForReminder componentsJoinedByString:@"\n"];
+//        event.startDate = [NSDate date]; //today
+//        event.endDate = [event.startDate dateByAddingTimeInterval:60*60];  //set 1 hour meeting
+//        event.calendar = [eventStore defaultCalendarForNewEvents];
+//        NSError *err = nil;
+//        
+//        for (NSString *savedEvent in self.ingredientsForReminder) {
+//            [eventStore saveEvent:event span:EKSpanThisEvent commit:YES error:&err];
+//        }
+//        
+//        self.savedEvent = event.eventIdentifier;  //save the event id if you want to access this later
+//    }];
+//    
+//    
+////    EKEventStore* eventStore = [EKEventStore new];
+//    [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
+//        if (!granted) { return; }
+//        EKEvent* eventToRemove = [eventStore eventWithIdentifier:self.savedEvent];
+//        if (eventToRemove) {
+//            NSError* error = nil;
+//            [eventStore removeEvent:eventToRemove span:EKSpanThisEvent commit:YES error:&error];
+//        }
+//    }];
     
     self.title = @"To Buy!";
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureRecognized:)];
     
     [self.tableView addGestureRecognizer:longPress];
-
+    
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"image22.jpg"]];
-
+    
     self.tableView.backgroundView.alpha = 0.2f;
     
-   
+    
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
 }
@@ -105,7 +127,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.todoItems count];
     
-
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -117,16 +138,9 @@
     NSString *object = self.todoItems[indexPath.row];
     
     cell.backgroundColor = [UIColor clearColor];
-    
-    
     cell.textLabel.text = object;
     cell.textLabel.textColor = [UIColor blackColor];
-    
-   
-   
-    
-    [self addReminderForToDoItem:object];
-    
+//    [self addReminderForToDoItem:object];
     return cell;
 }
 
@@ -152,6 +166,54 @@
 }
 
 #pragma mark - IBActions
+
+
+- (IBAction)sendToCalendar:(id)sender {
+    
+    EKEventStore *eventStore = [EKEventStore new];
+    [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
+        if (!granted) { return; }
+        EKEvent *event = [EKEvent eventWithEventStore:eventStore];
+        NSString *eventForCalendarTitle = [NSString stringWithFormat:@"To buy for %@", _nameOfEventForCalendar];
+        event.title = eventForCalendarTitle;
+        event.notes = [self.todoItems componentsJoinedByString:@"\n"];
+        event.startDate = [NSDate date]; //today
+        event.endDate = [event.startDate dateByAddingTimeInterval:60*60];  //set 1 hour meeting
+        event.calendar = [eventStore defaultCalendarForNewEvents];
+        NSError *err = nil;
+        
+        for (NSString *savedEvent in self.todoItems) {
+            [eventStore saveEvent:event span:EKSpanThisEvent commit:YES error:&err];
+        }
+        
+        self.savedEvent = event.eventIdentifier;  //save the event id if you want to access this later
+    }];
+    
+    
+    //    EKEventStore* eventStore = [EKEventStore new];
+    [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
+        if (!granted) { return; }
+        EKEvent* eventToRemove = [eventStore eventWithIdentifier:self.savedEvent];
+        if (eventToRemove) {
+            NSError* error = nil;
+            [eventStore removeEvent:eventToRemove span:EKSpanThisEvent commit:YES error:&error];
+        }
+    }];
+    
+    if(self.todoItems)
+    {
+        [sender setEnabled:YES];
+    }
+    else
+    {
+        [sender setEnabled:NO];
+    }
+
+    
+    
+}
+
+
 
 - (IBAction)addButtonPressed:(id)sender {
     
@@ -237,7 +299,7 @@
                 [todoItems exchangeObjectAtIndex:indexPath.row withObjectAtIndex:sourceIndexPath.row];
                 self.todoItems = todoItems;
                 
- 
+                
                 
                 // ... move the rows.
                 [self.tableView moveRowAtIndexPath:sourceIndexPath toIndexPath:indexPath];
@@ -276,28 +338,6 @@
 
 
 
-- (void)addReminderForToDoItem:(NSString *)item {
-    // 1
-    if (!self.isAccessToEventStoreGranted)
-        return;
-    
-    // 2
-    EKReminder *reminder = [EKReminder reminderWithEventStore:self.eventStore];
-    reminder.title = item;
-    reminder.calendar = self.calendar;
-    
-    // 3
-    NSError *error = nil;
-    BOOL success = [self.eventStore saveReminder:reminder commit:YES error:&error];
-    if (!success) {
-        // Handle error.
-    }
-    
-    // 4
-    NSString *message = (success) ? @"Reminder was successfully added!" : @"Failed to add reminder!";
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Dismiss", nil];
-    [alertView show];
-}
 
 
 #pragma mark - Helper methods
@@ -317,6 +357,13 @@
 }
 
 
+#pragma mark - Helper methods
+
+/** @brief Returns a customized snapshot of a given view. */
+
+
+
+
 
 
 - (NSDateComponents *)dateComponentsForDefaultDueDate {
@@ -333,6 +380,12 @@
     tomorrowAt4PM.second = 0;
     
     return tomorrowAt4PM;
+}
+
+- (BOOL)itemHasReminder:(NSString *)item {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title matches %@", item];
+    NSArray *filtered = [self.reminders filteredArrayUsingPredicate:predicate];
+    return (self.isAccessToEventStoreGranted && [filtered count]);
 }
 
 

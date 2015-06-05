@@ -12,7 +12,6 @@
 
 @class GPPSignInButton;
 
-
 @interface SearchViewController : UIViewController <GPPSignInDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *searchTextField;
@@ -26,7 +25,7 @@
 - (IBAction)goToFacebookGroup:(id)sender;
 - (IBAction)goToGooglePlusGroup:(id)sender;
 - (IBAction)goToOurWebSite:(id)sender;
-- (IBAction)writeAnEmailButton:(id)sender;
+- (IBAction)emailUsButton:(id)sender;
 
 
 

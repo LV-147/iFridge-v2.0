@@ -100,7 +100,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Cj-Tk-D8a">
-                                <rect key="frame" x="226" y="547" width="50" height="50"/>
+                                <rect key="frame" x="220" y="552" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="Martz90-Circle-Google-plus.ico">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -116,9 +116,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2f1-k7-g7r">
-                                <rect key="frame" x="98" y="547" width="50" height="50"/>
+                                <rect key="frame" x="104" y="552" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="Vk-icon.png">
+                                <state key="normal" image="vk.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -132,9 +132,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UbZ-Dj-In0">
-                                <rect key="frame" x="163" y="547" width="50" height="50"/>
+                                <rect key="frame" x="162" y="552" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="Facebook_icon.101114329_std.jpg">
+                                <state key="normal" image="facebook.jpg">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -147,21 +147,21 @@
                                     <action selector="goToFacebookGroup:" destination="GfN-dv-fDj" eventType="touchUpInside" id="830-Nb-e1X"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ubP-Zp-hhk">
-                                <rect key="frame" x="98" y="623" width="178" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5d-NF-jnN">
+                                <rect key="frame" x="16" y="631" width="343" height="36"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="21"/>
-                                <state key="normal" title="info@ifridge.tk">
+                                <state key="normal" title="email us: info@ifridge.tk">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="writeAnEmailButton:" destination="GfN-dv-fDj" eventType="touchUpInside" id="tRc-pq-O41"/>
+                                    <action selector="emailUsButton:" destination="GfN-dv-fDj" eventType="touchUpInside" id="owp-Qo-9sL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rla-bS-pYF">
-                                <rect key="frame" x="99" y="594" width="178" height="36"/>
+                                <rect key="frame" x="16" y="602" width="343" height="36"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="21"/>
-                                <state key="normal" title="http://www.ifridge.tk/">
+                                <state key="normal" title="visit us on: www.ifridge.tk/">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -195,6 +195,12 @@
                         <rect key="frame" x="0.0" y="-1" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="rPw-FD-ydj">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="barTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" showsReorderControl="YES" indentationWidth="10" reuseIdentifier="myCell" rowHeight="154" id="OYL-HI-rJD" customClass="RecipesCell">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -265,7 +271,8 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="selectDataSourceButton" destination="JFK-o1-5WF" id="cy1-yn-3u8"/>
+                        <outlet property="recipeSearchBar" destination="rPw-FD-ydj" id="vLe-tq-EJo"/>
+                        <outlet property="selectDataSourceController" destination="JFK-o1-5WF" id="UrB-w6-AXW"/>
                         <outlet property="tableView" destination="tB7-Bw-lU0" id="0Eh-m2-LAi"/>
                     </connections>
                 </tableViewController>
@@ -288,13 +295,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ulz-cA-xnm">
                                 <rect key="frame" x="69" y="102" width="230" height="230"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" directionalLockEnabled="YES" pagingEnabled="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gry-kJ-tXI">
-                                <rect key="frame" x="16" y="389" width="343" height="219"/>
-                                <color key="backgroundColor" white="1" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
-                            </textView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BYp-Xs-UYh">
                                 <rect key="frame" x="0.0" y="627" width="375" height="44"/>
                                 <items/>
@@ -328,6 +328,23 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z4U-jd-dco">
+                                <rect key="frame" x="93" y="580" width="49" height="46"/>
+                                <state key="normal" image="330273-64.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="googlePlusShareButton:" destination="Oyr-fJ-N5i" eventType="touchUpInside" id="fN4-Bk-yQo"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" directionalLockEnabled="YES" pagingEnabled="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gry-kJ-tXI">
+                                <rect key="frame" x="16" y="389" width="343" height="193"/>
+                                <color key="backgroundColor" white="1" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -383,6 +400,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <button key="tableFooterView" opaque="NO" alpha="0.74999999999999978" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Uie-0F-aFS">
+                            <rect key="frame" x="0.0" y="66" width="375" height="62"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="25"/>
+                            <state key="normal" title="Send to calendar" backgroundImage="send_arrow.png">
+                                <color key="titleColor" red="0.99985746434228551" green="1" blue="0.070685270060054983" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="sendToCalendar:" destination="KUQ-L5-Ki6" eventType="touchUpInside" id="3vC-FM-vig"/>
+                            </connections>
+                        </button>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell Identifier" id="ZQp-W3-uur">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -406,7 +434,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C8e-ht-NOQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1825.5" y="-2087"/>
+            <point key="canvasLocation" x="1825.5" y="-2087.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Wf9-e6-weB">
@@ -542,6 +570,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="PoF-01-g2x">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <items>
+                                <barButtonItem title="Item" id="LTR-4K-EFN"/>
+                            </items>
+                        </toolbar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell Identifier" id="x4J-ZA-jwi">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -608,15 +643,17 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Facebook_icon.101114329_std.jpg" width="256" height="256"/>
+        <image name="330273-64.png" width="64" height="64"/>
         <image name="Martz90-Circle-Google-plus.ico" width="256" height="256"/>
-        <image name="Vk-icon.png" width="512" height="512"/>
+        <image name="facebook.jpg" width="300" height="300"/>
         <image name="fridge2.jpg" width="1800" height="2288"/>
         <image name="image.jpg" width="2560" height="1577"/>
         <image name="info_information_user_about_card_button_symbol_icon-128.png" width="128" height="128"/>
         <image name="note.png" width="640" height="392"/>
         <image name="photo-frame.png" width="1291" height="1600"/>
         <image name="search-icon.png" width="298" height="297"/>
+        <image name="send_arrow.png" width="256" height="256"/>
+        <image name="vk.png" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="y47-Cr-Jsy"/>
