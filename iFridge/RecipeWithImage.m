@@ -177,7 +177,7 @@
         recipeCarouselItem.recipeItemImage.frame = self.imageForDish.frame;//CGRectMake(0, 0, 230, 230);
         recipeCarouselItem.recipeItemImage.bounds = self.imageForDish.bounds;//CGRectMake(0, 0, 230, 230);
         
-        recipeCarouselItem.recipeItemFrame = [[UIImageView alloc] initWithImage:self.frame.image];
+        recipeCarouselItem.recipeItemFrame = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"image-frame.png"]];
         [recipeCarouselItem addSubview:recipeCarouselItem.recipeItemFrame];
         recipeCarouselItem.recipeItemFrame.frame = self.frame.frame;//CGRectMake(0, 0, 230, 230);
         recipeCarouselItem.recipeItemFrame.bounds = self.frame.bounds;//CGRectMake(0, 0, 230, 230);
