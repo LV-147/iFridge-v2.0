@@ -38,6 +38,7 @@
     [super viewDidLoad];
     
     self.navigationController.view.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
+    self.carousel.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     
     FBLikeControl *like = [[FBLikeControl alloc] init];
     like.frame = CGRectMake(16, 589, like.frame.size.width, like.frame.size.height);
