@@ -13,6 +13,5 @@
 @property (strong, nonatomic) IBOutlet UIImageView *recipeItemImage;
 @property (strong, nonatomic) IBOutlet UILabel *recipeItemName;
 @property (strong, nonatomic) IBOutlet UITextView *recipeItemTextField;
-@property (strong, nonatomic) IBOutlet UIImageView *recipeItemFrame;
 
 @end

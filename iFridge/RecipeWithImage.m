@@ -28,7 +28,6 @@
 @property (nonatomic) BOOL recipeSaved;
 @property (strong, nonatomic) NSArray *availableRecipes;
 @property (nonatomic, assign) NSInteger recipeRow;
-@property (strong, nonatomic) IBOutlet UIImageView *frame;
 
 @end
 
@@ -164,9 +163,6 @@
     //NSLog(@"%ld", index);
     //CGRect deviceViewRect = self.view.frame.size.height;
     
-    //переписати кусок для індикатора
-    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%lu", ([carousel indexOfItemViewOrSubview:view] + 1), self.availableRecipes.count];
-    
     if (view == nil)
     {
         recipeCarouselItem = [RecipeCarouselItem new];
@@ -177,25 +173,19 @@
         recipeCarouselItem.recipeItemImage.frame = self.imageForDish.frame;//CGRectMake(0, 0, 230, 230);
         recipeCarouselItem.recipeItemImage.bounds = self.imageForDish.bounds;//CGRectMake(0, 0, 230, 230);
         
-        recipeCarouselItem.recipeItemFrame = [[UIImageView alloc] initWithImage:self.frame.image];
-        [recipeCarouselItem addSubview:recipeCarouselItem.recipeItemFrame];
-        recipeCarouselItem.recipeItemFrame.frame = self.frame.frame;//CGRectMake(0, 0, 230, 230);
-        recipeCarouselItem.recipeItemFrame.bounds = self.frame.bounds;//CGRectMake(0, 0, 230, 230);
-        
         recipeCarouselItem.recipeItemName = [UILabel new];
         [recipeCarouselItem addSubview:recipeCarouselItem.recipeItemName];
-        recipeCarouselItem.recipeItemName.textAlignment = NSTextAlignmentCenter;
         recipeCarouselItem.recipeItemName.frame = self.nameOfDish.frame;//CGRectMake(0, 0, 230, 230);
         recipeCarouselItem.recipeItemName.bounds = self.nameOfDish.bounds;//CGRectMake(0, 0, 230, 230);
+        [recipeCarouselItem layoutSubviews];
         
         recipeCarouselItem.recipeItemTextField = [UITextView new];
         [recipeCarouselItem addSubview:recipeCarouselItem.recipeItemTextField];
         recipeCarouselItem.recipeItemTextField.selectable = NO;
         recipeCarouselItem.recipeItemTextField.frame = self.recipeIngredients.frame;//CGRectMake(100, 100, 400, 500);
         recipeCarouselItem.recipeItemTextField.bounds = self.recipeIngredients.bounds;//CGRectMake(100, 100, 400, 500);
-        recipeCarouselItem.recipeItemTextField.alpha = 0.9;//self.recipeIngredients.alpha;
-        
-        [recipeCarouselItem layoutSubviews];
+        recipeCarouselItem.recipeItemTextField.alpha = self.recipeIngredients.alpha;
+
     }
     else
     {
@@ -207,7 +197,7 @@
     
     recipeCarouselItem.recipeItemName.text = [[self.availableRecipes objectAtIndex:index] valueForKeyPath:@"recipe.label"];
     
-    NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:index] valueForKeyPath:@"recipe.ingredientLines"];
+    NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:self.recipeRow] valueForKeyPath:@"recipe.ingredientLines"];
     recipeCarouselItem.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
 
     NSLog(@"%@", [[self.availableRecipes objectAtIndex:index] valueForKeyPath:@"recipe.label"]);
@@ -235,7 +225,6 @@
     [self setRecipeForRecipeIndex:self.recipeRow];
     [self ifCurrentRecipeSaved];
 }
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     ReminderTableViewController *newController = segue.destinationViewController;
