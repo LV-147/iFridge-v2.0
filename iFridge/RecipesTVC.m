@@ -200,6 +200,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     RecipesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myCell" forIndexPath:indexPath];
     NSString *urlImageString = [[NSString alloc] init];
+    
     if ([self.dataSource isEqualToString:@"Search results"]) {
         urlImageString = [[self.recipes objectAtIndex:indexPath.row] valueForKeyPath:@"recipe.image"];
     }
@@ -244,7 +245,7 @@
         cell.weightTotal.text = [NSString stringWithString:weightTotal];
         
         [self doAnimation:cell];
-        
+
         return cell;
         
     }else{
@@ -254,7 +255,7 @@
         cell.cookingTime.text = [NSString stringWithFormat:@"Cooking time: %@ s", [numberFormatter stringFromNumber:recipe.cookingTime]];
         cell.caloriesTotal.text = [NSString stringWithFormat:@"Total calories %@", [numberFormatter stringFromNumber:recipe.calories]];
         cell.weightTotal.text = [NSString stringWithFormat:@"Total weight: %@ g", [numberFormatter stringFromNumber:recipe.weight]];
-        
+
         return cell;
     }
 }
