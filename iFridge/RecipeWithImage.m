@@ -16,6 +16,7 @@
 #import "ReminderTableViewController.h"
 #import <GooglePlus/GPPShare.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import "RecipeCarouselItem.h"
 
 @interface RecipeWithImage ()
 
@@ -35,6 +36,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationController.view.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
+    
     FBLikeControl *like = [[FBLikeControl alloc] init];
     like.frame = CGRectMake(16, 589, like.frame.size.width, like.frame.size.height);
     like.objectID = @"https://www.facebook.com/groups/1599931206891002";
@@ -52,6 +55,8 @@
     
     [self setRecipeForRecipeIndex:self.recipeRow];
     
+    self.carousel.type = iCarouselTypeLinear;
+
 }
 - (void) viewWillAppear:(BOOL)animated {
    self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
@@ -59,6 +64,12 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     
 }
+
+- (void)awakeFromNib
+{
+    [self.carousel reloadData];
+}
+
 
 - (void)initWithRecipeAtIndex:(NSInteger)recipeIndex from:(NSArray *)recipes {
     self.availableRecipes = recipes;
@@ -138,6 +149,67 @@
         return NO;
     }
 }
+
+- (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel
+{
+    return [self.availableRecipes count];
+}
+
+- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view
+{
+    RecipeCarouselItem *recipeCarouselItem = nil;
+    //index = self.recipeRow;
+    
+    //NSLog(@"%ld", index);
+    //CGRect deviceViewRect = self.view.frame.size.height;
+    
+    if (view == nil)
+    {
+        recipeCarouselItem = [RecipeCarouselItem new];
+        recipeCarouselItem.frame = self.view.frame;//CGRectMake(0, self.navigationController.navigationBar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height);
+        
+        recipeCarouselItem.recipeItemImage = [UIImageView new];
+        [recipeCarouselItem addSubview:recipeCarouselItem.recipeItemImage];
+        recipeCarouselItem.recipeItemImage.frame = self.imageForDish.frame;//CGRectMake(0, 0, 230, 230);
+        recipeCarouselItem.recipeItemImage.bounds = self.imageForDish.bounds;//CGRectMake(0, 0, 230, 230);
+        
+        recipeCarouselItem.recipeItemName = [UILabel new];
+        [recipeCarouselItem addSubview:recipeCarouselItem.recipeItemName];
+        recipeCarouselItem.recipeItemName.frame = self.nameOfDish.frame;//CGRectMake(0, 0, 230, 230);
+        recipeCarouselItem.recipeItemName.bounds = self.nameOfDish.bounds;//CGRectMake(0, 0, 230, 230);
+        [recipeCarouselItem layoutSubviews];
+        
+        recipeCarouselItem.recipeItemTextField = [UITextView new];
+        [recipeCarouselItem addSubview:recipeCarouselItem.recipeItemTextField];
+        recipeCarouselItem.recipeItemTextField.selectable = NO;
+        recipeCarouselItem.recipeItemTextField.frame = self.recipeIngredients.frame;//CGRectMake(100, 100, 400, 500);
+        recipeCarouselItem.recipeItemTextField.bounds = self.recipeIngredients.bounds;//CGRectMake(100, 100, 400, 500);
+        recipeCarouselItem.recipeItemTextField.alpha = self.recipeIngredients.alpha;
+
+    }
+    else
+    {
+        recipeCarouselItem = (RecipeCarouselItem *)view;
+    }
+    //присвоєння тексту і картинки
+    [DataDownloader setRecipeImageWithURL:[[self.availableRecipes objectAtIndex:index] valueForKeyPath:@"recipe.image"] usingImageView:recipeCarouselItem.recipeItemImage];
+    recipeCarouselItem.recipeItemImage.contentMode = UIViewContentModeScaleAspectFit;
+    
+    recipeCarouselItem.recipeItemName.text = [[self.availableRecipes objectAtIndex:index] valueForKeyPath:@"recipe.label"];
+    
+    NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:self.recipeRow] valueForKeyPath:@"recipe.ingredientLines"];
+    recipeCarouselItem.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
+
+    NSLog(@"%@", [[self.availableRecipes objectAtIndex:index] valueForKeyPath:@"recipe.label"]);
+    
+    return recipeCarouselItem;
+}
+
+- (CGFloat)carouselItemWidth:(iCarousel *)carousel {
+    CGFloat itemWidth = self.view.frame.size.width;
+    return itemWidth;
+}
+
 
 - (IBAction)swipe:(UISwipeGestureRecognizer *)sender {
     if (sender.direction == UISwipeGestureRecognizerDirectionLeft){
