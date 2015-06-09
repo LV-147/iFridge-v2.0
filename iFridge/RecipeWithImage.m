@@ -20,6 +20,7 @@
 
 @interface RecipeWithImage ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *frame;
 @property (weak, nonatomic) IBOutlet UILabel *nameOfDish;
 @property (weak, nonatomic) IBOutlet UITextView *recipeIngredients;
 @property (weak, nonatomic) IBOutlet UIImageView *imageForDish;
@@ -84,7 +85,11 @@
 - (void) setRecipeForRecipeIndex:(NSInteger)recipeIndexPath
 {
     if ([[self.availableRecipes objectAtIndex:self.recipeRow] isKindOfClass:[NSDictionary class]]) {
-        [DataDownloader setRecipeImageWithURL:[[self.availableRecipes objectAtIndex:self.recipeRow] valueForKeyPath:@"recipe.image"] usingImageView:self.imageForDish];
+        [DataDownloader setRecipeImageWithURL:[[self.availableRecipes objectAtIndex:self.recipeRow] valueForKeyPath:@"recipe.image"]
+                               usingImageView:self.imageForDish
+                        withCompletionHandler:^{
+                        
+                        }];
         NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:self.recipeRow] valueForKeyPath:@"recipe.ingredientLines"];
         self.recipeIngredients.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
         self.nameOfDish.text = [[self.availableRecipes objectAtIndex:recipeIndexPath] valueForKeyPath:@"recipe.label"];
@@ -92,7 +97,11 @@
     }else if ([[self.availableRecipes objectAtIndex:self.recipeRow] isKindOfClass:[Recipe class]]){
         Recipe *currentRecipe = [self.availableRecipes objectAtIndex:recipeIndexPath];
         
-        [DataDownloader setRecipeImageWithURL:currentRecipe.imageUrl usingImageView:self.imageForDish];
+        [DataDownloader setRecipeImageWithURL:currentRecipe.imageUrl
+                               usingImageView:self.imageForDish
+                        withCompletionHandler:^{
+                            
+                        }];
         self.nameOfDish.text = currentRecipe.label;
         
         NSMutableDictionary *ingredientLines = [[NSMutableDictionary alloc] init];
@@ -166,44 +175,52 @@
     if (view == nil)
     {
         recipeCarouselItem = [RecipeCarouselItem new];
-        recipeCarouselItem.frame = self.view.frame;//CGRectMake(0, self.navigationController.navigationBar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height);
+        recipeCarouselItem.frame = self.view.frame;
         
         recipeCarouselItem.recipeItemImage = [UIImageView new];
         [recipeCarouselItem addSubview:recipeCarouselItem.recipeItemImage];
-        recipeCarouselItem.recipeItemImage.frame = self.imageForDish.frame;//CGRectMake(0, 0, 230, 230);
-        recipeCarouselItem.recipeItemImage.bounds = self.imageForDish.bounds;//CGRectMake(0, 0, 230, 230);
+        recipeCarouselItem.recipeItemImage.frame = self.imageForDish.frame;
+        recipeCarouselItem.recipeItemImage.bounds = self.imageForDish.bounds;
+        
+        recipeCarouselItem.recipeItemFrame = [[UIImageView alloc] initWithImage:self.frame.image];
+        [recipeCarouselItem addSubview:recipeCarouselItem.recipeItemFrame];
+        recipeCarouselItem.recipeItemFrame.frame = self.frame.frame;
+        recipeCarouselItem.recipeItemFrame.bounds = self.frame.bounds;
         
         recipeCarouselItem.recipeItemName = [UILabel new];
         [recipeCarouselItem addSubview:recipeCarouselItem.recipeItemName];
-        recipeCarouselItem.recipeItemName.frame = self.nameOfDish.frame;//CGRectMake(0, 0, 230, 230);
-        recipeCarouselItem.recipeItemName.bounds = self.nameOfDish.bounds;//CGRectMake(0, 0, 230, 230);
-        [recipeCarouselItem layoutSubviews];
+        recipeCarouselItem.recipeItemName.textAlignment = NSTextAlignmentCenter;
+        recipeCarouselItem.recipeItemName.frame = self.nameOfDish.frame;
+        recipeCarouselItem.recipeItemName.bounds = self.nameOfDish.bounds;
         
         recipeCarouselItem.recipeItemTextField = [UITextView new];
         [recipeCarouselItem addSubview:recipeCarouselItem.recipeItemTextField];
         recipeCarouselItem.recipeItemTextField.selectable = NO;
-        recipeCarouselItem.recipeItemTextField.frame = self.recipeIngredients.frame;//CGRectMake(100, 100, 400, 500);
-        recipeCarouselItem.recipeItemTextField.bounds = self.recipeIngredients.bounds;//CGRectMake(100, 100, 400, 500);
-        recipeCarouselItem.recipeItemTextField.alpha = self.recipeIngredients.alpha;
-
+        recipeCarouselItem.recipeItemTextField.frame = self.recipeIngredients.frame;
+        recipeCarouselItem.recipeItemTextField.bounds = self.recipeIngredients.bounds;
+        recipeCarouselItem.recipeItemTextField.alpha = 0.9;
+        
+        [recipeCarouselItem layoutSubviews];
     }
     else
     {
         recipeCarouselItem = (RecipeCarouselItem *)view;
+        self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld", carousel.currentItemIndex];
     }
     //присвоєння тексту і картинки
-    [DataDownloader setRecipeImageWithURL:[[self.availableRecipes objectAtIndex:index] valueForKeyPath:@"recipe.image"] usingImageView:recipeCarouselItem.recipeItemImage];
+    [DataDownloader setRecipeImageWithURL:[[self.availableRecipes objectAtIndex:index] valueForKeyPath:@"recipe.image"] usingImageView:recipeCarouselItem.recipeItemImage
+     withCompletionHandler:^{
+     }];
     recipeCarouselItem.recipeItemImage.contentMode = UIViewContentModeScaleAspectFit;
     
     recipeCarouselItem.recipeItemName.text = [[self.availableRecipes objectAtIndex:index] valueForKeyPath:@"recipe.label"];
     
-    NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:self.recipeRow] valueForKeyPath:@"recipe.ingredientLines"];
+    NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:index] valueForKeyPath:@"recipe.ingredientLines"];
     recipeCarouselItem.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
-
+    
     NSLog(@"%@", [[self.availableRecipes objectAtIndex:index] valueForKeyPath:@"recipe.label"]);
     
-    return recipeCarouselItem;
-}
+    return recipeCarouselItem;}
 
 - (CGFloat)carouselItemWidth:(iCarousel *)carousel {
     CGFloat itemWidth = self.view.frame.size.width;
