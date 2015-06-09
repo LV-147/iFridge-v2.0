@@ -14,6 +14,9 @@
 
 @end
 
+NSString *app_id = @"4e8543af";
+NSString *app_key = @"e1309c8e747bdd4d7363587a4435f5ee";
+
 @implementation DataDownloader
 
 + (void)downloadRecipesForQuery:(NSString *)query
@@ -21,7 +24,7 @@
 {
     query = [query stringByReplacingOccurrencesOfString: @" " withString:@"+"];
     if (!query) return;
-    NSString *myRequest = [[NSString alloc] initWithFormat:@"%@%@%@", @"https://api.edamam.com/search?q=",query,@"&app_id=4e8543af&app_key=e1309c8e747bdd4d7363587a4435f5ee&from=0&to=100"];
+    NSString *myRequest = [[NSString alloc] initWithFormat:@"https://api.edamam.com/search?q=%@&app_id=%@&app_key=%@&from=0&to=100", query, app_id, app_key];
 //    NSLog(@"myLink: %@", myRequest);
 
 

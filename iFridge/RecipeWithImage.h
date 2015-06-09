@@ -10,11 +10,13 @@
 #import <SDWebImage/SDWebImageDownloader.h>
 #import <SDWebImage/SDWebImageManager.h>
 #import "Recipe.h"
+#import "iCarousel.h"
 
-@interface RecipeWithImage : UIViewController
+@interface RecipeWithImage : UIViewController <iCarouselDataSource, iCarouselDelegate>
 
 - (void)initWithRecipeAtIndex:(NSInteger)recipeIndex from:(NSArray *)recipes;
 - (IBAction)googlePlusShareButton:(id)sender;
+@property (strong, nonatomic) IBOutlet iCarousel *carousel;
 
 
 @end

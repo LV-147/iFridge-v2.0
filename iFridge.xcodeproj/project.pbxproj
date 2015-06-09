@@ -65,6 +65,8 @@
 		35D022EB1B1B1258001A3813 /* google_plus-128.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D022E81B1B1258001A3813 /* google_plus-128.png */; };
 		35D022ED1B1B2C51001A3813 /* social_facebook_box_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D022EC1B1B2C51001A3813 /* social_facebook_box_blue.png */; };
 		35D022EF1B1B356E001A3813 /* info_information_user_about_card_button_symbol_icon-128.png in Resources */ = {isa = PBXBuildFile; fileRef = 35D022EE1B1B356E001A3813 /* info_information_user_about_card_button_symbol_icon-128.png */; };
+		BFDD51731B21DA0A0039A630 /* RecipeCarouselItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFDD51721B21DA0A0039A630 /* RecipeCarouselItem.xib */; };
+		BFDD51761B21DCCE0039A630 /* RecipeCarouselItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDD51751B21DCCE0039A630 /* RecipeCarouselItem.m */; };
 		BFEA48281B13475C008F5BEF /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFEA48241B13475C008F5BEF /* LoadingView.m */; };
 		BFEA48291B13475C008F5BEF /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFEA48251B13475C008F5BEF /* LoadingView.xib */; };
 		BFEA482A1B13475C008F5BEF /* UIViewController+LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFEA48271B13475C008F5BEF /* UIViewController+LoadingView.m */; };
@@ -175,6 +177,9 @@
 		35D022EC1B1B2C51001A3813 /* social_facebook_box_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = social_facebook_box_blue.png; sourceTree = "<group>"; };
 		35D022EE1B1B356E001A3813 /* info_information_user_about_card_button_symbol_icon-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_information_user_about_card_button_symbol_icon-128.png"; sourceTree = "<group>"; };
 		7B6D530F70A59FB7713BE0D2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		BFDD51721B21DA0A0039A630 /* RecipeCarouselItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RecipeCarouselItem.xib; path = iFridge/RecipeCarouselItem.xib; sourceTree = "<group>"; };
+		BFDD51741B21DCCE0039A630 /* RecipeCarouselItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecipeCarouselItem.h; path = iFridge/RecipeCarouselItem.h; sourceTree = "<group>"; };
+		BFDD51751B21DCCE0039A630 /* RecipeCarouselItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecipeCarouselItem.m; path = iFridge/RecipeCarouselItem.m; sourceTree = "<group>"; };
 		BFEA48231B13475C008F5BEF /* LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
 		BFEA48241B13475C008F5BEF /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
 		BFEA48251B13475C008F5BEF /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
@@ -349,6 +354,7 @@
 				D9E1B2131B172283002AD39F /* Main.storyboard */,
 				359709681B04E9E4005064C0 /* ViewControllers */,
 				359709691B04E9F8005064C0 /* Core Data */,
+				BFDD51771B21DCE30039A630 /* RecipeCarouselItem */,
 				357A59001AFFDF3C0094B0AC /* Images.xcassets */,
 				357A59021AFFDF3C0094B0AC /* LaunchScreen.xib */,
 				BFEA48251B13475C008F5BEF /* LoadingView.xib */,
@@ -458,6 +464,17 @@
 				35AFA3441B1C5FC1006013AC /* PopAnimator.h */,
 			);
 			name = Animators;
+			sourceTree = "<group>";
+		};
+		BFDD51771B21DCE30039A630 /* RecipeCarouselItem */ = {
+			isa = PBXGroup;
+			children = (
+				BFDD51721B21DA0A0039A630 /* RecipeCarouselItem.xib */,
+				BFDD51741B21DCCE0039A630 /* RecipeCarouselItem.h */,
+				BFDD51751B21DCCE0039A630 /* RecipeCarouselItem.m */,
+			);
+			name = RecipeCarouselItem;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		D992EE3D1B0B651E0093B3F7 /* Categories */ = {
@@ -620,6 +637,7 @@
 				358ED2201B205DA70053FCFE /* 330273-64.png in Resources */,
 				35AFA3511B1C7B1B006013AC /* Martz90-Circle-Google-plus.ico in Resources */,
 				35AFA3521B1C7B1B006013AC /* download.jpeg in Resources */,
+				BFDD51731B21DA0A0039A630 /* RecipeCarouselItem.xib in Resources */,
 				35486D901B132C1300DC51D2 /* anim.jpg in Resources */,
 				35A5D2CC1B1F64AC00E70128 /* facebook.jpg in Resources */,
 				35A4879C1B023095008F31F3 /* door.png in Resources */,
@@ -686,6 +704,7 @@
 				357A58F61AFFDF3C0094B0AC /* AppDelegate.m in Sources */,
 				D992EE4D1B0B9D220093B3F7 /* iFridge.xcdatamodeld in Sources */,
 				D9180D4B1B21CFE0005854C6 /* ReminderTableViewController.m in Sources */,
+				BFDD51761B21DCCE0039A630 /* RecipeCarouselItem.m in Sources */,
 				F3948BFB1B138AE600D149D0 /* UIButton+ReminderBlock.m in Sources */,
 				D9B7D82D1B21C64200D5787E /* DataDownloader.m in Sources */,
 				D992EE2A1B0A339A0093B3F7 /* Fridge.m in Sources */,
