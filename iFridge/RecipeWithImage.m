@@ -73,7 +73,11 @@
 - (void) setRecipeForRecipeIndex:(NSInteger)recipeIndexPath
 {
     if ([[self.availableRecipes objectAtIndex:self.recipeRow] isKindOfClass:[NSDictionary class]]) {
-        [DataDownloader setRecipeImageWithURL:[[self.availableRecipes objectAtIndex:self.recipeRow] valueForKeyPath:@"recipe.image"] usingImageView:self.imageForDish];
+        [DataDownloader setRecipeImageWithURL:[[self.availableRecipes objectAtIndex:self.recipeRow] valueForKeyPath:@"recipe.image"]
+                               usingImageView:self.imageForDish
+                        withCompletionHandler:^{
+                        
+                        }];
         NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:self.recipeRow] valueForKeyPath:@"recipe.ingredientLines"];
         self.recipeIngredients.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
         self.nameOfDish.text = [[self.availableRecipes objectAtIndex:recipeIndexPath] valueForKeyPath:@"recipe.label"];
@@ -81,7 +85,11 @@
     }else if ([[self.availableRecipes objectAtIndex:self.recipeRow] isKindOfClass:[Recipe class]]){
         Recipe *currentRecipe = [self.availableRecipes objectAtIndex:recipeIndexPath];
         
-        [DataDownloader setRecipeImageWithURL:currentRecipe.imageUrl usingImageView:self.imageForDish];
+        [DataDownloader setRecipeImageWithURL:currentRecipe.imageUrl
+                               usingImageView:self.imageForDish
+                        withCompletionHandler:^{
+                            
+                        }];
         self.nameOfDish.text = currentRecipe.label;
         
         NSMutableDictionary *ingredientLines = [[NSMutableDictionary alloc] init];
