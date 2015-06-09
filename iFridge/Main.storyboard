@@ -380,6 +380,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="carousel" destination="Ifq-aU-mUE" id="sFq-nY-hvv"/>
+                        <outlet property="frame" destination="4ok-82-Ldc" id="iQy-Y7-68B"/>
                         <outlet property="imageForDish" destination="Ulz-cA-xnm" id="UVS-a5-vFJ"/>
                         <outlet property="nameOfDish" destination="BVk-zp-2z6" id="M86-mu-HWn"/>
                         <outlet property="recipeCountIndicator" destination="KiS-ua-e8m" id="fGF-RC-7MX"/>

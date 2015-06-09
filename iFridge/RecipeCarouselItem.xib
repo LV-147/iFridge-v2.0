@@ -50,6 +50,7 @@
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <connections>
+                <outlet property="recipeItemFrame" destination="ZWu-MP-GeX" id="dDG-yj-mOp"/>
                 <outlet property="recipeItemImage" destination="fIL-2V-Tlu" id="NJM-jQ-eHl"/>
                 <outlet property="recipeItemName" destination="Shd-ta-eAd" id="Bhc-KG-DpI"/>
                 <outlet property="recipeItemTextField" destination="a3l-dS-ufE" id="5Kh-RT-avh"/>
