@@ -23,8 +23,6 @@
 @property (strong, nonatomic) NSArray *allRecipes;
 //SEARCH
 @property (nonatomic, strong) UISearchController *searchController;
-// our secondary search results table view
-@property (nonatomic, strong) RecipesTVC *resultsController;
 // for state restoration
 @property BOOL searchControllerWasActive;
 @property BOOL searchControllerSearchFieldWasFirstResponder;
@@ -35,7 +33,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-        self.resultsController.dataSource = @"Search results";
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     self.tableView.backgroundColor = [UIColor clearColor];
@@ -55,7 +52,6 @@
     self.searchController.searchBar.tintColor = [UIColor redColor];
     self.searchController.searchBar.barTintColor = [UIColor colorWithRed:1 green:0.6 blue:0.6 alpha:0.5];
     [self.searchController.searchBar sizeToFit];
-    self.searchController.searchBar.text = self.query;
     self.tableView.tableHeaderView = self.searchController.searchBar;
     self.searchController.dimsBackgroundDuringPresentation = NO; // default is YES
     self.definesPresentationContext = YES;  // know where you want UISearchController to be displayed
@@ -70,24 +66,25 @@
         self.query = self.searchController.searchBar.text;
         [self searchForRecipesForQuery:self.query];
     }
+    self.searchControllerWasActive = NO;
+    self.searchControllerSearchFieldWasFirstResponder = NO;
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
-    @try {
         if ([self.dataSource isEqualToString:@"My recipes"]) {
             [self getRecipesFromCoreData];
         }
-    }
-    @catch (NSException *exception) {
-        NSLog(@"bad");
-    }
+    self.searchControllerWasActive = NO;
+    self.searchControllerSearchFieldWasFirstResponder = NO;
 }
 
 #pragma mark - UISearchResultsUpdating
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController
 {
+    self.searchControllerWasActive = YES;
+    self.searchControllerSearchFieldWasFirstResponder = YES;
     if ([self.dataSource isEqualToString:@"My recipes"]) {
         NSString *query = searchController.searchBar.text;
         if ([query isEqualToString:@""]) {
@@ -110,11 +107,11 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    self.searchController.searchBar.text = self.query;
     if ([self.dataSource isEqualToString:@"My recipes"]) {
         [self getRecipesFromCoreData];
         [self.tableView reloadData];
     }
-    [self.searchController.searchBar becomeFirstResponder];
 }
 
 -(void) viewWillDisappear:(BOOL)animated {
@@ -291,7 +288,7 @@
     RecipeWithImage *newController = segue.destinationViewController;
     newController.index = recipeIndex;
     [newController initWithRecipeAtIndex:recipeIndex from:self.recipes];
-    
+
     if (self.searchController.active) {
         self.searchController.active = NO;
     }

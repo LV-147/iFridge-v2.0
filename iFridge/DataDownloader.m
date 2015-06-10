@@ -44,6 +44,7 @@ NSString *app_key = @"e1309c8e747bdd4d7363587a4435f5ee";
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"Downloading failed with error: %@", error);
+             handler(nil);
          }];
 }
 
