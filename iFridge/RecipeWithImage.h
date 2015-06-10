@@ -17,6 +17,7 @@
 - (void)initWithRecipeAtIndex:(NSInteger)recipeIndex from:(NSArray *)recipes;
 - (IBAction)googlePlusShareButton:(id)sender;
 @property (strong, nonatomic) IBOutlet iCarousel *carousel;
+@property (assign, nonatomic) NSInteger index;
 
 
 @end
