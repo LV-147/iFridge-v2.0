@@ -134,7 +134,8 @@
     {
         self.selectDataSourceController.selectedSegmentIndex = 0;
         [self showLoadingViewInView:self.view];
-        [DataDownloader downloadRecipesForQuery:newQuery withCompletionHandler:^(NSArray *recipes){
+        DataDownloader *downloadManager = [[DataDownloader alloc]init];
+        [downloadManager downloadRecipesForQuery:newQuery withCompletionHandler:^(NSArray *recipes){
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.recipes = recipes;
                 [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
@@ -262,10 +263,10 @@
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    RecipesCell *recipeCell = sender;
+    RecipesCell *recipeCell = (RecipesCell *)sender;
     NSInteger recipeIndex = [self.tableView indexPathForCell:recipeCell].row;
     RecipeWithImage *newController = segue.destinationViewController;
-    
+    newController.index = recipeIndex;
     [newController initWithRecipeAtIndex:recipeIndex from:self.recipes];
     
 }
