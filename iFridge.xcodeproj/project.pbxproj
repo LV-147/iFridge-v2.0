@@ -70,6 +70,7 @@
 		BFEA48281B13475C008F5BEF /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFEA48241B13475C008F5BEF /* LoadingView.m */; };
 		BFEA48291B13475C008F5BEF /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFEA48251B13475C008F5BEF /* LoadingView.xib */; };
 		BFEA482A1B13475C008F5BEF /* UIViewController+LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFEA48271B13475C008F5BEF /* UIViewController+LoadingView.m */; };
+		BFF69BBD1B2860500085736A /* SortingStringClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF69BBC1B2860500085736A /* SortingStringClass.swift */; };
 		D9180D4B1B21CFE0005854C6 /* ReminderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9180D4A1B21CFE0005854C6 /* ReminderTableViewController.m */; };
 		D992EE2A1B0A339A0093B3F7 /* Fridge.m in Sources */ = {isa = PBXBuildFile; fileRef = D992EE291B0A339A0093B3F7 /* Fridge.m */; };
 		D992EE2D1B0A339A0093B3F7 /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = D992EE2C1B0A339A0093B3F7 /* Ingredient.m */; };
@@ -185,6 +186,8 @@
 		BFEA48251B13475C008F5BEF /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		BFEA48261B13475C008F5BEF /* UIViewController+LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LoadingView.h"; sourceTree = "<group>"; };
 		BFEA48271B13475C008F5BEF /* UIViewController+LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+LoadingView.m"; sourceTree = "<group>"; };
+		BFF69BBB1B28604F0085736A /* iFridge-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iFridge-Bridging-Header.h"; sourceTree = "<group>"; };
+		BFF69BBC1B2860500085736A /* SortingStringClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortingStringClass.swift; sourceTree = "<group>"; };
 		D9180D4A1B21CFE0005854C6 /* ReminderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderTableViewController.m; sourceTree = "<group>"; };
 		D992EE281B0A339A0093B3F7 /* Fridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fridge.h; sourceTree = "<group>"; };
 		D992EE291B0A339A0093B3F7 /* Fridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fridge.m; sourceTree = "<group>"; };
@@ -359,6 +362,8 @@
 				357A59021AFFDF3C0094B0AC /* LaunchScreen.xib */,
 				BFEA48251B13475C008F5BEF /* LoadingView.xib */,
 				357A58F01AFFDF3C0094B0AC /* Supporting Files */,
+				BFF69BBC1B2860500085736A /* SortingStringClass.swift */,
+				BFF69BBB1B28604F0085736A /* iFridge-Bridging-Header.h */,
 			);
 			path = iFridge;
 			sourceTree = "<group>";
@@ -713,6 +718,7 @@
 				F3948BEF1B137BDB00D149D0 /* UIAlertView+FridgeBlock.m in Sources */,
 				D992EE331B0A34DA0093B3F7 /* Fridge+Cat.m in Sources */,
 				F3948BEC1B137BB300D149D0 /* UIButton+FridgeBlock.m in Sources */,
+				BFF69BBD1B2860500085736A /* SortingStringClass.swift in Sources */,
 				359709671B04E9D3005064C0 /* RecipesTVC.m in Sources */,
 				357A58F31AFFDF3C0094B0AC /* main.m in Sources */,
 				3584A22D1B19E00400D21AF8 /* RegExCategories.m in Sources */,
@@ -834,6 +840,7 @@
 			baseConfigurationReference = FF46D8F0A983B94B8040C4CE /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/alexey.pelekh/Documents/FacebookSDK,
@@ -847,6 +854,8 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iFridge/iFridge-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -855,6 +864,7 @@
 			baseConfigurationReference = 7B6D530F70A59FB7713BE0D2 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/alexey.pelekh/Documents/FacebookSDK,
@@ -868,6 +878,7 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iFridge/iFridge-Bridging-Header.h";
 			};
 			name = Release;
 		};
