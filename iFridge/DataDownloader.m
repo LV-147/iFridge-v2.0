@@ -40,6 +40,7 @@
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"Downloading failed with error: %@", error);
+             handler(nil);
          }];
 }
 
