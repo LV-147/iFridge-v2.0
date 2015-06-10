@@ -57,8 +57,6 @@
     [recipeDict setObject:recipe.imageUrl forKey:@"image"];
     [recipeDict setObject:recipe.cookingTime forKey:@"cookingTime"];
     [recipeDict setObject:recipe.weight forKey:@"totalWeight"];
-//    [recipeDict setValue:recipe.fat forKeyPath:@"recipe.totalNutrients.FAT.quantity"];
-//    [recipeDict setValue:recipe.sugars forKeyPath:@"recipe.totalNutrients.SUGAR.quantity"];
     [recipeDict setObject:recipe.cookingLevel forKey:@"level"];
     
     NSMutableArray *ingredients = [[NSMutableArray alloc] init];

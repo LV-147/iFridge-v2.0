@@ -20,16 +20,10 @@
 
 @interface RecipeWithImage ()
 
-@property (weak, nonatomic) IBOutlet UIImageView *frame;
-@property (weak, nonatomic) IBOutlet UILabel *nameOfDish;
-@property (weak, nonatomic) IBOutlet UITextView *recipeIngredients;
-@property (weak, nonatomic) IBOutlet UIImageView *imageForDish;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 @property (strong, nonatomic) IBOutlet UILabel *recipeCountIndicator;
 @property (nonatomic) BOOL recipeSaved;
 @property (strong, nonatomic) NSArray *availableRecipes;
-@property (nonatomic, assign) NSInteger recipeRow;
-
 @end
 
 @implementation RecipeWithImage
@@ -55,7 +49,7 @@
     
     [self ifCurrentRecipeSaved];
     
-    [self setRecipeForRecipeIndex:_index];
+//    [self setRecipeForRecipeIndex:_index];
     
     self.carousel.type = iCarouselTypeLinear;
     self.index = self.index;
@@ -80,7 +74,7 @@
 
 - (void)initWithRecipeAtIndex:(NSInteger)recipeIndex from:(NSArray *)recipes {
     self.availableRecipes = recipes;
-    self.recipeRow = recipeIndex;
+    self.index = recipeIndex;
 }
 
 - (IBAction)googlePlusShareButton:(id)sender {
@@ -88,27 +82,27 @@
     [shareBuilder open];
 }
 
-- (void) setRecipeForRecipeIndex:(NSInteger)recipeIndexPath
+- (void) setRecipeForIndex:(NSInteger)index usingICaruselItem:(RecipeCarouselItem *)item
 {
-    if ([[self.availableRecipes objectAtIndex:self.recipeRow] isKindOfClass:[NSDictionary class]]) {
-        [DataDownloader setRecipeImageWithURL:[[self.availableRecipes objectAtIndex:self.recipeRow] valueForKeyPath:@"recipe.image"]
-                               usingImageView:self.imageForDish
+    if ([[self.availableRecipes objectAtIndex:self.index] isKindOfClass:[NSDictionary class]]) {
+        [DataDownloader setRecipeImageWithURL:[[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.image"]
+                               usingImageView:item.recipeItemImage
                         withCompletionHandler:^{
-                        
+                        //stop activity indicator
                         }];
-        NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:self.recipeRow] valueForKeyPath:@"recipe.ingredientLines"];
-        self.recipeIngredients.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
-        self.nameOfDish.text = [[self.availableRecipes objectAtIndex:recipeIndexPath] valueForKeyPath:@"recipe.label"];
+        NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.ingredientLines"];
+        item.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
+        item.recipeItemName.text = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.label"];
         
-    }else if ([[self.availableRecipes objectAtIndex:self.recipeRow] isKindOfClass:[Recipe class]]){
-        Recipe *currentRecipe = [self.availableRecipes objectAtIndex:recipeIndexPath];
+    }else if ([[self.availableRecipes objectAtIndex:self.index] isKindOfClass:[Recipe class]]){
+        Recipe *currentRecipe = [self.availableRecipes objectAtIndex:self.index];
         
         [DataDownloader setRecipeImageWithURL:currentRecipe.imageUrl
-                               usingImageView:self.imageForDish
+                               usingImageView:item.recipeItemImage
                         withCompletionHandler:^{
-                            
+                           //don't forget stop activity indicator!!
                         }];
-        self.nameOfDish.text = currentRecipe.label;
+        item.recipeItemName.text = currentRecipe.label;
         
         NSMutableDictionary *ingredientLines = [[NSMutableDictionary alloc] init];
         NSNumber *numb = [[NSNumber alloc] initWithInt:0];
@@ -117,7 +111,7 @@
             int value = [numb intValue];
             numb = [NSNumber numberWithInt:value + 1];
         }
-        self.recipeIngredients.text = [NSString stringWithFormat:@"Ingredient needed \n %@", [ingredientLines allValues]];
+        item.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", [ingredientLines allValues]];
     }
 }
 
@@ -189,16 +183,37 @@
     }
         NSLog(@"Third: %ld", (long)index);
     //присвоєння тексту і картинки
-    [DataDownloader setRecipeImageWithURL:[[self.availableRecipes objectAtIndex:index] valueForKeyPath:@"recipe.image"] usingImageView:recipeCarouselItem.recipeItemImage
-     withCompletionHandler:^{
-     }];
-    recipeCarouselItem.recipeItemImage.contentMode = UIViewContentModeScaleAspectFit;
-    
-    recipeCarouselItem.recipeItemName.text = [[self.availableRecipes objectAtIndex:index] valueForKeyPath:@"recipe.label"];
-    
-    NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:index] valueForKeyPath:@"recipe.ingredientLines"];
-    recipeCarouselItem.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
 
+    if ([[self.availableRecipes objectAtIndex:index] isKindOfClass:[NSDictionary class]]) {
+        [DataDownloader setRecipeImageWithURL:[[self.availableRecipes objectAtIndex:index] valueForKeyPath:@"recipe.image"]
+                               usingImageView:recipeCarouselItem.recipeItemImage
+                        withCompletionHandler:^{
+                            //stop activity indicator
+                        }];
+        NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:index] valueForKeyPath:@"recipe.ingredientLines"];
+        recipeCarouselItem.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
+        recipeCarouselItem.recipeItemName.text = [[self.availableRecipes objectAtIndex:index] valueForKeyPath:@"recipe.label"];
+        
+    }else if ([[self.availableRecipes objectAtIndex:index] isKindOfClass:[Recipe class]]){
+        Recipe *currentRecipe = [self.availableRecipes objectAtIndex:index];
+        
+        [DataDownloader setRecipeImageWithURL:currentRecipe.imageUrl
+                               usingImageView:recipeCarouselItem.recipeItemImage
+                        withCompletionHandler:^{
+                            //don't forget stop activity indicator!!
+                        }];
+        recipeCarouselItem.recipeItemName.text = currentRecipe.label;
+        
+        NSMutableDictionary *ingredientLines = [[NSMutableDictionary alloc] init];
+        NSNumber *numb = [[NSNumber alloc] initWithInt:0];
+        for (Ingredient *ingredient in currentRecipe.ingredients) {
+            [ingredientLines setObject:ingredient.label forKey:numb];
+            int value = [numb intValue];
+            numb = [NSNumber numberWithInt:value + 1];
+        }
+        recipeCarouselItem.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", [ingredientLines allValues]];
+    }
+    NSLog(@"self.index = %ld \n index = %ld", (long)self.index, (long)index);
     [self ifCurrentRecipeSaved];
     return recipeCarouselItem;
 }
