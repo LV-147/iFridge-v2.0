@@ -39,9 +39,9 @@
         recipe.cookingLevel = [recipeDict valueForKeyPath:@"recipe.level"];
         
         NSMutableSet *ingredients = [[NSMutableSet alloc]init];
-        NSArray *recipeIngredients = [recipeDict valueForKeyPath:@"recipe.ingredients"];
+        NSArray *recipeIngredients = [recipeDict valueForKeyPath:@"recipe.ingrediens"];
         for(NSDictionary* ingredient in recipeIngredients){
-        [ingredients addObject:[Ingredient addIngredientForRecipe:recipe withInfo:ingredient inManagedObiectContext:context]];
+            [ingredients addObject:[Ingredient addIngredientForRecipe:recipe withInfo:ingredient inManagedObiectContext:context]];
         }
         recipe.ingredients = [NSSet setWithSet:ingredients];
         [context save:NULL];
@@ -60,11 +60,14 @@
     [recipeDict setObject:recipe.cookingLevel forKey:@"level"];
     
     NSMutableArray *ingredients = [[NSMutableArray alloc] init];
-
     for (Ingredient *ingredient in recipe.ingredients) {
-        [ingredients addObject:ingredient.label];
+        NSMutableDictionary *ingredientDict = [[NSMutableDictionary alloc] init];
+        [ingredientDict setObject:ingredient.label forKey:@"label"];
+        [ingredientDict setObject:ingredient.quantity forKey:@"quantity"];
+        [ingredients addObject:ingredientDict];
+        ingredientDict = nil;
     }
-    [recipeDict setObject:ingredients forKey:@"ingredientLines"];
+    [recipeDict setObject:ingredients forKey:@"ingrediens"];
     NSDictionary *deletedRecipe = [NSDictionary dictionaryWithObjects:@[recipeDict] forKeys:@[@"recipe"]];
 
     [context deleteObject:recipe];

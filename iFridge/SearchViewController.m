@@ -46,7 +46,7 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
     self.navigationController.navigationBar.tintColor = [UIColor redColor];
     self.navigationController.view.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     self.view.backgroundColor = [UIColor clearColor];
-    
+    self.searchTextField.delegate = self;
     UIImage *buttonImageForGooglePlusSignInButton = [UIImage imageNamed:@"gplus-128.png"];
     UIImage *buttonImageForGooglePlusSignInButtonWhenPressed = [UIImage imageNamed:@"gplus-120.png"];
     [self.googlePlusSignInButton setImage:buttonImageForGooglePlusSignInButton forState:UIControlStateNormal];
