@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="h2X-tC-U0S">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="h2X-tC-U0S">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
         <!--Home-->
@@ -190,19 +190,13 @@
         <!--RecipesTVC-->
         <scene sceneID="xTM-nS-cJI">
             <objects>
-                <tableViewController id="LMa-eT-kqI" customClass="RecipesTVC" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="RecipesTVC" id="LMa-eT-kqI" customClass="RecipesTVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="154" sectionHeaderHeight="22" sectionFooterHeight="22" id="tB7-Bw-lU0">
                         <rect key="frame" x="0.0" y="-1" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="rPw-FD-ydj">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="barTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" showsReorderControl="YES" indentationWidth="10" reuseIdentifier="myCell" rowHeight="154" id="OYL-HI-rJD" customClass="RecipesCell">
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="myCell" selectionStyle="none" showsReorderControl="YES" indentationWidth="10" reuseIdentifier="myCell" rowHeight="154" id="OYL-HI-rJD" customClass="RecipesCell">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OYL-HI-rJD" id="1On-cw-p6f">
@@ -250,8 +244,8 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="LMa-eT-kqI" id="Xld-iu-oOg"/>
-                            <outlet property="delegate" destination="LMa-eT-kqI" id="d9k-oq-sSM"/>
+                            <outlet property="dataSource" destination="LMa-eT-kqI" id="Tj4-Q8-KGB"/>
+                            <outlet property="delegate" destination="LMa-eT-kqI" id="6E3-tX-qMg"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="AA2-yN-rFa">
@@ -271,7 +265,6 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="recipeSearchBar" destination="rPw-FD-ydj" id="vLe-tq-EJo"/>
                         <outlet property="selectDataSourceController" destination="JFK-o1-5WF" id="UrB-w6-AXW"/>
                         <outlet property="tableView" destination="tB7-Bw-lU0" id="0Eh-m2-LAi"/>
                     </connections>
@@ -313,6 +306,15 @@
                                     <segue destination="KUQ-L5-Ki6" kind="show" id="ec6-xV-Ywd"/>
                                 </connections>
                             </button>
+<<<<<<< HEAD
+=======
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KiS-ua-e8m">
+                                <rect key="frame" x="134" y="638" width="106" height="21"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+>>>>>>> 95a61b52f364af0dbfcfcfd98046a79260c70379
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo-frame.png" translatesAutoresizingMaskIntoConstraints="NO" id="4ok-82-Ldc">
                                 <rect key="frame" x="49" y="67" width="277" height="341"/>
                             </imageView>
@@ -381,7 +383,11 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="carousel" destination="Ifq-aU-mUE" id="sFq-nY-hvv"/>
+<<<<<<< HEAD
                         <outlet property="frame" destination="4ok-82-Ldc" id="iQy-Y7-68B"/>
+=======
+                        <outlet property="frame" destination="4ok-82-Ldc" id="I21-Ez-aXP"/>
+>>>>>>> 95a61b52f364af0dbfcfcfd98046a79260c70379
                         <outlet property="imageForDish" destination="Ulz-cA-xnm" id="UVS-a5-vFJ"/>
                         <outlet property="nameOfDish" destination="BVk-zp-2z6" id="M86-mu-HWn"/>
                         <outlet property="recipeCountIndicator" destination="KiS-ua-e8m" id="fGF-RC-7MX"/>
@@ -465,113 +471,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xYM-oz-AIP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1019.25" y="-2377.5"/>
-        </scene>
-        <!--Recipe book-->
-        <scene sceneID="s5f-gQ-w7U">
-            <objects>
-                <viewController id="MDm-Oi-yfh" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="HmG-ps-UiS"/>
-                        <viewControllerLayoutGuide type="bottom" id="5os-nN-0Zz"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="YvY-CL-wMy">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="fPl-m2-VyU">
-                                <rect key="frame" x="0.0" y="36" width="702" height="532"/>
-                            </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rky-Xi-5Ey">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="80" id="Sb3-3t-hTq">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Sb3-3t-hTq" id="jcf-p4-uej">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rLM-CU-mCw">
-                                                    <rect key="frame" x="0.0" y="0.0" width="79" height="79"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6z-bW-EsR">
-                                                    <rect key="frame" x="87" y="29" width="186" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <segue destination="oye-17-Qeq" kind="show" id="4Jc-RP-79u"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Recipe book" id="MLG-Ln-BrF"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Dra-uo-cTM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="7" y="-813"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="mCA-FO-ISz">
-            <objects>
-                <viewController id="oye-17-Qeq" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="3Us-uD-Fzy"/>
-                        <viewControllerLayoutGuide type="bottom" id="NGf-Zy-cAV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="DoD-Xn-Czd">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="EKR-4Z-dPm">
-                                <rect key="frame" x="0.0" y="36" width="702" height="532"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LD3-9c-ZOo">
-                                <rect key="frame" x="85" y="72" width="150" height="150"/>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l0s-xw-cfh">
-                                <rect key="frame" x="16" y="246" width="288" height="142"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ingredients:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uHU-ea-NZi">
-                                <rect key="frame" x="16" y="225" width="95" height="21"/>
-                                <color key="backgroundColor" white="1" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Preparation:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3A-JR-6YL">
-                                <rect key="frame" x="16" y="396" width="95" height="21"/>
-                                <color key="backgroundColor" white="1" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7G9-gR-llf">
-                                <rect key="frame" x="16" y="417" width="288" height="142"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Gcd-I4-1hn"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5D0-Od-Yus" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="507" y="-813"/>
         </scene>
         <!--Fridge Table View Controller-->
         <scene sceneID="1E0-cP-tbY">
@@ -658,7 +557,6 @@
         <image name="Martz90-Circle-Google-plus.ico" width="256" height="256"/>
         <image name="facebook.jpg" width="300" height="300"/>
         <image name="fridge2.jpg" width="1800" height="2288"/>
-        <image name="image.jpg" width="2560" height="1577"/>
         <image name="info_information_user_about_card_button_symbol_icon-128.png" width="128" height="128"/>
         <image name="note.png" width="640" height="392"/>
         <image name="photo-frame.png" width="1291" height="1600"/>
@@ -667,6 +565,6 @@
         <image name="vk.png" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="y47-Cr-Jsy"/>
+        <segue reference="r9f-D3-hBv"/>
     </inferredMetricsTieBreakers>
 </document>

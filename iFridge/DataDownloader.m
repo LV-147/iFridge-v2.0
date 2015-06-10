@@ -22,9 +22,14 @@ NSString *app_key = @"e1309c8e747bdd4d7363587a4435f5ee";
 - (void)downloadRecipesForQuery:(NSString *)query
           withCompletionHandler:(void(^)(NSArray *recipes))handler
 {
+    if (!query)
+    {
+        handler(nil);
+        return;
+    }
     query = [query stringByReplacingOccurrencesOfString: @" " withString:@"+"];
-    if (!query) return;
     NSString *myRequest = [[NSString alloc] initWithFormat:@"https://api.edamam.com/search?q=%@&app_id=%@&app_key=%@&from=0&to=100", query, app_id, app_key];
+
 //    NSLog(@"myLink: %@", myRequest);
 
 
@@ -42,14 +47,16 @@ NSString *app_key = @"e1309c8e747bdd4d7363587a4435f5ee";
          }];
 }
 
-+ (void)setRecipeImageWithURL:(NSString *)imageLink usingImageView:(UIImageView *)imageView {
++ (void)setRecipeImageWithURL:(NSString *)imageLink usingImageView:(UIImageView *)imageView
+        withCompletionHandler:(void(^)())handler
+{
     
     [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:imageLink]
                                                          options:SDWebImageDownloaderLowPriority
                                                         progress:nil
                                                        completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
-                                                           
-                                                           [imageView setBackgroundColor:[UIColor colorWithPatternImage:image]];
+                                                           [imageView setImage:image];
+                                                           handler();
                                                        }];
 }
 @end
