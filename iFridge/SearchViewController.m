@@ -100,7 +100,8 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 #pragma mark - search bar delegate
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    [DataDownloader downloadRecipesForQuery:self.searchController.searchBar.text
+    DataDownloader *downloadManager = [[DataDownloader alloc]init];
+    [downloadManager downloadRecipesForQuery:self.searchController.searchBar.text
                       withCompletionHandler:^(NSArray *filteredRecipes) {
                           self.resultsController.recipes = filteredRecipes;
                           [self.resultsController.tableView reloadData];

@@ -174,59 +174,13 @@
 {
     RecipeCarouselItem *recipeCarouselItem = nil;
     
-<<<<<<< HEAD
-    //NSLog(@"%ld", index);
-    //CGRect deviceViewRect = self.view.frame.size.height;
-=======
-    NSLog(@"First: %ld", (long)index);
->>>>>>> Taras_Hates_GitHub_branch
-    
     if (view == nil)
     {
-<<<<<<< HEAD
-        NSLog(@"Second: %ld", (long)index);
-=======
-        recipeCarouselItem = [RecipeCarouselItem new];
-        recipeCarouselItem.frame = self.view.frame;
-        
-        recipeCarouselItem.recipeItemImage = [UIImageView new];
-        [recipeCarouselItem addSubview:recipeCarouselItem.recipeItemImage];
-        recipeCarouselItem.recipeItemImage.frame = self.imageForDish.frame;
-        recipeCarouselItem.recipeItemImage.bounds = self.imageForDish.bounds;
-        
-        recipeCarouselItem.recipeItemFrame = [[UIImageView alloc] initWithImage:self.frame.image];
-        [recipeCarouselItem addSubview:recipeCarouselItem.recipeItemFrame];
-        recipeCarouselItem.recipeItemFrame.frame = self.frame.frame;
-        recipeCarouselItem.recipeItemFrame.bounds = self.frame.bounds;
->>>>>>> 95a61b52f364af0dbfcfcfd98046a79260c70379
-        
-<<<<<<< HEAD
-        recipeCarouselItem.recipeItemName = [UILabel new];
-        [recipeCarouselItem addSubview:recipeCarouselItem.recipeItemName];
-        recipeCarouselItem.recipeItemName.textAlignment = NSTextAlignmentCenter;
-        recipeCarouselItem.recipeItemName.frame = self.nameOfDish.frame;
-        recipeCarouselItem.recipeItemName.bounds = self.nameOfDish.bounds;
-        
-        recipeCarouselItem.recipeItemTextField = [UITextView new];
-        [recipeCarouselItem addSubview:recipeCarouselItem.recipeItemTextField];
-        recipeCarouselItem.recipeItemTextField.selectable = NO;
-<<<<<<< HEAD
-        recipeCarouselItem.recipeItemTextField.frame = self.recipeIngredients.frame;//CGRectMake(100, 100, 400, 500);
-        recipeCarouselItem.recipeItemTextField.bounds = self.recipeIngredients.bounds;//CGRectMake(100, 100, 400, 500);
-        recipeCarouselItem.recipeItemTextField.alpha = self.recipeIngredients.alpha;
-
-=======
         UINib *n = [UINib nibWithNibName:@"RecipeCarouselItem" bundle:nil];
         NSArray *a = [n instantiateWithOwner:self options:nil];
         recipeCarouselItem = [a firstObject];
->>>>>>> Taras_Hates_GitHub_branch
-=======
-        recipeCarouselItem.recipeItemTextField.frame = self.recipeIngredients.frame;
-        recipeCarouselItem.recipeItemTextField.bounds = self.recipeIngredients.bounds;
-        recipeCarouselItem.recipeItemTextField.alpha = 0.9;
         
         [recipeCarouselItem layoutSubviews];
->>>>>>> 95a61b52f364af0dbfcfcfd98046a79260c70379
     }
     else
     {
@@ -244,16 +198,10 @@
     
     NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:index] valueForKeyPath:@"recipe.ingredientLines"];
     recipeCarouselItem.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
-<<<<<<< HEAD
+
     [self ifCurrentRecipeSaved];
     return recipeCarouselItem;
 }
-=======
-    
-    NSLog(@"%@", [[self.availableRecipes objectAtIndex:index] valueForKeyPath:@"recipe.label"]);
-    
-    return recipeCarouselItem;}
->>>>>>> 95a61b52f364af0dbfcfcfd98046a79260c70379
 
 - (void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel {
     self.index = carousel.currentItemIndex;
@@ -265,20 +213,6 @@
 }
 
 
-- (IBAction)swipe:(UISwipeGestureRecognizer *)sender {
-    if (sender.direction == UISwipeGestureRecognizerDirectionLeft){
-        ++self.recipeRow;
-        if (self.recipeRow == self.availableRecipes.count) self.recipeRow = 0;
-//        self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%lu", (self.recipeRow + 1), self.availableRecipes.count];
-        
-    }else if (sender.direction == UISwipeGestureRecognizerDirectionRight){
-        --self.recipeRow;
-        if (self.recipeRow == -1) self.recipeRow = self.availableRecipes.count - 1;
-//        self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%lu", (self.recipeRow + 1), self.availableRecipes.count];
-    }
-    [self setRecipeForRecipeIndex:self.recipeRow];
-    [self ifCurrentRecipeSaved];
-}
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     ReminderTableViewController *newController = segue.destinationViewController;

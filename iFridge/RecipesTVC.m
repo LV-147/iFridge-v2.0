@@ -163,15 +163,6 @@
                          //                          UIViewAnimationOptionCurveEaseIn animations:^{
                          //                          } completion:^ (BOOL completed) {}];
                      }];
-    
-    [UIView animateWithDuration:1.0
-                          delay:0.0
-                        options:UIViewAnimationOptionCurveEaseInOut
-                     animations:^(void) {
-                         cell.nameOfDish.alpha = 0.7;
-                         cell.nameOfDish.center = CGPointMake(300.0, 100.0);
-                     }
-                     completion:^(BOOL finished){}];
 }
 
 - (void)searchForRecipesForQuery:(NSString *)newQuery
