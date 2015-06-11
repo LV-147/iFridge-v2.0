@@ -27,11 +27,6 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 @property (nonatomic, strong) NSString* facebookUserInfromation;
 @property (strong, nonatomic) IBOutlet UIButton *signOutButton;
 @property (strong, nonatomic) IBOutlet UIButton *userInformationButton;
-////SEARCH
-//@property (nonatomic, strong) UISearchController *searchController;
-//// our secondary search results table view
-//@property (nonatomic, strong) RecipesTVC *resultsController;
-////SEARCH
 
 @end
 
@@ -66,53 +61,7 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 
     FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
     loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
-    
-//    //SEARCH
-////    self.resultsController = [[RecipesTVC  alloc] init];
-//    self.searchTextField.delegate = self;
-//    UIStoryboard *s = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    self.resultsController = [s instantiateViewControllerWithIdentifier:@"RecipesTVC"];
-//    
-//    self.resultsController.dataSource = @"Search results";
-//    self.searchController = [[UISearchController alloc] initWithSearchResultsController:self.resultsController];
-//    self.searchController.searchResultsUpdater = self;
-//    //config view of search bar
-//    self.searchController.searchBar.delegate = self;
-//    self.searchController.searchBar.tintColor = [UIColor redColor];
-//    self.searchController.searchBar.barTintColor = [UIColor colorWithRed:1 green:0.6 blue:0.6 alpha:0.5];
-//    [self.searchController.searchBar sizeToFit];
-////    self.searchController.searchBar.frame = CGRectMake(220, 40, 100,44);
-////    [self.view addSubview:self.searchController.searchBar];
-//    
-//    // we want to be the delegate for our filtered table so didSelectRowAtIndexPath is called for both tables
-//    self.searchController.delegate = self;
-//    self.searchController.dimsBackgroundDuringPresentation = YES; // default is YES
-//    
-//    // Search is now just presenting a view controller. As such, normal view controller
-//    // presentation semantics apply. Namely that presentation will walk up the view controller
-//    // hierarchy until it finds the root view controller or one that defines a presentation context.
-//    //
-//    self.definesPresentationContext = YES;  // know where you want UISearchController to be displayed
-//    //SEARCH
-    
 }
-
-//#pragma mark - search bar delegate
-//- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-//{
-//    DataDownloader *downloadManager = [[DataDownloader alloc]init];
-//    [downloadManager downloadRecipesForQuery:self.searchController.searchBar.text
-//                      withCompletionHandler:^(NSArray *filteredRecipes) {
-//                          self.resultsController.recipes = filteredRecipes;
-//                          [self.resultsController.tableView reloadData];
-//                      }];
-//}
-//#pragma mark - UISearchResultsUpdating
-//
-//- (void)updateSearchResultsForSearchController:(UISearchController *)searchController
-//{
-//    
-//}
 
 #pragma mark - UITextFieldDelegate
 
