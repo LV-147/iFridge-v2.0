@@ -181,7 +181,6 @@
         recipeCarouselItem = (RecipeCarouselItem *)view;
         self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld", carousel.currentItemIndex];
     }
-        NSLog(@"Third: %ld", (long)index);
     //присвоєння тексту і картинки
 
     if ([[self.availableRecipes objectAtIndex:index] isKindOfClass:[NSDictionary class]]) {
@@ -213,7 +212,6 @@
         }
         recipeCarouselItem.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", [ingredientLines allValues]];
     }
-    NSLog(@"self.index = %ld \n index = %ld", (long)self.index, (long)index);
     [self ifCurrentRecipeSaved];
     return recipeCarouselItem;
 }
