@@ -49,9 +49,10 @@
     
     [self ifCurrentRecipeSaved];
     
-//    [self setRecipeForRecipeIndex:_index];
-    
     self.carousel.type = iCarouselTypeLinear;
+    self.carousel.scrollSpeed = 0.4;
+    self.carousel.decelerationRate = 0.5;
+    
     self.index = self.index;
 }
 - (void) viewWillAppear:(BOOL)animated {
