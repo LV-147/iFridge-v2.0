@@ -2,7 +2,7 @@
 //  Ingredient.h
 //  iFridge
 //
-//  Created by Vladius on 5/18/15.
+//  Created by Vladius on 6/12/15.
 //  Copyright (c) 2015 Alexey Pelekh. All rights reserved.
 //
 
@@ -16,7 +16,8 @@
 @property (nonatomic, retain) NSString * label;
 @property (nonatomic, retain) NSNumber * quantity;
 @property (nonatomic, retain) NSDate * storagePer;
-@property (nonatomic, retain) Fridge *fromFridge;
+@property (nonatomic, retain) NSString * unitOfMeasure;
 @property (nonatomic, retain) Recipe *forRecipe;
+@property (nonatomic, retain) Fridge *fromFridge;
 
 @end

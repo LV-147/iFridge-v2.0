@@ -60,7 +60,6 @@
     //SEARCH
 }
 
-
 #pragma mark - search bar delegate
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
@@ -119,10 +118,10 @@
 }
 
 -(void) viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
     if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
         [[self navigationController] setNavigationBarHidden:YES animated:YES];
     }
-    [super viewWillDisappear:animated];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -170,8 +169,7 @@
 {
         self.selectDataSourceController.selectedSegmentIndex = 0;
         [self showLoadingViewInView:self.view];
-        DataDownloader *downloadManager = [[DataDownloader alloc]init];
-        [downloadManager downloadRecipesForQuery:newQuery withCompletionHandler:^(NSArray *recipes){
+        [DataDownloader downloadRecipesForQuery:newQuery withCompletionHandler:^(NSArray *recipes){
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.recipes = [[NSMutableArray alloc]initWithArray:recipes];
                 //self.recipes = recipes;
@@ -307,10 +305,14 @@
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    RecipesCell *recipeCell = (RecipesCell *)sender;
-    NSInteger recipeIndex = [self.tableView indexPathForCell:recipeCell].row;
-    RecipeWithImage *newController = segue.destinationViewController;
-    newController.index = recipeIndex;
-    [newController initWithRecipeAtIndex:recipeIndex from:self.recipes];
+    if ([segue.identifier isEqualToString:@"SegueToRecipeWithImage"])
+    {
+        RecipesCell *recipeCell = (RecipesCell *)sender;
+        NSInteger recipeIndex = [self.tableView indexPathForCell:recipeCell].row;
+        RecipeWithImage *newController = segue.destinationViewController;
+        newController.index = recipeIndex;
+        [newController initWithRecipeAtIndex:recipeIndex from:self.recipes];
+        [self.tableView.tableHeaderView resignFirstResponder];
+    }
 }
 @end
