@@ -11,7 +11,12 @@
 
 @interface Ingredient (Cat)
 + (Ingredient *)addIngredientForRecipe:(Recipe *)recipe
-                                withInfo:(NSDictionary *)ingredienteDict
-                  inManagedObiectContext:(NSManagedObjectContext *)context;
+                              withInfo:(NSDictionary *)ingredienteDict
+                              toFridge:(Fridge *)fridge
+                inManagedObiectContext:(NSManagedObjectContext *)context;
+
++ (void)deleteIngredient:(Ingredient *)ingredient
+              fromFridge:(Fridge *)fridge
+  inManagedObjectContext:(NSManagedObjectContext *)context;
 
 @end

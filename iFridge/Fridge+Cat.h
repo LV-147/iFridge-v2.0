@@ -10,7 +10,6 @@
 
 @interface Fridge (Cat)
 
-+ (Ingredient *)addIngredientWithInfo:(NSDictionary *)ingredientDict
-                             toFridge:(Fridge *)fridge
-               inManagedObjectContext:(NSManagedObjectContext *)context;
++ (Fridge *)addFridgeWithName:(NSString *)fridgeName
+       inManagedObjectContext:(NSManagedObjectContext *)context;
 @end

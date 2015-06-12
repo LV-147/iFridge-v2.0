@@ -312,10 +312,5 @@
     RecipeWithImage *newController = segue.destinationViewController;
     newController.index = recipeIndex;
     [newController initWithRecipeAtIndex:recipeIndex from:self.recipes];
-
-    if (self.searchController.active) {
-        self.searchController.active = NO;
-    }
-    
 }
 @end

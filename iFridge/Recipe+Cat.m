@@ -41,7 +41,10 @@
         NSMutableSet *ingredients = [[NSMutableSet alloc]init];
         NSArray *recipeIngredients = [recipeDict valueForKeyPath:@"recipe.ingrediens"];
         for(NSDictionary* ingredient in recipeIngredients){
-            [ingredients addObject:[Ingredient addIngredientForRecipe:recipe withInfo:ingredient inManagedObiectContext:context]];
+            [ingredients addObject:[Ingredient addIngredientForRecipe:recipe
+                                                             withInfo:ingredient
+                                                             toFridge:nil
+                                               inManagedObiectContext:context]];
         }
         recipe.ingredients = [NSSet setWithSet:ingredients];
         [context save:NULL];

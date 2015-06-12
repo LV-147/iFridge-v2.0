@@ -27,11 +27,6 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 @property (nonatomic, strong) NSString* facebookUserInfromation;
 @property (strong, nonatomic) IBOutlet UIButton *signOutButton;
 @property (strong, nonatomic) IBOutlet UIButton *userInformationButton;
-////SEARCH
-//@property (nonatomic, strong) UISearchController *searchController;
-//// our secondary search results table view
-//@property (nonatomic, strong) RecipesTVC *resultsController;
-////SEARCH
 
 @end
 

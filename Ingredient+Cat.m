@@ -7,12 +7,15 @@
 //
 
 #import "Ingredient+Cat.h"
+#import "Fridge.h"
 
 @implementation Ingredient (Cat)
 
 + (Ingredient *)addIngredientForRecipe:(Recipe *)recipe
-                                withInfo:(NSDictionary *)ingredienteDict
-                  inManagedObiectContext:(NSManagedObjectContext *)context{
+                              withInfo:(NSDictionary *)ingredienteDict
+                              toFridge:(Fridge *)fridge
+                inManagedObiectContext:(NSManagedObjectContext *)context
+{
     
     Ingredient *ingredient = nil;
     
@@ -30,11 +33,20 @@
         ingredient = [NSEntityDescription insertNewObjectForEntityForName:@"Ingredient" inManagedObjectContext:context];
         ingredient.label = [ingredienteDict valueForKey:@"label"];
         ingredient.quantity = [ingredienteDict valueForKey:@"quantity"];
-        ingredient.forRecipe = recipe;
+        if (recipe) ingredient.forRecipe = recipe;
+        if (fridge) ingredient.fromFridge = fridge;
         [context save:NULL];
     }
     
     return ingredient;
 }
 
++ (void)deleteIngredient:(Ingredient *)ingredient
+              fromFridge:(Fridge *)fridge
+  inManagedObjectContext:(NSManagedObjectContext *)context
+{
+    if (ingredient.fromFridge == fridge) {
+        [context deleteObject:ingredient];
+    }
+}
 @end

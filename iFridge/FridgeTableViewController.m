@@ -9,6 +9,9 @@
 #import "FridgeTableViewController.h"
 #import "UIButton+FridgeBlock.h"
 #import "UIAlertView+FridgeBlock.h"
+#import "Fridge+Cat.h"
+#import "Ingredient+Cat.h"
+#import "UIViewController+Context.h"
 
 @class UITableView;
 
@@ -16,6 +19,8 @@
 @interface FridgeTableViewController ()
 
 @property (strong, nonatomic) NSMutableArray *toaddItems;
+@property (strong, nonatomic) Fridge *fridge;
+@property (strong, nonatomic) Recipe *recipe;
 
 
 
@@ -35,21 +40,32 @@
 
 - (void)viewDidLoad {
      [super viewDidLoad];
-      [[self navigationController] setNavigationBarHidden:NO animated:YES];
-    self.title = @"My Fridge";
+    //products is allready fridge
+    self.fridge = [Fridge addFridgeWithName:@"MyFridge" inManagedObjectContext:self.currentContext];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Ingredient"];
+    request.predicate = [NSPredicate predicateWithFormat:@"fromFridge = %@", self.fridge];
+    
+    NSError *error;
+    self.toaddItems = [[NSMutableArray alloc] initWithArray:[self.currentContext executeFetchRequest:request error:&error]];
+    
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureRecognized:)];
     [self.tableView addGestureRecognizer:longPress];
     
 
-    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"image22.jpg"]];
+    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"fridge2.jpg"]];
 
     self.tableView.backgroundView.alpha = 0.2f;
     
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    
-   
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if(self.toaddItems) self.title = @"My Fridge";
+    else self.title = @"My Fridge (empty)";
 }
 
 #pragma mark - UITableView data source and delegate methods
@@ -58,17 +74,15 @@
     return [self.toaddItems count];
 }
 
-
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *kIdentifier = @"Cell Identifier";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kIdentifier forIndexPath:indexPath];
     
     // Update cell content from data source.
-    NSString *object = self.toaddItems[indexPath.row];
+    Ingredient *object = self.toaddItems[indexPath.row];
     cell.backgroundColor = [UIColor clearColor];
-    cell.textLabel.text = object;
+    cell.textLabel.text = object.label;
     
 
     return cell;
@@ -87,6 +101,10 @@
     NSString *toaddItem = self.toaddItems[indexPath.row];
     
     // Remove to-do item.
+    [Ingredient deleteIngredient:[self.toaddItems objectAtIndex:indexPath.row]
+                      fromFridge:self.fridge
+          inManagedObjectContext:self.currentContext];
+    
     [self.toaddItems removeObject:toaddItem];
     
     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -111,7 +129,12 @@
             
             UITextField *textField = [alertView textFieldAtIndex:0];
             NSString *string = [textField.text capitalizedString];
-            [weakSelf.toaddItems addObject:string];
+            NSMutableDictionary *ingredientDict = [[NSMutableDictionary alloc] init];
+            [ingredientDict setObject:string forKey:@"label"];
+            [weakSelf.toaddItems addObject:[Ingredient addIngredientForRecipe:self.recipe
+                                                                     withInfo:ingredientDict
+                                                                     toFridge:self.fridge
+                                                       inManagedObiectContext:self.currentContext]];
             
             NSUInteger row = [weakSelf.toaddItems count] - 1;
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];

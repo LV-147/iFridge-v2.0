@@ -57,7 +57,7 @@ NSString *app_key = @"e6f6e485b0222cf1b48439a164562270";//@"e1309c8e747bdd4d7363
                                                         progress:nil
                                                        completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
                                                            [imageView setImage:image];
-                                                           handler();
+                                                           if (handler) handler();
                                                        }];
 }
 @end
