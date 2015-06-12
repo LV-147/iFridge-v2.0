@@ -19,7 +19,7 @@ NSString *app_key = @"e1309c8e747bdd4d7363587a4435f5ee";
 
 @implementation DataDownloader
 
-- (void)downloadRecipesForQuery:(NSString *)query
++ (void)downloadRecipesForQuery:(NSString *)query
           withCompletionHandler:(void(^)(NSArray *recipes))handler
 {
     if (!query)

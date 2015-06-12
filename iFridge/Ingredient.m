@@ -2,7 +2,7 @@
 //  Ingredient.m
 //  iFridge
 //
-//  Created by Vladius on 5/18/15.
+//  Created by Vladius on 6/12/15.
 //  Copyright (c) 2015 Alexey Pelekh. All rights reserved.
 //
 
@@ -16,7 +16,8 @@
 @dynamic label;
 @dynamic quantity;
 @dynamic storagePer;
-@dynamic fromFridge;
+@dynamic unitOfMeasure;
 @dynamic forRecipe;
+@dynamic fromFridge;
 
 @end

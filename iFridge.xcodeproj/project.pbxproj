@@ -71,8 +71,11 @@
 		BFEA482A1B13475C008F5BEF /* UIViewController+LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFEA48271B13475C008F5BEF /* UIViewController+LoadingView.m */; };
 		BFF69BBD1B2860500085736A /* SortingStringClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF69BBC1B2860500085736A /* SortingStringClass.swift */; };
 		D9180D4B1B21CFE0005854C6 /* ReminderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9180D4A1B21CFE0005854C6 /* ReminderTableViewController.m */; };
+		D926FC1B1B2B0F01003FB68C /* AddRecipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D926FC1A1B2B0F01003FB68C /* AddRecipeViewController.m */; };
+		D926FC1D1B2B146E003FB68C /* camera-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D926FC1C1B2B146E003FB68C /* camera-icon.png */; };
+		D926FC201B2B2EA5003FB68C /* AddIngredientsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D926FC1F1B2B2EA5003FB68C /* AddIngredientsViewController.m */; };
+		D926FC231B2B3FC1003FB68C /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = D926FC221B2B3FC1003FB68C /* Ingredient.m */; };
 		D992EE2A1B0A339A0093B3F7 /* Fridge.m in Sources */ = {isa = PBXBuildFile; fileRef = D992EE291B0A339A0093B3F7 /* Fridge.m */; };
-		D992EE2D1B0A339A0093B3F7 /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = D992EE2C1B0A339A0093B3F7 /* Ingredient.m */; };
 		D992EE331B0A34DA0093B3F7 /* Fridge+Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = D992EE321B0A34DA0093B3F7 /* Fridge+Cat.m */; };
 		D992EE3C1B0B54090093B3F7 /* UIViewController+Context.m in Sources */ = {isa = PBXBuildFile; fileRef = D992EE3B1B0B54090093B3F7 /* UIViewController+Context.m */; };
 		D992EE441B0B73090093B3F7 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = D992EE431B0B73090093B3F7 /* Recipe.m */; };
@@ -188,10 +191,15 @@
 		BFF69BBB1B28604F0085736A /* iFridge-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iFridge-Bridging-Header.h"; sourceTree = "<group>"; };
 		BFF69BBC1B2860500085736A /* SortingStringClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortingStringClass.swift; sourceTree = "<group>"; };
 		D9180D4A1B21CFE0005854C6 /* ReminderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderTableViewController.m; sourceTree = "<group>"; };
+		D926FC191B2B0F01003FB68C /* AddRecipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddRecipeViewController.h; sourceTree = "<group>"; };
+		D926FC1A1B2B0F01003FB68C /* AddRecipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddRecipeViewController.m; sourceTree = "<group>"; };
+		D926FC1C1B2B146E003FB68C /* camera-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-icon.png"; sourceTree = "<group>"; };
+		D926FC1E1B2B2EA5003FB68C /* AddIngredientsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddIngredientsViewController.h; sourceTree = "<group>"; };
+		D926FC1F1B2B2EA5003FB68C /* AddIngredientsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddIngredientsViewController.m; sourceTree = "<group>"; };
+		D926FC211B2B3FC1003FB68C /* Ingredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ingredient.h; sourceTree = "<group>"; };
+		D926FC221B2B3FC1003FB68C /* Ingredient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ingredient.m; sourceTree = "<group>"; };
 		D992EE281B0A339A0093B3F7 /* Fridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fridge.h; sourceTree = "<group>"; };
 		D992EE291B0A339A0093B3F7 /* Fridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fridge.m; sourceTree = "<group>"; };
-		D992EE2B1B0A339A0093B3F7 /* Ingredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ingredient.h; sourceTree = "<group>"; };
-		D992EE2C1B0A339A0093B3F7 /* Ingredient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ingredient.m; sourceTree = "<group>"; };
 		D992EE311B0A34DA0093B3F7 /* Fridge+Cat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Fridge+Cat.h"; sourceTree = "<group>"; };
 		D992EE321B0A34DA0093B3F7 /* Fridge+Cat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Fridge+Cat.m"; sourceTree = "<group>"; };
 		D992EE3A1B0B54090093B3F7 /* UIViewController+Context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Context.h"; sourceTree = "<group>"; };
@@ -371,6 +379,7 @@
 		357A58F01AFFDF3C0094B0AC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D926FC1C1B2B146E003FB68C /* camera-icon.png */,
 				35A5D2CB1B1F64AC00E70128 /* facebook.jpg */,
 				358ED21F1B205DA70053FCFE /* 330273-64.png */,
 				358ED21D1B2059D40053FCFE /* google-plus-icon.png */,
@@ -426,6 +435,10 @@
 		359709681B04E9E4005064C0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D926FC1E1B2B2EA5003FB68C /* AddIngredientsViewController.h */,
+				D926FC1F1B2B2EA5003FB68C /* AddIngredientsViewController.m */,
+				D926FC191B2B0F01003FB68C /* AddRecipeViewController.h */,
+				D926FC1A1B2B0F01003FB68C /* AddRecipeViewController.m */,
 				F3948BF21B1389AA00D149D0 /* Reminder */,
 				F3948BE61B137A8100D149D0 /* FridgeContents */,
 				BF9779911B132F6900DDD1ED /* Animators */,
@@ -440,10 +453,10 @@
 			isa = PBXGroup;
 			children = (
 				D992EE451B0B9D220093B3F7 /* iFridge.xcdatamodeld */,
+				D926FC211B2B3FC1003FB68C /* Ingredient.h */,
+				D926FC221B2B3FC1003FB68C /* Ingredient.m */,
 				D992EE421B0B73090093B3F7 /* Recipe.h */,
 				D992EE431B0B73090093B3F7 /* Recipe.m */,
-				D992EE2B1B0A339A0093B3F7 /* Ingredient.h */,
-				D992EE2C1B0A339A0093B3F7 /* Ingredient.m */,
 				D992EE281B0A339A0093B3F7 /* Fridge.h */,
 				D992EE291B0A339A0093B3F7 /* Fridge.m */,
 				D992EE3E1B0B6DDC0093B3F7 /* Categories */,
@@ -621,6 +634,7 @@
 				357A59011AFFDF3C0094B0AC /* Images.xcassets in Resources */,
 				35185A6E1B13719F00D6503A /* search-icon.png in Resources */,
 				D9E1B2121B162F1A002AD39F /* photo-frame.png in Resources */,
+				D926FC1D1B2B146E003FB68C /* camera-icon.png in Resources */,
 				F3948BFF1B1392DE00D149D0 /* supermarket.png in Resources */,
 				3559BA851B064F6F0040DCB6 /* OperationFood.png in Resources */,
 				35AFA3531B1C7B1B006013AC /* Vk-icon.png in Resources */,
@@ -703,14 +717,15 @@
 				BFEA482A1B13475C008F5BEF /* UIViewController+LoadingView.m in Sources */,
 				3584A2301B19F99800D21AF8 /* iCarousel.m in Sources */,
 				D992EE441B0B73090093B3F7 /* Recipe.m in Sources */,
-				D992EE2D1B0A339A0093B3F7 /* Ingredient.m in Sources */,
 				D992EE3C1B0B54090093B3F7 /* UIViewController+Context.m in Sources */,
 				35AFA34D1B1C728F006013AC /* FridgeTableViewController.m in Sources */,
 				357A58F61AFFDF3C0094B0AC /* AppDelegate.m in Sources */,
 				D992EE4D1B0B9D220093B3F7 /* iFridge.xcdatamodeld in Sources */,
 				D9180D4B1B21CFE0005854C6 /* ReminderTableViewController.m in Sources */,
 				BFDD51761B21DCCE0039A630 /* RecipeCarouselItem.m in Sources */,
+				D926FC201B2B2EA5003FB68C /* AddIngredientsViewController.m in Sources */,
 				F3948BFB1B138AE600D149D0 /* UIButton+ReminderBlock.m in Sources */,
+				D926FC1B1B2B0F01003FB68C /* AddRecipeViewController.m in Sources */,
 				D9B7D82D1B21C64200D5787E /* DataDownloader.m in Sources */,
 				D992EE2A1B0A339A0093B3F7 /* Fridge.m in Sources */,
 				3597096F1B04FD98005064C0 /* RecipesCell.m in Sources */,
@@ -721,6 +736,7 @@
 				BFF69BBD1B2860500085736A /* SortingStringClass.swift in Sources */,
 				359709671B04E9D3005064C0 /* RecipesTVC.m in Sources */,
 				357A58F31AFFDF3C0094B0AC /* main.m in Sources */,
+				D926FC231B2B3FC1003FB68C /* Ingredient.m in Sources */,
 				3584A22D1B19E00400D21AF8 /* RegExCategories.m in Sources */,
 				3559BA821B064EB30040DCB6 /* SearchViewController.m in Sources */,
 				35AFA3451B1C5FC1006013AC /* PopAnimator.m in Sources */,
