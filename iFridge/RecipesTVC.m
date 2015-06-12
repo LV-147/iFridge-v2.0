@@ -14,6 +14,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import "UIViewController+LoadingView.h"
 #import "DataDownloader.h"
+#import "Recipe.h"
+#import "Recipe+Cat.h"
 
 @import CoreGraphics;
 
@@ -88,7 +90,8 @@
     if ([self.dataSource isEqualToString:@"My recipes"]) {
         NSString *query = searchController.searchBar.text;
         if ([query isEqualToString:@""]) {
-            self.recipes = self.allRecipes;
+            self.recipes = [[NSMutableArray alloc]initWithArray:self.allRecipes];
+            //self.recipes = self.allRecipes;
         }else{
             NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Recipe *evaluatedObject, NSDictionary *bindings) {
                 BOOL result = NO;
@@ -99,7 +102,8 @@
             }];
             
             NSArray *filteredRecipes = [self.allRecipes filteredArrayUsingPredicate:predicate];
-            self.recipes = filteredRecipes;
+            self.recipes = [[NSMutableArray alloc]initWithArray:filteredRecipes];
+            //self.recipes = filteredRecipes;
         }
         [self.tableView reloadData];
     }
@@ -169,7 +173,8 @@
         DataDownloader *downloadManager = [[DataDownloader alloc]init];
         [downloadManager downloadRecipesForQuery:newQuery withCompletionHandler:^(NSArray *recipes){
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.recipes = recipes;
+                self.recipes = [[NSMutableArray alloc]initWithArray:recipes];
+                //self.recipes = recipes;
                 [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
                 [self.tableView reloadData];
                 [self performSelector:@selector(hideLoadingViewThreadSave) withObject:nil afterDelay:0];
@@ -182,8 +187,8 @@
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Recipe"];
     request.predicate = nil;
     NSError *error;
-    
-    self.recipes = [self.currentContext executeFetchRequest:request error:&error];
+    self.recipes = [[NSMutableArray alloc]initWithArray:[self.currentContext executeFetchRequest:request error:&error]];
+    //self.recipes = [self.currentContext executeFetchRequest:request error:&error];
     self.allRecipes = self.recipes;
     [self.tableView reloadData];
 }
@@ -280,6 +285,25 @@
         return cell;
     }
 }
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        if([self.dataSource  isEqual: @"My recipes"]){
+            NSMutableArray *availableRecipes = [[NSMutableArray alloc] initWithArray:self.recipes];
+            NSDictionary *currentRecipeDict = [Recipe deleteRecipe:[availableRecipes objectAtIndex:indexPath.row]
+                                          fromManagedObjectContext:self.currentContext];
+            [availableRecipes replaceObjectAtIndex:indexPath.row withObject:currentRecipeDict];
+            self.recipes = availableRecipes;
+        }
+        [self.recipes removeObjectAtIndex:indexPath.row];
+        [tableView reloadData]; // tell table to refresh now
+    }
+}
+
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
