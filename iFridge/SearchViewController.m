@@ -17,10 +17,12 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "PushAnimator.h"
 #import "PopAnimator.h"
+#import "RecipesTVC.h"
+#import "DataDownloader.h"
 
 static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1kpc.apps.googleusercontent.com";
 
-@interface SearchViewController () <UINavigationControllerDelegate>
+@interface SearchViewController () <UINavigationControllerDelegate, UITextFieldDelegate>
 @property (nonatomic, strong) NSString* googlePlusUserInfromation;
 @property (nonatomic, strong) NSString* facebookUserInfromation;
 @property (strong, nonatomic) IBOutlet UIButton *signOutButton;
@@ -29,8 +31,6 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 @end
 
 @implementation SearchViewController
-
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,7 +41,7 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
     self.navigationController.navigationBar.tintColor = [UIColor redColor];
     self.navigationController.view.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     self.view.backgroundColor = [UIColor clearColor];
-    
+    self.searchTextField.delegate = self;
     UIImage *buttonImageForGooglePlusSignInButton = [UIImage imageNamed:@"gplus-128.png"];
     UIImage *buttonImageForGooglePlusSignInButtonWhenPressed = [UIImage imageNamed:@"gplus-120.png"];
     [self.googlePlusSignInButton setImage:buttonImageForGooglePlusSignInButton forState:UIControlStateNormal];
@@ -61,7 +61,14 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 
     FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
     loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
-    
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self performSegueWithIdentifier:@"SegueToRecipesTVC" sender:nil];
+    return YES;
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
@@ -106,14 +113,18 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 }
 
 -(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self refreshInterfaceBasedOnSignIn];
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
 }
 
 -(void) viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
     [self refreshInterfaceBasedOnSignIn];
 }
 
 -(void) viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
     [self refreshInterfaceBasedOnSignIn];
 }
 
