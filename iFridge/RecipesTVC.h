@@ -14,7 +14,7 @@
 @interface RecipesTVC : UITableViewController
 
 @property (strong, nonatomic) NSString *query;
-@property (strong, nonatomic) NSArray *recipes;
+@property (strong, nonatomic) NSMutableArray *recipes;
 @property (strong, nonatomic) NSString *dataSource;
 
 @end
