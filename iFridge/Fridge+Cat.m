@@ -11,14 +11,12 @@
 
 @implementation Fridge (Cat)
 
-+ (Ingredient *)addIngredientWithInfo:(NSDictionary *)ingredientDict
-                             toFridge:(Fridge *)fridge
-               inManagedObjectContext:(NSManagedObjectContext *)context{
++ (Fridge *)addFridgeWithName:(NSString *)fridgeName
+       inManagedObjectContext:(NSManagedObjectContext *)context{
     
-    Ingredient *ingredient = nil;
-    
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Ingredient"];
-    request.predicate = [NSPredicate predicateWithFormat:@"label = %@", [ingredientDict valueForKey:@"label"]];
+    Fridge *fridge = nil;
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Fridge"];
+    request.predicate = [NSPredicate predicateWithFormat:@"name = %@", fridgeName];
     
     NSError *error;
     NSArray *mathes = [context executeFetchRequest:request error:&error];
@@ -26,16 +24,11 @@
     if (!mathes || error || mathes.count > 1) {
         NSLog(@"matches %@ /n error %@", mathes, error);
     }else if (mathes.count){
-        ingredient = mathes.firstObject;
+        fridge = mathes.firstObject;
     }else{
-        ingredient = [NSEntityDescription insertNewObjectForEntityForName:@"Ingredient" inManagedObjectContext:context];
-        ingredient.label = [ingredientDict valueForKey:@"label"];
-        ingredient.quantity = [ingredientDict valueForKey:@"quantity"];
-        ingredient.storagePer = [ingredientDict valueForKey:@"storagePer"];
-        ingredient.fromFridge = fridge;
+        fridge.name = fridgeName;
         [context save:NULL];
     }
-    
-    return ingredient;
+    return fridge;
 }
 @end

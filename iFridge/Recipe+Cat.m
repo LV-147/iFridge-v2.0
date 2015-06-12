@@ -39,9 +39,12 @@
         recipe.cookingLevel = [recipeDict valueForKeyPath:@"recipe.level"];
         
         NSMutableSet *ingredients = [[NSMutableSet alloc]init];
-        NSArray *recipeIngredients = [recipeDict valueForKeyPath:@"recipe.ingredients"];
+        NSArray *recipeIngredients = [recipeDict valueForKeyPath:@"recipe.ingrediens"];
         for(NSDictionary* ingredient in recipeIngredients){
-        [ingredients addObject:[Ingredient addIngredientForRecipe:recipe withInfo:ingredient inManagedObiectContext:context]];
+            [ingredients addObject:[Ingredient addIngredientForRecipe:recipe
+                                                             withInfo:ingredient
+                                                             toFridge:nil
+                                               inManagedObiectContext:context]];
         }
         recipe.ingredients = [NSSet setWithSet:ingredients];
         [context save:NULL];
@@ -57,16 +60,17 @@
     [recipeDict setObject:recipe.imageUrl forKey:@"image"];
     [recipeDict setObject:recipe.cookingTime forKey:@"cookingTime"];
     [recipeDict setObject:recipe.weight forKey:@"totalWeight"];
-//    [recipeDict setValue:recipe.fat forKeyPath:@"recipe.totalNutrients.FAT.quantity"];
-//    [recipeDict setValue:recipe.sugars forKeyPath:@"recipe.totalNutrients.SUGAR.quantity"];
     [recipeDict setObject:recipe.cookingLevel forKey:@"level"];
     
     NSMutableArray *ingredients = [[NSMutableArray alloc] init];
-
     for (Ingredient *ingredient in recipe.ingredients) {
-        [ingredients addObject:ingredient.label];
+        NSMutableDictionary *ingredientDict = [[NSMutableDictionary alloc] init];
+        [ingredientDict setObject:ingredient.label forKey:@"label"];
+        [ingredientDict setObject:ingredient.quantity forKey:@"quantity"];
+        [ingredients addObject:ingredientDict];
+        ingredientDict = nil;
     }
-    [recipeDict setObject:ingredients forKey:@"ingredientLines"];
+    [recipeDict setObject:ingredients forKey:@"ingrediens"];
     NSDictionary *deletedRecipe = [NSDictionary dictionaryWithObjects:@[recipeDict] forKeys:@[@"recipe"]];
 
     [context deleteObject:recipe];
