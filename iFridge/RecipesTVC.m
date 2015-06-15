@@ -16,10 +16,7 @@
 #import "DataDownloader.h"
 #import "Recipe.h"
 #import "Recipe+Cat.h"
-<<<<<<< HEAD
 #import "AddRecipeViewController.h"
-=======
->>>>>>> f130bf7f0443161dcf87e8deb9fb0eeef807e45e
 
 @import CoreGraphics;
 
@@ -64,10 +61,6 @@
     //SEARCH
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> f130bf7f0443161dcf87e8deb9fb0eeef807e45e
 #pragma mark - search bar delegate
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
@@ -177,8 +170,7 @@
 {
         self.selectDataSourceController.selectedSegmentIndex = 0;
         [self showLoadingViewInView:self.view];
-        DataDownloader *downloadManager = [[DataDownloader alloc]init];
-        [downloadManager downloadRecipesForQuery:newQuery withCompletionHandler:^(NSArray *recipes){
+        [DataDownloader downloadRecipesForQuery:newQuery withCompletionHandler:^(NSArray *recipes){
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.recipes = [[NSMutableArray alloc]initWithArray:recipes];
                 //self.recipes = recipes;
@@ -314,7 +306,6 @@
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-<<<<<<< HEAD
     if ([segue.identifier isEqualToString:@"SegueToRecipeWithImage"])
     {
         RecipesCell *recipeCell = (RecipesCell *)sender;
@@ -337,12 +328,5 @@
                                 nil];
     [self.recipes addObject:[Recipe createRecipeWithInfo:[NSDictionary dictionaryWithObject:recipeDict forKey:@"recipe"] inManagedObiectContext:self.currentContext]];
     [self.tableView reloadData];
-=======
-    RecipesCell *recipeCell = (RecipesCell *)sender;
-    NSInteger recipeIndex = [self.tableView indexPathForCell:recipeCell].row;
-    RecipeWithImage *newController = segue.destinationViewController;
-    newController.index = recipeIndex;
-    [newController initWithRecipeAtIndex:recipeIndex from:self.recipes];
->>>>>>> f130bf7f0443161dcf87e8deb9fb0eeef807e45e
 }
 @end
