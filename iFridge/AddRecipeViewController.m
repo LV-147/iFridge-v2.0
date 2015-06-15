@@ -7,6 +7,7 @@
 //
 
 #import "AddRecipeViewController.h"
+#import "AddIngredientsViewController.h"
 #import "Ingredient+Cat.h"
 #import "Recipe+Cat.h"
 #import "UIViewController+Context.h"
@@ -22,12 +23,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.recipeIngredients.delegate = self;
+    self.ingredients = [[NSMutableArray alloc] init];
     // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
 }
 
 #pragma mark Actions
@@ -72,14 +79,14 @@
     cell.detailTextLabel.text = quantity;
     return cell;
 }
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    AddIngredientsViewController *addIngredients = segue.destinationViewController;
+    addIngredients.ingredients = self.ingredients;
 }
-*/
+
 
 @end

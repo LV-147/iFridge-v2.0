@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface AddIngredientsViewController : UIViewController
-
+@property (strong, nonatomic) NSMutableArray *ingredients;
 @end

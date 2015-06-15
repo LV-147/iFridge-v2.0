@@ -48,9 +48,10 @@
         self.ingredient.label = self.ingredientLabel.text;
         self.ingredient.quantity = [NSNumber numberWithDouble:[self.quantityOfIngredient.text doubleValue]];
         
-        AddRecipeViewController *addRecipeController = (AddRecipeViewController *)segue.sourceViewController;
+        AddRecipeViewController *addRecipeController = segue.sourceViewController;
         [addRecipeController.ingredients addObject:self.ingredient];
         [addRecipeController.recipeIngredients reloadData];
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
     }else{
         UIAlertView *emptyLabel = [[UIAlertView alloc] initWithTitle:@"Empty label"
                                                              message:@"Please enter ingredient label at least"

@@ -382,7 +382,7 @@
         <!--Add recipe-->
         <scene sceneID="nIS-ug-eVE">
             <objects>
-                <viewController title="Add recipe" id="n9Q-MX-QFl" customClass="AddRecipeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Add recipe" title="Add recipe" id="n9Q-MX-QFl" customClass="AddRecipeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5Rk-T6-RCg"/>
                         <viewControllerLayoutGuide type="bottom" id="JyI-w9-08t"/>
@@ -581,8 +581,8 @@
                                     <outlet property="delegate" destination="cP0-ck-2dZ" id="ab6-zR-Qvo"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="unit of measure" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIn-ww-N1k">
-                                <rect key="frame" x="181" y="58" width="119" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="units" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIn-ww-N1k">
+                                <rect key="frame" x="222" y="58" width="37" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -618,7 +618,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="6Hv-eO-Hfv" kind="unwind" unwindAction="ingredientAdded:" id="rFl-cn-wMO"/>
+                                    <segue destination="6Hv-eO-Hfv" kind="unwind" unwindAction="ingredientAdded:" id="4Pc-59-FId"/>
                                 </connections>
                             </button>
                         </subviews>
