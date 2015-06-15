@@ -2,7 +2,10 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="h2X-tC-U0S">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+<<<<<<< HEAD
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+=======
+>>>>>>> f130bf7f0443161dcf87e8deb9fb0eeef807e45e
     </dependencies>
     <scenes>
         <!--Home-->
@@ -733,12 +736,20 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+<<<<<<< HEAD
                         <outlet property="sendToCalendar" destination="Uie-0F-aFS" id="UqN-EN-d8E"/>
+=======
+                        <outlet property="sendToCalendar" destination="Uie-0F-aFS" id="Wu5-YV-gQO"/>
+>>>>>>> f130bf7f0443161dcf87e8deb9fb0eeef807e45e
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C8e-ht-NOQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="1602.5" y="-2053.5"/>
+=======
+            <point key="canvasLocation" x="1825.5" y="-2087.5"/>
+>>>>>>> f130bf7f0443161dcf87e8deb9fb0eeef807e45e
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Wf9-e6-weB">

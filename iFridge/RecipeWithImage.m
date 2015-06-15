@@ -212,12 +212,20 @@
         }
         recipeCarouselItem.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", [ingredientLines allValues]];
     }
+<<<<<<< HEAD
     return recipeCarouselItem;
 }
 
 - (void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel {
     self.index = carousel.currentItemIndex;
+=======
+>>>>>>> f130bf7f0443161dcf87e8deb9fb0eeef807e45e
     [self ifCurrentRecipeSaved];
+    return recipeCarouselItem;
+}
+
+- (void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel {
+    self.index = carousel.currentItemIndex;
 }
 
 - (CGFloat)carouselItemWidth:(iCarousel *)carousel {

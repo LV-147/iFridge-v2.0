@@ -11,7 +11,7 @@
 
 @interface DataDownloader : NSObject
 
-+ (void)downloadRecipesForQuery:(NSString *)query
+- (void)downloadRecipesForQuery:(NSString *)query
           withCompletionHandler:(void(^)(NSArray *recipes))handler;
 
 + (void)setRecipeImageWithURL:(NSString *)imageLink usingImageView:(UIImageView *)imageView
