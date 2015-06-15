@@ -144,6 +144,7 @@
     //checking if current recipe is alredy in the data base
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Recipe"];
     NSString *predicateString = [[NSString alloc] init];
+    NSLog(@"saved - self.index : %ld", (long)_index);
     if ([[self.availableRecipes objectAtIndex:_index] isKindOfClass:[NSDictionary class]]) {
         predicateString = [[self.availableRecipes objectAtIndex:_index] valueForKeyPath:@"recipe.label"];
     }else if ([[self.availableRecipes objectAtIndex:_index] isKindOfClass:[Recipe class]]) {
@@ -212,12 +213,14 @@
         }
         recipeCarouselItem.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", [ingredientLines allValues]];
     }
-    [self ifCurrentRecipeSaved];
     return recipeCarouselItem;
 }
 
 - (void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel {
     self.index = carousel.currentItemIndex;
+    [self ifCurrentRecipeSaved];
+    NSLog(@"self.index : %ld", (long)self.index);
+    NSLog(@"_index     : %ld", (long)_index);
 }
 
 - (CGFloat)carouselItemWidth:(iCarousel *)carousel {

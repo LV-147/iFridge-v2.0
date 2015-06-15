@@ -39,6 +39,10 @@
     self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     self.tableView.backgroundColor = [UIColor clearColor];
     
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]
+                                               initWithTarget:self action:@selector(longPressGestureRecognized:)];
+    [self.tableView addGestureRecognizer:longPress];
+    
     if ([self.dataSource isEqualToString:@"Search results"]){
         [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         [self searchForRecipesForQuery:self.query];
@@ -128,26 +132,9 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     cell.backgroundColor = [UIColor clearColor];
-    
-    //cell.accessoryView = [UIImage]//[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"accessory.png"]];
 }
 
-//-(void)loading{
-//    if (self.recipes.count <= 100 && self.recipes.count != 0) {
-//        [activityIndicator stopAnimating];
-//        activityIndicator.hidesWhenStopped = YES;
-//    }
-//    else{
-//        [activityIndicator startAnimating];
-//    }
-//}
-
 -(void) doAnimation:(RecipesCell*) cell{
-    //    [cell.layer setBackgroundColor:[UIColor blackColor].CGColor];
-    //    [UIView beginAnimations:nil context:NULL];
-    //    [UIView setAnimationDuration:0.1];
-    //    [cell.layer setBackgroundColor:[UIColor whiteColor].CGColor];
-    //    [UIView commitAnimations];
     [cell setBackgroundColor:[UIColor blackColor]];
     
     [UIView animateWithDuration:0.2
@@ -159,10 +146,6 @@
                      }
                      completion:^(BOOL finished){
                          
-                         //                         // Your code goes here
-                         //                         [UIView animateWithDuration:1.0 delay:0.0 options:
-                         //                          UIViewAnimationOptionCurveEaseIn animations:^{
-                         //                          } completion:^ (BOOL completed) {}];
                      }];
 }
 
