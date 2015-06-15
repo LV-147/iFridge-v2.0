@@ -75,7 +75,7 @@
 		D926FC1D1B2B146E003FB68C /* camera-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D926FC1C1B2B146E003FB68C /* camera-icon.png */; };
 		D926FC201B2B2EA5003FB68C /* AddIngredientsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D926FC1F1B2B2EA5003FB68C /* AddIngredientsViewController.m */; };
 		D926FC231B2B3FC1003FB68C /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = D926FC221B2B3FC1003FB68C /* Ingredient.m */; };
-		D926FC271B2EEFB5003FB68C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D926FC261B2EEFB5003FB68C /* Main.storyboard */; };
+		D96D9ECA1B2F0A5F00D89452 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D96D9EC91B2F0A5F00D89452 /* Main.storyboard */; };
 		D992EE2A1B0A339A0093B3F7 /* Fridge.m in Sources */ = {isa = PBXBuildFile; fileRef = D992EE291B0A339A0093B3F7 /* Fridge.m */; };
 		D992EE331B0A34DA0093B3F7 /* Fridge+Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = D992EE321B0A34DA0093B3F7 /* Fridge+Cat.m */; };
 		D992EE3C1B0B54090093B3F7 /* UIViewController+Context.m in Sources */ = {isa = PBXBuildFile; fileRef = D992EE3B1B0B54090093B3F7 /* UIViewController+Context.m */; };
@@ -198,7 +198,7 @@
 		D926FC1F1B2B2EA5003FB68C /* AddIngredientsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddIngredientsViewController.m; sourceTree = "<group>"; };
 		D926FC211B2B3FC1003FB68C /* Ingredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ingredient.h; sourceTree = "<group>"; };
 		D926FC221B2B3FC1003FB68C /* Ingredient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ingredient.m; sourceTree = "<group>"; };
-		D926FC261B2EEFB5003FB68C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D96D9EC91B2F0A5F00D89452 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D992EE281B0A339A0093B3F7 /* Fridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fridge.h; sourceTree = "<group>"; };
 		D992EE291B0A339A0093B3F7 /* Fridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fridge.m; sourceTree = "<group>"; };
 		D992EE311B0A34DA0093B3F7 /* Fridge+Cat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Fridge+Cat.h"; sourceTree = "<group>"; };
@@ -363,7 +363,7 @@
 				D9B7D82C1B21C64200D5787E /* DataDownloader.m */,
 				357A58F41AFFDF3C0094B0AC /* AppDelegate.h */,
 				357A58F51AFFDF3C0094B0AC /* AppDelegate.m */,
-				D926FC261B2EEFB5003FB68C /* Main.storyboard */,
+				D96D9EC91B2F0A5F00D89452 /* Main.storyboard */,
 				359709681B04E9E4005064C0 /* ViewControllers */,
 				359709691B04E9F8005064C0 /* Core Data */,
 				BFDD51771B21DCE30039A630 /* RecipeCarouselItem */,
@@ -648,7 +648,7 @@
 				35AFA3531B1C7B1B006013AC /* Vk-icon.png in Resources */,
 				358ED21E1B2059D40053FCFE /* google-plus-icon.png in Resources */,
 				35A5D2CA1B1F623800E70128 /* gplus-120.png in Resources */,
-				D926FC271B2EEFB5003FB68C /* Main.storyboard in Resources */,
+				D96D9ECA1B2F0A5F00D89452 /* Main.storyboard in Resources */,
 				35D022EA1B1B1258001A3813 /* gplus-128.png in Resources */,
 				35A4879A1B023095008F31F3 /* fridge.png in Resources */,
 				35D022E91B1B1258001A3813 /* Facebook_icon.101114329_std.jpg in Resources */,

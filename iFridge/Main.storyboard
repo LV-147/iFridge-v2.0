@@ -656,11 +656,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-<<<<<<< HEAD
-                                    <segue destination="6Hv-eO-Hfv" kind="unwind" unwindAction="ingredientAdded:" id="4Pc-59-FId"/>
-=======
                                     <segue destination="RAd-An-DRJ" kind="unwind" unwindAction="ingredientAdded:" id="tv4-rq-8Ec"/>
->>>>>>> vlad's_branch
                                 </connections>
                             </button>
                         </subviews>
