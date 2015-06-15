@@ -16,6 +16,7 @@
 #import "DataDownloader.h"
 #import "Recipe.h"
 #import "Recipe+Cat.h"
+#import "AddRecipeViewController.h"
 
 @import CoreGraphics;
 
@@ -314,5 +315,18 @@
         [newController initWithRecipeAtIndex:recipeIndex from:self.recipes];
         [self.tableView.tableHeaderView resignFirstResponder];
     }
+}
+
+- (IBAction)recipeAdded:(UIStoryboardSegue *)segue
+{
+    AddRecipeViewController *addRecipeController = segue.sourceViewController;
+    NSDictionary *recipeDict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                addRecipeController.recipeLabel.text, @"label",
+                                addRecipeController.ingredients, @"ingredients",
+                                addRecipeController.weight, @"weight",
+                                addRecipeController.cookingTime, @"cooking time",
+                                nil];
+    [self.recipes addObject:[Recipe createRecipeWithInfo:[NSDictionary dictionaryWithObject:recipeDict forKey:@"recipe"] inManagedObiectContext:self.currentContext]];
+    [self.tableView reloadData];
 }
 @end

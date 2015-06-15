@@ -311,6 +311,7 @@
 			children = (
 				359709651B04E9D3005064C0 /* RecipesTVC.h */,
 				359709661B04E9D3005064C0 /* RecipesTVC.m */,
+				D96D9EC81B2EFA8C00D89452 /* Add recipe */,
 				3597096D1B04FD98005064C0 /* RecipesCell.h */,
 				3597096E1B04FD98005064C0 /* RecipesCell.m */,
 			);
@@ -435,10 +436,6 @@
 		359709681B04E9E4005064C0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				D926FC1E1B2B2EA5003FB68C /* AddIngredientsViewController.h */,
-				D926FC1F1B2B2EA5003FB68C /* AddIngredientsViewController.m */,
-				D926FC191B2B0F01003FB68C /* AddRecipeViewController.h */,
-				D926FC1A1B2B0F01003FB68C /* AddRecipeViewController.m */,
 				F3948BF21B1389AA00D149D0 /* Reminder */,
 				F3948BE61B137A8100D149D0 /* FridgeContents */,
 				BF9779911B132F6900DDD1ED /* Animators */,
@@ -493,6 +490,17 @@
 			);
 			name = RecipeCarouselItem;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		D96D9EC81B2EFA8C00D89452 /* Add recipe */ = {
+			isa = PBXGroup;
+			children = (
+				D926FC1E1B2B2EA5003FB68C /* AddIngredientsViewController.h */,
+				D926FC1F1B2B2EA5003FB68C /* AddIngredientsViewController.m */,
+				D926FC191B2B0F01003FB68C /* AddRecipeViewController.h */,
+				D926FC1A1B2B0F01003FB68C /* AddRecipeViewController.m */,
+			);
+			name = "Add recipe";
 			sourceTree = "<group>";
 		};
 		D992EE3D1B0B651E0093B3F7 /* Categories */ = {
@@ -864,6 +872,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = iFridge/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -888,6 +897,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = iFridge/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

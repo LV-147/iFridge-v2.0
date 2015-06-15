@@ -7,13 +7,12 @@
 //
 
 #import "AddRecipeViewController.h"
+#import "AddIngredientsViewController.h"
 #import "Ingredient+Cat.h"
 #import "Recipe+Cat.h"
 #import "UIViewController+Context.h"
 
 @interface AddRecipeViewController () <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
-@property (weak, nonatomic) IBOutlet UITextField *recipeLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *recipeImage;
 
 @end
 
@@ -21,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.recipeIngredients.delegate = self;
+    self.ingredients = [[NSMutableArray alloc] init];
     // Do any additional setup after loading the view.
 }
 
@@ -35,14 +34,15 @@
     [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
 }
 
-- (IBAction)done {
-}
-
-- (IBAction)addIngredient {
-    
-}
-
 - (IBAction)takePicture {
+}
+
+#pragma mark text field delegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 #pragma mark Table View Data Source
@@ -61,25 +61,32 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Ingredient cell" forIndexPath:indexPath];
     
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    [formatter setMaximumFractionDigits:3];
-    
-    Ingredient *ingredient = [self.ingredients objectAtIndex:indexPath.row];
-    cell.textLabel.text = ingredient.label;
-    
-    NSString *quantity = [NSString stringWithFormat:@"%@", [formatter stringFromNumber:ingredient.quantity]];
-    cell.detailTextLabel.text = quantity;
+    NSDictionary *ingredient = [self.ingredients objectAtIndex:indexPath.row];
+    cell.textLabel.text = [ingredient valueForKey:@"label"];
+    cell.detailTextLabel.text = [ingredient valueForKey:@"quantity"];
     return cell;
 }
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)ingredientAdded:(UIStoryboardSegue *)segue
+{
+    AddIngredientsViewController *addIngredientsController = segue.sourceViewController;
+    if (addIngredientsController.ingredientLabel.text) {
+        NSDictionary *ingredient = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                    addIngredientsController.ingredientLabel.text, @"label",
+                                    addIngredientsController.quantityOfIngredient.text, @"quantity",
+                                    addIngredientsController.units.text, @"units",
+                                    nil];
+        [self.ingredients addObject:ingredient];
+        [self.tableView reloadData];
+    }else{
+        UIAlertView *emptyLabel = [[UIAlertView alloc] initWithTitle:@"Empty label"
+                                                             message:@"Please enter ingredient label at least"
+                                                            delegate:self
+                                                   cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [emptyLabel show];
+    }
 }
-*/
 
 @end

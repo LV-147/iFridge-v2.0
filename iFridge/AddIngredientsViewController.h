@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface AddIngredientsViewController : UIViewController
-
+@property (weak, nonatomic) IBOutlet UITextField *ingredientLabel;
+@property (weak, nonatomic) IBOutlet UITextField *quantityOfIngredient;
+@property (weak, nonatomic) IBOutlet UITextField *units;
 @end
