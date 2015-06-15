@@ -57,7 +57,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     
     self.title = @"To Buy!";
     
@@ -68,6 +68,7 @@
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"image22.jpg"]];
     
     self.tableView.backgroundView.alpha = 0.2f;
+    
     
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
@@ -159,8 +160,8 @@
         
         for (NSString *savedEvent in self.todoItems) {
             [eventStore saveEvent:event span:EKSpanThisEvent commit:YES error:&err];
-        }
-        
+            NSLog(@"%@", savedEvent);
+        }        
         self.savedEvent = event.eventIdentifier;  //save the event id if you want to access this later
     }];
     
@@ -178,6 +179,7 @@
     if(self.todoItems)
     {
         [sender setEnabled:YES];
+        
         [self.sendToCalendar setTitle:@"Sended" forState:UIControlStateNormal];
         _sendToCalendar.tintColor = [UIColor purpleColor];
         [_sendToCalendar setTitleColor:[UIColor purpleColor] forState:UIControlStateNormal];
@@ -341,24 +343,6 @@
 
 
 
-
-
-
-- (NSDateComponents *)dateComponentsForDefaultDueDate {
-    NSDateComponents *oneDayComponents = [[NSDateComponents alloc] init];
-    oneDayComponents.day = 1;
-    
-    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDate *tomorrow = [gregorianCalendar dateByAddingComponents:oneDayComponents toDate:[NSDate date] options:0];
-    
-    NSUInteger unitFlags = NSCalendarUnitEra | NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
-    NSDateComponents *tomorrowAt4PM = [gregorianCalendar components:unitFlags fromDate:tomorrow];
-    tomorrowAt4PM.hour = 16;
-    tomorrowAt4PM.minute = 0;
-    tomorrowAt4PM.second = 0;
-    
-    return tomorrowAt4PM;
-}
 
 - (BOOL)itemHasReminder:(NSString *)item {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title matches %@", item];
