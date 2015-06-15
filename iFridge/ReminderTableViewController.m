@@ -23,6 +23,7 @@
 @property (strong, nonatomic) EKCalendar *calendar;
 @property (nonatomic) BOOL isAccessToEventStoreGranted;
 @property (nonatomic, strong) NSString *savedEvent;
+@property (weak, nonatomic) IBOutlet UIButton *sendToCalendar;
 
 @end
 
@@ -56,7 +57,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     
     self.title = @"To Buy!";
     
@@ -68,8 +69,11 @@
     
     self.tableView.backgroundView.alpha = 0.2f;
     
-    
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
+    [self.sendToCalendar setTitle:@"Send to Calendar" forState:UIControlStateNormal];
+    _sendToCalendar.tintColor = [UIColor purpleColor];
+    [_sendToCalendar setTitleColor:[UIColor purpleColor] forState:UIControlStateNormal];
     
 }
 
@@ -174,6 +178,9 @@
     if(self.todoItems)
     {
         [sender setEnabled:YES];
+        [self.sendToCalendar setTitle:@"Sended" forState:UIControlStateNormal];
+        _sendToCalendar.tintColor = [UIColor purpleColor];
+        [_sendToCalendar setTitleColor:[UIColor purpleColor] forState:UIControlStateNormal];
     }
     else
     {
@@ -334,6 +341,24 @@
 
 
 
+
+
+
+- (NSDateComponents *)dateComponentsForDefaultDueDate {
+    NSDateComponents *oneDayComponents = [[NSDateComponents alloc] init];
+    oneDayComponents.day = 1;
+    
+    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDate *tomorrow = [gregorianCalendar dateByAddingComponents:oneDayComponents toDate:[NSDate date] options:0];
+    
+    NSUInteger unitFlags = NSCalendarUnitEra | NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
+    NSDateComponents *tomorrowAt4PM = [gregorianCalendar components:unitFlags fromDate:tomorrow];
+    tomorrowAt4PM.hour = 16;
+    tomorrowAt4PM.minute = 0;
+    tomorrowAt4PM.second = 0;
+    
+    return tomorrowAt4PM;
+}
 
 - (BOOL)itemHasReminder:(NSString *)item {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title matches %@", item];
