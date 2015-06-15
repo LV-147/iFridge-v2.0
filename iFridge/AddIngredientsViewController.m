@@ -11,11 +11,9 @@
 #import "AddRecipeViewController.h"
 
 @interface AddIngredientsViewController () <UIAlertViewDelegate, UITextFieldDelegate>
-@property (weak, nonatomic) IBOutlet UITextField *ingredientLabel;
-@property (weak, nonatomic) IBOutlet UITextField *quantityOfIngredient;
-@property (weak, nonatomic) IBOutlet UITextField *unitOfMeasureOfIngredient;
 
-@property (strong, nonatomic) Ingredient *ingredient;
+
+
 @end
 
 @implementation AddIngredientsViewController
@@ -40,24 +38,4 @@
     return YES;
 }
 
-#pragma mark - Navigation
-
-- (IBAction)ingredientAdded:(UIStoryboardSegue *)segue
-{
-    if (self.ingredientLabel.text) {
-        self.ingredient.label = self.ingredientLabel.text;
-        self.ingredient.quantity = [NSNumber numberWithDouble:[self.quantityOfIngredient.text doubleValue]];
-        
-        AddRecipeViewController *addRecipeController = segue.sourceViewController;
-        [addRecipeController.ingredients addObject:self.ingredient];
-        [addRecipeController.recipeIngredients reloadData];
-        [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
-    }else{
-        UIAlertView *emptyLabel = [[UIAlertView alloc] initWithTitle:@"Empty label"
-                                                             message:@"Please enter ingredient label at least"
-                                                            delegate:self
-                                                   cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [emptyLabel show];
-    }
-}
 @end

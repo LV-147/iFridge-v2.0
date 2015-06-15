@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iFridge/AddRecipeViewController.m"
-            timestampString = "456060682.272509"
+            filePath = "iFridge/RecipesTVC.m"
+            timestampString = "456065603.507771"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "-tableView:numberOfRowsInSection:"
+            startingLineNumber = "330"
+            endingLineNumber = "330"
+            landmarkName = "-recipeAdded:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -35,29 +35,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iFridge/AddIngredientsViewController.m"
-            timestampString = "456060682.272509"
+            filePath = "iFridge/Recipe+Cat.m"
+            timestampString = "456065889.522398"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "-ingredientAdded"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iFridge/AddRecipeViewController.m"
-            timestampString = "456060682.272509"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "-viewWillAppear:"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "+createRecipeWithInfo:inManagedObiectContext:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
