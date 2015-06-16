@@ -91,9 +91,7 @@
     if ([[self.availableRecipes objectAtIndex:self.index] isKindOfClass:[NSDictionary class]]) {
         [DataDownloader setRecipeImageWithURL:[[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.image"]
                                usingImageView:item.recipeItemImage
-                        withCompletionHandler:^{
-                        //stop activity indicator
-                        }];
+                        withCompletionHandler:NULL];
         NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.ingredientLines"];
         item.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
         item.recipeItemName.text = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.label"];
@@ -103,9 +101,7 @@
         
         [DataDownloader setRecipeImageWithURL:currentRecipe.imageUrl
                                usingImageView:item.recipeItemImage
-                        withCompletionHandler:^{
-                           //don't forget stop activity indicator!!
-                        }];
+                        withCompletionHandler:NULL];
         item.recipeItemName.text = currentRecipe.label;
         
         NSMutableDictionary *ingredientLines = [[NSMutableDictionary alloc] init];
@@ -190,7 +186,7 @@
     if ([[self.availableRecipes objectAtIndex:index] isKindOfClass:[NSDictionary class]]) {
         [DataDownloader setRecipeImageWithURL:[[self.availableRecipes objectAtIndex:index] valueForKeyPath:@"recipe.image"]
                                usingImageView:recipeCarouselItem.recipeItemImage
-                        withCompletionHandler:nil];
+                        withCompletionHandler:NULL];
         NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:index] valueForKeyPath:@"recipe.ingredientLines"];
         recipeCarouselItem.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
         recipeCarouselItem.recipeItemName.text = [[self.availableRecipes objectAtIndex:index] valueForKeyPath:@"recipe.label"];
@@ -200,7 +196,7 @@
         
         [DataDownloader setRecipeImageWithURL:currentRecipe.imageUrl
                                usingImageView:recipeCarouselItem.recipeItemImage
-                        withCompletionHandler:nil];
+                        withCompletionHandler:NULL];
         recipeCarouselItem.recipeItemName.text = currentRecipe.label;
         
         NSMutableDictionary *ingredientLines = [[NSMutableDictionary alloc] init];

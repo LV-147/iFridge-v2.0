@@ -57,35 +57,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    EKEventStore *eventStore = [EKEventStore new];
-//    [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
-//        if (!granted) { return; }
-//        EKEvent *event = [EKEvent eventWithEventStore:eventStore];
-//        NSString *eventForCalendarTitle = [NSString stringWithFormat:@"To buy for %@", _nameOfEventForCalendar];
-//        event.title = eventForCalendarTitle;
-//        event.notes = [self.ingredientsForReminder componentsJoinedByString:@"\n"];
-//        event.startDate = [NSDate date]; //today
-//        event.endDate = [event.startDate dateByAddingTimeInterval:60*60];  //set 1 hour meeting
-//        event.calendar = [eventStore defaultCalendarForNewEvents];
-//        NSError *err = nil;
-//        
-//        for (NSString *savedEvent in self.ingredientsForReminder) {
-//            [eventStore saveEvent:event span:EKSpanThisEvent commit:YES error:&err];
-//        }
-//        
-//        self.savedEvent = event.eventIdentifier;  //save the event id if you want to access this later
-//    }];
-//    
-//    
-////    EKEventStore* eventStore = [EKEventStore new];
-//    [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
-//        if (!granted) { return; }
-//        EKEvent* eventToRemove = [eventStore eventWithIdentifier:self.savedEvent];
-//        if (eventToRemove) {
-//            NSError* error = nil;
-//            [eventStore removeEvent:eventToRemove span:EKSpanThisEvent commit:YES error:&error];
-//        }
-//    }];
     
     self.title = @"To Buy!";
     

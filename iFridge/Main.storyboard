@@ -271,6 +271,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="addRecipeButton" destination="fzg-XU-ihi" id="j4A-VP-Leg"/>
                         <outlet property="selectDataSourceController" destination="JFK-o1-5WF" id="UrB-w6-AXW"/>
                         <outlet property="tableView" destination="tB7-Bw-lU0" id="0Eh-m2-LAi"/>
                     </connections>

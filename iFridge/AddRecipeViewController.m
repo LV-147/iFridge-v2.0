@@ -11,8 +11,10 @@
 #import "Ingredient+Cat.h"
 #import "Recipe+Cat.h"
 #import "UIViewController+Context.h"
+#import <MobileCoreServices/MobileCoreServices.h>
 
-@interface AddRecipeViewController () <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface AddRecipeViewController () <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate,
+UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @end
 
@@ -35,6 +37,23 @@
 }
 
 - (IBAction)takePicture {
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.delegate = self;
+    imagePicker.mediaTypes = @[(NSString *)kUTTypeImage];
+    imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    imagePicker.allowsEditing = YES;
+    [self presentViewController:imagePicker animated:YES completion:NULL];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    self.recipeImage.image = info[UIImagePickerControllerEditedImage];
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 #pragma mark text field delegate
@@ -72,20 +91,24 @@
 - (IBAction)ingredientAdded:(UIStoryboardSegue *)segue
 {
     AddIngredientsViewController *addIngredientsController = segue.sourceViewController;
-    if (addIngredientsController.ingredientLabel.text) {
-        NSDictionary *ingredient = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                    addIngredientsController.ingredientLabel.text, @"label",
-                                    addIngredientsController.quantityOfIngredient.text, @"quantity",
-                                    addIngredientsController.units.text, @"units",
-                                    nil];
-        [self.ingredients addObject:ingredient];
-        [self.tableView reloadData];
-    }else{
+    if ([addIngredientsController.ingredientLabel.text isEqualToString:@""]) {
         UIAlertView *emptyLabel = [[UIAlertView alloc] initWithTitle:@"Empty label"
                                                              message:@"Please enter ingredient label at least"
                                                             delegate:self
                                                    cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [emptyLabel show];
+    }else{
+        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+        [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+        NSNumber *quantity = [formatter numberFromString:addIngredientsController.quantityOfIngredient.text];
+        
+        NSDictionary *ingredient = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                    addIngredientsController.ingredientLabel.text, @"label",
+                                    quantity, @"quantity",
+                                    addIngredientsController.units.text, @"units",
+                                    nil];
+        [self.ingredients addObject:ingredient];
+        [self.tableView reloadData];
     }
 }
 
