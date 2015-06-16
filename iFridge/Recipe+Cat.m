@@ -34,9 +34,7 @@
         recipe.imageUrl = [recipeDict valueForKeyPath:@"recipe.image"];
         recipe.cookingTime = [recipeDict valueForKeyPath:@"recipe.cookingTime"];
         recipe.weight = [recipeDict valueForKeyPath:@"recipe.totalWeight"];
-        recipe.fat = [recipeDict valueForKeyPath:@"recipe.totalNutrients.FAT.quantity"];
-        recipe.sugars = [recipeDict valueForKeyPath:@"recipe.totalNutrients.SUGAR.quantity"];
-        recipe.cookingLevel = [recipeDict valueForKeyPath:@"recipe.level"];
+        recipe.calories = [recipeDict valueForKeyPath:@"recipe.calories"];
         
         NSMutableSet *ingredients = [[NSMutableSet alloc]init];
         NSArray *recipeIngredients = [recipeDict valueForKeyPath:@"recipe.ingredients"];
