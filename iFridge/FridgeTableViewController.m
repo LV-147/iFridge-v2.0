@@ -30,9 +30,9 @@
 #pragma mark - Custom accessors
 
 - (NSMutableArray *)toaddItems {
-    if (!_toaddItems) {
-        _toaddItems = [@[@"You may add some products"] mutableCopy];
-    }
+//    if (!_toaddItems) {
+//        _toaddItems = [@[@"You may add some products"] mutableCopy];
+//    }
     return _toaddItems;
 }
 
@@ -40,6 +40,8 @@
 
 - (void)viewDidLoad {
      [super viewDidLoad];
+
+
     //products is allready fridge
     self.fridge = [Fridge addFridgeWithName:@"MyFridge" inManagedObjectContext:self.currentContext];
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Ingredient"];
