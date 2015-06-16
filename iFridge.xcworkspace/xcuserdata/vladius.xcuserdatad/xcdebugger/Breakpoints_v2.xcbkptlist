@@ -19,29 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iFridge/Recipe+Cat.m"
-            timestampString = "456065889.522398"
+            filePath = "Ingredient+Cat.m"
+            timestampString = "456154526.391322"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
-            landmarkName = "+createRecipeWithInfo:inManagedObiectContext:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iFridge/RecipesTVC.m"
-            timestampString = "456076614.52638"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "-updateSearchResultsForSearchController:"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "+addIngredientForRecipe:withInfo:toFridge:inManagedObiectContext:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
