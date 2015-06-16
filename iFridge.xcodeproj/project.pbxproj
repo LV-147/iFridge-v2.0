@@ -372,10 +372,10 @@
 				359709691B04E9F8005064C0 /* Core Data */,
 				BFDD51771B21DCE30039A630 /* RecipeCarouselItem */,
 				357A59001AFFDF3C0094B0AC /* Images.xcassets */,
-				357A59021AFFDF3C0094B0AC /* LaunchScreen.xib */,
 				BFEA48251B13475C008F5BEF /* LoadingView.xib */,
 				357A58F01AFFDF3C0094B0AC /* Supporting Files */,
 				BFF69BBC1B2860500085736A /* SortingStringClass.swift */,
+				357A59021AFFDF3C0094B0AC /* LaunchScreen.xib */,
 				BFF69BBB1B28604F0085736A /* iFridge-Bridging-Header.h */,
 			);
 			path = iFridge;

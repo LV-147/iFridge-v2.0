@@ -179,7 +179,7 @@
     {
         [sender setEnabled:YES];
         
-        [self.sendToCalendar setTitle:@"Sended" forState:UIControlStateNormal];
+        [self.sendToCalendar setTitle:@"Sent" forState:UIControlStateNormal];
         _sendToCalendar.tintColor = [UIColor purpleColor];
         [_sendToCalendar setTitleColor:[UIColor purpleColor] forState:UIControlStateNormal];
     }
@@ -187,11 +187,7 @@
     {
         [sender setEnabled:NO];
     }
-
-    
-    
 }
-
 
 
 - (IBAction)addButtonPressed:(id)sender {
