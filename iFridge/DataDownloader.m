@@ -19,8 +19,26 @@ NSString *app_key = @"e6f6e485b0222cf1b48439a164562270";//@"e1309c8e747bdd4d7363
 
 @implementation DataDownloader
 
+<<<<<<< HEAD
 + (void)downloadRecipesForQuery:(NSString *)query
           withCompletionHandler:(void(^)(NSArray *recipes))handler
+=======
+- (void)setImageWithURL:(NSString *)imageLink usingImageView: (UIImageView *) imageView {
+   
+    [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:imageLink]
+                                                         options:SDWebImageDownloaderLowPriority
+                                                        progress:nil
+                                                       completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
+                                                           
+                                                           [imageView setBackgroundColor:[UIColor colorWithPatternImage:image]];
+                                                       }];
+
+}
+
+
+- (void)downloadRecipesForQuery:(NSString *)query
+                           than:(void(^)())handler
+>>>>>>> 59861c03c84206d85b8df742de75183a31311f7f
 {
     if (!query)
     {

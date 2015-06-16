@@ -10,7 +10,7 @@
 
 @interface Recipe (Cat)
 
-+ (Recipe *)createRecipeWithInfo:(NSDictionary *)recipeDict
++ (void)createRecipeWithInfo:(NSDictionary *)recipeDict
           inManagedObiectContext:(NSManagedObjectContext *)context;
 
 + (NSDictionary *)deleteRecipe:(Recipe *)recipe fromManagedObjectContext:(NSManagedObjectContext *)context;

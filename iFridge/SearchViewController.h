@@ -25,7 +25,11 @@
 - (IBAction)goToFacebookGroup:(id)sender;
 - (IBAction)goToGooglePlusGroup:(id)sender;
 - (IBAction)goToOurWebSite:(id)sender;
+<<<<<<< HEAD
 - (IBAction)emailUsButton:(id)sender;
+=======
+- (IBAction)writeAnEmailButton:(id)sender;
+>>>>>>> 59861c03c84206d85b8df742de75183a31311f7f
 
 
 

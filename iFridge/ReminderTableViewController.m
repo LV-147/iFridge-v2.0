@@ -12,6 +12,10 @@
 #import "Fridge+Cat.h"
 #import "UIViewController+Context.h"
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 59861c03c84206d85b8df742de75183a31311f7f
 
 @import EventKit;
 
@@ -22,8 +26,13 @@
 @property (copy, nonatomic) NSArray *reminders;
 @property (strong, nonatomic) EKCalendar *calendar;
 @property (nonatomic) BOOL isAccessToEventStoreGranted;
+<<<<<<< HEAD
 @property (nonatomic, strong) NSString *savedEvent;
 @property (weak, nonatomic) IBOutlet UIButton *sendToCalendar;
+=======
+@property (nonatomic, assign) UIView *blurEffect;
+
+>>>>>>> 59861c03c84206d85b8df742de75183a31311f7f
 
 @end
 
@@ -41,7 +50,10 @@
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 59861c03c84206d85b8df742de75183a31311f7f
 - (NSArray *)todoItems {
     if (!_todoItems) {
         _todoItems = [@[@"You need to do smth!"] mutableCopy];
@@ -56,7 +68,17 @@
 
 
 - (void)viewDidLoad {
+<<<<<<< HEAD
     [super viewDidLoad];
+=======
+    
+    
+    
+    [super viewDidLoad];
+    
+
+    
+>>>>>>> 59861c03c84206d85b8df742de75183a31311f7f
 
     
     self.title = @"To Buy!";
@@ -64,7 +86,12 @@
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureRecognized:)];
     
     [self.tableView addGestureRecognizer:longPress];
+
+    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"image22.jpg"]];
+
+    self.tableView.backgroundView.alpha = 0.2f;
     
+<<<<<<< HEAD
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"image22.jpg"]];
     
     self.tableView.backgroundView.alpha = 0.2f;
@@ -75,6 +102,10 @@
     [self.sendToCalendar setTitle:@"Send to Calendar" forState:UIControlStateNormal];
     _sendToCalendar.tintColor = [UIColor purpleColor];
     [_sendToCalendar setTitleColor:[UIColor purpleColor] forState:UIControlStateNormal];
+=======
+   
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+>>>>>>> 59861c03c84206d85b8df742de75183a31311f7f
     
 }
 
@@ -103,6 +134,10 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.todoItems count];
     
+<<<<<<< HEAD
+=======
+
+>>>>>>> 59861c03c84206d85b8df742de75183a31311f7f
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -114,9 +149,20 @@
     NSString *object = self.todoItems[indexPath.row];
     
     cell.backgroundColor = [UIColor clearColor];
+    
+    
     cell.textLabel.text = object;
     cell.textLabel.textColor = [UIColor blackColor];
+<<<<<<< HEAD
 //    [self addReminderForToDoItem:object];
+=======
+    
+   
+   
+    
+    [self addReminderForToDoItem:object];
+    
+>>>>>>> 59861c03c84206d85b8df742de75183a31311f7f
     return cell;
 }
 
@@ -133,6 +179,7 @@
     NSString *todoItem = self.todoItems[indexPath.row];
     
     NSMutableArray *todoItems = [[NSMutableArray alloc] initWithArray:self.todoItems];
+<<<<<<< HEAD
     
     self.todoItems = todoItems;
     
@@ -191,6 +238,14 @@
 
     
     
+=======
+    
+    self.todoItems = todoItems;
+    
+    // Remove to-do item.
+    [todoItems removeObject:todoItem];
+    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+>>>>>>> 59861c03c84206d85b8df742de75183a31311f7f
 }
 
 
@@ -279,7 +334,11 @@
                 [todoItems exchangeObjectAtIndex:indexPath.row withObjectAtIndex:sourceIndexPath.row];
                 self.todoItems = todoItems;
                 
+<<<<<<< HEAD
                 
+=======
+ 
+>>>>>>> 59861c03c84206d85b8df742de75183a31311f7f
                 
                 // ... move the rows.
                 [self.tableView moveRowAtIndexPath:sourceIndexPath toIndexPath:indexPath];
