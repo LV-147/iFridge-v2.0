@@ -31,12 +31,10 @@
         ingredient = mathes.firstObject;
     }else{
         ingredient = [NSEntityDescription insertNewObjectForEntityForName:@"Ingredient" inManagedObjectContext:context];
-        ingredient.label = [ingredienteDict valueForKeyPath:@"label"];
+        ingredient.label = [ingredienteDict valueForKey:@"label"];
         ingredient.quantity = [ingredienteDict valueForKey:@"quantity"];
         if (recipe) ingredient.forRecipe = recipe;
-        if (fridge) {
-            ingredient.fromFridge = fridge;
-        }
+        if (fridge) ingredient.fromFridge = fridge;
         [context save:NULL];
     }
     

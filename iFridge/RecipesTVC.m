@@ -21,13 +21,15 @@
 @import CoreGraphics;
 
 
-@interface RecipesTVC () <UIAlertViewDelegate, UISearchBarDelegate>
+@interface RecipesTVC () <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating>
 @property (strong, nonatomic) IBOutlet UISegmentedControl *selectDataSourceController;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *addRecipeButton;
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSArray *allRecipes;
-@property (strong, nonatomic) NSNumberFormatter *formatter;
-
+//SEARCH
+@property (nonatomic, strong) UISearchController *searchController;
+// for state restoration
+@property BOOL searchControllerWasActive;
+@property BOOL searchControllerSearchFieldWasFirstResponder;
+//SEARCH
 @end
 
 @implementation RecipesTVC
@@ -37,11 +39,6 @@
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     self.tableView.backgroundColor = [UIColor clearColor];
-    self.addRecipeButton.enabled = NO;
-    
-    self.formatter = [[NSNumberFormatter alloc] init];
-    [self.formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    [self.formatter setMaximumFractionDigits:0];
     
     if ([self.dataSource isEqualToString:@"Search results"]){
         [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
@@ -50,30 +47,55 @@
         self.selectDataSourceController.selectedSegmentIndex = 1;
         [self getRecipesFromCoreData];
     }
-    self.searchBar.delegate = self;
-    self.searchBar.text = self.query;
+    //SEARCH
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    self.searchController.searchResultsUpdater = self;
+    //config view of search bar
+    self.searchController.searchBar.delegate = self;
+    self.searchController.searchBar.tintColor = [UIColor redColor];
+    self.searchController.searchBar.barTintColor = [UIColor colorWithRed:1 green:0.6 blue:0.6 alpha:0.5];
+    [self.searchController.searchBar sizeToFit];
+    self.tableView.tableHeaderView = self.searchController.searchBar;
+    self.searchController.dimsBackgroundDuringPresentation = NO; // default is YES
+    self.definesPresentationContext = YES;  // know where you want UISearchController to be displayed
+    //SEARCH
 }
 
 #pragma mark - search bar delegate
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    [searchBar resignFirstResponder];
     if ([self.dataSource isEqualToString:@"Search results"]) {
-        self.query = searchBar.text;
+        self.query = self.searchController.searchBar.text;
         [self searchForRecipesForQuery:self.query];
     }
+    self.searchControllerWasActive = NO;
+    self.searchControllerSearchFieldWasFirstResponder = NO;
 }
 
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
+        if ([self.dataSource isEqualToString:@"My recipes"]) {
+            [self getRecipesFromCoreData];
+        }
+    self.searchControllerWasActive = NO;
+    self.searchControllerSearchFieldWasFirstResponder = NO;
+}
+
+#pragma mark - UISearchResultsUpdating
+
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController
+{
+    self.searchControllerWasActive = YES;
+    self.searchControllerSearchFieldWasFirstResponder = YES;
     if ([self.dataSource isEqualToString:@"My recipes"]) {
-        if ([searchText isEqualToString:@""]) {
+        NSString *query = searchController.searchBar.text;
+        if ([query isEqualToString:@""]) {
             self.recipes = [[NSMutableArray alloc]initWithArray:self.allRecipes];
-            [searchBar resignFirstResponder];
+            //self.recipes = self.allRecipes;
         }else{
             NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Recipe *evaluatedObject, NSDictionary *bindings) {
                 BOOL result = NO;
-                if ([evaluatedObject.label rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound) {
+                if ([evaluatedObject.label rangeOfString:query options:NSCaseInsensitiveSearch].location != NSNotFound) {
                     result = YES;
                 }
                 return result;
@@ -81,25 +103,17 @@
             
             NSArray *filteredRecipes = [self.allRecipes filteredArrayUsingPredicate:predicate];
             self.recipes = [[NSMutableArray alloc]initWithArray:filteredRecipes];
+            //self.recipes = filteredRecipes;
         }
         [self.tableView reloadData];
     }
 }
 
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
-{
-    if ([self.dataSource isEqualToString:@"My recipes"]) {
-        [self getRecipesFromCoreData];
-    }
-}
-
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.searchBar.text = self.query;
-
+    self.searchController.searchBar.text = self.query;
     if ([self.dataSource isEqualToString:@"My recipes"]) {
         [self getRecipesFromCoreData];
-        self.addRecipeButton.enabled = YES;
         [self.tableView reloadData];
     }
 }
@@ -188,13 +202,11 @@
     switch (sender.selectedSegmentIndex) {
         case 0:
             self.dataSource = @"Search results";
-            self.addRecipeButton.enabled = NO;
             [self searchForRecipesForQuery:self.query];
             break;
         case 1:
             self.dataSource = @"My recipes";
             [self getRecipesFromCoreData];
-            self.addRecipeButton.enabled = YES;
             [self.tableView reloadData];
             break;
         default:
@@ -240,17 +252,21 @@
     [cell.recipeImageCell addSubview:activityIndicator];
     [activityIndicator startAnimating];
     
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    [numberFormatter setMaximumFractionDigits:0];
+    
     if ([self.dataSource isEqualToString:@"Search results"]) {
         cell.nameOfDish.text = self.recipes[indexPath.row][@"recipe"][@"label"];
         
         cell.cookingTime.text = [NSString stringWithFormat:@"cookingTime: %@", self.recipes[indexPath.row][@"recipe"][@"cookingTime"]];
         
         NSNumber *str1 = self.recipes[indexPath.row][@"recipe"][@"calories"];
-        NSString *caloriesTotal = [NSString stringWithFormat:@"calories: %@", [self.formatter stringFromNumber:str1]];
+        NSString *caloriesTotal = [NSString stringWithFormat:@"calories: %@", [numberFormatter stringFromNumber:str1]];
         cell.caloriesTotal.text = [NSString stringWithString:caloriesTotal];
         
         NSNumber *str3 = self.recipes[indexPath.row][@"recipe"][@"totalWeight"];
-        NSString *weightTotal = [NSString stringWithFormat:@"weight: %@ g", [self.formatter stringFromNumber:str3]];
+        NSString *weightTotal = [NSString stringWithFormat:@"weight: %@ g", [numberFormatter stringFromNumber:str3]];
         cell.weightTotal.text = [NSString stringWithString:weightTotal];
         
         [self doAnimation:cell];
@@ -261,9 +277,9 @@
         
         Recipe *recipe = self.recipes[indexPath.row];
         cell.nameOfDish.text = recipe.label;
-        cell.cookingTime.text = [NSString stringWithFormat:@"Cooking time: %@ s", [self.formatter stringFromNumber:recipe.cookingTime]];
-        cell.caloriesTotal.text = [NSString stringWithFormat:@"Total calories %@", [self.formatter stringFromNumber:recipe.calories]];
-        cell.weightTotal.text = [NSString stringWithFormat:@"Total weight: %@ g", [self.formatter stringFromNumber:recipe.weight]];
+        cell.cookingTime.text = [NSString stringWithFormat:@"Cooking time: %@ s", [numberFormatter stringFromNumber:recipe.cookingTime]];
+        cell.caloriesTotal.text = [NSString stringWithFormat:@"Total calories %@", [numberFormatter stringFromNumber:recipe.calories]];
+        cell.weightTotal.text = [NSString stringWithFormat:@"Total weight: %@ g", [numberFormatter stringFromNumber:recipe.weight]];
         
         return cell;
     }
@@ -277,11 +293,12 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         if([self.dataSource  isEqual: @"My recipes"]){
             NSMutableArray *availableRecipes = [[NSMutableArray alloc] initWithArray:self.recipes];
-            [Recipe deleteRecipe:[availableRecipes objectAtIndex:indexPath.row]
+            NSDictionary *currentRecipeDict = [Recipe deleteRecipe:[availableRecipes objectAtIndex:indexPath.row]
                                           fromManagedObjectContext:self.currentContext];
-            [availableRecipes removeObjectAtIndex:indexPath.row];
+            [availableRecipes replaceObjectAtIndex:indexPath.row withObject:currentRecipeDict];
             self.recipes = availableRecipes;
         }
+        [self.recipes removeObjectAtIndex:indexPath.row];
         [tableView reloadData]; // tell table to refresh now
     }
 }
@@ -303,16 +320,13 @@
 - (IBAction)recipeAdded:(UIStoryboardSegue *)segue
 {
     AddRecipeViewController *addRecipeController = segue.sourceViewController;
-    
     NSDictionary *recipeDict = [[NSDictionary alloc] initWithObjectsAndKeys:
                                 addRecipeController.recipeLabel.text, @"label",
-                                @"will be image url", @"image",
                                 addRecipeController.ingredients, @"ingredients",
-                                [self.formatter numberFromString:addRecipeController.weight.text], @"totalWeight",
-                                [self.formatter numberFromString:addRecipeController.cookingTime.text], @"cookingTime",
+                                addRecipeController.weight, @"weight",
+                                addRecipeController.cookingTime, @"cooking time",
                                 nil];
     [self.recipes addObject:[Recipe createRecipeWithInfo:[NSDictionary dictionaryWithObject:recipeDict forKey:@"recipe"] inManagedObiectContext:self.currentContext]];
     [self.tableView reloadData];
-
 }
 @end

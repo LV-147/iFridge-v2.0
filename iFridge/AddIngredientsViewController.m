@@ -10,7 +10,7 @@
 #import "Ingredient+Cat.h"
 #import "AddRecipeViewController.h"
 
-@interface AddIngredientsViewController () <UIAlertViewDelegate, UITextFieldDelegate, UIAlertViewDelegate>
+@interface AddIngredientsViewController () <UIAlertViewDelegate, UITextFieldDelegate>
 
 
 
@@ -30,18 +30,6 @@
 
 - (IBAction)Cancel {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
-}
-
-- (IBAction)done {
-    if (![self.ingredientLabel.text isEqualToString:@""]) {
-        [self performSegueWithIdentifier:@"ingredientAddedSegue" sender:nil];
-    }else{
-        UIAlertView *emptyLabel = [[UIAlertView alloc] initWithTitle:@"Empty label"
-                                                             message:@"Please enter ingredient label at least"
-                                                            delegate:self
-                                                   cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [emptyLabel show];
-    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
