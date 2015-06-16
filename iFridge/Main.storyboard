@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4P7-Ux-kt4">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4P7-Ux-kt4">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="Settings" id="Lfb-b7-JZO"/>
@@ -27,7 +27,7 @@
                                     <outlet property="delegate" destination="gI3-1b-fxA" id="TYb-eB-oeb"/>
                                 </connections>
                             </navigationBar>
-                            <pickerView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SPA-Ol-lGT">
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SPA-Ol-lGT">
                                 <rect key="frame" x="0.0" y="64" width="375" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="SPA-Ol-lGT" secondAttribute="height" multiplier="125:54" id="G1B-um-9fH"/>
@@ -37,7 +37,7 @@
                                     <outlet property="delegate" destination="gI3-1b-fxA" id="lM9-xa-6zP"/>
                                 </connections>
                             </pickerView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hrQ-N5-JoK">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hrQ-N5-JoK">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
                                     <barButtonItem title="Save" id="fKf-FL-Ts4">
@@ -50,6 +50,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="4P7-Ux-kt4" firstAttribute="bottom" secondItem="SPA-Ol-lGT" secondAttribute="top" id="2On-US-8Qf"/>
+                            <constraint firstItem="hrQ-N5-JoK" firstAttribute="bottom" secondItem="Gi2-kU-vPr" secondAttribute="top" id="4tW-wm-vUC"/>
+                            <constraint firstItem="4P7-Ux-kt4" firstAttribute="leading" secondItem="hrQ-N5-JoK" secondAttribute="leading" id="6Qk-XQ-RuL"/>
+                            <constraint firstItem="4P7-Ux-kt4" firstAttribute="trailing" secondItem="SPA-Ol-lGT" secondAttribute="trailing" id="7Vi-0b-A8I"/>
+                            <constraint firstItem="4P7-Ux-kt4" firstAttribute="leading" secondItem="iOX-MV-vnQ" secondAttribute="leading" id="OYQ-Jh-U3z"/>
+                            <constraint firstItem="4P7-Ux-kt4" firstAttribute="trailing" secondItem="hrQ-N5-JoK" secondAttribute="trailing" id="aMd-Uu-E2n"/>
+                            <constraint firstItem="4P7-Ux-kt4" firstAttribute="leading" secondItem="SPA-Ol-lGT" secondAttribute="leading" id="fC8-RF-526"/>
                             <constraint firstItem="4P7-Ux-kt4" firstAttribute="top" secondItem="4t6-GE-eNA" secondAttribute="bottom" id="rnq-rS-ARr"/>
                         </constraints>
                     </view>
