@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1819AFC31B30D6BA00111F94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1819AFC21B30D6BA00111F94 /* Main.storyboard */; };
+		1819AFC51B30D74F00111F94 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1819AFC41B30D74F00111F94 /* Images.xcassets */; };
 		35185A6E1B13719F00D6503A /* search-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 35185A6D1B13719F00D6503A /* search-icon.png */; };
 		354670DC1B08E1150016229C /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 354670DB1B08E1150016229C /* AddressBook.framework */; };
 		354670DE1B08E11D0016229C /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 354670DD1B08E11D0016229C /* AssetsLibrary.framework */; };
@@ -29,7 +30,6 @@
 		3563A6871B174FD500EFB608 /* anim2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3563A6861B174FD500EFB608 /* anim2.png */; };
 		357A58F31AFFDF3C0094B0AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 357A58F21AFFDF3C0094B0AC /* main.m */; };
 		357A58F61AFFDF3C0094B0AC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 357A58F51AFFDF3C0094B0AC /* AppDelegate.m */; };
-		357A59011AFFDF3C0094B0AC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 357A59001AFFDF3C0094B0AC /* Images.xcassets */; };
 		357A59041AFFDF3C0094B0AC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 357A59021AFFDF3C0094B0AC /* LaunchScreen.xib */; };
 		357A59101AFFDF3D0094B0AC /* iFridgeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 357A590F1AFFDF3D0094B0AC /* iFridgeTests.m */; };
 		3584A22D1B19E00400D21AF8 /* RegExCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 3584A22C1B19E00400D21AF8 /* RegExCategories.m */; };
@@ -102,6 +102,7 @@
 
 /* Begin PBXFileReference section */
 		1819AFC21B30D6BA00111F94 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = "../../../../Downloads/iFridge-v2-8.0-master/iFridge/Main.storyboard"; sourceTree = "<group>"; };
+		1819AFC41B30D74F00111F94 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		35185A6D1B13719F00D6503A /* search-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-icon.png"; sourceTree = "<group>"; };
 		35466FB81B08CE9A0016229C /* libPods-VK-ios-sdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-VK-ios-sdk.a"; path = "Pods/../build/Debug-iphoneos/libPods-VK-ios-sdk.a"; sourceTree = "<group>"; };
 		354670DB1B08E1150016229C /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
@@ -128,7 +129,6 @@
 		357A58F21AFFDF3C0094B0AC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		357A58F41AFFDF3C0094B0AC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		357A58F51AFFDF3C0094B0AC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		357A59001AFFDF3C0094B0AC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		357A59031AFFDF3C0094B0AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		357A59091AFFDF3D0094B0AC /* iFridgeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iFridgeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		357A590E1AFFDF3D0094B0AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -349,9 +349,9 @@
 				1819AFC21B30D6BA00111F94 /* Main.storyboard */,
 				359709681B04E9E4005064C0 /* ViewControllers */,
 				359709691B04E9F8005064C0 /* Core Data */,
-				357A59001AFFDF3C0094B0AC /* Images.xcassets */,
 				357A59021AFFDF3C0094B0AC /* LaunchScreen.xib */,
 				BFEA48251B13475C008F5BEF /* LoadingView.xib */,
+				1819AFC41B30D74F00111F94 /* Images.xcassets */,
 				357A58F01AFFDF3C0094B0AC /* Supporting Files */,
 			);
 			path = iFridge;
@@ -596,12 +596,12 @@
 				D9B7D82A1B21C4FE00D5787E /* send_arrow.png in Resources */,
 				357A59041AFFDF3C0094B0AC /* LaunchScreen.xib in Resources */,
 				3563A6851B174FC000EFB608 /* 3.png in Resources */,
-				357A59011AFFDF3C0094B0AC /* Images.xcassets in Resources */,
 				35185A6E1B13719F00D6503A /* search-icon.png in Resources */,
 				D9E1B2121B162F1A002AD39F /* photo-frame.png in Resources */,
 				F3948BFF1B1392DE00D149D0 /* supermarket.png in Resources */,
 				3559BA851B064F6F0040DCB6 /* OperationFood.png in Resources */,
 				35AFA3531B1C7B1B006013AC /* Vk-icon.png in Resources */,
+				1819AFC51B30D74F00111F94 /* Images.xcassets in Resources */,
 				358ED21E1B2059D40053FCFE /* google-plus-icon.png in Resources */,
 				35A5D2CA1B1F623800E70128 /* gplus-120.png in Resources */,
 				35D022EA1B1B1258001A3813 /* gplus-128.png in Resources */,
@@ -815,6 +815,7 @@
 			baseConfigurationReference = FF46D8F0A983B94B8040C4CE /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/alexey.pelekh/Documents/FacebookSDK,
@@ -836,6 +837,7 @@
 			baseConfigurationReference = 7B6D530F70A59FB7713BE0D2 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/alexey.pelekh/Documents/FacebookSDK,
