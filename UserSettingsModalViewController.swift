@@ -1,11 +1,10 @@
 //
 //  UserSettingsModalViewController.swift
-//  iFridge
+//  
 //
 //  Created by Taras Pasichnyk on 6/16/15.
-//  Copyright (c) 2015 Alexey Pelekh. All rights reserved.
 //
-
+//
 import UIKit
 
 class UserSettingsModalViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
