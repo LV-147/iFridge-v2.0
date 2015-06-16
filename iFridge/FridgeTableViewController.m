@@ -16,16 +16,11 @@
 @class UITableView;
 
 
-@class UITableView;
-
-
 @interface FridgeTableViewController ()
 
 @property (strong, nonatomic) NSMutableArray *toaddItems;
 @property (strong, nonatomic) Fridge *fridge;
 @property (strong, nonatomic) Recipe *recipe;
-
-
 
 
 
@@ -45,7 +40,6 @@
 
 - (void)viewDidLoad {
      [super viewDidLoad];
-<<<<<<< HEAD
     //products is allready fridge
     self.fridge = [Fridge addFridgeWithName:@"MyFridge" inManagedObjectContext:self.currentContext];
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Ingredient"];
@@ -55,28 +49,14 @@
     self.toaddItems = [[NSMutableArray alloc] initWithArray:[self.currentContext executeFetchRequest:request error:&error]];
     
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
-=======
-      [[self navigationController] setNavigationBarHidden:NO animated:YES];
-    self.title = @"My Fridge";
->>>>>>> 59861c03c84206d85b8df742de75183a31311f7f
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureRecognized:)];
     [self.tableView addGestureRecognizer:longPress];
     
 
-<<<<<<< HEAD
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"fridge2.jpg"]];
 
     self.tableView.backgroundView.alpha = 0.2f;
-=======
-    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"image22.jpg"]];
-
-    self.tableView.backgroundView.alpha = 0.2f;
-    
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    
-   
->>>>>>> 59861c03c84206d85b8df742de75183a31311f7f
     
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 }
@@ -102,11 +82,7 @@
     // Update cell content from data source.
     Ingredient *object = self.toaddItems[indexPath.row];
     cell.backgroundColor = [UIColor clearColor];
-<<<<<<< HEAD
     cell.textLabel.text = object.label;
-=======
-    cell.textLabel.text = object;
->>>>>>> 59861c03c84206d85b8df742de75183a31311f7f
     
 
     return cell;

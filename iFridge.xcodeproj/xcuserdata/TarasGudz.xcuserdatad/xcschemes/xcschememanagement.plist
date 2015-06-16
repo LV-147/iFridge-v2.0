@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>CarouselTest.xcscheme</key>
+		<key>iFridge.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,12 +12,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>BF381C031B03584400CF1051</key>
+		<key>357A58EC1AFFDF3C0094B0AC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BF381C1C1B03584400CF1051</key>
+		<key>357A59081AFFDF3D0094B0AC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

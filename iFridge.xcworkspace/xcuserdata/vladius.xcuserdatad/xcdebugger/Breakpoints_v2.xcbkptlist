@@ -5,7 +5,6 @@
    <Breakpoints>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
-<<<<<<< HEAD
          <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -42,13 +41,10 @@
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-=======
->>>>>>> 59861c03c84206d85b8df742de75183a31311f7f
          <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-<<<<<<< HEAD
 <<<<<<< HEAD
             filePath = "iFridge/AddIngredientsViewController.m"
             timestampString = "456060682.272509"
@@ -83,10 +79,6 @@
             endingLineNumber = "37"
             landmarkName = "-viewWillAppear:"
             landmarkType = "5">
-=======
-            scope = "0"
-            stopOnStyle = "0">
->>>>>>> 59861c03c84206d85b8df742de75183a31311f7f
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

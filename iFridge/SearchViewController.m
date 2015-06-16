@@ -17,19 +17,12 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "PushAnimator.h"
 #import "PopAnimator.h"
-<<<<<<< HEAD
 #import "RecipesTVC.h"
 #import "DataDownloader.h"
 
 static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1kpc.apps.googleusercontent.com";
 
 @interface SearchViewController () <UINavigationControllerDelegate, UITextFieldDelegate>
-=======
-
-static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1kpc.apps.googleusercontent.com";
-
-@interface SearchViewController () <UINavigationControllerDelegate>
->>>>>>> 59861c03c84206d85b8df742de75183a31311f7f
 @property (nonatomic, strong) NSString* googlePlusUserInfromation;
 @property (nonatomic, strong) NSString* facebookUserInfromation;
 @property (strong, nonatomic) IBOutlet UIButton *signOutButton;
@@ -39,11 +32,6 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 
 @implementation SearchViewController
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 59861c03c84206d85b8df742de75183a31311f7f
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -61,14 +49,6 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 
     [self.view addSubview:self.googlePlusSignInButton];
     
-<<<<<<< HEAD
-=======
-    UIImage *buttonImageForGooglePlusSignInButton = [UIImage imageNamed:@"gplus-128.png"];
-    [self.googlePlusSignInButton setImage:buttonImageForGooglePlusSignInButton forState:UIControlStateNormal];
-    [self.googlePlusSignInButton setBackgroundImage:buttonImageForGooglePlusSignInButton forState:UIControlStateNormal];
-    [self.view addSubview:self.googlePlusSignInButton];
-    
->>>>>>> 59861c03c84206d85b8df742de75183a31311f7f
     GPPSignIn *signIn = [GPPSignIn sharedInstance];
     signIn = [GPPSignIn sharedInstance];
     signIn.clientID= kClientID;
@@ -81,7 +61,6 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 
     FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
     loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
-<<<<<<< HEAD
 }
 
 #pragma mark - UITextFieldDelegate
@@ -109,28 +88,6 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 - (void)finishedWithAuth:(GTMOAuth2Authentication *)auth
                    error:(NSError *)error
 {
-=======
-    
-}
-
-- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
-                                  animationControllerForOperation:(UINavigationControllerOperation)operation
-                                               fromViewController:(UIViewController*)fromVC
-                                                 toViewController:(UIViewController*)toVC
-{
-    if (operation == UINavigationControllerOperationPush)
-        return [[PushAnimator alloc] init];
-    
-    if (operation == UINavigationControllerOperationPop)
-        return [[PopAnimator alloc] init];
-    
-    return nil;
-}
-
-- (void)finishedWithAuth:(GTMOAuth2Authentication *)auth
-                   error:(NSError *)error
-{
->>>>>>> 59861c03c84206d85b8df742de75183a31311f7f
     self.googlePlusUserInfromation = (NSString *)([GPPSignIn sharedInstance].googlePlusUser);
     NSLog(@"user %@", self.googlePlusUserInfromation);
     
@@ -156,7 +113,6 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 }
 
 -(void) viewWillAppear:(BOOL)animated {
-<<<<<<< HEAD
     [super viewWillAppear:animated];
     [self refreshInterfaceBasedOnSignIn];
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
@@ -176,23 +132,6 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
     [self refreshInterfaceBasedOnSignIn];
 }
 
-=======
-    [self refreshInterfaceBasedOnSignIn];
-}
-
--(void) viewDidAppear:(BOOL)animated{
-    [self refreshInterfaceBasedOnSignIn];
-}
-
--(void) viewDidDisappear:(BOOL)animated{
-    [self refreshInterfaceBasedOnSignIn];
-}
-
--(void) viewWillDissapear:(BOOL)animated {
-    [self refreshInterfaceBasedOnSignIn];
-}
-
->>>>>>> 59861c03c84206d85b8df742de75183a31311f7f
 
 - (IBAction)searchButton:(id)sender {
     
@@ -252,16 +191,6 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
     UIAlertView *userNotLoggedIn = [[UIAlertView alloc] initWithTitle:@"You are not currently logged in" message:@"Try to log in first!" delegate:self cancelButtonTitle:@"Ok!" otherButtonTitles:nil];
     
     if([[GPPSignIn sharedInstance] authentication]){
-<<<<<<< HEAD
-=======
-        
-    
-      //  NSString * str = [dict displayName];
-      //  NSLog(@"%@", (NSString*)((GTLPlusPerson*)dict[@"displayName"]);
-        
-      //  self.googlePlusUserInfromation
-        
->>>>>>> 59861c03c84206d85b8df742de75183a31311f7f
      
         NSString *strForJson = [NSString stringWithFormat:@"%@",[GPPSignIn sharedInstance].googlePlusUser];
         
@@ -276,19 +205,11 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
         NSArray *testArray2 = [[strForJson substringWithRange:matchRange] componentsSeparatedByString:@"\""];
         NSString *userName = testArray2[1];
 
-<<<<<<< HEAD
         NSString *googleUserInformation = [NSString stringWithFormat:@"User name: %@\r User e-mail: %@\r User id: %@\r", userName, [GPPSignIn sharedInstance].userEmail, [GPPSignIn sharedInstance].userID];
 
                 UIAlertView *userInfo = [[UIAlertView alloc] initWithTitle:@"Current user information" message:googleUserInformation delegate:self cancelButtonTitle:@"Ok!" otherButtonTitles:nil];
         
                 [userInfo show];
-=======
-        NSLog(@"g+ %@", userName);
-
-        //        UIAlertView *userInfo = [[UIAlertView alloc] initWithTitle:@"Current user information" message:self.googlePlusUserInfromation delegate:self cancelButtonTitle:@"Ok!" otherButtonTitles:nil];
-        //
-        //        [userInfo show];
->>>>>>> 59861c03c84206d85b8df742de75183a31311f7f
     }else if ([FBSDKAccessToken currentAccessToken]) {
         [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
          startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
@@ -320,13 +241,8 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.ifridge.tk/"]];
 }
 
-<<<<<<< HEAD
 - (IBAction)emailUsButton:(id)sender {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"mailto:info@ifridge.tk"]]];
-=======
-- (IBAction)writeAnEmailButton:(id)sender {
-    
->>>>>>> 59861c03c84206d85b8df742de75183a31311f7f
 }
 
 -(void)refreshInterfaceBasedOnSignIn

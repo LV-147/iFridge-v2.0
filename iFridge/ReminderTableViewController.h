@@ -11,9 +11,6 @@
 @interface ReminderTableViewController : UITableViewController
 
 @property (strong, nonatomic) NSArray *ingredientsForReminder;
-<<<<<<< HEAD
 @property (strong, nonatomic) NSString *nameOfEventForCalendar;
-=======
->>>>>>> 59861c03c84206d85b8df742de75183a31311f7f
 
 @end
