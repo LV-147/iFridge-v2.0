@@ -40,6 +40,12 @@
 
 - (void)viewDidLoad {
      [super viewDidLoad];
+    
+    UIBarButtonItem *editBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(editAction:)];
+    
+    UIBarButtonItem *addBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addProduct:)];
+    
+    self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:editBarButtonItem, addBarButtonItem, nil];
 
 
     //products is allready fridge
@@ -71,6 +77,8 @@
 }
 
 #pragma mark - UITableView data source and delegate methods
+
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.toaddItems count];
@@ -113,6 +121,13 @@
 }
 
 #pragma mark - IBActions
+
+
+//edit button
+- (IBAction)editAction:(id)sender
+{
+    NSLog(@"edit button clicked");
+}
 
 
 - (IBAction)addProduct:(id)sender {

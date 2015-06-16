@@ -188,11 +188,7 @@
     {
         [sender setEnabled:NO];
     }
-
-    
-    
 }
-
 
 
 - (IBAction)addButtonPressed:(id)sender {
