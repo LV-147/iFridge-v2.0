@@ -76,6 +76,7 @@
 		D926FC201B2B2EA5003FB68C /* AddIngredientsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D926FC1F1B2B2EA5003FB68C /* AddIngredientsViewController.m */; };
 		D926FC231B2B3FC1003FB68C /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = D926FC221B2B3FC1003FB68C /* Ingredient.m */; };
 		D96D9ECC1B2F1C5900D89452 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96D9ECB1B2F1C5900D89452 /* MobileCoreServices.framework */; };
+		D980083E1B3096440033CF0B /* iPadStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D980083D1B3096440033CF0B /* iPadStoryboard.storyboard */; };
 		D992EE2A1B0A339A0093B3F7 /* Fridge.m in Sources */ = {isa = PBXBuildFile; fileRef = D992EE291B0A339A0093B3F7 /* Fridge.m */; };
 		D992EE331B0A34DA0093B3F7 /* Fridge+Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = D992EE321B0A34DA0093B3F7 /* Fridge+Cat.m */; };
 		D992EE3C1B0B54090093B3F7 /* UIViewController+Context.m in Sources */ = {isa = PBXBuildFile; fileRef = D992EE3B1B0B54090093B3F7 /* UIViewController+Context.m */; };
@@ -200,6 +201,7 @@
 		D926FC211B2B3FC1003FB68C /* Ingredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ingredient.h; sourceTree = "<group>"; };
 		D926FC221B2B3FC1003FB68C /* Ingredient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ingredient.m; sourceTree = "<group>"; };
 		D96D9ECB1B2F1C5900D89452 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		D980083D1B3096440033CF0B /* iPadStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = iPadStoryboard.storyboard; path = ../iPadStoryboard.storyboard; sourceTree = "<group>"; };
 		D992EE281B0A339A0093B3F7 /* Fridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fridge.h; sourceTree = "<group>"; };
 		D992EE291B0A339A0093B3F7 /* Fridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fridge.m; sourceTree = "<group>"; };
 		D992EE311B0A34DA0093B3F7 /* Fridge+Cat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Fridge+Cat.h"; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 				357A58F41AFFDF3C0094B0AC /* AppDelegate.h */,
 				357A58F51AFFDF3C0094B0AC /* AppDelegate.m */,
 				D9B2829C1B286EAA000F7C94 /* Main.storyboard */,
+				D980083D1B3096440033CF0B /* iPadStoryboard.storyboard */,
 				359709681B04E9E4005064C0 /* ViewControllers */,
 				359709691B04E9F8005064C0 /* Core Data */,
 				BFDD51771B21DCE30039A630 /* RecipeCarouselItem */,
@@ -649,6 +652,7 @@
 				D926FC1D1B2B146E003FB68C /* camera-icon.png in Resources */,
 				F3948BFF1B1392DE00D149D0 /* supermarket.png in Resources */,
 				3559BA851B064F6F0040DCB6 /* OperationFood.png in Resources */,
+				D980083E1B3096440033CF0B /* iPadStoryboard.storyboard in Resources */,
 				35AFA3531B1C7B1B006013AC /* Vk-icon.png in Resources */,
 				358ED21E1B2059D40053FCFE /* google-plus-icon.png in Resources */,
 				35A5D2CA1B1F623800E70128 /* gplus-120.png in Resources */,
