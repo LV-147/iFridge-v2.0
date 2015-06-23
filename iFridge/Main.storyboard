@@ -838,7 +838,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="U8C-rq-w14" id="CgT-lw-FKi"/>
-                        <segue destination="vLg-dX-IXd" kind="presentation" identifier="EditProduct" modalTransitionStyle="crossDissolve" id="sof-Zr-Cub"/>
+                        <segue destination="vLg-dX-IXd" kind="presentation" identifier="EditProduct" id="sof-Zr-Cub"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y9c-M3-DW9" userLabel="First Responder" sceneMemberID="firstResponder"/>
