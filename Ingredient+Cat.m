@@ -33,6 +33,7 @@
         ingredient = [NSEntityDescription insertNewObjectForEntityForName:@"Ingredient" inManagedObjectContext:context];
         ingredient.label = [ingredienteDict valueForKey:@"label"];
         ingredient.quantity = [ingredienteDict valueForKey:@"quantity"];
+        ingredient.unitOfMeasure = [ingredienteDict valueForKey:@"units"];
         if (recipe) ingredient.forRecipe = recipe;
         if (fridge) ingredient.fromFridge = fridge;
         [context save:NULL];

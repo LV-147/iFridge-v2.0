@@ -79,6 +79,7 @@
                                     addIngredientsController.units.text, @"units",
                                     nil];
         [self.ingredients addObject:ingredient];
+        
         [self.tableView reloadData];
     }else{
         UIAlertView *emptyLabel = [[UIAlertView alloc] initWithTitle:@"Empty label"
