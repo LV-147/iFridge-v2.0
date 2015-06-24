@@ -857,14 +857,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.49999999999999994" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fridge2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Toc-wJ-wsb">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.49999999999999994" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fridge2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Toc-wJ-wsb">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 </variation>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5dv-xX-iQD">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5dv-xX-iQD">
+                                <rect key="frame" x="33" y="28" width="76" height="25"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" red="1" green="0.0098948884979999999" blue="0.029187735570000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -877,64 +877,8 @@
                                     <action selector="cancel" destination="vLg-dX-IXd" eventType="touchUpInside" id="Ifx-1Q-Qpe"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gyB-PR-JzB">
-                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="149" y="73" width="201" height="30"/>
-                                </variation>
-                                <connections>
-                                    <outlet property="delegate" destination="vLg-dX-IXd" id="gGo-YP-Naw"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oht-2q-vXi">
-                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="149" y="124" width="201" height="30"/>
-                                </variation>
-                                <connections>
-                                    <outlet property="delegate" destination="vLg-dX-IXd" id="F5K-iN-2QY"/>
-                                </connections>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXL-cK-2Vs">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="72" y="128" width="69" height="21"/>
-                                </variation>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgR-ap-0ad">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="87" y="82" width="54" height="21"/>
-                                </variation>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kOt-Ai-3NK">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Take photo">
-                                    <color key="titleColor" red="1" green="0.0098948884979999999" blue="0.029187735570000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="224" width="89" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="takePhoto" destination="vLg-dX-IXd" eventType="touchUpInside" id="nD3-qG-PYP"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEu-Aa-Ruh">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEu-Aa-Ruh">
+                                <rect key="frame" x="281" y="28" width="66" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Done">
                                     <color key="titleColor" red="1" green="0.0098948884975478268" blue="0.02918773557454224" alpha="1" colorSpace="calibratedRGB"/>
@@ -947,8 +891,50 @@
                                     <segue destination="J5B-3L-IjI" kind="unwind" unwindAction="ingredientAddedToFridge:" id="2xu-GJ-Wdj"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fLJ-pi-SKd">
-                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gyB-PR-JzB">
+                                <rect key="frame" x="182" y="105" width="165" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="149" y="73" width="201" height="30"/>
+                                </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="vLg-dX-IXd" id="gGo-YP-Naw"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgR-ap-0ad">
+                                <rect key="frame" x="103" y="109" width="57" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="87" y="82" width="54" height="21"/>
+                                </variation>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oht-2q-vXi">
+                                <rect key="frame" x="182" y="166" width="165" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="149" y="124" width="201" height="30"/>
+                                </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="vLg-dX-IXd" id="F5K-iN-2QY"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quantity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXL-cK-2Vs">
+                                <rect key="frame" x="86" y="170" width="74" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="72" y="128" width="69" height="21"/>
+                                </variation>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fLJ-pi-SKd">
+                                <rect key="frame" x="182" y="226" width="165" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -959,8 +945,8 @@
                                     <outlet property="delegate" destination="vLg-dX-IXd" id="IU2-uZ-NPb"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Units" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEE-Pt-mPm">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Units" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEE-Pt-mPm">
+                                <rect key="frame" x="112" y="235" width="48" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -968,34 +954,34 @@
                                     <rect key="frame" x="96" y="179" width="45" height="21"/>
                                 </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kOt-Ai-3NK">
+                                <rect key="frame" x="33" y="305" width="101" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Take photo">
+                                    <color key="titleColor" red="1" green="0.0098948884979999999" blue="0.029187735570000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="224" width="89" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="takePhoto" destination="vLg-dX-IXd" eventType="touchUpInside" id="nD3-qG-PYP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="Toc-wJ-wsb"/>
-                                <exclude reference="5dv-xX-iQD"/>
-                                <exclude reference="gyB-PR-JzB"/>
-                                <exclude reference="oht-2q-vXi"/>
-                                <exclude reference="MXL-cK-2Vs"/>
-                                <exclude reference="kgR-ap-0ad"/>
-                                <exclude reference="kOt-Ai-3NK"/>
-                                <exclude reference="BEu-Aa-Ruh"/>
-                                <exclude reference="fLJ-pi-SKd"/>
-                                <exclude reference="uEE-Pt-mPm"/>
-                            </mask>
-                        </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="Toc-wJ-wsb"/>
                                 <include reference="5dv-xX-iQD"/>
+                                <include reference="BEu-Aa-Ruh"/>
                                 <include reference="gyB-PR-JzB"/>
+                                <include reference="kgR-ap-0ad"/>
                                 <include reference="oht-2q-vXi"/>
                                 <include reference="MXL-cK-2Vs"/>
-                                <include reference="kgR-ap-0ad"/>
-                                <include reference="kOt-Ai-3NK"/>
-                                <include reference="BEu-Aa-Ruh"/>
                                 <include reference="fLJ-pi-SKd"/>
                                 <include reference="uEE-Pt-mPm"/>
+                                <include reference="kOt-Ai-3NK"/>
                             </mask>
                         </variation>
                     </view>
@@ -1008,7 +994,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fL2-GV-SSF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="J5B-3L-IjI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1308.75" y="-2786.5"/>
+            <point key="canvasLocation" x="1338.5" y="-2763.5"/>
         </scene>
     </scenes>
     <resources>
