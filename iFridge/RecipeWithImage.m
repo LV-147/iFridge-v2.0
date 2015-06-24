@@ -18,12 +18,12 @@
 #import <FBSDKShareKit/FBSDKLikeControl.h>
 #import "RecipeCarouselItem.h"
 
-@interface RecipeWithImage ()
+@interface RecipeWithImage () <UIAlertViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 @property (strong, nonatomic) IBOutlet UILabel *recipeCountIndicator;
 @property (nonatomic) BOOL recipeSaved;
-@property (strong, nonatomic) NSArray *availableRecipes;
+@property (strong, nonatomic) NSMutableArray *availableRecipes;
 @property (nonatomic, assign) NSInteger recipeRow;
 @end
 
@@ -77,7 +77,7 @@
 }
 
 - (void)initWithRecipeAtIndex:(NSInteger)recipeIndex from:(NSArray *)recipes {
-    self.availableRecipes = recipes;
+    self.availableRecipes = [NSMutableArray arrayWithArray:recipes];
     self.index = recipeIndex;
     self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%ld", _index+1, _carousel.numberOfItems];
 }
@@ -170,45 +170,57 @@
 
 - (IBAction)saveRecipeToCoreData:(UIBarButtonItem *)sender {
     
-    NSMutableArray *availibleRecipes = [[NSMutableArray alloc] initWithArray:self.availableRecipes];
-    
     if (![self ifCurrentRecipeSaved]){
         NSDictionary *recipeDict = [self.availableRecipes objectAtIndex:_index ];
-        Recipe *currentRecipe = [Recipe createRecipeWithInfo:recipeDict inManagedObiectContext:self.currentContext];
-        [availibleRecipes replaceObjectAtIndex:_index withObject:currentRecipe];
+        Recipe *currRecipe = [Recipe createRecipeWithInfo:recipeDict inManagedObiectContext:self.currentContext];
+        [self.availableRecipes replaceObjectAtIndex:self.index withObject:currRecipe];
         sender.title = @"Delete";
         
     }else{
-        NSDictionary *currentRecipeDict = [Recipe deleteRecipe:[self.availableRecipes objectAtIndex:_index] fromManagedObjectContext:self.currentContext];
-        [availibleRecipes replaceObjectAtIndex:_index withObject:currentRecipeDict];
+        [Recipe deleteRecipe:[self.availableRecipes objectAtIndex:self.index] fromManagedObjectContext:self.currentContext];
+        [self.availableRecipes removeObjectAtIndex:_index];
         sender.title = @"Save";
     }
-    self.availableRecipes = availibleRecipes;
     
-}
+    if (self.availableRecipes.count) {
+        [self.carousel reloadData];
+        self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%ld", _index+1, _carousel.numberOfItems];
+    }else{
+        UIAlertView *noRecipecAvailible = [[UIAlertView alloc] initWithTitle:@"No recipes left"
+                                                                     message:@"You just have deleted the last of them."
+                                                                    delegate:self
+                                                           cancelButtonTitle:nil
+                                                           otherButtonTitles:@"OK", nil];
+        [noRecipecAvailible show];
+    }}
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 - (BOOL)ifCurrentRecipeSaved{
     //checking if current recipe is alredy in the data base
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Recipe"];
-    NSString *predicateString = [[NSString alloc] init];
+    BOOL recipeSaved;
     if ([[self.availableRecipes objectAtIndex:_index] isKindOfClass:[NSDictionary class]]) {
-        predicateString = [[self.availableRecipes objectAtIndex:_index] valueForKeyPath:@"recipe.label"];
+        NSDictionary *currRecipe = [self.availableRecipes objectAtIndex:_index];
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Recipe"];
+        request.predicate = [NSPredicate predicateWithFormat:@"label = %@", [currRecipe valueForKeyPath:@"recipe.label"]];
+        NSError *error;
+        NSArray *mathes = [self.currentContext executeFetchRequest:request error:&error];
+        if (mathes && !error && mathes.count == 1) {
+            [self.availableRecipes replaceObjectAtIndex:self.index withObject:[Recipe createRecipeWithInfo:currRecipe inManagedObiectContext:self.currentContext]];
+            self.saveButton.title = @"Delete";
+            recipeSaved = YES;
+        }else{
+            self.saveButton.title = @"Save";
+            recipeSaved = NO;
+        }
     }else if ([[self.availableRecipes objectAtIndex:_index] isKindOfClass:[Recipe class]]) {
-        Recipe *currentRecipe = [self.availableRecipes objectAtIndex:_index];
-        predicateString = currentRecipe.label;
-    }
-    request.predicate = [NSPredicate predicateWithFormat:@"label = %@", predicateString];
-    
-    NSError *error;
-    NSArray *mathes = [self.currentContext executeFetchRequest:request error:&error];
-    if (mathes && !error && mathes.count == 1) {
         self.saveButton.title = @"Delete";
-        return YES;
-    }else{
-        self.saveButton.title = @"Save";
-        return NO;
+        recipeSaved = YES;
     }
+    return recipeSaved;
 }
 
 - (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel

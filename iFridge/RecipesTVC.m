@@ -22,15 +22,10 @@
 @import CoreGraphics;
 
 
-@interface RecipesTVC () <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating>
+@interface RecipesTVC () <UIAlertViewDelegate, UISearchBarDelegate>
 @property (strong, nonatomic) IBOutlet UISegmentedControl *selectDataSourceController;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSArray *allRecipes;
-//SEARCH
-@property (nonatomic, strong) UISearchController *searchController;
-// for state restoration
-@property BOOL searchControllerWasActive;
-@property BOOL searchControllerSearchFieldWasFirstResponder;
-//SEARCH
 @end
 
 @implementation RecipesTVC
@@ -48,55 +43,28 @@
         self.selectDataSourceController.selectedSegmentIndex = 1;
         [self getRecipesFromCoreData];
     }
-    //SEARCH
-    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
-    self.searchController.searchResultsUpdater = self;
-    //config view of search bar
-    self.searchController.searchBar.delegate = self;
-    self.searchController.searchBar.tintColor = [UIColor redColor];
-    self.searchController.searchBar.barTintColor = [UIColor colorWithRed:1 green:0.6 blue:0.6 alpha:0.5];
-    [self.searchController.searchBar sizeToFit];
-    self.tableView.tableHeaderView = self.searchController.searchBar;
-    self.searchController.dimsBackgroundDuringPresentation = NO; // default is YES
-    self.definesPresentationContext = YES;  // know where you want UISearchController to be displayed
-    //SEARCH
 }
 
 #pragma mark - search bar delegate
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
+    [searchBar resignFirstResponder];
     if ([self.dataSource isEqualToString:@"Search results"]) {
-        self.query = self.searchController.searchBar.text;
+        self.query = searchBar.text;
         [self searchForRecipesForQuery:self.query];
     }
-    self.searchControllerWasActive = NO;
-    self.searchControllerSearchFieldWasFirstResponder = NO;
 }
 
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-        if ([self.dataSource isEqualToString:@"My recipes"]) {
-            [self getRecipesFromCoreData];
-        }
-    self.searchControllerWasActive = NO;
-    self.searchControllerSearchFieldWasFirstResponder = NO;
-}
-
-#pragma mark - UISearchResultsUpdating
-
-- (void)updateSearchResultsForSearchController:(UISearchController *)searchController
-{
-    self.searchControllerWasActive = YES;
-    self.searchControllerSearchFieldWasFirstResponder = YES;
     if ([self.dataSource isEqualToString:@"My recipes"]) {
-        NSString *query = searchController.searchBar.text;
-        if ([query isEqualToString:@""]) {
+        if ([searchText isEqualToString:@""]) {
             self.recipes = [[NSMutableArray alloc]initWithArray:self.allRecipes];
-            //self.recipes = self.allRecipes;
+            [searchBar resignFirstResponder];
         }else{
             NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Recipe *evaluatedObject, NSDictionary *bindings) {
                 BOOL result = NO;
-                if ([evaluatedObject.label rangeOfString:query options:NSCaseInsensitiveSearch].location != NSNotFound) {
+                if ([evaluatedObject.label rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound) {
                     result = YES;
                 }
                 return result;
@@ -104,7 +72,6 @@
             
             NSArray *filteredRecipes = [self.allRecipes filteredArrayUsingPredicate:predicate];
             self.recipes = [[NSMutableArray alloc]initWithArray:filteredRecipes];
-            //self.recipes = filteredRecipes;
         }
         [self.tableView reloadData];
     }
@@ -112,7 +79,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.searchController.searchBar.text = self.query;
+    self.searchBar.text = self.query;
     if ([self.dataSource isEqualToString:@"My recipes"]) {
         [self getRecipesFromCoreData];
         [self.tableView reloadData];
@@ -294,9 +261,9 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         if([self.dataSource  isEqual: @"My recipes"]){
             NSMutableArray *availableRecipes = [[NSMutableArray alloc] initWithArray:self.recipes];
-            NSDictionary *currentRecipeDict = [Recipe deleteRecipe:[availableRecipes objectAtIndex:indexPath.row]
+            [Recipe deleteRecipe:[availableRecipes objectAtIndex:indexPath.row]
                                           fromManagedObjectContext:self.currentContext];
-            [availableRecipes replaceObjectAtIndex:indexPath.row withObject:currentRecipeDict];
+            [availableRecipes removeObjectAtIndex:indexPath.row];
             self.recipes = availableRecipes;
         }
         [self.recipes removeObjectAtIndex:indexPath.row];
@@ -317,8 +284,6 @@
         [self.tableView.tableHeaderView resignFirstResponder];
     }
 }
-
-
 
 - (IBAction)recipeAdded:(UIStoryboardSegue *)segue
 {
