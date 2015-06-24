@@ -30,6 +30,13 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jES-Z5-FmC">
+                    <rect key="frame" x="95" y="590" width="49" height="46"/>
+                    <state key="normal" image="330273-64.png">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
@@ -50,6 +57,7 @@
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <connections>
+                <outlet property="googleButton" destination="jES-Z5-FmC" id="cMw-sD-POX"/>
                 <outlet property="recipeItemFrame" destination="ZWu-MP-GeX" id="dDG-yj-mOp"/>
                 <outlet property="recipeItemImage" destination="fIL-2V-Tlu" id="NJM-jQ-eHl"/>
                 <outlet property="recipeItemName" destination="Shd-ta-eAd" id="Bhc-KG-DpI"/>
@@ -59,6 +67,7 @@
         </view>
     </objects>
     <resources>
+        <image name="330273-64.png" width="64" height="64"/>
         <image name="photo-frame.png" width="1291" height="1600"/>
     </resources>
 </document>

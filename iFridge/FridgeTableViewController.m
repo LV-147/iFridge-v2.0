@@ -162,7 +162,7 @@
 - (void)editAction:(id)sender
 {
     [self performSegueWithIdentifier:@"EditProduct" sender:self];
-//    NSLog(@"edit button clicked");
+    NSLog(@"edit button clicked");
 }
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     

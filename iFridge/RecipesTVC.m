@@ -17,6 +17,7 @@
 #import "Recipe.h"
 #import "Recipe+Cat.h"
 #import "AddRecipeViewController.h"
+#import <Parse/Parse.h>
 
 @import CoreGraphics;
 
@@ -317,6 +318,8 @@
     }
 }
 
+
+
 - (IBAction)recipeAdded:(UIStoryboardSegue *)segue
 {
     AddRecipeViewController *addRecipeController = segue.sourceViewController;
@@ -328,5 +331,29 @@
                                 nil];
     [self.recipes addObject:[Recipe createRecipeWithInfo:[NSDictionary dictionaryWithObject:recipeDict forKey:@"recipe"] inManagedObiectContext:self.currentContext]];
     [self.tableView reloadData];
+}
+- (IBAction)saveAllRecipesToParse:(id)sender {
+    
+    self.saveAllRecipes.hidden = YES;
+    for (int i=0; i < self.recipes.count; i++) {
+        PFObject *SomeProduct = [PFObject objectWithClassName:@"SavedProducts"];
+        SomeProduct[@"UserEmail"] = _userEmail;
+        SomeProduct[@"UserId"] = _userId;
+        SomeProduct[@"DishName"] = self.recipes[i][@"recipe"][@"label"];
+        SomeProduct[@"DishIngredients"] = self.recipes[i][@"recipe"][@"ingredientLines"];
+        SomeProduct[@"Calories"] = self.recipes[i][@"recipe"][@"calories"];
+        SomeProduct[@"CookingLevel"] = self.recipes[i][@"recipe"][@"level"];
+        SomeProduct[@"CookingTime"] = [NSString stringWithFormat:@"Cooking time: %@ min", self.recipes[i][@"recipe"][@"cookingTime"]];
+        SomeProduct[@"Fat"] = self.recipes[i][@"recipe"][@"totalNutrients"][@"FAT"][@"quantity"];
+        SomeProduct[@"Weight"] = self.recipes[i][@"recipe"][@"totalWeight"];
+        SomeProduct[@"Sugars"] = self.recipes[i][@"recipe"][@"totalNutrients"][@"SUGAR"][@"quantity"];
+        SomeProduct[@"ImageUrl"] = self.recipes[i][@"recipe"][@"image"];
+        SomeProduct[@"UserName"] = _userName;
+        SomeProduct[@"SocialNetwork"] = _userSocialNetwork;
+        
+        
+        [SomeProduct saveInBackground];
+    }
+
 }
 @end

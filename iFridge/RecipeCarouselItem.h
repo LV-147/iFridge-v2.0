@@ -14,5 +14,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *recipeItemName;
 @property (strong, nonatomic) IBOutlet UITextView *recipeItemTextField;
 @property (weak, nonatomic) IBOutlet UIImageView *recipeItemFrame;
+@property (strong, nonatomic) IBOutlet UIButton *googleButton;
 
 @end

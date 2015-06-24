@@ -15,7 +15,7 @@
 #import "DataDownloader.h"
 #import "ReminderTableViewController.h"
 #import <GooglePlus/GPPShare.h>
-#import <FacebookSDK/FacebookSDK.h>
+#import <FBSDKShareKit/FBSDKLikeControl.h>
 #import "RecipeCarouselItem.h"
 
 @interface RecipeWithImage ()
@@ -24,6 +24,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *recipeCountIndicator;
 @property (nonatomic) BOOL recipeSaved;
 @property (strong, nonatomic) NSArray *availableRecipes;
+@property (nonatomic, assign) NSInteger recipeRow;
 @end
 
 @implementation RecipeWithImage
@@ -34,11 +35,11 @@
     self.navigationController.view.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     self.carousel.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     
-    FBLikeControl *like = [[FBLikeControl alloc] init];
+    FBSDKLikeControl *like = [[FBSDKLikeControl alloc] init];
     like.frame = CGRectMake(16, 589, like.frame.size.width, like.frame.size.height);
-    like.objectID = @"https://www.facebook.com/groups/1599931206891002";
-    like.likeControlStyle = FBLikeControlStyleButton;
-    like.objectType = FBLikeControlObjectTypePage;
+    like.objectID = @"https://www.facebook.com/{sub_url}";
+    like.likeControlStyle = FBSDKLikeControlStyleStandard;
+    like.objectType = FBSDKLikeObjectTypePage;
     [self.view addSubview:like];
     
     self.title = @"Recipe";
@@ -83,11 +84,51 @@
 
 - (IBAction)googlePlusShareButton:(id)sender {
     id<GPPNativeShareBuilder> shareBuilder = [[GPPShare sharedInstance] nativeShareDialog];
+    NSURL *url = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.image"];
+    NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.ingredientLines"];
+    NSString * result = [[ingredientLines valueForKey:@"description"] componentsJoinedByString:@"\n"];
+    [shareBuilder setPrefillText:[NSString stringWithFormat:@"Look for such a great recipe from iFridge \n\n Ingredient needed \n %@%@", result, @"\n\n #говно_код"]];
+    NSString *urlString = [NSString stringWithString:(NSString *)url];
+    [shareBuilder setURLToShare:[NSURL URLWithString:urlString]];
+    
+    //    NSString *urlString = [url absoluteString];
+    //[shareBuilder setPrefillText:@"Look for such a great recipe from iFridge #говно_код"];
+    //[shareBuilder setURLToShare:url];
+    
+    //if ([myUrl isKindOfClass:[NSString class]]) {
+    //    [shareBuilder setURLToShare:url];
+    //    [shareBuilder setPrefillText:@"Look for such a great recipe from iFridge #"];
+    //[shareBuilder setTitle:@"Look for such a great recipe from iFridge #" description:@"Look for such a great recipe from iFridge #" thumbnailURL:url];
+    //    [shareBuilder setPrefillText:@"Look for such a great recipe from iFridge #говно_код"];
+    //    [shareBuilder setURLToShare:url];
+    
+    
+    [shareBuilder open];
+
+}
+
+- (void) shareOnGPlus {
+
+    id<GPPNativeShareBuilder> shareBuilder = [[GPPShare sharedInstance] nativeShareDialog];
+    NSURL *url = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.image"];
+    NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.ingredientLines"];
+    NSString * result = [[ingredientLines valueForKey:@"description"] componentsJoinedByString:@"\n"];
+    [shareBuilder setPrefillText:[NSString stringWithFormat:@"Look for such a great recipe from iFridge \n\n Ingredient needed \n %@%@", result, @"\n\n #говно_код"]];
+    NSString *urlString = [NSString stringWithString:(NSString *)url];
+    [shareBuilder setURLToShare:[NSURL URLWithString:urlString]];
     [shareBuilder open];
 }
 
 - (void) setRecipeForIndex:(NSInteger)index usingICaruselItem:(RecipeCarouselItem *)item
 {
+    
+    NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.ingredientLines"];
+    //        item.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
+    //        item.recipeItemName.text = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.label"];
+    item.recipeItemTextField.text = @"Ingredient needed:";
+    for(NSString* str in ingredientLines){
+        item.recipeItemTextField.text = [NSString stringWithFormat:@"%@ \n\t \"%@\"", item.recipeItemTextField.text, str];
+    }
     if ([[self.availableRecipes objectAtIndex:self.index] isKindOfClass:[NSDictionary class]]) {
         [DataDownloader setRecipeImageWithURL:[[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.image"]
                                usingImageView:item.recipeItemImage
@@ -95,8 +136,13 @@
                         //stop activity indicator
                         }];
         NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.ingredientLines"];
-        item.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
-        item.recipeItemName.text = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.label"];
+//        item.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
+//        item.recipeItemName.text = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.label"];
+        item.recipeItemTextField.text = @"Ingredient needed:";
+        for(NSString* str in ingredientLines){
+            item.recipeItemTextField.text = [NSString stringWithFormat:@"%@ \n\t \"%@\"", item.recipeItemTextField.text, str];
+        }
+
         
     }else if ([[self.availableRecipes objectAtIndex:self.index] isKindOfClass:[Recipe class]]){
         Recipe *currentRecipe = [self.availableRecipes objectAtIndex:self.index];
@@ -114,6 +160,8 @@
             [ingredientLines setObject:ingredient.label forKey:numb];
             int value = [numb intValue];
             numb = [NSNumber numberWithInt:value + 1];
+            
+            
         }
         item.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", [ingredientLines allValues]];
     }
@@ -192,7 +240,13 @@
                                usingImageView:recipeCarouselItem.recipeItemImage
                         withCompletionHandler:nil];
         NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:index] valueForKeyPath:@"recipe.ingredientLines"];
-        recipeCarouselItem.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
+
+        //        item.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
+        //        item.recipeItemName.text = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.label"];
+        recipeCarouselItem.recipeItemTextField.text = @"Ingredient needed:";
+        for(NSString* str in ingredientLines){
+            recipeCarouselItem.recipeItemTextField.text = [NSString stringWithFormat:@"%@ \n\t \"%@\"", recipeCarouselItem.recipeItemTextField.text, str];
+        }
         recipeCarouselItem.recipeItemName.text = [[self.availableRecipes objectAtIndex:index] valueForKeyPath:@"recipe.label"];
         
     }else if ([[self.availableRecipes objectAtIndex:index] isKindOfClass:[Recipe class]]){
@@ -210,8 +264,12 @@
             int value = [numb intValue];
             numb = [NSNumber numberWithInt:value + 1];
         }
+        
         recipeCarouselItem.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", [ingredientLines allValues]];
     }
+    [recipeCarouselItem.googleButton addTarget:self
+                                        action:@selector(shareOnGPlus)
+                              forControlEvents:UIControlEventTouchUpInside];
     return recipeCarouselItem;
 }
 

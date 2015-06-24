@@ -11,6 +11,7 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <GooglePlus/GPPURLHandler.h>
 #import "RegExCategories.h"
+#import <Parse/Parse.h>
 
 @interface AppDelegate ()
 
@@ -22,6 +23,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [Parse enableLocalDatastore];
+    
+    // Initialize Parse.
+    [Parse setApplicationId:@"feiqIbuZyHI7P8xtEvYW34iorLLIwrhXUschBpH3"
+                  clientKey:@"q60QotIxqOvJl4lZgljdxAVThsenkCJBP8dx3pCv"];
+    
+    // [Optional] Track statistics around application opens.
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
     return [[FBSDKApplicationDelegate sharedInstance] application:application
                                     didFinishLaunchingWithOptions:launchOptions];
 }

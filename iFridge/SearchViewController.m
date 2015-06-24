@@ -14,11 +14,12 @@
 #import <GoogleOpenSource/GTLQueryPlus.h>
 #import <GooglePlus/GPPSignIn.h>
 #import <GooglePlus/GPPURLHandler.h>
-#import <FacebookSDK/FacebookSDK.h>
 #import "PushAnimator.h"
 #import "PopAnimator.h"
 #import "RecipesTVC.h"
 #import "DataDownloader.h"
+#import <Parse/Parse.h>
+#import "RecipesTVC.h"
 
 static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1kpc.apps.googleusercontent.com";
 
@@ -97,11 +98,9 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 
 - (BOOL)isSessionOpen
 {
-    if( (FBSession.activeSession.state == FBSessionStateOpen) || (FBSession.activeSession.state == FBSessionStateOpenTokenExtended) || (FBSession.activeSession.isOpen == YES) )
-        return YES;
+    if( [FBSDKAccessToken currentAccessToken] )return YES;
     else return NO;
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -157,6 +156,7 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 - (IBAction)signOutButton:(id)sender {
     
     
+    
     if ([[GPPSignIn sharedInstance] authentication] || [self isSessionOpen]) {
         [[GPPSignIn sharedInstance] signOut];
         [[GPPSignIn sharedInstance] disconnect];
@@ -168,9 +168,6 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
     
     self.facebookSignInButton.hidden = NO;
     [[FBSDKLoginManager new] logOut];
-    [FBSession.activeSession closeAndClearTokenInformation];
-    [FBSession.activeSession close];
-    [FBSession setActiveSession:nil];
     
     NSHTTPCookie *cookie;
     NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
@@ -267,15 +264,61 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"SegueToRecipesTVC"]){
+        
+        if([[GPPSignIn sharedInstance] authentication]){
+            _userEmail = [GPPSignIn sharedInstance].userEmail;
+            _userId = [GPPSignIn sharedInstance].userID;
+            
+            NSString *strForJson = [NSString stringWithFormat:@"%@",[GPPSignIn sharedInstance].googlePlusUser];
+            
+            NSError *error = nil;
+            NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"displayName:\".+\"" options:NSRegularExpressionCaseInsensitive error:&error];
+            
+            NSRange stringRange = NSMakeRange(0, strForJson.length);
+            
+            NSArray *matches = [regex matchesInString:strForJson options:NSMatchingProgress range:stringRange];
+            NSRange matchRange = [matches[0] rangeAtIndex:0];
+            
+            NSArray *testArray2 = [[strForJson substringWithRange:matchRange] componentsSeparatedByString:@"\""];
+            _userName = testArray2[1];
+            _userSocialNetwork = @"Google+";
+            
+        }
+        else if ([FBSDKAccessToken currentAccessToken]){
+            _userId = [FBSDKAccessToken currentAccessToken].userID;
+            _userSocialNetwork = @"Facebook";
+            
+            [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
+             startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
+                                          id result, NSError *error) {
+                 if (!error) {
+                     NSMutableDictionary *resultDictionary = [result mutableCopy];
+                     _userEmail = [resultDictionary objectForKey:@"email"];
+                     _userName = [resultDictionary objectForKey:@"name"];
+                 }
+             }];
+            
+        }
+        
+        
         RecipesTVC *newController = segue.destinationViewController;
         newController.query = [self.searchTextField.text stringByReplacingOccurrencesOfString: @" " withString:@"+"];
         newController.dataSource = @"Search results";
+        newController.userEmail = self.userEmail;
+        newController.userId = self.userId;
+        newController.userName = self.userName;
+        newController.userSocialNetwork = self.userSocialNetwork;
+        NSLog(@"%@" , _userEmail);
+        NSLog(@"%@" , _userId);
+        NSLog(@"%@" , _userName);
+        NSLog(@"%@" , _userSocialNetwork);
     }
     if ([segue.identifier isEqualToString:@"SegueToMyRecipes"]){
         RecipesTVC *newController = segue.destinationViewController;
         newController.dataSource = @"My recipes";
         
     }
+
 }
 
 
