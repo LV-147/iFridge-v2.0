@@ -112,13 +112,9 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDele
 {
     AddIngredientsViewController *addIngredientsController = segue.sourceViewController;
     
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    NSNumber *quantity = [formatter numberFromString:addIngredientsController.quantityOfIngredient.text];
-    
     NSDictionary *ingredient = [[NSDictionary alloc] initWithObjectsAndKeys:
                                 addIngredientsController.ingredientLabel.text, @"label",
-                                quantity, @"quantity",
+                                [NSNumber numberWithDouble:[addIngredientsController.quantityOfIngredient.text doubleValue]], @"quantity",
                                 addIngredientsController.units.text, @"units",
                                 nil];
     [self.ingredients addObject:ingredient];

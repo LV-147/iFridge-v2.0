@@ -78,7 +78,7 @@
                 }
                 return result;
             }];
-            
+                        
             NSArray *filteredRecipes = [self.allRecipes filteredArrayUsingPredicate:predicate];
             self.recipes = [[NSMutableArray alloc]initWithArray:filteredRecipes];
         }

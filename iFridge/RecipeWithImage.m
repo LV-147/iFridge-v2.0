@@ -31,6 +31,7 @@
     [super viewDidLoad];
     
     self.navigationController.view.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
+    self.navigationController.navigationBar.tintColor = [UIColor redColor];
     self.carousel.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     
     FBLikeControl *like = [[FBLikeControl alloc] init];
@@ -71,13 +72,13 @@
 
 - (void)setIndex:(NSInteger)value {
     _index = value;
-    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%ld", _index+1, _carousel.numberOfItems];
+    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%d/%d", _index+1, _carousel.numberOfItems];
 }
 
 - (void)initWithRecipeAtIndex:(NSInteger)recipeIndex from:(NSArray *)recipes {
     self.availableRecipes = [[NSMutableArray alloc] initWithArray:recipes];
     self.index = recipeIndex;
-    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%ld", _index+1, _carousel.numberOfItems];
+    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%d/%d", _index+1, _carousel.numberOfItems];
 }
 
 - (IBAction)googlePlusShareButton:(id)sender {
@@ -101,7 +102,7 @@
     
     if (self.availableRecipes.count) {
         [self.carousel reloadData];
-        self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%ld", _index+1, _carousel.numberOfItems];
+        self.recipeCountIndicator.text = [NSString stringWithFormat:@"%d/%d", _index+1, _carousel.numberOfItems];
     }else{
         UIAlertView *noRecipecAvailible = [[UIAlertView alloc] initWithTitle:@"No recipes left"
                                                                      message:@"You just have deleted the last of them."
@@ -206,19 +207,21 @@
 #pragma mark Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    ReminderTableViewController *newController = segue.destinationViewController;
-    if ([[self.availableRecipes objectAtIndex:_index] isKindOfClass:[NSDictionary class]]) {
-        newController.ingredientsForReminder = [[self.availableRecipes objectAtIndex:_index] valueForKeyPath:@"recipe.ingredientLines"];
-        newController.nameOfEventForCalendar = [[self.availableRecipes objectAtIndex:_index] valueForKeyPath:@"recipe.label"];
-
-    } else {
-        Recipe *currRecipe = [self.availableRecipes objectAtIndex:_index];
-        NSMutableArray *ingredient = [[NSMutableArray alloc] init];
-        for (Ingredient *ingr in currRecipe.ingredients) {
-            [ingredient addObject:ingr.label];
+    if ([segue.identifier isEqualToString:@"Reminder"]) {
+        ReminderTableViewController *newController = segue.destinationViewController;
+        if ([[self.availableRecipes objectAtIndex:_index] isKindOfClass:[NSDictionary class]]) {
+            newController.ingredientsForReminder = [[self.availableRecipes objectAtIndex:_index] valueForKeyPath:@"recipe.ingredientLines"];
+            newController.nameOfEventForCalendar = [[self.availableRecipes objectAtIndex:_index] valueForKeyPath:@"recipe.label"];
+            
+        } else {
+            Recipe *currRecipe = [self.availableRecipes objectAtIndex:_index];
+            NSMutableArray *ingredient = [[NSMutableArray alloc] init];
+            for (Ingredient *ingr in currRecipe.ingredients) {
+                [ingredient addObject:ingr.label];
+            }
+            newController.ingredientsForReminder = [NSArray arrayWithArray:ingredient];
+            newController.nameOfEventForCalendar = currRecipe.label;
         }
-        newController.ingredientsForReminder = [NSArray arrayWithArray:ingredient];
-        newController.nameOfEventForCalendar = currRecipe.label;
     }
 }
 

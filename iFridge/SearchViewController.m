@@ -40,7 +40,7 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
     self.navigationController.navigationBar.tintColor = [UIColor redColor];
     self.navigationController.view.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
-    self.view.backgroundColor = [UIColor clearColor];
+//    self.view.backgroundColor = [UIColor clearColor];
     self.searchTextField.delegate = self;
     UIImage *buttonImageForGooglePlusSignInButton = [UIImage imageNamed:@"gplus-128.png"];
     UIImage *buttonImageForGooglePlusSignInButtonWhenPressed = [UIImage imageNamed:@"gplus-120.png"];
@@ -67,7 +67,14 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [self performSegueWithIdentifier:@"SegueToRecipesTVC" sender:nil];
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+        [self performSegueWithIdentifier:@"SegueToRecipesTVC" sender:nil];
+    else{
+        UIStoryboard *iPadStoryboard = [UIStoryboard storyboardWithName:@"iPad" bundle:nil];
+        UISplitViewController *split = [iPadStoryboard instantiateViewControllerWithIdentifier:@"Split"];
+        [self presentViewController:split animated:YES completion:NULL];
+    }
+    [textField resignFirstResponder];
     return YES;
 }
 

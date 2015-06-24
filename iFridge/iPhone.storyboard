@@ -17,7 +17,7 @@
                         <rect key="frame" x="1" y="-1" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="note.png" translatesAutoresizingMaskIntoConstraints="NO" id="h7c-do-j7v">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="note" translatesAutoresizingMaskIntoConstraints="NO" id="h7c-do-j7v">
                                 <rect key="frame" x="7" y="75" width="194" height="77"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="194" id="GAr-kD-tYs"/>
@@ -36,22 +36,11 @@
                                 <rect key="frame" x="78" y="28" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.83921568627450982" green="0.20000000000000001" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <button opaque="NO" alpha="0.79999999999999982" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Pq-83-9RR">
-                                <rect key="frame" x="339" y="100" width="24" height="24"/>
-                                <state key="normal" image="search-icon.png">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="searchButton:" destination="GfN-dv-fDj" eventType="touchUpInside" id="mMk-aP-603"/>
-                                    <segue destination="LMa-eT-kqI" kind="show" identifier="SegueToRecipesTVC" id="r9f-D3-hBv"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Nh-kO-0cW">
                                 <rect key="frame" x="62" y="339" width="250" height="130"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="40"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="-15" maxX="-8" maxY="0.0"/>
-                                <state key="normal" title="My recipes" backgroundImage="note.png">
+                                <state key="normal" title="My recipes" backgroundImage="note">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -69,7 +58,7 @@
                                     <constraint firstAttribute="height" constant="50" id="VKh-gP-5M7"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="19"/>
-                                <state key="normal" title="Sign Out" backgroundImage="note.png">
+                                <state key="normal" title="Sign Out" backgroundImage="note">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -90,7 +79,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="off-HA-Eq7">
                                 <rect key="frame" x="218" y="28" width="50" height="50"/>
-                                <state key="normal" image="info_information_user_about_card_button_symbol_icon-128.png">
+                                <state key="normal" image="info_information_user_about_card_button_symbol_icon-128">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -100,7 +89,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Cj-Tk-D8a">
                                 <rect key="frame" x="220" y="524" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="Martz90-Circle-Google-plus.ico">
+                                <state key="normal" image="google__round_logo">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -116,7 +105,7 @@
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="746" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2f1-k7-g7r">
                                 <rect key="frame" x="104" y="524" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="vk.png">
+                                <state key="normal" image="vk">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -136,7 +125,7 @@
                                     <constraint firstAttribute="height" constant="50" id="19H-uL-KT5"/>
                                     <constraint firstAttribute="width" constant="50" id="wT0-lp-uni"/>
                                 </constraints>
-                                <state key="normal" image="facebook.jpg">
+                                <state key="normal" image="facebook">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -175,7 +164,7 @@
                                 <rect key="frame" x="62" y="186" width="250" height="130"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="40"/>
                                 <inset key="titleEdgeInsets" minX="0.0" minY="-14" maxX="0.0" maxY="1"/>
-                                <state key="normal" title="Fridge" backgroundImage="note.png">
+                                <state key="normal" title="Fridge" backgroundImage="note">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -189,8 +178,23 @@
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="2" height="0.0"/>
                             </label>
+                            <button opaque="NO" alpha="0.79999999999999982" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Pq-83-9RR">
+                                <rect key="frame" x="344" y="100" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="F6V-ch-pBw"/>
+                                    <constraint firstAttribute="width" constant="24" id="Kic-ue-G0F"/>
+                                </constraints>
+                                <state key="normal" image="search-icon">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchButton:" destination="GfN-dv-fDj" eventType="touchUpInside" id="mMk-aP-603"/>
+                                    <segue destination="LMa-eT-kqI" kind="show" identifier="SegueToRecipesTVC" id="r9f-D3-hBv"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="UbZ-Dj-In0" firstAttribute="top" secondItem="0Nh-kO-0cW" secondAttribute="bottom" constant="55" id="57N-w3-hfZ"/>
                             <constraint firstItem="h7c-do-j7v" firstAttribute="leading" secondItem="RQq-Th-7iE" secondAttribute="leadingMargin" constant="-9" id="63J-Lq-gxT"/>
@@ -203,6 +207,7 @@
                             <constraint firstItem="0Nh-kO-0cW" firstAttribute="leading" secondItem="RQq-Th-7iE" secondAttribute="leadingMargin" constant="46" id="CBc-sq-5aJ"/>
                             <constraint firstAttribute="centerX" secondItem="c5d-NF-jnN" secondAttribute="centerX" id="Fs9-6C-0pd"/>
                             <constraint firstItem="UbZ-Dj-In0" firstAttribute="leading" secondItem="2f1-k7-g7r" secondAttribute="trailing" constant="8" id="Gr0-qT-mZD"/>
+                            <constraint firstItem="HGG-sm-Rr1" firstAttribute="centerY" secondItem="5Pq-83-9RR" secondAttribute="centerY" id="IEL-1Q-HMn"/>
                             <constraint firstItem="3xL-Un-Md0" firstAttribute="trailing" secondItem="RQq-Th-7iE" secondAttribute="trailingMargin" id="IEf-Dv-g68"/>
                             <constraint firstItem="HGG-sm-Rr1" firstAttribute="leading" secondItem="rTT-Yc-aKc" secondAttribute="trailing" constant="20" id="LBO-QY-DHo"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jN2-JV-tP4" secondAttribute="trailing" constant="47" id="LuO-3e-uUf"/>
@@ -211,6 +216,7 @@
                             <constraint firstItem="R0q-1n-3nf" firstAttribute="centerY" secondItem="IxZ-Gj-Gej" secondAttribute="centerY" id="SaW-7L-WSz"/>
                             <constraint firstItem="R0q-1n-3nf" firstAttribute="height" secondItem="IxZ-Gj-Gej" secondAttribute="height" id="UcB-IP-Evc"/>
                             <constraint firstItem="UbZ-Dj-In0" firstAttribute="height" secondItem="2f1-k7-g7r" secondAttribute="height" id="Vtv-VS-bML"/>
+                            <constraint firstItem="HGG-sm-Rr1" firstAttribute="trailing" secondItem="5Pq-83-9RR" secondAttribute="trailing" id="W2w-Yl-Kr4"/>
                             <constraint firstItem="UbZ-Dj-In0" firstAttribute="width" secondItem="2f1-k7-g7r" secondAttribute="width" id="Wqr-qr-ZmS"/>
                             <constraint firstItem="UbZ-Dj-In0" firstAttribute="centerX" secondItem="rla-bS-pYF" secondAttribute="centerX" constant="-0.5" id="XFu-NU-OHK"/>
                             <constraint firstItem="IxZ-Gj-Gej" firstAttribute="height" secondItem="off-HA-Eq7" secondAttribute="height" id="XYS-6S-Dpj"/>
@@ -249,7 +255,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N43-eS-79P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-339.5" y="-2377.5"/>
+            <point key="canvasLocation" x="-286.5" y="-2377.5"/>
         </scene>
         <!--RecipesTVC-->
         <scene sceneID="xTM-nS-cJI">
@@ -460,10 +466,6 @@
                                 <include reference="Y6Z-7F-MCh"/>
                             </mask>
                         </variation>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="WbT-KN-z8c" appends="YES" id="WVw-15-l4F"/>
-                            <outletCollection property="gestureRecognizers" destination="5kL-wy-Sfb" appends="YES" id="sQ3-ET-fMS"/>
-                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="CLk-Aa-Bis">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="xMc-09-5vp">
@@ -480,16 +482,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v7d-bl-guy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="left" id="5kL-wy-Sfb">
-                    <connections>
-                        <action selector="swipe:" destination="Oyr-fJ-N5i" id="4SA-eh-QoO"/>
-                    </connections>
-                </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="right" id="WbT-KN-z8c">
-                    <connections>
-                        <action selector="swipe:" destination="Oyr-fJ-N5i" id="hMX-3C-dFj"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="906.5" y="-2055.5"/>
         </scene>
@@ -508,7 +500,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe label:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yeq-Sp-6m4">
                                 <rect key="frame" x="16" y="20" width="100" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="byZ-6Q-cEN">
@@ -543,7 +535,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1f7-oB-oUY">
                                 <rect key="frame" x="143" y="344" width="90" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3zv-Lx-sMB">
@@ -559,7 +551,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nOS-hp-oIX">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YWd-Za-CNb">
@@ -589,7 +581,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cooking time:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RAB-4q-Ypq">
                                 <rect key="frame" x="16" y="53" width="107" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BKg-Rr-9Ha">
@@ -603,7 +595,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBe-Ai-AX0">
                                 <rect key="frame" x="213" y="53" width="58" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WTA-gr-9vw">
@@ -699,7 +691,7 @@
                                     <constraint firstAttribute="width" constant="65" id="uVC-S7-TdG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EUd-7v-Lc9">
@@ -719,7 +711,7 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="wZz-RH-hp2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s9o-cs-oaa">
@@ -737,7 +729,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="units" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIn-ww-N1k">
                                 <rect key="frame" x="222" y="58" width="37" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UDo-jU-36k">
@@ -912,14 +904,14 @@
     </scenes>
     <resources>
         <image name="330273-64.png" width="64" height="64"/>
-        <image name="Martz90-Circle-Google-plus.ico" width="256" height="256"/>
-        <image name="facebook.jpg" width="300" height="300"/>
-        <image name="info_information_user_about_card_button_symbol_icon-128.png" width="128" height="128"/>
-        <image name="note.png" width="640" height="392"/>
-        <image name="search-icon.png" width="298" height="297"/>
-        <image name="vk.png" width="256" height="256"/>
+        <image name="facebook" width="300" height="300"/>
+        <image name="google__round_logo" width="222" height="222"/>
+        <image name="info_information_user_about_card_button_symbol_icon-128" width="128" height="128"/>
+        <image name="note" width="640" height="392"/>
+        <image name="search-icon" width="298" height="297"/>
+        <image name="vk" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="y47-Cr-Jsy"/>
+        <segue reference="r9f-D3-hBv"/>
     </inferredMetricsTieBreakers>
 </document>
