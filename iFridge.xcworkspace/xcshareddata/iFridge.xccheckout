@@ -24,12 +24,12 @@
 		<key>67BA294E0748BD44FA313FE931CE6878994DE86E</key>
 		<string>../../iFridge</string>
 		<key>9EDB87A06CD6FA972BC5A938730E62084699250B</key>
-		<string>../../iFridge-v2.0</string>
+		<string>..</string>
 		<key>EF8555939AE26E06DFF0F368FA366E96F308D70E</key>
 		<string>../../iFridge_public</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/AlexeyPelekh/iFridge.allLibs.git</string>
+	<string>https://github.com/LV-147/iFridge-v2.0.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
@@ -59,14 +59,6 @@
 			<string>9EDB87A06CD6FA972BC5A938730E62084699250B</string>
 			<key>IDESourceControlWCCName</key>
 			<string>iFridge-v2.0</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>9EDB87A06CD6FA972BC5A938730E62084699250B</string>
-			<key>IDESourceControlWCCName</key>
-			<string>iFridge.allLibs</string>
 		</dict>
 	</array>
 </dict>
