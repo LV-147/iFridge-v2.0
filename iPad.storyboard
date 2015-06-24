@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9Xr-9I-AY3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -419,7 +420,7 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SHK-1S-kxr" id="lhz-w0-R8k">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="xc6-9m-KId">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="xc6-9m-KId">
                                             <rect key="frame" x="150" y="8" width="165" height="45"/>
                                             <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="28"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -428,22 +429,22 @@
                                                 <rect key="frame" x="150" y="8" width="457" height="45"/>
                                             </variation>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uqb-nq-d9X">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uqb-nq-d9X">
                                             <rect key="frame" x="8" y="8" width="134" height="134"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calories :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pyl-9h-MQv">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calories :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pyl-9h-MQv">
                                             <rect key="frame" x="150" y="120" width="217" height="22"/>
                                             <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TotalWeight :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wU-ha-SK6">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TotalWeight :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wU-ha-SK6">
                                             <rect key="frame" x="150" y="91" width="173" height="22"/>
                                             <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CookingTime :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2wn-kC-34S">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CookingTime :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2wn-kC-34S">
                                             <rect key="frame" x="150" y="61" width="173" height="22"/>
                                             <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -504,7 +505,7 @@
                         <rect key="frame" x="1" y="-1" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hQN-Dx-2dk" customClass="iCarousel">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hQN-Dx-2dk" customClass="iCarousel">
                                 <rect key="frame" x="16" y="20" width="343" height="607"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -512,7 +513,7 @@
                                     <outlet property="delegate" destination="vts-xT-cZZ" id="sNd-21-q44"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVC-bE-Xw8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVC-bE-Xw8">
                                 <rect key="frame" x="134" y="638" width="106" height="21"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -580,17 +581,17 @@
                                 <exclude reference="Cj4-1i-WVv"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="dQO-Ab-DFg"/>
+                                <exclude reference="qxm-IL-I4S"/>
+                                <exclude reference="AUQ-oI-WVG"/>
+                                <exclude reference="aJB-z6-3iV"/>
                                 <exclude reference="Vde-gr-L2s"/>
                                 <exclude reference="WqD-ge-wOt"/>
                                 <exclude reference="hjt-Qz-z1p"/>
-                                <exclude reference="AUQ-oI-WVG"/>
-                                <exclude reference="dQO-Ab-DFg"/>
-                                <exclude reference="qxm-IL-I4S"/>
                                 <exclude reference="6Z0-V3-1Lq"/>
                                 <exclude reference="OZB-1d-4L9"/>
                                 <exclude reference="XLF-TW-yrh"/>
                                 <exclude reference="tga-kL-Dpr"/>
-                                <exclude reference="aJB-z6-3iV"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
@@ -599,17 +600,17 @@
                                 <include reference="Cj4-1i-WVv"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="dQO-Ab-DFg"/>
+                                <include reference="qxm-IL-I4S"/>
+                                <include reference="AUQ-oI-WVG"/>
+                                <include reference="aJB-z6-3iV"/>
                                 <include reference="Vde-gr-L2s"/>
                                 <include reference="WqD-ge-wOt"/>
                                 <include reference="hjt-Qz-z1p"/>
-                                <include reference="AUQ-oI-WVG"/>
-                                <include reference="dQO-Ab-DFg"/>
-                                <include reference="qxm-IL-I4S"/>
                                 <include reference="6Z0-V3-1Lq"/>
                                 <include reference="OZB-1d-4L9"/>
                                 <include reference="XLF-TW-yrh"/>
                                 <include reference="tga-kL-Dpr"/>
-                                <include reference="aJB-z6-3iV"/>
                             </mask>
                         </variation>
                     </view>
