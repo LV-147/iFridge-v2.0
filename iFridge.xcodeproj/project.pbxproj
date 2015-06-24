@@ -45,6 +45,7 @@
 		BFEA48291B13475C008F5BEF /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFEA48251B13475C008F5BEF /* LoadingView.xib */; };
 		BFEA482A1B13475C008F5BEF /* UIViewController+LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFEA48271B13475C008F5BEF /* UIViewController+LoadingView.m */; };
 		BFF69BBD1B2860500085736A /* SortingStringClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF69BBC1B2860500085736A /* SortingStringClass.swift */; };
+		D90904AE1B3AD3020051E43A /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D90904AD1B3AD3020051E43A /* iPhone.storyboard */; };
 		D9180D4B1B21CFE0005854C6 /* ReminderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9180D4A1B21CFE0005854C6 /* ReminderTableViewController.m */; };
 		D926FC1B1B2B0F01003FB68C /* AddRecipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D926FC1A1B2B0F01003FB68C /* AddRecipeViewController.m */; };
 		D926FC201B2B2EA5003FB68C /* AddIngredientsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D926FC1F1B2B2EA5003FB68C /* AddIngredientsViewController.m */; };
@@ -58,7 +59,7 @@
 		D992EE4D1B0B9D220093B3F7 /* iFridge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D992EE451B0B9D220093B3F7 /* iFridge.xcdatamodeld */; };
 		D992EE4E1B0B9D220093B3F7 /* Ingredient+Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = D992EE481B0B9D220093B3F7 /* Ingredient+Cat.m */; };
 		D9B2829B1B286E40000F7C94 /* RecipeCarouselItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9B2829A1B286E40000F7C94 /* RecipeCarouselItem.xib */; };
-		D9B2829D1B286EAA000F7C94 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9B2829C1B286EAA000F7C94 /* iPhone.storyboard */; };
+		D9B2829D1B286EAA000F7C94 /* iPhoneCopy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9B2829C1B286EAA000F7C94 /* iPhoneCopy.storyboard */; };
 		D9B7D82D1B21C64200D5787E /* DataDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B7D82C1B21C64200D5787E /* DataDownloader.m */; };
 		D9B7D8301B21C6E100D5787E /* Recipe+Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B7D82F1B21C6E100D5787E /* Recipe+Cat.m */; };
 		EF56840EE7AA6C558D3C459C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4825B68449CDFCB0DC868FD /* libPods.a */; };
@@ -137,6 +138,7 @@
 		BFEA48271B13475C008F5BEF /* UIViewController+LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+LoadingView.m"; sourceTree = "<group>"; };
 		BFF69BBB1B28604F0085736A /* iFridge-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iFridge-Bridging-Header.h"; sourceTree = "<group>"; };
 		BFF69BBC1B2860500085736A /* SortingStringClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortingStringClass.swift; sourceTree = "<group>"; };
+		D90904AD1B3AD3020051E43A /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
 		D9180D4A1B21CFE0005854C6 /* ReminderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderTableViewController.m; sourceTree = "<group>"; };
 		D926FC191B2B0F01003FB68C /* AddRecipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddRecipeViewController.h; sourceTree = "<group>"; };
 		D926FC1A1B2B0F01003FB68C /* AddRecipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddRecipeViewController.m; sourceTree = "<group>"; };
@@ -158,7 +160,7 @@
 		D992EE471B0B9D220093B3F7 /* Ingredient+Cat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Ingredient+Cat.h"; path = "../Ingredient+Cat.h"; sourceTree = "<group>"; };
 		D992EE481B0B9D220093B3F7 /* Ingredient+Cat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Ingredient+Cat.m"; path = "../Ingredient+Cat.m"; sourceTree = "<group>"; };
 		D9B2829A1B286E40000F7C94 /* RecipeCarouselItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeCarouselItem.xib; sourceTree = "<group>"; };
-		D9B2829C1B286EAA000F7C94 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
+		D9B2829C1B286EAA000F7C94 /* iPhoneCopy.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhoneCopy.storyboard; sourceTree = "<group>"; };
 		D9B7D82B1B21C64200D5787E /* DataDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataDownloader.h; sourceTree = "<group>"; };
 		D9B7D82C1B21C64200D5787E /* DataDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataDownloader.m; sourceTree = "<group>"; };
 		D9B7D82E1B21C6E100D5787E /* Recipe+Cat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Recipe+Cat.h"; sourceTree = "<group>"; };
@@ -309,7 +311,8 @@
 				D9B7D82C1B21C64200D5787E /* DataDownloader.m */,
 				357A58F41AFFDF3C0094B0AC /* AppDelegate.h */,
 				357A58F51AFFDF3C0094B0AC /* AppDelegate.m */,
-				D9B2829C1B286EAA000F7C94 /* iPhone.storyboard */,
+				D90904AD1B3AD3020051E43A /* iPhone.storyboard */,
+				D9B2829C1B286EAA000F7C94 /* iPhoneCopy.storyboard */,
 				D980083D1B3096440033CF0B /* iPad.storyboard */,
 				359709681B04E9E4005064C0 /* ViewControllers */,
 				359709691B04E9F8005064C0 /* Core Data */,
@@ -553,8 +556,9 @@
 				357A59041AFFDF3C0094B0AC /* LaunchScreen.xib in Resources */,
 				357A59011AFFDF3C0094B0AC /* Images.xcassets in Resources */,
 				D980083E1B3096440033CF0B /* iPad.storyboard in Resources */,
+				D90904AE1B3AD3020051E43A /* iPhone.storyboard in Resources */,
 				35A9D7101B08F1B7005EF9BF /* GooglePlus.bundle in Resources */,
-				D9B2829D1B286EAA000F7C94 /* iPhone.storyboard in Resources */,
+				D9B2829D1B286EAA000F7C94 /* iPhoneCopy.storyboard in Resources */,
 				BFEA48291B13475C008F5BEF /* LoadingView.xib in Resources */,
 				D9B2829B1B286E40000F7C94 /* RecipeCarouselItem.xib in Resources */,
 			);
