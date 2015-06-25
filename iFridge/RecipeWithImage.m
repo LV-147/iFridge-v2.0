@@ -35,13 +35,6 @@
     self.navigationController.view.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     self.carousel.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     
-    FBSDKLikeControl *like = [[FBSDKLikeControl alloc] init];
-    like.frame = CGRectMake(16, 589, like.frame.size.width, like.frame.size.height);
-    like.objectID = @"https://www.facebook.com/{sub_url}";
-    like.likeControlStyle = FBSDKLikeControlStyleStandard;
-    like.objectType = FBSDKLikeObjectTypePage;
-    [self.view addSubview:like];
-    
     self.title = @"Recipe";
 
     self.view.backgroundColor = [UIColor clearColor];
@@ -281,6 +274,10 @@
         
         recipeCarouselItem.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", [ingredientLines allValues]];
     }
+    
+    recipeCarouselItem.facebookButton.objectID = @"https://www.facebook.com/{sub_url}";
+    recipeCarouselItem.facebookButton.objectType = FBSDKLikeObjectTypePage;
+    
     [recipeCarouselItem.googleButton addTarget:self
                                         action:@selector(shareOnGPlus)
                               forControlEvents:UIControlEventTouchUpInside];
