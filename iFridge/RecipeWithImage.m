@@ -248,11 +248,12 @@
     //присвоєння тексту і картинки
 
     if ([[self.availableRecipes objectAtIndex:index] isKindOfClass:[NSDictionary class]]) {
+        recipeCarouselItem.recipeItemImage.image = [UIImage imageNamed:@"noimage"];
         [DataDownloader setRecipeImageWithURL:[[self.availableRecipes objectAtIndex:index] valueForKeyPath:@"recipe.image"]
                                usingImageView:recipeCarouselItem.recipeItemImage
                         withCompletionHandler:nil];
-        NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:index] valueForKeyPath:@"recipe.ingredientLines"];
 
+        NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:index] valueForKeyPath:@"recipe.ingredientLines"];
         //        item.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
         //        item.recipeItemName.text = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.label"];
         recipeCarouselItem.recipeItemTextField.text = @"Ingredient needed:";
@@ -264,6 +265,7 @@
     }else if ([[self.availableRecipes objectAtIndex:index] isKindOfClass:[Recipe class]]){
         Recipe *currentRecipe = [self.availableRecipes objectAtIndex:index];
         
+        recipeCarouselItem.recipeItemImage.image = [UIImage imageNamed:@"noimage"];
         [DataDownloader setRecipeImageWithURL:currentRecipe.imageUrl
                                usingImageView:recipeCarouselItem.recipeItemImage
                         withCompletionHandler:nil];

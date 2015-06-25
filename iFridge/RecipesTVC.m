@@ -18,6 +18,7 @@
 #import "Recipe+Cat.h"
 #import "AddRecipeViewController.h"
 #import <Parse/Parse.h>
+//#import <SDWebImage/UIImageView+WebCache.h>
 
 @import CoreGraphics;
 
@@ -211,15 +212,16 @@
     activityIndicator.center = cell.recipeImageCell.center;
     activityIndicator.hidesWhenStopped = YES;
 
+    [cell.recipeImageCell addSubview:activityIndicator];
+    [activityIndicator startAnimating];
+    
+    cell.recipeImageCell.image = [UIImage imageNamed:@"noimage"];
     [DataDownloader setRecipeImageWithURL:urlImageString
                            usingImageView:cell.recipeImageCell
                     withCompletionHandler:^{
                         [activityIndicator removeFromSuperview];
                     }];
 
-    [cell.recipeImageCell addSubview:activityIndicator];
-    [activityIndicator startAnimating];
-    
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
     [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
     [numberFormatter setMaximumFractionDigits:0];

@@ -49,14 +49,15 @@ NSString *app_key = @"e6f6e485b0222cf1b48439a164562270";//@"e1309c8e747bdd4d7363
 }
 
 + (void)setRecipeImageWithURL:(NSString *)imageLink usingImageView:(UIImageView *)imageView
-        withCompletionHandler:(void(^)())handler
-{
-    
+        withCompletionHandler:(void(^)())handler {
     [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:imageLink]
                                                          options:SDWebImageDownloaderLowPriority
                                                         progress:nil
                                                        completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
-                                                           [imageView setImage:image];
+                                                           if(image)
+                                                               [imageView setImage:image];
+                                                           else
+                                                               [imageView setImage:[UIImage imageNamed:@"noimage"]];
                                                            if (handler) handler();
                                                        }];
 }
