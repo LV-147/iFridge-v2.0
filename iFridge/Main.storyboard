@@ -992,7 +992,7 @@
                                     <outlet property="delegate" destination="vLg-dX-IXd" id="gGo-YP-Naw"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5dv-xX-iQD">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5dv-xX-iQD">
                                 <rect key="frame" x="28" y="28" width="68" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Cancel">
@@ -1012,6 +1012,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="5dv-xX-iQD" firstAttribute="leading" secondItem="gVe-HH-8ys" secondAttribute="leadingMargin" constant="12" id="001-po-v2R"/>
                             <constraint firstItem="MXL-cK-2Vs" firstAttribute="top" secondItem="kgR-ap-0ad" secondAttribute="bottom" constant="25" id="0N0-KG-PX9"/>
                             <constraint firstItem="fLJ-pi-SKd" firstAttribute="bottom" secondItem="uEE-Pt-mPm" secondAttribute="bottom" id="0Pc-tx-lgE"/>
                             <constraint firstItem="gyB-PR-JzB" firstAttribute="leading" secondItem="kgR-ap-0ad" secondAttribute="trailing" constant="39" id="8Uz-dC-pwc"/>
@@ -1023,6 +1024,7 @@
                             <constraint firstItem="gyB-PR-JzB" firstAttribute="leading" secondItem="fLJ-pi-SKd" secondAttribute="leading" id="M6p-bA-TOc"/>
                             <constraint firstItem="BEu-Aa-Ruh" firstAttribute="trailing" secondItem="gVe-HH-8ys" secondAttribute="trailingMargin" id="QZk-YW-qX2"/>
                             <constraint firstItem="gyB-PR-JzB" firstAttribute="top" secondItem="gVe-HH-8ys" secondAttribute="top" constant="86" id="U8T-MQ-4rk"/>
+                            <constraint firstItem="5dv-xX-iQD" firstAttribute="top" secondItem="TlC-S1-8yj" secondAttribute="bottom" constant="8" id="UVw-C6-zOD"/>
                             <constraint firstItem="Toc-wJ-wsb" firstAttribute="bottom" secondItem="f51-OH-5i6" secondAttribute="top" id="WSl-gW-Cnm"/>
                             <constraint firstItem="kgR-ap-0ad" firstAttribute="top" secondItem="gVe-HH-8ys" secondAttribute="top" constant="90" id="WUO-XL-lkQ"/>
                             <constraint firstItem="oht-2q-vXi" firstAttribute="top" secondItem="gyB-PR-JzB" secondAttribute="bottom" constant="16" id="YFf-Xr-jpQ"/>
