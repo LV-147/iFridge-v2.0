@@ -7,7 +7,6 @@
 //
 
 #import "RecipeCarouselItem.h"
-#import "UIView+Animation.h"
 
 @implementation RecipeCarouselItem
 

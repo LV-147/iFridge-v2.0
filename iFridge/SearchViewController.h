@@ -17,6 +17,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *searchTextField;
 @property (retain, nonatomic) IBOutlet GPPSignInButton *googlePlusSignInButton;
 @property (strong, nonatomic) IBOutlet UIButton *facebookSignInButton;
+@property (strong, nonatomic) IBOutlet UIView *portraitView;
 
 - (IBAction)searchButton:(id)sender;
 - (IBAction)signOutButton:(id)sender;
