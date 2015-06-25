@@ -215,7 +215,7 @@
     [cell.recipeImageCell addSubview:activityIndicator];
     [activityIndicator startAnimating];
     
-    cell.recipeImageCell.image = [UIImage imageNamed:@"noimage"];
+    cell.recipeImageCell.image = nil;
     [DataDownloader setRecipeImageWithURL:urlImageString
                            usingImageView:cell.recipeImageCell
                     withCompletionHandler:^{
