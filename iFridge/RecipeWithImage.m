@@ -20,7 +20,6 @@
 
 @interface RecipeWithImage () <UIAlertViewDelegate>
 
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 @property (strong, nonatomic) IBOutlet UILabel *recipeCountIndicator;
 @property (nonatomic) BOOL recipeSaved;
 @property (strong, nonatomic) NSMutableArray *availableRecipes;
@@ -48,7 +47,7 @@
     
     self.recipeCountIndicator.text = @"";
     
-    [self ifCurrentRecipeSaved];
+    [self ifRecipeAtIndexSaved:self.index];
     
     self.carousel.type = iCarouselTypeLinear;
     self.carousel.scrollSpeed = 0.4;
@@ -170,16 +169,14 @@
 
 - (IBAction)saveRecipeToCoreData:(UIBarButtonItem *)sender {
     
-    if (![self ifCurrentRecipeSaved]){
+    if (![self ifRecipeAtIndexSaved:self.index]){
         NSDictionary *recipeDict = [self.availableRecipes objectAtIndex:_index ];
         Recipe *currRecipe = [Recipe createRecipeWithInfo:recipeDict inManagedObiectContext:self.currentContext];
         [self.availableRecipes replaceObjectAtIndex:self.index withObject:currRecipe];
-        sender.title = @"Delete";
         
     }else{
         [Recipe deleteRecipe:[self.availableRecipes objectAtIndex:self.index] fromManagedObjectContext:self.currentContext];
         [self.availableRecipes removeObjectAtIndex:_index];
-        sender.title = @"Save";
     }
     
     if (self.availableRecipes.count) {
@@ -199,25 +196,22 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (BOOL)ifCurrentRecipeSaved{
+- (BOOL)ifRecipeAtIndexSaved:(NSUInteger)index {
     //checking if current recipe is alredy in the data base
     BOOL recipeSaved;
-    if ([[self.availableRecipes objectAtIndex:_index] isKindOfClass:[NSDictionary class]]) {
-        NSDictionary *currRecipe = [self.availableRecipes objectAtIndex:_index];
+    if ([[self.availableRecipes objectAtIndex:index] isKindOfClass:[NSDictionary class]]) {
+        NSDictionary *currRecipe = [self.availableRecipes objectAtIndex:index];
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Recipe"];
         request.predicate = [NSPredicate predicateWithFormat:@"label = %@", [currRecipe valueForKeyPath:@"recipe.label"]];
         NSError *error;
         NSArray *mathes = [self.currentContext executeFetchRequest:request error:&error];
         if (mathes && !error && mathes.count == 1) {
             [self.availableRecipes replaceObjectAtIndex:self.index withObject:[Recipe createRecipeWithInfo:currRecipe inManagedObiectContext:self.currentContext]];
-            self.saveButton.title = @"Delete";
             recipeSaved = YES;
         }else{
-            self.saveButton.title = @"Save";
             recipeSaved = NO;
         }
-    }else if ([[self.availableRecipes objectAtIndex:_index] isKindOfClass:[Recipe class]]) {
-        self.saveButton.title = @"Delete";
+    }else if ([[self.availableRecipes objectAtIndex:index] isKindOfClass:[Recipe class]]) {
         recipeSaved = YES;
     }
     return recipeSaved;
@@ -243,7 +237,6 @@
     else
     {
         recipeCarouselItem = (RecipeCarouselItem *)view;
-        self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld", carousel.currentItemIndex];
     }
     //присвоєння тексту і картинки
 
@@ -284,12 +277,21 @@
     [recipeCarouselItem.googleButton addTarget:self
                                         action:@selector(shareOnGPlus)
                               forControlEvents:UIControlEventTouchUpInside];
+    //config save button
+    if ([self ifRecipeAtIndexSaved:index])
+        [recipeCarouselItem.saveButton setImage:[UIImage imageNamed:@"delete-icon.png"] forState:UIControlStateNormal];
+    else
+        [recipeCarouselItem.saveButton setImage:nil forState:UIControlStateNormal];
+
+    [recipeCarouselItem.saveButton addTarget:self
+                                      action:@selector(saveRecipeToCoreData:)
+                            forControlEvents:UIControlEventTouchUpInside];
     return recipeCarouselItem;
 }
 
 - (void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel {
     self.index = carousel.currentItemIndex;
-    [self ifCurrentRecipeSaved];
+//    [self ifRecipeAtIndexSaved:self.index];
 }
 
 - (CGFloat)carouselItemWidth:(iCarousel *)carousel {

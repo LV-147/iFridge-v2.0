@@ -356,18 +356,11 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="CLk-Aa-Bis">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="xMc-09-5vp">
-                            <connections>
-                                <action selector="saveRecipeToCoreData:" destination="Oyr-fJ-N5i" id="5WB-Ta-GUY"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="CLk-Aa-Bis"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="carousel" destination="Ifq-aU-mUE" id="sFq-nY-hvv"/>
                         <outlet property="recipeCountIndicator" destination="KiS-ua-e8m" id="fGF-RC-7MX"/>
-                        <outlet property="saveButton" destination="xMc-09-5vp" id="IBW-Ov-Agk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v7d-bl-guy" userLabel="First Responder" sceneMemberID="firstResponder"/>

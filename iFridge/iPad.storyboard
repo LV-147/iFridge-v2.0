@@ -501,18 +501,11 @@
                             <constraint firstAttribute="bottom" secondItem="dsO-0b-e9W" secondAttribute="bottom" constant="8" id="ok0-Ik-hHc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ndz-62-AQc">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="njO-x5-FiY">
-                            <connections>
-                                <action selector="saveRecipeToCoreData:" destination="MIO-7i-3On" id="aNx-WP-hVj"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="ndz-62-AQc"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="carousel" destination="cGT-hy-CBq" id="0EB-W4-7gl"/>
                         <outlet property="recipeCountIndicator" destination="RYE-1q-jLA" id="xVM-oI-kEN"/>
-                        <outlet property="saveButton" destination="njO-x5-FiY" id="w8N-Yc-x1Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d0J-IE-nj6" userLabel="First Responder" sceneMemberID="firstResponder"/>

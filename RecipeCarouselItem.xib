@@ -21,7 +21,7 @@
                     <rect key="frame" x="72" y="84" width="230" height="230"/>
                     <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo-frame.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZWu-MP-GeX">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo-frame" translatesAutoresizingMaskIntoConstraints="NO" id="ZWu-MP-GeX">
                     <rect key="frame" x="49" y="52" width="277" height="341"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Shd-ta-eAd">
@@ -32,8 +32,14 @@
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jES-Z5-FmC">
                     <rect key="frame" x="95" y="590" width="49" height="46"/>
-                    <state key="normal" image="330273-64.png">
+                    <state key="normal" image="330273-64">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dnS-pK-eQK">
+                    <rect key="frame" x="309" y="532" width="50" height="50"/>
+                    <state key="normal" backgroundImage="save-icon">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
@@ -62,12 +68,14 @@
                 <outlet property="recipeItemImage" destination="fIL-2V-Tlu" id="NJM-jQ-eHl"/>
                 <outlet property="recipeItemName" destination="Shd-ta-eAd" id="Bhc-KG-DpI"/>
                 <outlet property="recipeItemTextField" destination="a3l-dS-ufE" id="5Kh-RT-avh"/>
+                <outlet property="saveButton" destination="dnS-pK-eQK" id="p20-ub-VHs"/>
             </connections>
             <point key="canvasLocation" x="193.5" y="174.5"/>
         </view>
     </objects>
     <resources>
-        <image name="330273-64.png" width="64" height="64"/>
-        <image name="photo-frame.png" width="1291" height="1600"/>
+        <image name="330273-64" width="64" height="64"/>
+        <image name="photo-frame" width="1291" height="1600"/>
+        <image name="save-icon" width="170" height="170"/>
     </resources>
 </document>
