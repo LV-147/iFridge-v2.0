@@ -17,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *recipeItemFrame;
 @property (strong, nonatomic) IBOutlet UIButton *googleButton;
 @property (strong, nonatomic) IBOutlet FBSDKLikeButton *facebookButton;
+@property (weak, nonatomic) IBOutlet UIButton *saveButton;
 
 @end

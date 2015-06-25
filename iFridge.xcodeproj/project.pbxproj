@@ -66,7 +66,6 @@
 		D992EE441B0B73090093B3F7 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = D992EE431B0B73090093B3F7 /* Recipe.m */; };
 		D992EE4D1B0B9D220093B3F7 /* iFridge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D992EE451B0B9D220093B3F7 /* iFridge.xcdatamodeld */; };
 		D992EE4E1B0B9D220093B3F7 /* Ingredient+Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = D992EE481B0B9D220093B3F7 /* Ingredient+Cat.m */; };
-		D9B2829B1B286E40000F7C94 /* RecipeCarouselItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9B2829A1B286E40000F7C94 /* RecipeCarouselItem.xib */; };
 		D9B7D82D1B21C64200D5787E /* DataDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B7D82C1B21C64200D5787E /* DataDownloader.m */; };
 		EF56840EE7AA6C558D3C459C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4825B68449CDFCB0DC868FD /* libPods.a */; };
 		F32029F11B31DB9F0017FCA0 /* AddProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F32029F01B31DB9F0017FCA0 /* AddProductViewController.m */; };
@@ -176,7 +175,6 @@
 		D992EE461B0B9D220093B3F7 /* iFridge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iFridge.xcdatamodel; sourceTree = "<group>"; };
 		D992EE471B0B9D220093B3F7 /* Ingredient+Cat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Ingredient+Cat.h"; path = "../Ingredient+Cat.h"; sourceTree = "<group>"; };
 		D992EE481B0B9D220093B3F7 /* Ingredient+Cat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Ingredient+Cat.m"; path = "../Ingredient+Cat.m"; sourceTree = "<group>"; };
-		D9B2829A1B286E40000F7C94 /* RecipeCarouselItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeCarouselItem.xib; sourceTree = "<group>"; };
 		D9B7D82B1B21C64200D5787E /* DataDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataDownloader.h; sourceTree = "<group>"; };
 		D9B7D82C1B21C64200D5787E /* DataDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataDownloader.m; sourceTree = "<group>"; };
 		E4825B68449CDFCB0DC868FD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -435,7 +433,6 @@
 		BFDD51771B21DCE30039A630 /* RecipeCarouselItem */ = {
 			isa = PBXGroup;
 			children = (
-				D9B2829A1B286E40000F7C94 /* RecipeCarouselItem.xib */,
 				BFDD51741B21DCCE0039A630 /* RecipeCarouselItem.h */,
 				BFDD51751B21DCCE0039A630 /* RecipeCarouselItem.m */,
 			);
@@ -601,7 +598,6 @@
 				D96D9ECA1B2F0A5F00D89452 /* iPhone.storyboard in Resources */,
 				35A9D7101B08F1B7005EF9BF /* GooglePlus.bundle in Resources */,
 				BFEA48291B13475C008F5BEF /* LoadingView.xib in Resources */,
-				D9B2829B1B286E40000F7C94 /* RecipeCarouselItem.xib in Resources */,
 				D9267F541B3AE36B00A551BA /* iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
