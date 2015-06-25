@@ -872,20 +872,6 @@
                                     <action selector="cancel" destination="vLg-dX-IXd" eventType="touchUpInside" id="Ifx-1Q-Qpe"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEu-Aa-Ruh">
-                                <rect key="frame" x="302" y="28" width="57" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal" title="Done">
-                                    <color key="titleColor" red="1" green="0.0098948884975478268" blue="0.02918773557454224" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="295" y="20" width="55" height="30"/>
-                                </variation>
-                                <connections>
-                                    <segue destination="J5B-3L-IjI" kind="unwind" unwindAction="ingredientAddedToFridge:" id="2xu-GJ-Wdj"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gyB-PR-JzB">
                                 <rect key="frame" x="165" y="86" width="161" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -960,13 +946,40 @@
                                     <rect key="frame" x="87" y="82" width="54" height="21"/>
                                 </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEu-Aa-Ruh">
+                                <rect key="frame" x="302" y="28" width="57" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="1" green="0.0098948884975478268" blue="0.02918773557454224" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="295" y="20" width="55" height="30"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="J5B-3L-IjI" kind="unwind" unwindAction="ingredientAddedToFridge:" id="2xu-GJ-Wdj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Toc-wJ-wsb" firstAttribute="bottom" secondItem="f51-OH-5i6" secondAttribute="top" id="8v0-Jt-UZD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Toc-wJ-wsb" secondAttribute="trailing" constant="-16" id="ACw-oq-mwg"/>
+                            <constraint firstItem="Toc-wJ-wsb" firstAttribute="top" secondItem="gVe-HH-8ys" secondAttribute="top" id="KHU-EY-wCm"/>
+                            <constraint firstItem="Toc-wJ-wsb" firstAttribute="leading" secondItem="gVe-HH-8ys" secondAttribute="leadingMargin" constant="-16" id="nn3-T3-xHe"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="8v0-Jt-UZD"/>
+                                <exclude reference="ACw-oq-mwg"/>
+                                <exclude reference="KHU-EY-wCm"/>
+                                <exclude reference="nn3-T3-xHe"/>
+                            </mask>
+                        </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="Toc-wJ-wsb"/>
                                 <include reference="5dv-xX-iQD"/>
-                                <include reference="BEu-Aa-Ruh"/>
                                 <include reference="gyB-PR-JzB"/>
                                 <include reference="oht-2q-vXi"/>
                                 <include reference="MXL-cK-2Vs"/>
@@ -974,6 +987,15 @@
                                 <include reference="uEE-Pt-mPm"/>
                                 <include reference="kOt-Ai-3NK"/>
                                 <include reference="kgR-ap-0ad"/>
+                                <include reference="BEu-Aa-Ruh"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="8v0-Jt-UZD"/>
+                                <include reference="ACw-oq-mwg"/>
+                                <include reference="KHU-EY-wCm"/>
+                                <include reference="nn3-T3-xHe"/>
                             </mask>
                         </variation>
                     </view>
