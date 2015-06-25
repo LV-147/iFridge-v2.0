@@ -37,11 +37,18 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dnS-pK-eQK">
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4PK-dY-zTv" customClass="FBSDKLikeButton">
+                    <rect key="frame" x="28" y="590" width="49" height="46"/>
+                    <state key="normal" image="330273-64">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qoG-by-0d5">
                     <rect key="frame" x="309" y="532" width="50" height="50"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="EhN-q6-bLy"/>
-                        <constraint firstAttribute="width" constant="50" id="T6X-5G-BdK"/>
+                        <constraint firstAttribute="width" constant="50" id="BER-Ub-ddD"/>
+                        <constraint firstAttribute="height" constant="50" id="dCi-sE-MmC"/>
                     </constraints>
                     <state key="normal" backgroundImage="save-icon">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -50,7 +57,6 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="dnS-pK-eQK" firstAttribute="bottom" secondItem="a3l-dS-ufE" secondAttribute="bottom" id="26T-AL-xUB"/>
                 <constraint firstAttribute="bottom" secondItem="Shd-ta-eAd" secondAttribute="bottom" constant="303" id="60k-wF-DUY"/>
                 <constraint firstAttribute="bottom" secondItem="a3l-dS-ufE" secondAttribute="bottom" constant="85" id="7iZ-Zc-XF0"/>
                 <constraint firstItem="Shd-ta-eAd" firstAttribute="top" secondItem="ZWu-MP-GeX" secondAttribute="bottom" constant="-71" id="Aor-EE-Wrm"/>
@@ -58,9 +64,10 @@
                 <constraint firstAttribute="trailing" secondItem="ZWu-MP-GeX" secondAttribute="trailing" constant="49" id="WGL-zm-eG0"/>
                 <constraint firstItem="ZWu-MP-GeX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="49" id="XX8-w4-nnz"/>
                 <constraint firstAttribute="trailing" secondItem="a3l-dS-ufE" secondAttribute="trailing" constant="16" id="bpz-4Z-4V8"/>
+                <constraint firstItem="qoG-by-0d5" firstAttribute="bottom" secondItem="a3l-dS-ufE" secondAttribute="bottom" id="fjQ-Z6-sdK"/>
                 <constraint firstItem="a3l-dS-ufE" firstAttribute="top" secondItem="ZWu-MP-GeX" secondAttribute="bottom" constant="-4" id="g5E-yZ-bmn"/>
-                <constraint firstItem="dnS-pK-eQK" firstAttribute="trailing" secondItem="a3l-dS-ufE" secondAttribute="trailing" id="gP3-ft-Cl9"/>
                 <constraint firstItem="Shd-ta-eAd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="322" id="gYh-fZ-tDn"/>
+                <constraint firstItem="qoG-by-0d5" firstAttribute="trailing" secondItem="a3l-dS-ufE" secondAttribute="trailing" id="gsU-W3-qYg"/>
                 <constraint firstItem="ZWu-MP-GeX" firstAttribute="leading" secondItem="Shd-ta-eAd" secondAttribute="trailing" constant="-263" id="l2P-Nf-GkD"/>
                 <constraint firstItem="a3l-dS-ufE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="pUQ-97-owN"/>
                 <constraint firstItem="Shd-ta-eAd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="63" id="rXw-Y4-G3h"/>
@@ -69,12 +76,13 @@
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <connections>
+                <outlet property="facebookButton" destination="4PK-dY-zTv" id="EGy-wo-wM3"/>
                 <outlet property="googleButton" destination="jES-Z5-FmC" id="cMw-sD-POX"/>
                 <outlet property="recipeItemFrame" destination="ZWu-MP-GeX" id="dDG-yj-mOp"/>
                 <outlet property="recipeItemImage" destination="fIL-2V-Tlu" id="NJM-jQ-eHl"/>
                 <outlet property="recipeItemName" destination="Shd-ta-eAd" id="Bhc-KG-DpI"/>
                 <outlet property="recipeItemTextField" destination="a3l-dS-ufE" id="5Kh-RT-avh"/>
-                <outlet property="saveButton" destination="dnS-pK-eQK" id="p20-ub-VHs"/>
+                <outlet property="saveButton" destination="qoG-by-0d5" id="9eH-B2-mFG"/>
             </connections>
             <point key="canvasLocation" x="193.5" y="174.5"/>
         </view>
