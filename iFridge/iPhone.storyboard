@@ -845,12 +845,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.49999999999999994" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fridge2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Toc-wJ-wsb">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                </variation>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5dv-xX-iQD">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -956,11 +950,16 @@
                                     <rect key="frame" x="96" y="179" width="45" height="21"/>
                                 </variation>
                             </label>
+                            <imageView userInteractionEnabled="NO" alpha="0.49999999999999994" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fridge2" translatesAutoresizingMaskIntoConstraints="NO" id="Toc-wJ-wsb">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="Toc-wJ-wsb"/>
                                 <exclude reference="5dv-xX-iQD"/>
                                 <exclude reference="gyB-PR-JzB"/>
                                 <exclude reference="oht-2q-vXi"/>
@@ -970,11 +969,11 @@
                                 <exclude reference="BEu-Aa-Ruh"/>
                                 <exclude reference="fLJ-pi-SKd"/>
                                 <exclude reference="uEE-Pt-mPm"/>
+                                <exclude reference="Toc-wJ-wsb"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="Toc-wJ-wsb"/>
                                 <include reference="5dv-xX-iQD"/>
                                 <include reference="gyB-PR-JzB"/>
                                 <include reference="oht-2q-vXi"/>
@@ -984,6 +983,7 @@
                                 <include reference="BEu-Aa-Ruh"/>
                                 <include reference="fLJ-pi-SKd"/>
                                 <include reference="uEE-Pt-mPm"/>
+                                <include reference="Toc-wJ-wsb"/>
                             </mask>
                         </variation>
                     </view>
@@ -996,14 +996,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fL2-GV-SSF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="J5B-3L-IjI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1308.75" y="-2786.5"/>
+            <point key="canvasLocation" x="978.5" y="-2797.5"/>
         </scene>
     </scenes>
     <resources>
         <image name="330273-64" width="64" height="64"/>
         <image name="blue_cloud" width="512" height="512"/>
         <image name="facebook" width="300" height="300"/>
-        <image name="fridge2.jpg" width="1800" height="2288"/>
+        <image name="fridge2" width="1800" height="2288"/>
         <image name="google__round_logo" width="222" height="222"/>
         <image name="info_information_user_about_card_button_symbol_icon-128" width="128" height="128"/>
         <image name="note" width="640" height="392"/>

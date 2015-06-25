@@ -160,22 +160,23 @@
 }
 
 
-- (IBAction)saveRecipeToCoreData:(UIBarButtonItem *)sender {
+- (void)saveRecipeToCoreData:(UIButton *)sender {
     
     if (![self ifRecipeAtIndexSaved:self.index]){
         NSDictionary *recipeDict = [self.availableRecipes objectAtIndex:_index ];
         Recipe *currRecipe = [Recipe createRecipeWithInfo:recipeDict inManagedObiectContext:self.currentContext];
         [self.availableRecipes replaceObjectAtIndex:self.index withObject:currRecipe];
+        [sender setImage:[UIImage imageNamed:@"delete-icon.png"] forState:UIControlStateNormal];
         
     }else{
         [Recipe deleteRecipe:[self.availableRecipes objectAtIndex:self.index] fromManagedObjectContext:self.currentContext];
         [self.availableRecipes removeObjectAtIndex:_index];
-    }
-    
-    if (self.availableRecipes.count) {
         [self.carousel reloadData];
         self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%ld", _index+1, _carousel.numberOfItems];
-    }else{
+    }
+    
+    if (!self.availableRecipes.count) {
+
         UIAlertView *noRecipecAvailible = [[UIAlertView alloc] initWithTitle:@"No recipes left"
                                                                      message:@"You just have deleted the last of them."
                                                                     delegate:self
