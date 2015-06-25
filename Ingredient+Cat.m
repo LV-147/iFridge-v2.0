@@ -8,6 +8,7 @@
 
 #import "Ingredient+Cat.h"
 #import "Fridge.h"
+#import "Fridge+Cat.h"
 
 @implementation Ingredient (Cat)
 
@@ -36,6 +37,7 @@
         ingredient.unitOfMeasure = [ingredienteDict valueForKey:@"units"];
         if (recipe) ingredient.forRecipe = recipe;
         if (fridge) ingredient.fromFridge = fridge;
+
         [context save:NULL];
     }
     

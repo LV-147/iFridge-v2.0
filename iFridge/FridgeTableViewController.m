@@ -24,8 +24,6 @@
 @property (strong, nonatomic) NSMutableArray *toaddItems;
 @property (strong, nonatomic) Fridge *fridge;
 @property (strong, nonatomic) Recipe *recipe;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-
 
 @end
 
@@ -44,25 +42,21 @@
     // Do any additional setup after loading the view.
     self.toaddItems = [[NSMutableArray alloc] init];
     
-    
     //right barButtonItem
-
     
     UIBarButtonItem *editBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(editAction:)];
     UIBarButtonItem *addBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addProduct:)];
     UIBarButtonItem *flexibleSpaceButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:NULL];
     self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:editBarButtonItem, flexibleSpaceButton, addBarButtonItem, nil];
-    
-    
 
-
-    //products is allready fridge
-    self.fridge = [Fridge addFridgeWithName:@"MyFridge" inManagedObjectContext:self.currentContext];
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Ingredient"];
-    request.predicate = [NSPredicate predicateWithFormat:@"fromFridge = %@", self.fridge];
-    
-    NSError *error;
-    self.toaddItems = [[NSMutableArray alloc] initWithArray:[self.currentContext executeFetchRequest:request error:&error]];
+    //products are allready fridge
+    if (!self.fridge)
+        self.fridge = [Fridge addFridgeWithName:@"MyFridge" inManagedObjectContext:self.currentContext];
+    self.toaddItems = [NSMutableArray arrayWithArray:[self.fridge.ingredient allObjects]];
+//    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Ingredient"];
+//    request.predicate = [NSPredicate predicateWithFormat:@"fromFridge = %@", self.fridge];
+//    NSError *error;
+//    self.toaddItems = [[NSMutableArray alloc] initWithArray:[self.currentContext executeFetchRequest:request error:&error]];
     
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     
