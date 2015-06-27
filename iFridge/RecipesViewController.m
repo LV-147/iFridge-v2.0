@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Alexey Pelekh. All rights reserved.
 //
 
-#import "RecipesTVC.h"
+#import "RecipesViewController.h"
 #import "RecipeWithImage.h"
 #import "Recipe.h"
 #import "Ingredient.h"
@@ -23,27 +23,26 @@
 @import CoreGraphics;
 
 
-@interface RecipesTVC () <UIAlertViewDelegate, UISearchBarDelegate>
-@property (strong, nonatomic) IBOutlet UISegmentedControl *selectDataSourceController;
+@interface RecipesViewController () <UIAlertViewDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UIButton *dataSourceButton;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSArray *allRecipes;
 @end
 
-@implementation RecipesTVC
+@implementation RecipesViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    
     self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     self.tableView.backgroundColor = [UIColor clearColor];
     
-    self.dataSource =  @"Search results";
+    self.dataSource = @"Search results";
     
     if ([self.dataSource isEqualToString:@"Search results"]){
         [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         [self searchForRecipesForQuery:self.query];
     }else {
-        self.selectDataSourceController.selectedSegmentIndex = 1;
         [self getRecipesFromCoreData];
     }
 }
@@ -82,6 +81,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
     self.searchBar.text = self.query;
     if ([self.dataSource isEqualToString:@"My recipes"]) {
         [self getRecipesFromCoreData];
@@ -139,17 +139,16 @@
 
 - (void)searchForRecipesForQuery:(NSString *)newQuery
 {
-        self.selectDataSourceController.selectedSegmentIndex = 0;
-        [self showLoadingViewInView:self.view];
-        [DataDownloader downloadRecipesForQuery:newQuery withCompletionHandler:^(NSArray *recipes){
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.recipes = [[NSMutableArray alloc]initWithArray:recipes];
-                //self.recipes = recipes;
-                [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
-                [self.tableView reloadData];
-                [self performSelector:@selector(hideLoadingViewThreadSave) withObject:nil afterDelay:0];
-            });
-        }];
+    [self showLoadingViewInView:self.view];
+    [DataDownloader downloadRecipesForQuery:newQuery withCompletionHandler:^(NSArray *recipes){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.recipes = [[NSMutableArray alloc]initWithArray:recipes];
+            //self.recipes = recipes;
+            [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
+            [self.tableView reloadData];
+            [self performSelector:@selector(hideLoadingViewThreadSave) withObject:nil afterDelay:0];
+        });
+    }];
 }
 
 - (void)getRecipesFromCoreData
@@ -169,20 +168,17 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)selectDataSource:(UISegmentedControl *)sender {
-    switch (sender.selectedSegmentIndex) {
-        case 0:
-            self.dataSource = @"Search results";
-            [self searchForRecipesForQuery:self.query];
-            break;
-        case 1:
-            self.dataSource = @"My recipes";
-            [self getRecipesFromCoreData];
-            [self.tableView reloadData];
-            break;
-        default:
-            break;
-    }    
+- (IBAction)selectDataSource:(UIButton *)sender {
+    if ([sender.currentTitle isEqualToString:@"Other recipes"]) {
+        self.dataSource = @"Search results";
+        [self searchForRecipesForQuery:self.query];
+        [self.dataSourceButton setTitle:@"My recipes" forState:UIControlStateNormal];
+    } else {
+        self.dataSource = @"My recipes";
+        [self getRecipesFromCoreData];
+        [self.tableView reloadData];
+        [self.dataSourceButton setTitle:@"Other recipes" forState:UIControlStateNormal];
+    }
 }
 
 #pragma mark - Table view data source
@@ -199,9 +195,10 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    RecipesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myCell"];
-
-
+//    RecipesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Recipe cell"];
+    RecipesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Recipe cell" forIndexPath:indexPath];
+    
+    
     NSString *urlImageString = [[NSString alloc] init];
     if ([self.dataSource isEqualToString:@"Search results"]) {
         urlImageString = [[self.recipes objectAtIndex:indexPath.row] valueForKeyPath:@"recipe.image"];
@@ -213,7 +210,7 @@
     UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     activityIndicator.center = cell.recipeImageCell.center;
     activityIndicator.hidesWhenStopped = YES;
-
+    
     [cell.recipeImageCell addSubview:activityIndicator];
     [activityIndicator startAnimating];
     
@@ -223,7 +220,7 @@
                     withCompletionHandler:^{
                         [activityIndicator removeFromSuperview];
                     }];
-
+    
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
     [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
     [numberFormatter setMaximumFractionDigits:0];
@@ -266,12 +263,11 @@
         if([self.dataSource  isEqual: @"My recipes"]){
             NSMutableArray *availableRecipes = [[NSMutableArray alloc] initWithArray:self.recipes];
             [Recipe deleteRecipe:[availableRecipes objectAtIndex:indexPath.row]
-                                          fromManagedObjectContext:self.currentContext];
+        fromManagedObjectContext:self.currentContext];
             [availableRecipes removeObjectAtIndex:indexPath.row];
             self.recipes = availableRecipes;
         }
-        else
-            [self.recipes removeObjectAtIndex:indexPath.row];
+        [self.recipes removeObjectAtIndex:indexPath.row];
         [tableView reloadData]; // tell table to refresh now
     }
 }
@@ -324,6 +320,6 @@
         
         [SomeProduct saveInBackground];
     }
-
+    
 }
 @end

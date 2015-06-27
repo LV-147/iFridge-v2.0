@@ -525,7 +525,7 @@
                                         <include reference="yh7-mW-WxS"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                <variation key="widthClass=compact" misplaced="YES">
                                     <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="30"/>
                                     <rect key="frame" x="87" y="281" width="200" height="100"/>
                                 </variation>
@@ -613,14 +613,14 @@
                                         <exclude reference="t8n-MH-DlG"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=compact" ambiguous="YES" misplaced="YES">
+                                <variation key="heightClass=compact" misplaced="YES">
                                     <rect key="frame" x="62" y="230" width="250" height="130"/>
                                     <mask key="constraints">
                                         <include reference="3VL-QR-KOJ"/>
                                         <include reference="Ule-6h-IC8"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                <variation key="widthClass=compact" misplaced="YES">
                                     <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="30"/>
                                     <rect key="frame" x="87" y="173" width="200" height="100"/>
                                 </variation>
@@ -833,7 +833,7 @@
                                         <include reference="Itl-vS-SM9"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                <variation key="widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="218" y="566" width="40" height="40"/>
                                 </variation>
                                 <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
@@ -4132,7 +4132,7 @@
         <image name="330273-64.png" width="64" height="64"/>
         <image name="facebook" width="300" height="300"/>
         <image name="google__round_logo" width="222" height="222"/>
-        <image name="ingredient-list" width="640" height="392"/>
+        <image name="ingredient-list" width="894" height="563"/>
         <image name="note" width="640" height="392"/>
         <image name="search-icon" width="298" height="297"/>
         <image name="user_info" width="128" height="128"/>
