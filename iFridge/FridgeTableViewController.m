@@ -12,41 +12,51 @@
 #import "Fridge+Cat.h"
 #import "Ingredient+Cat.h"
 #import "UIViewController+Context.h"
+#import "AddProductViewController.h"
+#import "FridgeTableViewCell.h"
+
 
 @class UITableView;
 
 
-@interface FridgeTableViewController ()
+@interface FridgeTableViewController () <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) NSMutableArray *toaddItems;
 @property (strong, nonatomic) Fridge *fridge;
 @property (strong, nonatomic) Recipe *recipe;
-
-
 
 @end
 
 @implementation FridgeTableViewController
 #pragma mark - Custom accessors
 
-- (NSMutableArray *)toaddItems {
-    if (!_toaddItems) {
-        _toaddItems = [@[@"You may add some products"] mutableCopy];
-    }
-    return _toaddItems;
-}
+//- (NSMutableArray *)toaddItems {
+//
+//    return _toaddItems;
+//}
 
 #pragma mark - View life cycle
 
 - (void)viewDidLoad {
      [super viewDidLoad];
-    //products is allready fridge
-    self.fridge = [Fridge addFridgeWithName:@"MyFridge" inManagedObjectContext:self.currentContext];
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Ingredient"];
-    request.predicate = [NSPredicate predicateWithFormat:@"fromFridge = %@", self.fridge];
+    // Do any additional setup after loading the view.
+    self.toaddItems = [[NSMutableArray alloc] init];
     
-    NSError *error;
-    self.toaddItems = [[NSMutableArray alloc] initWithArray:[self.currentContext executeFetchRequest:request error:&error]];
+    //right barButtonItem
+    
+    UIBarButtonItem *editBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(editAction:)];
+    UIBarButtonItem *addBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addProduct:)];
+    UIBarButtonItem *flexibleSpaceButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:NULL];
+    self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:editBarButtonItem, flexibleSpaceButton, addBarButtonItem, nil];
+
+    //products are allready fridge
+    if (!self.fridge)
+        self.fridge = [Fridge addFridgeWithName:@"MyFridge" inManagedObjectContext:self.currentContext];
+    self.toaddItems = [NSMutableArray arrayWithArray:[self.fridge.ingredient allObjects]];
+//    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Ingredient"];
+//    request.predicate = [NSPredicate predicateWithFormat:@"fromFridge = %@", self.fridge];
+//    NSError *error;
+//    self.toaddItems = [[NSMutableArray alloc] initWithArray:[self.currentContext executeFetchRequest:request error:&error]];
     
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     
@@ -61,6 +71,12 @@
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -70,19 +86,42 @@
 
 #pragma mark - UITableView data source and delegate methods
 
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.toaddItems count];
+    return self.toaddItems.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *kIdentifier = @"Cell Identifier";
+    static NSString *kIdentifier = @"FridgeCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kIdentifier forIndexPath:indexPath];
+    FridgeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kIdentifier forIndexPath:indexPath];
     
     // Update cell content from data source.
-    Ingredient *object = self.toaddItems[indexPath.row];
+    
+    Ingredient *ingr = [self.toaddItems objectAtIndex:indexPath.row];
+    
+    cell.nameOfProduct.text = ingr.label;
+    cell.quantityOfProduct.text = [ingr.quantity stringValue];
+    cell.units.text = ingr.unitOfMeasure;
+
+    
+    
+    
+//    NSDictionary *ingredient = [self.toaddItems objectAtIndex:indexPath.row];
+//    
+//    cell.nameOfProduct.text = [ingredient valueForKey:@"label"];
+//    cell.quantityOfProduct.text = [ingredient valueForKey:@"quantity"];
+//    cell.units.text = [ingredient valueForKey:@"unitOfMeasure"];
+    
     cell.backgroundColor = [UIColor clearColor];
-    cell.textLabel.text = object.label;
+    
+//    Ingredient *object = self.toaddItems[indexPath.row];
+//    cell.textLabel.text = object.label;
     
 
     return cell;
@@ -113,9 +152,23 @@
 #pragma mark - IBActions
 
 
+//edit button
+- (void)editAction:(id)sender
+{
+    [self performSegueWithIdentifier:@"EditProduct" sender:self];
+    NSLog(@"edit button clicked");
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+}
+
+
 - (IBAction)addProduct:(id)sender {
     // Display an alert view with a text input.
-    UIAlertView *inputAlertView = [[UIAlertView alloc] initWithTitle:@"Add a new product:" message:nil delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:@"Add", nil];
+    UIAlertView *inputAlertView = [[UIAlertView alloc] initWithTitle:@"Add a new product:"
+                                                             message:nil delegate:nil
+                                                   cancelButtonTitle:@"Dismiss"
+                                                   otherButtonTitles:@"Add", nil];
     
     inputAlertView.alertViewStyle = UIAlertViewStylePlainTextInput;
     
@@ -229,6 +282,35 @@
         }
     }
 }
+
+
+- (IBAction)ingredientAddedToFridge:(UIStoryboardSegue *)segue
+{
+    AddProductViewController *addProductViewController = segue.sourceViewController;
+    if (addProductViewController.nameTextField.text) {
+        NSDictionary *ingredient = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                    addProductViewController.nameTextField.text, @"label",
+                                    [NSNumber numberWithDouble:[addProductViewController.quantityTextField.text doubleValue]], @"quantity",
+                                    addProductViewController.unitsTextField.text, @"units",
+                                    nil];
+        [self.toaddItems addObject:[Ingredient addIngredientForRecipe:nil
+                                                             withInfo:ingredient
+                                                             toFridge:self.fridge
+                                               inManagedObiectContext:self.currentContext]];
+        
+        
+        
+        
+        [self.tableView reloadData];
+    }else{
+        UIAlertView *emptyLabel = [[UIAlertView alloc] initWithTitle:@"Empty label"
+                                                             message:@"Please enter ingredient label at least"
+                                                            delegate:self
+                                                   cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [emptyLabel show];
+    }
+}
+
 
 #pragma mark - Helper methods
 

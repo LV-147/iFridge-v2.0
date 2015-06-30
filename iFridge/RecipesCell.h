@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SDWebImage/SDWebImageManager.h>
 
 @interface RecipesCell : UITableViewCell
+
 @property (strong, nonatomic) IBOutlet UILabel *nameOfDish;
 @property (strong, nonatomic) IBOutlet UILabel *cookingTime;
 @property (strong, nonatomic) IBOutlet UILabel *caloriesTotal;
@@ -17,4 +19,5 @@
 @property (strong, nonatomic) IBOutlet UILabel *sugarsTotal;
 @property (strong, nonatomic) IBOutlet UIImageView *recipeImageCell;
 @property (strong, nonatomic) IBOutlet UILabel *cookingLevel;
+
 @end

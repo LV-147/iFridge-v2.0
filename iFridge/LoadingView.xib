@@ -10,21 +10,27 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ZZg-ge-7lV">
-                    <rect key="frame" x="0.0" y="0.0" width="2560" height="1577"/>
+                <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image1" translatesAutoresizingMaskIntoConstraints="NO" id="ZZg-ge-7lV">
+                    <rect key="frame" x="0.0" y="0.0" width="2000" height="1231"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1231" id="2gJ-87-16R"/>
+                        <constraint firstAttribute="width" constant="2000" id="NBU-iM-ov0"/>
+                    </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3.png" translatesAutoresizingMaskIntoConstraints="NO" id="McH-VQ-9es">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="McH-VQ-9es">
                     <rect key="frame" x="37" y="184" width="300" height="300"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="300" id="Als-mW-thy"/>
-                        <constraint firstAttribute="height" constant="300" id="oBh-Sd-kxX"/>
+                        <constraint firstAttribute="width" constant="300" id="5Qb-uZ-q4p"/>
+                        <constraint firstAttribute="height" constant="300" id="caw-Xd-AEW"/>
                     </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="centerY" secondItem="McH-VQ-9es" secondAttribute="centerY" id="Zne-Rk-Sdh"/>
-                <constraint firstAttribute="centerX" secondItem="McH-VQ-9es" secondAttribute="centerX" id="dYp-vt-aKj"/>
+                <constraint firstItem="ZZg-ge-7lV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="cpY-cP-a7x"/>
+                <constraint firstAttribute="centerX" secondItem="McH-VQ-9es" secondAttribute="centerX" id="eUd-TZ-NmG"/>
+                <constraint firstAttribute="centerY" secondItem="McH-VQ-9es" secondAttribute="centerY" id="hsa-6p-SBp"/>
+                <constraint firstItem="ZZg-ge-7lV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="kgB-ZP-tfF"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <connections>
@@ -33,7 +39,7 @@
         </view>
     </objects>
     <resources>
-        <image name="3.png" width="500" height="500"/>
-        <image name="image1.jpg" width="2000" height="1231"/>
+        <image name="3" width="500" height="500"/>
+        <image name="image1" width="2000" height="1231"/>
     </resources>
 </document>

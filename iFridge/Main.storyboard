@@ -131,7 +131,7 @@
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
-                                    <rect key="frame" x="92" y="327" width="191" height="36"/>
+                                    <rect key="frame" x="238" y="327" width="191" height="36"/>
                                     <mask key="constraints">
                                         <include reference="9KR-kU-kVU"/>
                                         <include reference="gLh-q0-BFh"/>
@@ -181,7 +181,7 @@
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
-                                    <rect key="frame" x="81" y="297" width="213" height="46"/>
+                                    <rect key="frame" x="227" y="297" width="213" height="46"/>
                                     <mask key="constraints">
                                         <include reference="1xe-hd-0K2"/>
                                         <include reference="ycO-h0-t4U"/>
@@ -191,7 +191,7 @@
                                     <action selector="goToOurWebSite:" destination="GfN-dv-fDj" eventType="touchUpInside" id="ZtS-aL-251"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="note.png" translatesAutoresizingMaskIntoConstraints="NO" id="h7c-do-j7v">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="note" translatesAutoresizingMaskIntoConstraints="NO" id="h7c-do-j7v">
                                 <rect key="frame" x="21" y="95" width="195" height="77"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="195" id="E6Q-gK-9W1">
@@ -286,7 +286,7 @@
                                     <constraint firstAttribute="height" constant="24" id="siG-s2-VpJ"/>
                                     <constraint firstAttribute="height" constant="24" id="urf-il-34K"/>
                                 </constraints>
-                                <state key="normal" image="search-icon.png">
+                                <state key="normal" image="search-icon">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -389,7 +389,7 @@
                                         <variation key="heightClass=compact-widthClass=compact" constant="30"/>
                                     </constraint>
                                 </constraints>
-                                <state key="normal" image="info_information_user_about_card_button_symbol_icon-128.png">
+                                <state key="normal" image="user_info">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -442,7 +442,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="19"/>
                                 <inset key="contentEdgeInsets" minX="1" minY="-6" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Sign Out" backgroundImage="note.png">
+                                <state key="normal" title="Sign Out" backgroundImage="note">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -481,7 +481,7 @@
                                     <action selector="signOutButton:" destination="GfN-dv-fDj" eventType="touchUpInside" id="n4w-iC-RPc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Nh-kO-0cW">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Nh-kO-0cW">
                                 <rect key="frame" x="62" y="359" width="250" height="130"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="3cn-Wb-xgx"/>
@@ -503,7 +503,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="40"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="-15" maxX="-8" maxY="0.0"/>
-                                <state key="normal" title="My recipes" backgroundImage="note.png">
+                                <state key="normal" title="My recipes" backgroundImage="note">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -525,7 +525,7 @@
                                         <include reference="yh7-mW-WxS"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                <variation key="widthClass=compact" misplaced="YES">
                                     <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="30"/>
                                     <rect key="frame" x="87" y="281" width="200" height="100"/>
                                 </variation>
@@ -576,7 +576,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <button contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jN2-JV-tP4">
+                            <button contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jN2-JV-tP4">
                                 <rect key="frame" x="62" y="206" width="250" height="130"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="3VL-QR-KOJ">
@@ -598,7 +598,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="40"/>
                                 <inset key="titleEdgeInsets" minX="0.0" minY="-14" maxX="0.0" maxY="1"/>
-                                <state key="normal" title="Fridge" backgroundImage="note.png">
+                                <state key="normal" title="Fridge" backgroundImage="note">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="default">
@@ -613,14 +613,14 @@
                                         <exclude reference="t8n-MH-DlG"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=compact" ambiguous="YES" misplaced="YES">
+                                <variation key="heightClass=compact" misplaced="YES">
                                     <rect key="frame" x="62" y="230" width="250" height="130"/>
                                     <mask key="constraints">
                                         <include reference="3VL-QR-KOJ"/>
                                         <include reference="Ule-6h-IC8"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                <variation key="widthClass=compact" misplaced="YES">
                                     <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="30"/>
                                     <rect key="frame" x="87" y="173" width="200" height="100"/>
                                 </variation>
@@ -673,7 +673,7 @@
                                         <variation key="heightClass=regular-widthClass=compact" constant="40"/>
                                     </constraint>
                                 </constraints>
-                                <state key="normal" image="vk.png">
+                                <state key="normal" image="vk">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -740,7 +740,7 @@
                                         <variation key="heightClass=regular-widthClass=regular" constant="70"/>
                                     </constraint>
                                 </constraints>
-                                <state key="normal" image="facebook.jpg">
+                                <state key="normal" image="facebook">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -808,7 +808,7 @@
                                     </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" image="Martz90-Circle-Google-plus.ico">
+                                <state key="normal" image="google__round_logo">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -833,7 +833,7 @@
                                         <include reference="Itl-vS-SM9"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                <variation key="widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="218" y="566" width="40" height="40"/>
                                 </variation>
                                 <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
@@ -932,6 +932,7 @@
                                 <variation key="heightClass=compact-widthClass=compact" constant="44"/>
                             </constraint>
                             <constraint firstItem="IxZ-Gj-Gej" firstAttribute="leading" secondItem="R0q-1n-3nf" secondAttribute="trailing" constant="8" id="03I-Kt-b7I"/>
+                            <constraint firstAttribute="centerX" secondItem="jN2-JV-tP4" secondAttribute="centerX" constant="0.5" id="0Ke-sJ-DuQ"/>
                             <constraint firstItem="IxZ-Gj-Gej" firstAttribute="leading" secondItem="R0q-1n-3nf" secondAttribute="trailing" constant="8" id="0R2-Tg-ayQ"/>
                             <constraint firstItem="off-HA-Eq7" firstAttribute="top" secondItem="rHq-z0-20j" secondAttribute="bottom" constant="8" id="0VZ-R8-xze"/>
                             <constraint firstAttribute="centerX" secondItem="jN2-JV-tP4" secondAttribute="centerX" id="0XB-yZ-sJJ"/>
@@ -979,6 +980,7 @@
                             </constraint>
                             <constraint firstItem="3xL-Un-Md0" firstAttribute="top" secondItem="rHq-z0-20j" secondAttribute="bottom" constant="8" id="DAT-sp-ctJ"/>
                             <constraint firstItem="IxZ-Gj-Gej" firstAttribute="top" secondItem="rHq-z0-20j" secondAttribute="bottom" constant="8" id="Dsa-cI-U1w"/>
+                            <constraint firstAttribute="centerX" secondItem="0Nh-kO-0cW" secondAttribute="centerX" constant="0.5" id="Dxn-tK-HYG"/>
                             <constraint firstItem="h7c-do-j7v" firstAttribute="top" secondItem="rHq-z0-20j" secondAttribute="bottom" constant="75" id="EVV-Z5-8Uw">
                                 <variation key="heightClass=regular-widthClass=regular" constant="84"/>
                             </constraint>
@@ -1074,11 +1076,13 @@
                             </constraint>
                             <constraint firstItem="R0q-1n-3nf" firstAttribute="leading" secondItem="RQq-Th-7iE" secondAttribute="leadingMargin" id="cTm-jr-QPg"/>
                             <constraint firstItem="IxZ-Gj-Gej" firstAttribute="leading" secondItem="R0q-1n-3nf" secondAttribute="trailing" constant="12" id="ceh-hO-bCb"/>
+                            <constraint firstItem="jN2-JV-tP4" firstAttribute="top" secondItem="h7c-do-j7v" secondAttribute="bottom" constant="34" id="cek-JN-swa"/>
                             <constraint firstAttribute="centerX" secondItem="c5d-NF-jnN" secondAttribute="centerX" id="duy-2Y-SNk"/>
                             <constraint firstItem="HGG-sm-Rr1" firstAttribute="leading" secondItem="rTT-Yc-aKc" secondAttribute="trailing" constant="5" id="eId-Mb-GGL">
                                 <variation key="heightClass=compact-widthClass=compact" constant="-1"/>
                             </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="HGG-sm-Rr1" secondAttribute="trailing" constant="50" id="eTK-q2-cWZ"/>
+                            <constraint firstItem="0Nh-kO-0cW" firstAttribute="top" secondItem="jN2-JV-tP4" secondAttribute="bottom" constant="23" id="eZ3-4M-Y1T"/>
                             <constraint firstItem="33O-9b-WIz" firstAttribute="top" secondItem="rla-bS-pYF" secondAttribute="bottom" constant="29" id="efl-2e-4zI"/>
                             <constraint firstItem="R0q-1n-3nf" firstAttribute="leading" secondItem="RQq-Th-7iE" secondAttribute="leadingMargin" id="eie-yJ-4zJ"/>
                             <constraint firstItem="jN2-JV-tP4" firstAttribute="centerX" secondItem="0Nh-kO-0cW" secondAttribute="centerX" id="fIa-zt-FN9"/>
@@ -1681,7 +1685,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ingredient-list.png" translatesAutoresizingMaskIntoConstraints="NO" id="Oai-f1-zFo">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ingredient-list" translatesAutoresizingMaskIntoConstraints="NO" id="Oai-f1-zFo">
                                 <rect key="frame" x="54" y="381" width="260" height="236"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="236" id="3j7-lz-P19"/>
@@ -1762,7 +1766,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="note.png" translatesAutoresizingMaskIntoConstraints="NO" id="B0S-pg-759">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="note" translatesAutoresizingMaskIntoConstraints="NO" id="B0S-pg-759">
                                 <rect key="frame" x="-4" y="20" width="125" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="125" id="4GI-sZ-Vsw"/>
@@ -1809,7 +1813,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="note.png" translatesAutoresizingMaskIntoConstraints="NO" id="IPR-jP-Dxj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="note" translatesAutoresizingMaskIntoConstraints="NO" id="IPR-jP-Dxj">
                                 <rect key="frame" x="127" y="344" width="120" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="EZM-Fp-xsE"/>
@@ -1872,7 +1876,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="note.png" translatesAutoresizingMaskIntoConstraints="NO" id="sOM-Y6-gKe">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="note" translatesAutoresizingMaskIntoConstraints="NO" id="sOM-Y6-gKe">
                                 <rect key="frame" x="197" y="63" width="80" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="61Q-Ug-fUA"/>
@@ -2188,7 +2192,7 @@
                                     <constraint firstAttribute="width" constant="107" id="yYW-7O-cyr"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -2383,7 +2387,7 @@
                                     <constraint firstAttribute="width" constant="58" id="YV3-gH-lut"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -2470,8 +2474,9 @@
                                         <exclude reference="ecU-eU-ER6"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=regular">
+                                <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
                                     <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="40"/>
+                                    <rect key="frame" x="250" y="116" width="178" height="76"/>
                                     <mask key="constraints">
                                         <exclude reference="Lyt-gC-gly"/>
                                         <include reference="NDo-77-xbS"/>
@@ -2492,7 +2497,7 @@
                                     <constraint firstAttribute="width" constant="73" id="xVO-u9-jv2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -2538,7 +2543,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nOS-hp-oIX">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="heightClass=compact-widthClass=compact">
                                                         <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="14"/>
@@ -3389,7 +3394,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="note.png" translatesAutoresizingMaskIntoConstraints="NO" id="omz-Yo-DtU">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="note" translatesAutoresizingMaskIntoConstraints="NO" id="omz-Yo-DtU">
                                 <rect key="frame" x="-29" y="28" width="420" height="280"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="280" id="oOg-32-LxE"/>
@@ -3423,7 +3428,7 @@
                                     <constraint firstAttribute="height" constant="21" id="i6L-cq-GCc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=compact-widthClass=regular">
                                     <mask key="constraints">
@@ -3548,7 +3553,7 @@
                                     <constraint firstAttribute="width" constant="45" id="bth-cA-OzO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=compact-widthClass=regular">
                                     <mask key="constraints">
@@ -3680,7 +3685,7 @@
                                     <constraint firstAttribute="width" constant="70" id="pdG-OT-Fmr"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=compact-widthClass=regular">
                                     <mask key="constraints">
@@ -4035,9 +4040,9 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="20"/>
                             <inset key="contentEdgeInsets" minX="0.0" minY="-7" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="Send to calendar" backgroundImage="note.png">
+                            <state key="normal" title="Send to calendar" backgroundImage="note">
                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
                                 <action selector="sendToCalendar:" destination="KUQ-L5-Ki6" eventType="touchUpInside" id="3vC-FM-vig"/>
@@ -4125,13 +4130,13 @@
     </scenes>
     <resources>
         <image name="330273-64.png" width="64" height="64"/>
-        <image name="Martz90-Circle-Google-plus.ico" width="256" height="256"/>
-        <image name="facebook.jpg" width="300" height="300"/>
-        <image name="info_information_user_about_card_button_symbol_icon-128.png" width="128" height="128"/>
-        <image name="ingredient-list.png" width="894" height="563"/>
-        <image name="note.png" width="640" height="392"/>
-        <image name="search-icon.png" width="298" height="297"/>
-        <image name="vk.png" width="256" height="256"/>
+        <image name="facebook" width="300" height="300"/>
+        <image name="google__round_logo" width="222" height="222"/>
+        <image name="ingredient-list" width="894" height="563"/>
+        <image name="note" width="640" height="392"/>
+        <image name="search-icon" width="298" height="297"/>
+        <image name="user_info" width="128" height="128"/>
+        <image name="vk" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="y47-Cr-Jsy"/>

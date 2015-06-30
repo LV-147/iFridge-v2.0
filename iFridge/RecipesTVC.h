@@ -16,5 +16,13 @@
 @property (strong, nonatomic) NSString *query;
 @property (strong, nonatomic) NSMutableArray *recipes;
 @property (strong, nonatomic) NSString *dataSource;
+@property (strong, nonatomic) NSString *userEmail;
+@property (strong, nonatomic) NSString *userId;
+@property (strong, nonatomic) NSString *userName;
+@property (strong, nonatomic) NSString *userSocialNetwork;
+
+@property (strong, nonatomic) IBOutlet UIButton *saveAllRecipes;
+- (IBAction)saveAllRecipesToParse:(id)sender;
+
 
 @end

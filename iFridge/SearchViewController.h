@@ -17,7 +17,11 @@
 @property (strong, nonatomic) IBOutlet UITextField *searchTextField;
 @property (retain, nonatomic) IBOutlet GPPSignInButton *googlePlusSignInButton;
 @property (strong, nonatomic) IBOutlet UIButton *facebookSignInButton;
-@property (strong, nonatomic) IBOutlet UIView *portraitView;
+
+@property (strong, nonatomic) NSString *userEmail;
+@property (strong, nonatomic) NSString *userId;
+@property (strong, nonatomic) NSString *userName;
+@property (strong, nonatomic) NSString *userSocialNetwork;
 
 - (IBAction)searchButton:(id)sender;
 - (IBAction)signOutButton:(id)sender;

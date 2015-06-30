@@ -15,16 +15,15 @@
 #import "DataDownloader.h"
 #import "ReminderTableViewController.h"
 #import <GooglePlus/GPPShare.h>
-#import <FacebookSDK/FacebookSDK.h>
+#import <FBSDKShareKit/FBSDKLikeControl.h>
 #import "RecipeCarouselItem.h"
 
-@interface RecipeWithImage ()
+@interface RecipeWithImage () <UIAlertViewDelegate>
 
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 @property (strong, nonatomic) IBOutlet UILabel *recipeCountIndicator;
 @property (nonatomic) BOOL recipeSaved;
-@property (strong, nonatomic) NSArray *availableRecipes;
-@property FBLikeControl *like;
+@property (strong, nonatomic) NSMutableArray *availableRecipes;
+@property (nonatomic, assign) NSInteger recipeRow;
 @end
 
 @implementation RecipeWithImage
@@ -35,35 +34,29 @@
     self.navigationController.view.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     self.carousel.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     
-    self.like = [[FBLikeControl alloc] init];
-    self.like.frame = CGRectMake(10, 633, self.like.frame.size.width, self.like.frame.size.height);
-    self.like.objectID = @"https://www.facebook.com/groups/1599931206891002";
-    self.like.likeControlStyle = FBLikeControlStyleButton;
-    self.like.objectType = FBLikeControlObjectTypePage;
-    [self.view addSubview:self.like];
-    
     self.title = @"Recipe";
 
     self.view.backgroundColor = [UIColor clearColor];
     
     self.recipeCountIndicator.text = @"";
     
-    [self ifCurrentRecipeSaved];
+    [self ifRecipeAtIndexSaved:self.index];
     
     self.carousel.type = iCarouselTypeLinear;
     self.carousel.scrollSpeed = 0.4;
     self.carousel.decelerationRate = 0.5;
     
     self.index = self.index;
+    self.navigationController.toolbarHidden = YES;
 }
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    //self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
+    self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     
     self.carousel.currentItemIndex = self.index;
     self.carousel.scrollSpeed = 0.5;
     
-   // self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
 }
 
 - (void)awakeFromNib
@@ -73,22 +66,62 @@
 
 - (void)setIndex:(NSInteger)value {
     _index = value;
-    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%ld", _index+1, _carousel.numberOfItems];
+    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%d/%d", _index+1, _carousel.numberOfItems];
 }
 
 - (void)initWithRecipeAtIndex:(NSInteger)recipeIndex from:(NSArray *)recipes {
-    self.availableRecipes = recipes;
+    self.availableRecipes = [NSMutableArray arrayWithArray:recipes];
     self.index = recipeIndex;
-    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%ld", _index+1, _carousel.numberOfItems];
+    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%d/%d", _index+1, _carousel.numberOfItems];
 }
 
 - (IBAction)googlePlusShareButton:(id)sender {
     id<GPPNativeShareBuilder> shareBuilder = [[GPPShare sharedInstance] nativeShareDialog];
+    NSURL *url = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.image"];
+    NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.ingredientLines"];
+    NSString * result = [[ingredientLines valueForKey:@"description"] componentsJoinedByString:@"\n"];
+    [shareBuilder setPrefillText:[NSString stringWithFormat:@"Look for such a great recipe from iFridge \n\n Ingredient needed \n %@%@", result, @"\n\n #говно_код"]];
+    NSString *urlString = [NSString stringWithString:(NSString *)url];
+    [shareBuilder setURLToShare:[NSURL URLWithString:urlString]];
+    
+    //    NSString *urlString = [url absoluteString];
+    //[shareBuilder setPrefillText:@"Look for such a great recipe from iFridge #говно_код"];
+    //[shareBuilder setURLToShare:url];
+    
+    //if ([myUrl isKindOfClass:[NSString class]]) {
+    //    [shareBuilder setURLToShare:url];
+    //    [shareBuilder setPrefillText:@"Look for such a great recipe from iFridge #"];
+    //[shareBuilder setTitle:@"Look for such a great recipe from iFridge #" description:@"Look for such a great recipe from iFridge #" thumbnailURL:url];
+    //    [shareBuilder setPrefillText:@"Look for such a great recipe from iFridge #говно_код"];
+    //    [shareBuilder setURLToShare:url];
+    
+    
+    [shareBuilder open];
+
+}
+
+- (void) shareOnGPlus {
+
+    id<GPPNativeShareBuilder> shareBuilder = [[GPPShare sharedInstance] nativeShareDialog];
+    NSURL *url = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.image"];
+    NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.ingredientLines"];
+    NSString * result = [[ingredientLines valueForKey:@"description"] componentsJoinedByString:@"\n"];
+    [shareBuilder setPrefillText:[NSString stringWithFormat:@"Look for such a great recipe from iFridge \n\n Ingredient needed \n %@%@", result, @"\n\n #говно_код"]];
+    NSString *urlString = [NSString stringWithString:(NSString *)url];
+    [shareBuilder setURLToShare:[NSURL URLWithString:urlString]];
     [shareBuilder open];
 }
 
 - (void) setRecipeForIndex:(NSInteger)index usingICaruselItem:(RecipeCarouselItem *)item
 {
+    
+    NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.ingredientLines"];
+    //        item.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
+    //        item.recipeItemName.text = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.label"];
+    item.recipeItemTextField.text = @"Ingredient needed:";
+    for(NSString* str in ingredientLines){
+        item.recipeItemTextField.text = [NSString stringWithFormat:@"%@ \n\t \"%@\"", item.recipeItemTextField.text, str];
+    }
     if ([[self.availableRecipes objectAtIndex:self.index] isKindOfClass:[NSDictionary class]]) {
         [DataDownloader setRecipeImageWithURL:[[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.image"]
                                usingImageView:item.recipeItemImage
@@ -96,8 +129,13 @@
                         //stop activity indicator
                         }];
         NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.ingredientLines"];
-        item.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
-        item.recipeItemName.text = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.label"];
+//        item.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
+//        item.recipeItemName.text = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.label"];
+        item.recipeItemTextField.text = @"Ingredient needed:";
+        for(NSString* str in ingredientLines){
+            item.recipeItemTextField.text = [NSString stringWithFormat:@"%@ \n\t \"%@\"", item.recipeItemTextField.text, str];
+        }
+
         
     }else if ([[self.availableRecipes objectAtIndex:self.index] isKindOfClass:[Recipe class]]){
         Recipe *currentRecipe = [self.availableRecipes objectAtIndex:self.index];
@@ -115,53 +153,63 @@
             [ingredientLines setObject:ingredient.label forKey:numb];
             int value = [numb intValue];
             numb = [NSNumber numberWithInt:value + 1];
+            
+            
         }
         item.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", [ingredientLines allValues]];
     }
 }
 
 
-- (IBAction)saveRecipeToCoreData:(UIBarButtonItem *)sender {
+- (void)saveRecipeToCoreData:(UIButton *)sender {
     
-    NSMutableArray *availibleRecipes = [[NSMutableArray alloc] initWithArray:self.availableRecipes];
-    
-    if (![self ifCurrentRecipeSaved]){
+    if (![self ifRecipeAtIndexSaved:self.index]){
         NSDictionary *recipeDict = [self.availableRecipes objectAtIndex:_index ];
-        Recipe *currentRecipe = [Recipe createRecipeWithInfo:recipeDict inManagedObiectContext:self.currentContext];
-        [availibleRecipes replaceObjectAtIndex:_index withObject:currentRecipe];
-        sender.title = @"Delete";
+        Recipe *currRecipe = [Recipe createRecipeWithInfo:recipeDict inManagedObiectContext:self.currentContext];
+        [self.availableRecipes replaceObjectAtIndex:self.index withObject:currRecipe];
+        [sender setImage:[UIImage imageNamed:@"delete-icon.png"] forState:UIControlStateNormal];
         
     }else{
-        NSDictionary *currentRecipeDict = [Recipe deleteRecipe:[self.availableRecipes objectAtIndex:_index] fromManagedObjectContext:self.currentContext];
-        [availibleRecipes replaceObjectAtIndex:_index withObject:currentRecipeDict];
-        sender.title = @"Save";
+        [Recipe deleteRecipe:[self.availableRecipes objectAtIndex:self.index] fromManagedObjectContext:self.currentContext];
+        [self.availableRecipes removeObjectAtIndex:_index];
+        [self.carousel reloadData];
+        self.recipeCountIndicator.text = [NSString stringWithFormat:@"%d/%d", _index+1, _carousel.numberOfItems];
     }
-    self.availableRecipes = availibleRecipes;
     
+    if (!self.availableRecipes.count) {
+
+        UIAlertView *noRecipecAvailible = [[UIAlertView alloc] initWithTitle:@"No recipes left"
+                                                                     message:@"You just have deleted the last of them."
+                                                                    delegate:self
+                                                           cancelButtonTitle:nil
+                                                           otherButtonTitles:@"OK", nil];
+        [noRecipecAvailible show];
+    }}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
-
-- (BOOL)ifCurrentRecipeSaved{
+- (BOOL)ifRecipeAtIndexSaved:(NSUInteger)index {
     //checking if current recipe is alredy in the data base
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Recipe"];
-    NSString *predicateString = [[NSString alloc] init];
-    if ([[self.availableRecipes objectAtIndex:_index] isKindOfClass:[NSDictionary class]]) {
-        predicateString = [[self.availableRecipes objectAtIndex:_index] valueForKeyPath:@"recipe.label"];
-    }else if ([[self.availableRecipes objectAtIndex:_index] isKindOfClass:[Recipe class]]) {
-        Recipe *currentRecipe = [self.availableRecipes objectAtIndex:_index];
-        predicateString = currentRecipe.label;
+    BOOL recipeSaved;
+    if ([[self.availableRecipes objectAtIndex:index] isKindOfClass:[NSDictionary class]]) {
+        NSDictionary *currRecipe = [self.availableRecipes objectAtIndex:index];
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Recipe"];
+        request.predicate = [NSPredicate predicateWithFormat:@"label = %@", [currRecipe valueForKeyPath:@"recipe.label"]];
+        NSError *error;
+        NSArray *mathes = [self.currentContext executeFetchRequest:request error:&error];
+        if (mathes && !error && mathes.count == 1) {
+            [self.availableRecipes replaceObjectAtIndex:self.index withObject:[Recipe createRecipeWithInfo:currRecipe inManagedObiectContext:self.currentContext]];
+            recipeSaved = YES;
+        }else{
+            recipeSaved = NO;
+        }
+    }else if ([[self.availableRecipes objectAtIndex:index] isKindOfClass:[Recipe class]]) {
+        recipeSaved = YES;
     }
-    request.predicate = [NSPredicate predicateWithFormat:@"label = %@", predicateString];
-    
-    NSError *error;
-    NSArray *mathes = [self.currentContext executeFetchRequest:request error:&error];
-    if (mathes && !error && mathes.count == 1) {
-        self.saveButton.title = @"Delete";
-        return YES;
-    }else{
-        self.saveButton.title = @"Save";
-        return NO;
-    }
+    return recipeSaved;
 }
 
 - (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel
@@ -184,21 +232,28 @@
     else
     {
         recipeCarouselItem = (RecipeCarouselItem *)view;
-        self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld", carousel.currentItemIndex];
     }
     //присвоєння тексту і картинки
 
     if ([[self.availableRecipes objectAtIndex:index] isKindOfClass:[NSDictionary class]]) {
+        recipeCarouselItem.recipeItemImage.image = [UIImage imageNamed:@"noimage"];
         [DataDownloader setRecipeImageWithURL:[[self.availableRecipes objectAtIndex:index] valueForKeyPath:@"recipe.image"]
                                usingImageView:recipeCarouselItem.recipeItemImage
                         withCompletionHandler:nil];
+
         NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:index] valueForKeyPath:@"recipe.ingredientLines"];
-        recipeCarouselItem.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
+        //        item.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
+        //        item.recipeItemName.text = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.label"];
+        recipeCarouselItem.recipeItemTextField.text = @"Ingredient needed:";
+        for(NSString* str in ingredientLines){
+            recipeCarouselItem.recipeItemTextField.text = [NSString stringWithFormat:@"%@ \n\t \"%@\"", recipeCarouselItem.recipeItemTextField.text, str];
+        }
         recipeCarouselItem.recipeItemName.text = [[self.availableRecipes objectAtIndex:index] valueForKeyPath:@"recipe.label"];
         
     }else if ([[self.availableRecipes objectAtIndex:index] isKindOfClass:[Recipe class]]){
         Recipe *currentRecipe = [self.availableRecipes objectAtIndex:index];
         
+        recipeCarouselItem.recipeItemImage.image = [UIImage imageNamed:@"noimage"];
         [DataDownloader setRecipeImageWithURL:currentRecipe.imageUrl
                                usingImageView:recipeCarouselItem.recipeItemImage
                         withCompletionHandler:nil];
@@ -211,72 +266,36 @@
             int value = [numb intValue];
             numb = [NSNumber numberWithInt:value + 1];
         }
+        
         recipeCarouselItem.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", [ingredientLines allValues]];
     }
+    
+    recipeCarouselItem.facebookButton.objectID = @"https://www.facebook.com/{sub_url}";
+    recipeCarouselItem.facebookButton.objectType = FBSDKLikeObjectTypePage;
+    
+    [recipeCarouselItem.googleButton addTarget:self
+                                        action:@selector(shareOnGPlus)
+                              forControlEvents:UIControlEventTouchUpInside];
+    //config save button
+    if ([self ifRecipeAtIndexSaved:index])
+        [recipeCarouselItem.saveButton setImage:[UIImage imageNamed:@"delete-icon.png"] forState:UIControlStateNormal];
+    else
+        [recipeCarouselItem.saveButton setImage:nil forState:UIControlStateNormal];
+
+    [recipeCarouselItem.saveButton addTarget:self
+                                      action:@selector(saveRecipeToCoreData:)
+                            forControlEvents:UIControlEventTouchUpInside];
     return recipeCarouselItem;
 }
 
 - (void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel {
     self.index = carousel.currentItemIndex;
-    [self ifCurrentRecipeSaved];
+//    [self ifRecipeAtIndexSaved:self.index];
 }
 
 - (CGFloat)carouselItemWidth:(iCarousel *)carousel {
     CGFloat itemWidth = self.view.frame.size.width;
     return itemWidth;
-}
-/*
-- (void)didRotateFromInterfaceOrientation:
-(UIInterfaceOrientation)fromInterfaceOrientation {
-    
-    CGRect currentBounds=self.view.bounds;
-    
-    if (self.interfaceOrientation == UIInterfaceOrientationLandscapeRight || self.interfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
-        // self.movingImageForDish.frame = CGRectMake(30, 50, self.movingImageForDish.frame.size.width, self.movingImageForDish.frame.size.height);
-        [self.movingImageForDish moveTo:
-         CGPointMake(self.view.center.x - (self.movingImageForDish.frame.size.width+75),
-                     self.view.center.y - (self.movingImageForDish.frame.size.height-90))
-                               duration:0.3 option:0];
-        [self.movingPhotoFrame moveTo:
-         CGPointMake(self.view.center.x - (self.movingPhotoFrame.frame.size.width+50),
-                     self.view.center.y - (self.movingPhotoFrame.frame.size.height-170))
-                             duration:0.3 option:0];
-        [self.movingNameForDish moveTo:
-         CGPointMake(self.view.center.x - (self.movingNameForDish.frame.size.width+65),
-                     self.view.center.y - (self.movingNameForDish.frame.size.height-140))
-                              duration:0.3 option:0];
-        [self.movingNotePaper moveTo:
-         CGPointMake(self.view.center.x - (self.movingNotePaper.frame.size.width-300),
-                     self.view.center.y - (self.movingNotePaper.frame.size.height-130))
-                            duration:0.3 option:0];
-        [self.movingRecipeIngredients moveTo:
-         CGPointMake(self.view.center.x - (self.movingRecipeIngredients.frame.size.width-290),
-                     self.view.center.y - (self.movingRecipeIngredients.frame.size.height-110))
-                                    duration:0.3 option:0];
-        self.like.frame = CGRectMake(10, 341, self.like.frame.size.width, self.like.frame.size.height);
-        
-    } else {
-        self.view=self.portraitView;
-        self.like.frame = CGRectMake(10, 633, self.like.frame.size.width, self.like.frame.size.height);
-    }
-    self.view.bounds=currentBounds;
-    
-}
-*/
-
-- (void)didRotateFromInterfaceOrientation:
-(UIInterfaceOrientation)fromInterfaceOrientation {
-    
-    CGRect currentBounds=self.view.bounds;
-    
-    if (self.interfaceOrientation == UIInterfaceOrientationLandscapeRight || self.interfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
-               self.like.frame = CGRectMake(10, 341, self.like.frame.size.width, self.like.frame.size.height);
-        
-    } else {
-        self.like.frame = CGRectMake(10, 633, self.like.frame.size.width, self.like.frame.size.height);
-    }
-    self.view.bounds=currentBounds;
-    
 }
 
 
