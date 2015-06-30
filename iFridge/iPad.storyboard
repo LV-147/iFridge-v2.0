@@ -555,6 +555,9 @@
                             <constraint firstItem="mn8-UR-Xms" firstAttribute="trailing" secondItem="Co5-uU-TSp" secondAttribute="trailing" id="rQR-JL-VPw"/>
                         </constraints>
                     </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="229" height="208"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="229" height="208"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="98d-rg-vGZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -652,6 +655,9 @@
                             <constraint firstItem="h7P-LE-4CU" firstAttribute="centerY" secondItem="Bqg-Uv-ba4" secondAttribute="centerY" constant="-3.5" id="yPp-Ck-aUa"/>
                         </constraints>
                     </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="246" height="150"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="246" height="150"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vfE-QU-XBs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
