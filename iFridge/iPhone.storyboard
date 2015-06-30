@@ -1285,7 +1285,11 @@
                     </tableView>
                     <toolbarItems>
                         <barButtonItem title="By name" width="81" id="j6F-Ra-ZbG"/>
-                        <barButtonItem title="By time" width="157" id="nDm-BT-xeN"/>
+                        <barButtonItem title="By time" width="157" id="nDm-BT-xeN">
+                            <connections>
+                                <action selector="sortByTime:" destination="LMa-eT-kqI" id="RRp-N6-KrY"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem title="By calories" id="Skx-BO-DUL"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="AA2-yN-rFa">

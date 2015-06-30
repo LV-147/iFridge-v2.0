@@ -23,6 +23,7 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *saveAllRecipes;
 - (IBAction)saveAllRecipesToParse:(id)sender;
+- (IBAction)sortByTime:(id)sender;
 
 
 @end
