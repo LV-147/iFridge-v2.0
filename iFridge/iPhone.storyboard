@@ -1284,7 +1284,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems>
-                        <barButtonItem title="Sort" id="j6F-Ra-ZbG"/>
+                        <barButtonItem title="By name" id="j6F-Ra-ZbG"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="AA2-yN-rFa">
                         <nil key="title"/>
