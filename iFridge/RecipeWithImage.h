@@ -11,7 +11,6 @@
 #import <SDWebImage/SDWebImageManager.h>
 #import "Recipe.h"
 #import "iCarousel.h"
-#import "UIView+Animation.h"
 
 @interface RecipeWithImage : UIViewController <iCarouselDataSource, iCarouselDelegate>
 
@@ -19,11 +18,6 @@
 - (IBAction)googlePlusShareButton:(id)sender;
 @property (strong, nonatomic) IBOutlet iCarousel *carousel;
 @property (assign, nonatomic) NSInteger index;
-@property (strong, nonatomic) IBOutlet UIView *portraitView;
-@property (nonatomic,weak) IBOutlet UIImageView *movingImageForDish;
-@property (nonatomic,weak) IBOutlet UIImageView *movingPhotoFrame;
-@property (nonatomic,weak) IBOutlet UILabel *movingNameForDish;
-@property (nonatomic,weak) IBOutlet UIImageView *movingNotePaper;
-@property (nonatomic,weak) IBOutlet UITextView *movingRecipeIngredients;
+
 
 @end

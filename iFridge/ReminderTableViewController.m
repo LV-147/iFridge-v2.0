@@ -23,6 +23,7 @@
 @property (strong, nonatomic) EKCalendar *calendar;
 @property (nonatomic) BOOL isAccessToEventStoreGranted;
 @property (nonatomic, strong) NSString *savedEvent;
+@property (weak, nonatomic) IBOutlet UIButton *sendToCalendar;
 
 @end
 
@@ -70,6 +71,10 @@
     
     
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
+    [self.sendToCalendar setTitle:@"Send to Calendar" forState:UIControlStateNormal];
+    _sendToCalendar.tintColor = [UIColor purpleColor];
+    [_sendToCalendar setTitleColor:[UIColor purpleColor] forState:UIControlStateNormal];
     
 }
 
@@ -155,8 +160,8 @@
         
         for (NSString *savedEvent in self.todoItems) {
             [eventStore saveEvent:event span:EKSpanThisEvent commit:YES error:&err];
-        }
-        
+            NSLog(@"%@", savedEvent);
+        }        
         self.savedEvent = event.eventIdentifier;  //save the event id if you want to access this later
     }];
     
@@ -174,16 +179,16 @@
     if(self.todoItems)
     {
         [sender setEnabled:YES];
+        
+        [self.sendToCalendar setTitle:@"Sent" forState:UIControlStateNormal];
+        _sendToCalendar.tintColor = [UIColor purpleColor];
+        [_sendToCalendar setTitleColor:[UIColor purpleColor] forState:UIControlStateNormal];
     }
     else
     {
         [sender setEnabled:NO];
     }
-
-    
-    
 }
-
 
 
 - (IBAction)addButtonPressed:(id)sender {

@@ -21,9 +21,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.ingredients = [[NSMutableArray alloc] init];
-    self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
-    
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];// Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
+    self.view.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -81,6 +81,7 @@
                                     addIngredientsController.units.text, @"units",
                                     nil];
         [self.ingredients addObject:ingredient];
+        
         [self.tableView reloadData];
     }else{
         UIAlertView *emptyLabel = [[UIAlertView alloc] initWithTitle:@"Empty label"

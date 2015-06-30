@@ -17,19 +17,16 @@
 #import "Recipe.h"
 #import "Recipe+Cat.h"
 #import "AddRecipeViewController.h"
+#import <Parse/Parse.h>
+//#import <SDWebImage/UIImageView+WebCache.h>
 
 @import CoreGraphics;
 
 
-@interface RecipesTVC () <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating>
+@interface RecipesTVC () <UIAlertViewDelegate, UISearchBarDelegate>
 @property (strong, nonatomic) IBOutlet UISegmentedControl *selectDataSourceController;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSArray *allRecipes;
-//SEARCH
-@property (nonatomic, strong) UISearchController *searchController;
-// for state restoration
-@property BOOL searchControllerWasActive;
-@property BOOL searchControllerSearchFieldWasFirstResponder;
-//SEARCH
 @end
 
 @implementation RecipesTVC
@@ -40,6 +37,8 @@
     self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     self.tableView.backgroundColor = [UIColor clearColor];
     
+    self.dataSource =  @"Search results";
+    
     if ([self.dataSource isEqualToString:@"Search results"]){
         [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         [self searchForRecipesForQuery:self.query];
@@ -47,55 +46,28 @@
         self.selectDataSourceController.selectedSegmentIndex = 1;
         [self getRecipesFromCoreData];
     }
-    //SEARCH
-    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
-    self.searchController.searchResultsUpdater = self;
-    //config view of search bar
-    self.searchController.searchBar.delegate = self;
-    self.searchController.searchBar.tintColor = [UIColor redColor];
-    self.searchController.searchBar.barTintColor = [UIColor colorWithRed:1 green:0.6 blue:0.6 alpha:0.5];
-    [self.searchController.searchBar sizeToFit];
-    self.tableView.tableHeaderView = self.searchController.searchBar;
-    self.searchController.dimsBackgroundDuringPresentation = NO; // default is YES
-    self.definesPresentationContext = YES;  // know where you want UISearchController to be displayed
-    //SEARCH
 }
 
 #pragma mark - search bar delegate
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
+    [searchBar resignFirstResponder];
     if ([self.dataSource isEqualToString:@"Search results"]) {
-        self.query = self.searchController.searchBar.text;
+        self.query = searchBar.text;
         [self searchForRecipesForQuery:self.query];
     }
-    self.searchControllerWasActive = NO;
-    self.searchControllerSearchFieldWasFirstResponder = NO;
 }
 
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-        if ([self.dataSource isEqualToString:@"My recipes"]) {
-            [self getRecipesFromCoreData];
-        }
-    self.searchControllerWasActive = NO;
-    self.searchControllerSearchFieldWasFirstResponder = NO;
-}
-
-#pragma mark - UISearchResultsUpdating
-
-- (void)updateSearchResultsForSearchController:(UISearchController *)searchController
-{
-    self.searchControllerWasActive = YES;
-    self.searchControllerSearchFieldWasFirstResponder = YES;
     if ([self.dataSource isEqualToString:@"My recipes"]) {
-        NSString *query = searchController.searchBar.text;
-        if ([query isEqualToString:@""]) {
+        if ([searchText isEqualToString:@""]) {
             self.recipes = [[NSMutableArray alloc]initWithArray:self.allRecipes];
-            //self.recipes = self.allRecipes;
+            [searchBar resignFirstResponder];
         }else{
             NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Recipe *evaluatedObject, NSDictionary *bindings) {
                 BOOL result = NO;
-                if ([evaluatedObject.label rangeOfString:query options:NSCaseInsensitiveSearch].location != NSNotFound) {
+                if ([evaluatedObject.label rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound) {
                     result = YES;
                 }
                 return result;
@@ -103,7 +75,6 @@
             
             NSArray *filteredRecipes = [self.allRecipes filteredArrayUsingPredicate:predicate];
             self.recipes = [[NSMutableArray alloc]initWithArray:filteredRecipes];
-            //self.recipes = filteredRecipes;
         }
         [self.tableView reloadData];
     }
@@ -111,7 +82,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.searchController.searchBar.text = self.query;
+    self.searchBar.text = self.query;
     if ([self.dataSource isEqualToString:@"My recipes"]) {
         [self getRecipesFromCoreData];
         [self.tableView reloadData];
@@ -243,15 +214,16 @@
     activityIndicator.center = cell.recipeImageCell.center;
     activityIndicator.hidesWhenStopped = YES;
 
+    [cell.recipeImageCell addSubview:activityIndicator];
+    [activityIndicator startAnimating];
+    
+    cell.recipeImageCell.image = nil;
     [DataDownloader setRecipeImageWithURL:urlImageString
                            usingImageView:cell.recipeImageCell
                     withCompletionHandler:^{
                         [activityIndicator removeFromSuperview];
                     }];
 
-    [cell.recipeImageCell addSubview:activityIndicator];
-    [activityIndicator startAnimating];
-    
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
     [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
     [numberFormatter setMaximumFractionDigits:0];
@@ -293,12 +265,13 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         if([self.dataSource  isEqual: @"My recipes"]){
             NSMutableArray *availableRecipes = [[NSMutableArray alloc] initWithArray:self.recipes];
-            NSDictionary *currentRecipeDict = [Recipe deleteRecipe:[availableRecipes objectAtIndex:indexPath.row]
+            [Recipe deleteRecipe:[availableRecipes objectAtIndex:indexPath.row]
                                           fromManagedObjectContext:self.currentContext];
-            [availableRecipes replaceObjectAtIndex:indexPath.row withObject:currentRecipeDict];
+            [availableRecipes removeObjectAtIndex:indexPath.row];
             self.recipes = availableRecipes;
         }
-        [self.recipes removeObjectAtIndex:indexPath.row];
+        else
+            [self.recipes removeObjectAtIndex:indexPath.row];
         [tableView reloadData]; // tell table to refresh now
     }
 }
@@ -328,5 +301,29 @@
                                 nil];
     [self.recipes addObject:[Recipe createRecipeWithInfo:[NSDictionary dictionaryWithObject:recipeDict forKey:@"recipe"] inManagedObiectContext:self.currentContext]];
     [self.tableView reloadData];
+}
+- (IBAction)saveAllRecipesToParse:(id)sender {
+    
+    self.saveAllRecipes.hidden = YES;
+    for (int i=0; i < self.recipes.count; i++) {
+        PFObject *SomeProduct = [PFObject objectWithClassName:@"SavedProducts"];
+        SomeProduct[@"UserEmail"] = _userEmail;
+        SomeProduct[@"UserId"] = _userId;
+        SomeProduct[@"DishName"] = self.recipes[i][@"recipe"][@"label"];
+        SomeProduct[@"DishIngredients"] = self.recipes[i][@"recipe"][@"ingredientLines"];
+        SomeProduct[@"Calories"] = self.recipes[i][@"recipe"][@"calories"];
+        SomeProduct[@"CookingLevel"] = self.recipes[i][@"recipe"][@"level"];
+        SomeProduct[@"CookingTime"] = [NSString stringWithFormat:@"Cooking time: %@ min", self.recipes[i][@"recipe"][@"cookingTime"]];
+        SomeProduct[@"Fat"] = self.recipes[i][@"recipe"][@"totalNutrients"][@"FAT"][@"quantity"];
+        SomeProduct[@"Weight"] = self.recipes[i][@"recipe"][@"totalWeight"];
+        SomeProduct[@"Sugars"] = self.recipes[i][@"recipe"][@"totalNutrients"][@"SUGAR"][@"quantity"];
+        SomeProduct[@"ImageUrl"] = self.recipes[i][@"recipe"][@"image"];
+        SomeProduct[@"UserName"] = _userName;
+        SomeProduct[@"SocialNetwork"] = _userSocialNetwork;
+        
+        
+        [SomeProduct saveInBackground];
+    }
+
 }
 @end

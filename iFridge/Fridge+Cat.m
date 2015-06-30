@@ -26,6 +26,7 @@
     }else if (mathes.count){
         fridge = mathes.firstObject;
     }else{
+        fridge = [NSEntityDescription insertNewObjectForEntityForName:@"Fridge" inManagedObjectContext:context];
         fridge.name = fridgeName;
         [context save:NULL];
     }
