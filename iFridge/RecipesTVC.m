@@ -46,8 +46,11 @@
         self.selectDataSourceController.selectedSegmentIndex = 1;
         [self getRecipesFromCoreData];
     }
+<<<<<<< HEAD
     self.navigationController.toolbarHidden = NO;
     self.navigationController.toolbar.tintColor=[UIColor redColor];
+=======
+>>>>>>> 3a0c946f5c6377c0e95cb21f8584b359ac8418cc
 }
 
 #pragma mark - search bar delegate

@@ -14,11 +14,6 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
-		<key>Pods-UIActivityIndicator-for-SDWebImage.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>4</integer>
-		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -32,32 +27,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4FF17BEF3FBDEB6534665819</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>594379C8182373A8B23DB273</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>602BF25F6E04C40C82C2001B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A47DB0E37D49D1251B19780A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>AF25EE74EF6AFF276766E6E6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B69C07281CE5FBA12FCAEB35</key>
 		<dict>
 			<key>primary</key>
 			<true/>
