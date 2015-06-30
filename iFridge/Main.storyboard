@@ -727,6 +727,13 @@
                             <outlet property="delegate" destination="KUQ-L5-Ki6" id="L8q-m0-RI1"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Select date" id="fvE-gf-F7B">
+                            <connections>
+                                <segue destination="6In-Te-WK2" kind="show" id="xAd-Sa-WQM"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="6Mr-67-8TL">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Jo1-M3-Zqy">
                             <connections>
@@ -740,7 +747,64 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C8e-ht-NOQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1802.25" y="-2053.5"/>
+            <point key="canvasLocation" x="1743.75" y="-2055.5"/>
+        </scene>
+        <!--Select Date View Controller-->
+        <scene sceneID="N9k-1t-hVn">
+            <objects>
+                <viewController id="6In-Te-WK2" customClass="SelectDateViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vpz-os-afL"/>
+                        <viewControllerLayoutGuide type="bottom" id="HdP-PU-2kd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jXe-Zl-dae">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ekk-Lt-RqX">
+                                <rect key="frame" x="-160" y="-81" width="320" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="457286330.60718602">
+                                    <!--2015-06-29 15:58:50 +0000-->
+                                </date>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="411" width="400" height="180"/>
+                                </variation>
+                                <connections>
+                                    <action selector="pickerAction:" destination="6In-Te-WK2" eventType="valueChanged" id="Aon-fs-tc0"/>
+                                </connections>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="selcteDate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ykz-XT-zU8">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="113" y="169" width="175" height="61"/>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Ekk-Lt-RqX"/>
+                                <exclude reference="ykz-XT-zU8"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Ekk-Lt-RqX"/>
+                                <include reference="ykz-XT-zU8"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="Ekk-Lt-RqX" id="yIz-xn-ZNN"/>
+                        <outlet property="selectDate" destination="ykz-XT-zU8" id="36X-1m-g33"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WE1-Ir-swN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2389.5" y="-2080"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Wf9-e6-weB">
@@ -785,9 +849,6 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
-                                            <variation key="widthClass=compact" fixedFrame="YES">
-                                                <rect key="frame" x="27" y="19" width="145" height="26"/>
-                                            </variation>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="quantity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cY2-Jb-WKr">
                                             <rect key="frame" x="148" y="25" width="79" height="20"/>
@@ -798,9 +859,6 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
-                                            <variation key="widthClass=compact" fixedFrame="YES">
-                                                <rect key="frame" x="180" y="21" width="77" height="21"/>
-                                            </variation>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="units" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lgq-rS-78a">
                                             <rect key="frame" x="261" y="23" width="69" height="21"/>
@@ -811,9 +869,6 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
-                                            <variation key="widthClass=compact" fixedFrame="YES">
-                                                <rect key="frame" x="277" y="21" width="58" height="21"/>
-                                            </variation>
                                         </label>
                                     </subviews>
                                     <constraints>
@@ -882,9 +937,6 @@
                                         <exclude reference="1je-Z3-Jb2"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                </variation>
                                 <variation key="heightClass=compact-widthClass=regular" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="1" y="0.0" width="666" height="667"/>
                                     <mask key="constraints">
@@ -897,9 +949,6 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="149" y="124" width="201" height="30"/>
-                                </variation>
                                 <connections>
                                     <outlet property="delegate" destination="vLg-dX-IXd" id="F5K-iN-2QY"/>
                                 </connections>
@@ -908,18 +957,12 @@
                                 <rect key="frame" x="51" y="136" width="75" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="72" y="128" width="69" height="21"/>
-                                </variation>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fLJ-pi-SKd">
                                 <rect key="frame" x="165" y="182" width="161" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="149" y="176" width="201" height="30"/>
-                                </variation>
                                 <connections>
                                     <outlet property="delegate" destination="vLg-dX-IXd" id="IU2-uZ-NPb"/>
                                 </connections>
@@ -928,17 +971,11 @@
                                 <rect key="frame" x="75" y="191" width="51" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="96" y="179" width="45" height="21"/>
-                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgR-ap-0ad">
                                 <rect key="frame" x="73" y="90" width="53" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="87" y="82" width="54" height="21"/>
-                                </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kOt-Ai-3NK">
                                 <rect key="frame" x="41" y="251" width="107" height="30"/>
@@ -970,9 +1007,6 @@
                                     <color key="titleColor" red="1" green="0.0098948884975478268" blue="0.02918773557454224" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="295" y="20" width="55" height="30"/>
-                                </variation>
                                 <variation key="heightClass=compact-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="290" y="32" width="57" height="30"/>
                                 </variation>
@@ -985,9 +1019,6 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="149" y="73" width="201" height="30"/>
-                                </variation>
                                 <connections>
                                     <outlet property="delegate" destination="vLg-dX-IXd" id="gGo-YP-Naw"/>
                                 </connections>
@@ -999,9 +1030,6 @@
                                     <color key="titleColor" red="1" green="0.0098948884979999999" blue="0.029187735570000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="20" width="73" height="30"/>
-                                </variation>
                                 <variation key="heightClass=compact-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="16" y="32" width="68" height="30"/>
                                 </variation>

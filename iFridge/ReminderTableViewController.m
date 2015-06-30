@@ -11,6 +11,7 @@
 #import "UIButton+ReminderBlock.h"
 #import "Fridge+Cat.h"
 #import "UIViewController+Context.h"
+#import "SelectDateViewController.h"
 
 
 @import EventKit;
@@ -57,6 +58,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+//    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    self.navigationController.toolbarHidden = NO;
 
     
     self.title = @"To Buy!";
