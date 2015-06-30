@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RecipesTVC.h"
 
 @interface LoadingView : UIView {
     UIActivityIndicatorViewStyle loadIndicatorStyle; //default is UIActivityIndicatorViewStyleWhiteLarge

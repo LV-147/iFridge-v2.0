@@ -9,7 +9,6 @@
 #import "UIViewController+LoadingView.h"
 #import "LoadingView.h"
 #import <objc/runtime.h>
-#import "RecipesTVC.h"
 
 static const NSString *LoadingViewKey = @"LoadingViewKey";
 

@@ -7,7 +7,6 @@
 //
 
 #import "RecipeWithImage.h"
-#import "RecipesTVC.h"
 #import "Recipe+Cat.h"
 #import "UIViewController+Context.h"
 #import "AppDelegate.h"
@@ -65,13 +64,13 @@
 
 - (void)setIndex:(NSInteger)value {
     _index = value;
-    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%d/%d", _index+1, _carousel.numberOfItems];
+    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%ld", _index+1, _carousel.numberOfItems];
 }
 
 - (void)initWithRecipeAtIndex:(NSInteger)recipeIndex from:(NSArray *)recipes {
     self.availableRecipes = [NSMutableArray arrayWithArray:recipes];
     self.index = recipeIndex;
-    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%d/%d", _index+1, _carousel.numberOfItems];
+    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%ld", _index+1, _carousel.numberOfItems];
 }
 
 - (IBAction)googlePlusShareButton:(id)sender {
@@ -110,55 +109,6 @@
     [shareBuilder setURLToShare:[NSURL URLWithString:urlString]];
     [shareBuilder open];
 }
-
-- (void) setRecipeForIndex:(NSInteger)index usingICaruselItem:(RecipeCarouselItem *)item
-{
-    
-    NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.ingredientLines"];
-    //        item.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
-    //        item.recipeItemName.text = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.label"];
-    item.recipeItemTextField.text = @"Ingredient needed:";
-    for(NSString* str in ingredientLines){
-        item.recipeItemTextField.text = [NSString stringWithFormat:@"%@ \n\t \"%@\"", item.recipeItemTextField.text, str];
-    }
-    if ([[self.availableRecipes objectAtIndex:self.index] isKindOfClass:[NSDictionary class]]) {
-        [DataDownloader setRecipeImageWithURL:[[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.image"]
-                               usingImageView:item.recipeItemImage
-                        withCompletionHandler:^{
-                        //stop activity indicator
-                        }];
-        NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.ingredientLines"];
-//        item.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
-//        item.recipeItemName.text = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.label"];
-        item.recipeItemTextField.text = @"Ingredient needed:";
-        for(NSString* str in ingredientLines){
-            item.recipeItemTextField.text = [NSString stringWithFormat:@"%@ \n\t \"%@\"", item.recipeItemTextField.text, str];
-        }
-
-        
-    }else if ([[self.availableRecipes objectAtIndex:self.index] isKindOfClass:[Recipe class]]){
-        Recipe *currentRecipe = [self.availableRecipes objectAtIndex:self.index];
-        
-        [DataDownloader setRecipeImageWithURL:currentRecipe.imageUrl
-                               usingImageView:item.recipeItemImage
-                        withCompletionHandler:^{
-                           //don't forget stop activity indicator!!
-                        }];
-        item.recipeItemName.text = currentRecipe.label;
-        
-        NSMutableDictionary *ingredientLines = [[NSMutableDictionary alloc] init];
-        NSNumber *numb = [[NSNumber alloc] initWithInt:0];
-        for (Ingredient *ingredient in currentRecipe.ingredients) {
-            [ingredientLines setObject:ingredient.label forKey:numb];
-            int value = [numb intValue];
-            numb = [NSNumber numberWithInt:value + 1];
-            
-            
-        }
-        item.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", [ingredientLines allValues]];
-    }
-}
-
 
 - (void)saveRecipeToCoreData:(UIButton *)sender {
     
@@ -300,19 +250,21 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    ReminderTableViewController *newController = segue.destinationViewController;
-    if ([[self.availableRecipes objectAtIndex:_index] isKindOfClass:[NSDictionary class]]) {
-        newController.ingredientsForReminder = [[self.availableRecipes objectAtIndex:_index] valueForKeyPath:@"recipe.ingredientLines"];
-        newController.nameOfEventForCalendar = [[self.availableRecipes objectAtIndex:_index] valueForKeyPath:@"recipe.label"];
-
-    } else {
-        Recipe *currRecipe = [self.availableRecipes objectAtIndex:_index];
-        NSMutableArray *ingredient = [[NSMutableArray alloc] init];
-        for (Ingredient *ingr in currRecipe.ingredients) {
-            [ingredient addObject:ingr.label];
+    if ([segue.identifier isEqualToString:@"reminderSegue"]) {
+        ReminderTableViewController *newController = segue.destinationViewController;
+        if ([[self.availableRecipes objectAtIndex:_index] isKindOfClass:[NSDictionary class]]) {
+            newController.ingredientsForReminder = [[self.availableRecipes objectAtIndex:_index] valueForKeyPath:@"recipe.ingredientLines"];
+            newController.nameOfEventForCalendar = [[self.availableRecipes objectAtIndex:_index] valueForKeyPath:@"recipe.label"];
+            
+        } else {
+            Recipe *currRecipe = [self.availableRecipes objectAtIndex:_index];
+            NSMutableArray *ingredient = [[NSMutableArray alloc] init];
+            for (Ingredient *ingr in currRecipe.ingredients) {
+                [ingredient addObject:ingr.label];
+            }
+            newController.ingredientsForReminder = [NSArray arrayWithArray:ingredient];
+            newController.nameOfEventForCalendar = currRecipe.label;
         }
-        newController.ingredientsForReminder = [NSArray arrayWithArray:ingredient];
-        newController.nameOfEventForCalendar = currRecipe.label;
     }
     
 }

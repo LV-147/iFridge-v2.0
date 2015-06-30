@@ -8,7 +8,6 @@
 
 #import "RecipesViewController.h"
 #import "RecipeWithImage.h"
-#import "Recipe.h"
 #import "Ingredient.h"
 #import "UIViewController+Context.h"
 #import <QuartzCore/QuartzCore.h>
@@ -24,6 +23,7 @@
 
 
 @interface RecipesViewController () <UIAlertViewDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
+@property (strong, nonatomic) IBOutlet UISegmentedControl *selectDataSourceController;
 @property (weak, nonatomic) IBOutlet UIButton *dataSourceButton;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSArray *allRecipes;
@@ -33,16 +33,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.navigationController.navigationBar.tintColor = [UIColor redColor];
     self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     self.tableView.backgroundColor = [UIColor clearColor];
     
-    self.dataSource = @"Search results";
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        self.dataSource = @"Search results";
     
     if ([self.dataSource isEqualToString:@"Search results"]){
         [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         [self searchForRecipesForQuery:self.query];
     }else {
+        self.selectDataSourceController.selectedSegmentIndex = 1;
         [self getRecipesFromCoreData];
     }
 }
@@ -81,7 +83,10 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    else
+        [[self navigationController] setNavigationBarHidden:NO animated:YES];
     self.searchBar.text = self.query;
     if ([self.dataSource isEqualToString:@"My recipes"]) {
         [self getRecipesFromCoreData];
@@ -181,6 +186,22 @@
     }
 }
 
+- (IBAction)changeDataSource:(UISegmentedControl *)sender {
+    switch (sender.selectedSegmentIndex) {
+        case 0:
+            self.dataSource = @"Search results";
+            [self searchForRecipesForQuery:self.query];
+            break;
+        case 1:
+            self.dataSource = @"My recipes";
+            [self getRecipesFromCoreData];
+            [self.tableView reloadData];
+            break;
+        default:
+            break;
+    }
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -255,8 +276,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (<#condition#>) {
-        <#statements#>
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        UIStoryboard *iPad = [UIStoryboard storyboardWithName:@"iPad" bundle:nil];
+        RecipeWithImage *detailRecipeController = [iPad instantiateViewControllerWithIdentifier:@"detailController"];
+        [detailRecipeController initWithRecipeAtIndex:indexPath.row from:self.recipes];
     }
 }
 

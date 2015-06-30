@@ -16,10 +16,9 @@
 #import <GooglePlus/GPPURLHandler.h>
 #import "PushAnimator.h"
 #import "PopAnimator.h"
-#import "RecipesTVC.h"
 #import "DataDownloader.h"
 #import <Parse/Parse.h>
-#import "RecipesTVC.h"
+#import "RecipesViewController.h"
 
 static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1kpc.apps.googleusercontent.com";
 
@@ -39,7 +38,6 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
     [self refreshInterfaceBasedOnSignIn];
     self.navigationController.delegate = self;
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
-    self.navigationController.navigationBar.tintColor = [UIColor redColor];
     self.navigationController.view.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     self.view.backgroundColor = [UIColor clearColor];
     self.searchTextField.delegate = self;
@@ -301,7 +299,7 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
         }
         
         
-        RecipesTVC *newController = segue.destinationViewController;
+        RecipesViewController *newController = segue.destinationViewController;
         newController.query = [self.searchTextField.text stringByReplacingOccurrencesOfString: @" " withString:@"+"];
         newController.dataSource = @"Search results";
         newController.userEmail = self.userEmail;
@@ -314,7 +312,7 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
         NSLog(@"%@" , _userSocialNetwork);
     }
     if ([segue.identifier isEqualToString:@"SegueToMyRecipes"]){
-        RecipesTVC *newController = segue.destinationViewController;
+        RecipesViewController *newController = segue.destinationViewController;
         newController.dataSource = @"My recipes";
         
     }
