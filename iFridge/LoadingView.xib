@@ -10,10 +10,10 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image1" translatesAutoresizingMaskIntoConstraints="NO" id="ZZg-ge-7lV">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image1" translatesAutoresizingMaskIntoConstraints="NO" id="ZZg-ge-7lV">
+                    <rect key="frame" x="-813" y="-282" width="2001" height="1231"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="McH-VQ-9es">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="McH-VQ-9es">
                     <rect key="frame" x="37" y="184" width="300" height="300"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="300" id="Als-mW-thy"/>
@@ -22,6 +22,12 @@
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerY" secondItem="McH-VQ-9es" secondAttribute="centerY" constant="-0.5" id="Afc-cf-rf8"/>
+                <constraint firstAttribute="centerX" secondItem="ZZg-ge-7lV" secondAttribute="centerX" id="b9x-m6-z3X"/>
+                <constraint firstAttribute="centerY" secondItem="ZZg-ge-7lV" secondAttribute="centerY" id="ckT-4d-sKX"/>
+                <constraint firstAttribute="centerX" secondItem="McH-VQ-9es" secondAttribute="centerX" constant="0.5" id="eHD-V3-fR2"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <connections>
                 <outlet property="animImageView" destination="McH-VQ-9es" id="2wC-tM-mHr"/>

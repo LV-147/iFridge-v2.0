@@ -169,15 +169,15 @@
 }
 
 - (IBAction)selectDataSource:(UIButton *)sender {
-    if ([sender.currentTitle isEqualToString:@"Other recipes"]) {
+    if ([sender.currentTitle isEqualToString:@"Web"]) {
         self.dataSource = @"Search results";
         [self searchForRecipesForQuery:self.query];
-        [self.dataSourceButton setTitle:@"My recipes" forState:UIControlStateNormal];
+        [self.dataSourceButton setTitle:@"Book" forState:UIControlStateNormal];
     } else {
         self.dataSource = @"My recipes";
         [self getRecipesFromCoreData];
         [self.tableView reloadData];
-        [self.dataSourceButton setTitle:@"Other recipes" forState:UIControlStateNormal];
+        [self.dataSourceButton setTitle:@"Web" forState:UIControlStateNormal];
     }
 }
 
