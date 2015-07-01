@@ -43,8 +43,8 @@
     [self ifRecipeAtIndexSaved:self.index];
     
     self.carousel.type = iCarouselTypeLinear;
-    self.carousel.scrollSpeed = 0.4;
-    self.carousel.decelerationRate = 0.5;
+    self.carousel.scrollSpeed = 0.5;
+    self.carousel.decelerationRate = 0.7;
     
     self.index = self.index;
 }
@@ -65,13 +65,13 @@
 
 - (void)setIndex:(NSInteger)value {
     _index = value;
-    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%d/%d", _index+1, _carousel.numberOfItems];
+    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%ld", _index+1, (long)_carousel.numberOfItems];
 }
 
 - (void)initWithRecipeAtIndex:(NSInteger)recipeIndex from:(NSArray *)recipes {
     self.availableRecipes = [NSMutableArray arrayWithArray:recipes];
     self.index = recipeIndex;
-    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%d/%d", _index+1, _carousel.numberOfItems];
+    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%ld", _index+1, (long)_carousel.numberOfItems];
 }
 
 - (IBAction)googlePlusShareButton:(id)sender {
@@ -172,7 +172,7 @@
         [Recipe deleteRecipe:[self.availableRecipes objectAtIndex:self.index] fromManagedObjectContext:self.currentContext];
         [self.availableRecipes removeObjectAtIndex:_index];
         [self.carousel reloadData];
-        self.recipeCountIndicator.text = [NSString stringWithFormat:@"%d/%d", _index+1, _carousel.numberOfItems];
+        self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%ld", _index+1, (long)_carousel.numberOfItems];
     }
     
     if (!self.availableRecipes.count) {

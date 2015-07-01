@@ -42,6 +42,9 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
     self.navigationController.navigationBar.tintColor = [UIColor redColor];
     self.navigationController.view.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     self.view.backgroundColor = [UIColor clearColor];
+    
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    
     self.searchTextField.delegate = self;
     UIImage *buttonImageForGooglePlusSignInButton = [UIImage imageNamed:@"gplus-128.png"];
     UIImage *buttonImageForGooglePlusSignInButtonWhenPressed = [UIImage imageNamed:@"gplus-120.png"];
@@ -62,6 +65,17 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 
     FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
     loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self refreshInterfaceBasedOnSignIn];
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    
+    NSString *deviceType = [UIDevice currentDevice].model;
+    
+    if([deviceType isEqualToString:@"iPhone"] || [deviceType isEqualToString:@"iPhone Simulator"])
+        [DataDownloader networkIsReachable];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -109,12 +123,6 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
 
 - (void)disconnect {
     [[GPPSignIn sharedInstance] disconnect];
-}
-
--(void) viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self refreshInterfaceBasedOnSignIn];
-    [[self navigationController] setNavigationBarHidden:YES animated:YES];
 }
 
 -(void) viewDidAppear:(BOOL)animated{

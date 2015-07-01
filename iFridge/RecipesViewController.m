@@ -18,7 +18,6 @@
 #import "Recipe+Cat.h"
 #import "AddRecipeViewController.h"
 #import <Parse/Parse.h>
-//#import <SDWebImage/UIImageView+WebCache.h>
 
 @import CoreGraphics;
 
@@ -45,6 +44,9 @@
     }else {
         [self getRecipesFromCoreData];
     }
+    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
 }
 
 #pragma mark - search bar delegate
