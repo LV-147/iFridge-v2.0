@@ -21,7 +21,7 @@
     Ingredient *ingredient = nil;
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Ingredient"];
-    request.predicate = [NSPredicate predicateWithFormat:@"label = %@", [ingredienteDict valueForKey:@"label"]];
+    request.predicate = [NSPredicate predicateWithFormat:@"label = %@", [ingredienteDict valueForKey:@"food"]];
     
     NSError *error;
     NSArray *mathes = [context executeFetchRequest:request error:&error];
@@ -32,9 +32,9 @@
         ingredient = mathes.firstObject;
     }else{
         ingredient = [NSEntityDescription insertNewObjectForEntityForName:@"Ingredient" inManagedObjectContext:context];
-        ingredient.label = [ingredienteDict valueForKey:@"label"];
+        ingredient.label = [ingredienteDict valueForKey:@"text"];
         ingredient.quantity = [ingredienteDict valueForKey:@"quantity"];
-        ingredient.unitOfMeasure = [ingredienteDict valueForKey:@"units"];
+        ingredient.unitOfMeasure = [ingredienteDict valueForKey:@"measure"];
         if (recipe) ingredient.forRecipe = recipe;
         if (fridge) ingredient.fromFridge = fridge;
 

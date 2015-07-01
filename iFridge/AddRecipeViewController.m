@@ -11,8 +11,10 @@
 #import "Ingredient+Cat.h"
 #import "Recipe+Cat.h"
 #import "UIViewController+Context.h"
+#import <MobileCoreServices/MobileCoreServices.h>
+#import "IngredientCell.h"
 
-@interface AddRecipeViewController () <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface AddRecipeViewController () <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate>
 
 @end
 
@@ -20,10 +22,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]]];
     self.ingredients = [[NSMutableArray alloc] init];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,7 +37,47 @@
     [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
 }
 
+- (IBAction)done {
+    if ((![self.recipeLabel.text isEqualToString:@""] ||
+        ![self.recipeLabel.text isEqualToString:@"Recipe label"]) &&
+        self.ingredients.count) {
+        [self performSegueWithIdentifier:@"recipeAdded" sender:nil];
+    }else{
+        UIAlertView *emptyLabel = [[UIAlertView alloc] initWithTitle:@"Empty label"
+                                                             message:@"Please enter ingredient label and add one ingredient at least"
+                                                            delegate:self
+                                                   cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [emptyLabel show];
+    }
+}
+
 - (IBAction)takePicture {
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+        UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+        imagePicker.delegate = self;
+        imagePicker.mediaTypes = @[(NSString *)kUTTypeImage];
+        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        imagePicker.allowsEditing = YES;
+        [self presentViewController:imagePicker animated:YES completion:NULL];
+    }else{
+        UIAlertView *noCamera = [[UIAlertView alloc] initWithTitle:@"Sorry, this devise doesn't have camera"
+                                                           message:nil
+                                                          delegate:self
+                                                 cancelButtonTitle:@"OK"
+                                                 otherButtonTitles:nil];
+        [noCamera show];
+    }
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    self.recipeImage.image = info[UIImagePickerControllerEditedImage];
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 #pragma mark text field delegate
@@ -44,6 +85,12 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
+    return YES;
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    textField.text = @"";
     return YES;
 }
 
@@ -61,11 +108,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Ingredient cell" forIndexPath:indexPath];
+    IngredientCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Ingredient cell" forIndexPath:indexPath];
     
     NSDictionary *ingredient = [self.ingredients objectAtIndex:indexPath.row];
-    cell.textLabel.text = [ingredient valueForKey:@"label"];
-    cell.detailTextLabel.text = [ingredient valueForKey:@"quantity"];
+    cell.ingredientLabel.text = [ingredient valueForKey:@"label"];
+    cell.quantity.text = [[ingredient valueForKey:@"quantity"] stringValue];
+    cell.measure.text = [ingredient valueForKey:@"units"];
     return cell;
 }
 
@@ -75,9 +123,10 @@
 {
     AddIngredientsViewController *addIngredientsController = segue.sourceViewController;
     if (addIngredientsController.ingredientLabel.text) {
+        NSNumber *quantity = [NSNumber numberWithDouble:[addIngredientsController.quantityOfIngredient.text doubleValue]];
         NSDictionary *ingredient = [[NSDictionary alloc] initWithObjectsAndKeys:
                                     addIngredientsController.ingredientLabel.text, @"label",
-                                    addIngredientsController.quantityOfIngredient.text, @"quantity",
+                                    quantity, @"quantity",
                                     addIngredientsController.units.text, @"units",
                                     nil];
         [self.ingredients addObject:ingredient];

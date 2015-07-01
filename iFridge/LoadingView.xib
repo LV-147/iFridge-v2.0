@@ -11,26 +11,22 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image1" translatesAutoresizingMaskIntoConstraints="NO" id="ZZg-ge-7lV">
-                    <rect key="frame" x="0.0" y="0.0" width="2000" height="1231"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="1231" id="2gJ-87-16R"/>
-                        <constraint firstAttribute="width" constant="2000" id="NBU-iM-ov0"/>
-                    </constraints>
+                    <rect key="frame" x="-813" y="-282" width="2001" height="1231"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="McH-VQ-9es">
                     <rect key="frame" x="37" y="184" width="300" height="300"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="300" id="5Qb-uZ-q4p"/>
-                        <constraint firstAttribute="height" constant="300" id="caw-Xd-AEW"/>
+                        <constraint firstAttribute="width" constant="300" id="Als-mW-thy"/>
+                        <constraint firstAttribute="height" constant="300" id="oBh-Sd-kxX"/>
                     </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="ZZg-ge-7lV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="cpY-cP-a7x"/>
-                <constraint firstAttribute="centerX" secondItem="McH-VQ-9es" secondAttribute="centerX" id="eUd-TZ-NmG"/>
-                <constraint firstAttribute="centerY" secondItem="McH-VQ-9es" secondAttribute="centerY" id="hsa-6p-SBp"/>
-                <constraint firstItem="ZZg-ge-7lV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="kgB-ZP-tfF"/>
+                <constraint firstAttribute="centerY" secondItem="McH-VQ-9es" secondAttribute="centerY" constant="-0.5" id="Afc-cf-rf8"/>
+                <constraint firstAttribute="centerX" secondItem="ZZg-ge-7lV" secondAttribute="centerX" id="b9x-m6-z3X"/>
+                <constraint firstAttribute="centerY" secondItem="ZZg-ge-7lV" secondAttribute="centerY" id="ckT-4d-sKX"/>
+                <constraint firstAttribute="centerX" secondItem="McH-VQ-9es" secondAttribute="centerX" constant="0.5" id="eHD-V3-fR2"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <connections>
