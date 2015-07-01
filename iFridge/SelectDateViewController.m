@@ -23,6 +23,19 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+@synthesize delegate = _delegate;
+
+- (IBAction)datePicked:(UIDatePicker *)sender
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd-MM-yyyy HH:mm"];
+    NSString *formattedDate = [dateFormatter stringFromDate:self.datePicker.date];
+    self.selectDate.text = formattedDate;
+    [self.delegate pickDateWithSelectedDate:sender.date];
+}
+
+
+
 
 /*
 #pragma mark - Navigation
@@ -34,11 +47,17 @@
 }
 */
 
-- (IBAction)pickerAction:(id)sender {
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"dd-MM-yyyy HH:mm"];
-    NSString *formattedDate = [dateFormatter stringFromDate:self.datePicker.date];
-    self.selectDate.text = formattedDate;
-}
+
+
+//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    if ([segue.identifier isEqualToString:@"dateSegue"]){
+//        
+//    }
+//    ReminderTableViewController *newController = segue.destinationViewController;
+//    newController.selectedDate = self.selectDate.text;
+//}
+
+
+
 @end

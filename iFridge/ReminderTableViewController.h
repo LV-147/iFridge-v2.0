@@ -12,5 +12,7 @@
 
 @property (strong, nonatomic) NSArray *ingredientsForReminder;
 @property (strong, nonatomic) NSString *nameOfEventForCalendar;
+@property (strong, nonatomic) NSString *selectedDate;
+
 
 @end

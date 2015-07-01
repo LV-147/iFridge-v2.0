@@ -16,7 +16,7 @@
 
 @import EventKit;
 
-@interface ReminderTableViewController ()
+@interface ReminderTableViewController () <DatePickerDelegate>
 
 @property (strong, nonatomic) EKEventStore *eventStore;
 @property (strong, nonatomic) NSArray *todoItems;
@@ -25,6 +25,7 @@
 @property (nonatomic) BOOL isAccessToEventStoreGranted;
 @property (nonatomic, strong) NSString *savedEvent;
 @property (weak, nonatomic) IBOutlet UIButton *sendToCalendar;
+@property (strong, nonatomic) NSDate* pickedDate;
 
 @end
 
@@ -50,6 +51,10 @@
         self.todoItems = [NSArray arrayWithArray:self.ingredientsForReminder];
     }
     return _todoItems;
+}
+
+-(void)pickDateWithSelectedDate:(NSDate *)selectedDate {
+    self.pickedDate = selectedDate;
 }
 
 #pragma mark - View life cycle
@@ -157,8 +162,12 @@
         NSString *eventForCalendarTitle = [NSString stringWithFormat:@"To buy for %@", _nameOfEventForCalendar];
         event.title = eventForCalendarTitle;
         event.notes = [self.todoItems componentsJoinedByString:@"\n"];
-        event.startDate = [NSDate date]; //today
-        event.endDate = [event.startDate dateByAddingTimeInterval:60*60];  //set 1 hour meeting
+//        event.startDate = [NSDate date]; //today
+        event.startDate = self.pickedDate;
+        event.endDate = event.startDate;
+        
+        
+//        [event.startDate dateByAddingTimeInterval:60*60];  //set 1 hour meeting
         event.calendar = [eventStore defaultCalendarForNewEvents];
         NSError *err = nil;
         
@@ -351,7 +360,14 @@
 }
 
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"dateSegue"]){
 
+    }
+    SelectDateViewController *newController = segue.destinationViewController;
+    newController.delegate = self;
+}
 
 
 @end

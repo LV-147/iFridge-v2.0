@@ -7,10 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ReminderTableViewController.h"
+
+@protocol DatePickerDelegate <NSObject>
+
+-(void)pickDateWithSelectedDate:(NSDate *)selectedDate;
+
+@end
 
 @interface SelectDateViewController : UIViewController
+
+@property (weak, nonatomic) id <DatePickerDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UILabel *selectDate;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
-- (IBAction)pickerAction:(id)sender;
+
+
+
 
 @end
