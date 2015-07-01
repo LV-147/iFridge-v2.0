@@ -47,6 +47,8 @@
         self.selectDataSourceController.selectedSegmentIndex = 1;
         [self getRecipesFromCoreData];
     }
+    
+    self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
 }
 
 #pragma mark - search bar delegate
@@ -92,6 +94,11 @@
         [self getRecipesFromCoreData];
         [self.tableView reloadData];
     }
+    
+    NSString *deviceType = [UIDevice currentDevice].model;
+    
+    if([deviceType isEqualToString:@"iPad"]  || [deviceType isEqualToString:@"iPad Simulator"])
+        [DataDownloader networkIsReachable];
 }
 
 -(void) viewWillDisappear:(BOOL)animated {
@@ -104,41 +111,20 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     cell.backgroundColor = [UIColor clearColor];
-    
-    //cell.accessoryView = [UIImage]//[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"accessory.png"]];
 }
 
-//-(void)loading{
-//    if (self.recipes.count <= 100 && self.recipes.count != 0) {
-//        [activityIndicator stopAnimating];
-//        activityIndicator.hidesWhenStopped = YES;
-//    }
-//    else{
-//        [activityIndicator startAnimating];
-//    }
-//}
-
 -(void) doAnimation:(RecipesCell*) cell{
-    //    [cell.layer setBackgroundColor:[UIColor blackColor].CGColor];
-    //    [UIView beginAnimations:nil context:NULL];
-    //    [UIView setAnimationDuration:0.1];
-    //    [cell.layer setBackgroundColor:[UIColor whiteColor].CGColor];
-    //    [UIView commitAnimations];
+
     [cell setBackgroundColor:[UIColor blackColor]];
     
     [UIView animateWithDuration:0.2
                           delay:0.0
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^(void) {
-                         //Leave it empty
                          [cell setBackgroundColor:[UIColor whiteColor]];
                      }
                      completion:^(BOOL finished){
                          
-                         //                         // Your code goes here
-                         //                         [UIView animateWithDuration:1.0 delay:0.0 options:
-                         //                          UIViewAnimationOptionCurveEaseIn animations:^{
-                         //                          } completion:^ (BOOL completed) {}];
                      }];
 }
 

@@ -61,4 +61,31 @@ NSString *app_key = @"e6f6e485b0222cf1b48439a164562270";//@"e1309c8e747bdd4d7363
                                                            if (handler) handler();
                                                        }];
 }
+
++ (void)networkIsReachable {
+    NSURL *baseURL = [NSURL URLWithString:@"https://www.edamam.com/"];
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
+    
+    NSOperationQueue *operationQueue = manager.operationQueue;
+    [manager.reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        switch (status) {
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+                [operationQueue setSuspended:NO];
+                break;
+            case AFNetworkReachabilityStatusNotReachable:
+            default:
+                [operationQueue setSuspended:YES];
+                UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Warning"
+                                                                  message:@"You are not connected to the network"
+                                                                 delegate:nil
+                                                        cancelButtonTitle:@"Ok"
+                                                        otherButtonTitles:nil];
+                [message show];
+                break;
+        }
+    }];
+    
+    [manager.reachabilityManager startMonitoring];
+}
 @end

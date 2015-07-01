@@ -16,4 +16,6 @@
 
 + (void)setRecipeImageWithURL:(NSString *)imageLink usingImageView:(UIImageView *)imageView
         withCompletionHandler:(void(^)())handler;
+
++ (void)networkIsReachable;
 @end

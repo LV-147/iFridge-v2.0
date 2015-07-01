@@ -12,6 +12,7 @@
 #import <GooglePlus/GPPURLHandler.h>
 #import "RegExCategories.h"
 #import <Parse/Parse.h>
+#import "AFNetworkActivityIndicatorManager.h"
 
 @interface AppDelegate ()
 
@@ -31,6 +32,8 @@
     
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
     return [[FBSDKApplicationDelegate sharedInstance] application:application
                                     didFinishLaunchingWithOptions:launchOptions];
