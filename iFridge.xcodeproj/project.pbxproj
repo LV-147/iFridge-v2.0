@@ -61,7 +61,7 @@
 		D95A8DA71B3C3EF000881225 /* RecipeCarouselItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = D95A8DA61B3C3EF000881225 /* RecipeCarouselItem.xib */; };
 		D95A8DA91B3C60E000881225 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D95A8DA81B3C60E000881225 /* Main.storyboard */; };
 		D96D9ECA1B2F0A5F00D89452 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D96D9EC91B2F0A5F00D89452 /* iPhone.storyboard */; };
-		D984A5D01B3EA4FF00F83CB4 /* RecipesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D984A5CF1B3EA4FF00F83CB4 /* RecipesViewController.m */; };
+		D984A5D01B3EA4FF00F83CB4 /* RecipesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D984A5CF1B3EA4FF00F83CB4 /* RecipesTVC.m */; };
 		D984A5D31B3EB99D00F83CB4 /* Main menu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D984A5D21B3EB99D00F83CB4 /* Main menu.xib */; };
 		D992EE2A1B0A339A0093B3F7 /* Fridge.m in Sources */ = {isa = PBXBuildFile; fileRef = D992EE291B0A339A0093B3F7 /* Fridge.m */; };
 		D992EE331B0A34DA0093B3F7 /* Fridge+Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = D992EE321B0A34DA0093B3F7 /* Fridge+Cat.m */; };
@@ -167,8 +167,8 @@
 		D95A8DA61B3C3EF000881225 /* RecipeCarouselItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeCarouselItem.xib; sourceTree = "<group>"; };
 		D95A8DA81B3C60E000881225 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D96D9EC91B2F0A5F00D89452 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
-		D984A5CE1B3EA4FF00F83CB4 /* RecipesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesViewController.h; sourceTree = "<group>"; };
-		D984A5CF1B3EA4FF00F83CB4 /* RecipesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesViewController.m; sourceTree = "<group>"; };
+		D984A5CE1B3EA4FF00F83CB4 /* RecipesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesTVC.h; sourceTree = "<group>"; };
+		D984A5CF1B3EA4FF00F83CB4 /* RecipesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesTVC.m; sourceTree = "<group>"; };
 		D984A5D21B3EB99D00F83CB4 /* Main menu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Main menu.xib"; sourceTree = "<group>"; };
 		D992EE281B0A339A0093B3F7 /* Fridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fridge.h; sourceTree = "<group>"; };
 		D992EE291B0A339A0093B3F7 /* Fridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fridge.m; sourceTree = "<group>"; };
@@ -293,8 +293,8 @@
 		353567C41B131CD800B7E0FD /* Recipes */ = {
 			isa = PBXGroup;
 			children = (
-				D984A5CE1B3EA4FF00F83CB4 /* RecipesViewController.h */,
-				D984A5CF1B3EA4FF00F83CB4 /* RecipesViewController.m */,
+				D984A5CE1B3EA4FF00F83CB4 /* RecipesTVC.h */,
+				D984A5CF1B3EA4FF00F83CB4 /* RecipesTVC.m */,
 				D96D9EC81B2EFA8C00D89452 /* Add recipe */,
 				3597096D1B04FD98005064C0 /* RecipesCell.h */,
 				3597096E1B04FD98005064C0 /* RecipesCell.m */,
@@ -673,7 +673,7 @@
 				35AFA3461B1C5FC1006013AC /* PushAnimator.m in Sources */,
 				D9267F591B3AF16E00A551BA /* Recipe+Cat.m in Sources */,
 				BFEA48281B13475C008F5BEF /* LoadingView.m in Sources */,
-				D984A5D01B3EA4FF00F83CB4 /* RecipesViewController.m in Sources */,
+				D984A5D01B3EA4FF00F83CB4 /* RecipesTVC.m in Sources */,
 				BFEA482A1B13475C008F5BEF /* UIViewController+LoadingView.m in Sources */,
 				3584A2301B19F99800D21AF8 /* iCarousel.m in Sources */,
 				D992EE441B0B73090093B3F7 /* Recipe.m in Sources */,

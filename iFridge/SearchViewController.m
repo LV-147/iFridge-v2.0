@@ -18,7 +18,7 @@
 #import "PopAnimator.h"
 #import "DataDownloader.h"
 #import <Parse/Parse.h>
-#import "RecipesViewController.h"
+#import "RecipesTVC.h"
 
 static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1kpc.apps.googleusercontent.com";
 
@@ -299,7 +299,7 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
         }
         
         
-        RecipesViewController *newController = segue.destinationViewController;
+        RecipesTVC *newController = segue.destinationViewController;
         newController.query = [self.searchTextField.text stringByReplacingOccurrencesOfString: @" " withString:@"+"];
         newController.dataSource = @"Search results";
         newController.userEmail = self.userEmail;
@@ -312,7 +312,7 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
         NSLog(@"%@" , _userSocialNetwork);
     }
     if ([segue.identifier isEqualToString:@"SegueToMyRecipes"]){
-        RecipesViewController *newController = segue.destinationViewController;
+        RecipesTVC *newController = segue.destinationViewController;
         newController.dataSource = @"My recipes";
         
     }

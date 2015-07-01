@@ -299,7 +299,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ECc-JW-drH" kind="unwind" identifier="IngredientAdded" unwindAction="recipeAdded:" id="nDf-fo-fWq"/>
+                                    <action selector="done" destination="n9Q-MX-QFl" eventType="touchUpInside" id="nfF-sI-Oap"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3zv-Lx-sMB">
@@ -417,6 +417,7 @@
                         <outlet property="recipeLabel" destination="uFC-nK-k6T" id="8Sq-h7-FEH"/>
                         <outlet property="tableView" destination="3zv-Lx-sMB" id="dJV-TM-wlY"/>
                         <outlet property="weight" destination="WTA-gr-9vw" id="C9J-Um-aLB"/>
+                        <segue destination="ECc-JW-drH" kind="unwind" identifier="recipeAdded" unwindAction="recipeAdded:" id="cZH-Ze-2g3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rXN-KJ-O3B" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -507,7 +508,7 @@
                         <outlet property="ingredientLabel" destination="EUd-7v-Lc9" id="3Hv-H6-ZV8"/>
                         <outlet property="quantityOfIngredient" destination="s9o-cs-oaa" id="BhZ-gv-6rM"/>
                         <outlet property="units" destination="UDo-jU-36k" id="Kaz-ZH-gTW"/>
-                        <segue destination="RAd-An-DRJ" kind="unwind" unwindAction="ingredientAdded:" id="UvJ-Vy-BCL"/>
+                        <segue destination="RAd-An-DRJ" kind="unwind" identifier="ingredientAddedSegue" unwindAction="ingredientAdded:" id="UvJ-Vy-BCL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sfu-Z1-3YE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -832,10 +833,10 @@
             </objects>
             <point key="canvasLocation" x="978.5" y="-2797.5"/>
         </scene>
-        <!--Recipes View Controller-->
+        <!--RecipesTVC-->
         <scene sceneID="r7b-qr-4jL">
             <objects>
-                <viewController id="A3m-wf-HII" customClass="RecipesViewController" sceneMemberID="viewController">
+                <viewController id="A3m-wf-HII" customClass="RecipesTVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PXH-DY-YDe"/>
                         <viewControllerLayoutGuide type="bottom" id="9gZ-hq-ppw"/>
@@ -956,6 +957,9 @@
                                 <state key="normal" image="blue_cloud">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveAllRecipesToParse:" destination="A3m-wf-HII" eventType="touchUpInside" id="2MX-CP-SBV"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>

@@ -273,10 +273,10 @@
             </objects>
             <point key="canvasLocation" x="-2307" y="-3390"/>
         </scene>
-        <!--Recipes View Controller-->
+        <!--RecipesTVC-->
         <scene sceneID="m5t-2f-WJQ">
             <objects>
-                <viewController id="tIU-3P-KDZ" customClass="RecipesViewController" sceneMemberID="viewController">
+                <viewController id="tIU-3P-KDZ" customClass="RecipesTVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4mV-0j-yd1"/>
                         <viewControllerLayoutGuide type="bottom" id="1sk-Vr-1Rr"/>

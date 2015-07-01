@@ -11,7 +11,7 @@
 #import <AFNetworking/AFNetworking.h>
 
 
-@interface RecipesViewController : UIViewController
+@interface RecipesTVC : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSString *query;

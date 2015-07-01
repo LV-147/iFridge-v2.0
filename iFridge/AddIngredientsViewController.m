@@ -34,15 +34,15 @@
 }
 
 - (IBAction)done {
-    if ([self.ingredientLabel.text isEqualToString:@""] || [self.ingredientLabel.text isEqualToString:@"Label"]) {
-        UIAlertView *emptyLabel = [[UIAlertView alloc] initWithTitle:@"Enter ingrediente label at least"
-                                                             message:nil
+    if (![self.ingredientLabel.text isEqualToString:@""] ||
+        ![self.ingredientLabel.text isEqualToString:@"Label"]) {
+        [self performSegueWithIdentifier:@"ingredientAddedSegue" sender:nil];
+    }else{
+        UIAlertView *emptyLabel = [[UIAlertView alloc] initWithTitle:@"Empty label"
+                                                             message:@"Please enter ingredient label at least"
                                                             delegate:self
-                                                   cancelButtonTitle:@"OK"
-                                                   otherButtonTitles: nil];
+                                                   cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [emptyLabel show];
-    } else {
-        [self performSegueWithIdentifier:@"IngredientAdded" sender:nil];
     }
 }
 
