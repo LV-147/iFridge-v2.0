@@ -64,21 +64,14 @@
 
 - (void)setIndex:(NSInteger)value {
     _index = value;
-<<<<<<< HEAD
-    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%ld", _index+1, _carousel.numberOfItems];
-=======
+
     self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%ld", _index+1, (long)_carousel.numberOfItems];
->>>>>>> Taras_Hates_GitHub_branch
 }
 
 - (void)initWithRecipeAtIndex:(NSInteger)recipeIndex from:(NSArray *)recipes {
     self.availableRecipes = [NSMutableArray arrayWithArray:recipes];
     self.index = recipeIndex;
-<<<<<<< HEAD
-    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%ld", _index+1, _carousel.numberOfItems];
-=======
     self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%ld", _index+1, (long)_carousel.numberOfItems];
->>>>>>> Taras_Hates_GitHub_branch
 }
 
 - (IBAction)googlePlusShareButton:(id)sender {
