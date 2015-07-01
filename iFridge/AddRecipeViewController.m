@@ -12,6 +12,7 @@
 #import "Recipe+Cat.h"
 #import "UIViewController+Context.h"
 #import <MobileCoreServices/MobileCoreServices.h>
+#import "IngredientCell.h"
 
 @interface AddRecipeViewController () <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate>
 
@@ -107,11 +108,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Ingredient cell" forIndexPath:indexPath];
+    IngredientCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Ingredient cell" forIndexPath:indexPath];
     
     NSDictionary *ingredient = [self.ingredients objectAtIndex:indexPath.row];
-    cell.textLabel.text = [ingredient valueForKey:@"label"];
-    cell.detailTextLabel.text = [[ingredient valueForKey:@"quantity"] stringValue];
+    cell.ingredientLabel.text = [ingredient valueForKey:@"label"];
+    cell.quantity.text = [[ingredient valueForKey:@"quantity"] stringValue];
+    cell.measure.text = [ingredient valueForKey:@"units"];
     return cell;
 }
 

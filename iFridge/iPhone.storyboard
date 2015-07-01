@@ -302,30 +302,51 @@
                                     <action selector="done" destination="n9Q-MX-QFl" eventType="touchUpInside" id="nfF-sI-Oap"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3zv-Lx-sMB">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="40" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3zv-Lx-sMB">
                                 <rect key="frame" x="16" y="373" width="343" height="230"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Ingredient cell" textLabel="nOS-hp-oIX" detailTextLabel="YWd-Za-CNb" style="IBUITableViewCellStyleValue1" id="u9j-ai-Dbq">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Ingredient cell" rowHeight="40" id="u9j-ai-Dbq" customClass="IngredientCell">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="u9j-ai-Dbq" id="jMc-1i-MXv">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nOS-hp-oIX">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89l-3i-NTz">
+                                                    <rect key="frame" x="8" y="8" width="165" height="28"/>
+                                                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YWd-Za-CNb">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJ7-d0-Xy9">
+                                                    <rect key="frame" x="181" y="8" width="34" height="28"/>
+                                                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZS-Gk-qnR">
+                                                    <rect key="frame" x="223" y="8" width="112" height="28"/>
+                                                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="AJ7-d0-Xy9" firstAttribute="centerY" secondItem="AZS-Gk-qnR" secondAttribute="centerY" id="EfG-uk-nPi"/>
+                                                <constraint firstItem="AZS-Gk-qnR" firstAttribute="top" secondItem="jMc-1i-MXv" secondAttribute="topMargin" id="JRh-83-y5J"/>
+                                                <constraint firstItem="AJ7-d0-Xy9" firstAttribute="leading" secondItem="89l-3i-NTz" secondAttribute="trailing" constant="8" id="Pk3-0f-TGd"/>
+                                                <constraint firstItem="89l-3i-NTz" firstAttribute="top" secondItem="jMc-1i-MXv" secondAttribute="topMargin" id="XRJ-V4-FoD"/>
+                                                <constraint firstItem="AZS-Gk-qnR" firstAttribute="leading" secondItem="AJ7-d0-Xy9" secondAttribute="trailing" constant="8" id="YD6-nN-HzC"/>
+                                                <constraint firstAttribute="centerX" secondItem="AJ7-d0-Xy9" secondAttribute="centerX" constant="-26.5" id="dYp-gj-LEb"/>
+                                                <constraint firstItem="AZS-Gk-qnR" firstAttribute="trailing" secondItem="jMc-1i-MXv" secondAttribute="trailingMargin" id="lHd-4v-oce"/>
+                                                <constraint firstItem="89l-3i-NTz" firstAttribute="leading" secondItem="jMc-1i-MXv" secondAttribute="leadingMargin" id="q8j-vv-SwH"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="ingredientLabel" destination="89l-3i-NTz" id="uYY-wp-LrP"/>
+                                            <outlet property="measure" destination="AZS-Gk-qnR" id="wvd-bH-DWx"/>
+                                            <outlet property="quantity" destination="AJ7-d0-Xy9" id="8i5-yA-Yec"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
