@@ -20,8 +20,7 @@
 @interface RecipeWithImage () <UIAlertViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *recipeCountIndicator;
-@property (nonatomic) BOOL recipeSaved;
-@property (strong, nonatomic) NSMutableArray *availableRecipes;
+
 @property (nonatomic, assign) NSInteger recipeRow;
 @end
 
@@ -44,9 +43,8 @@
     self.carousel.type = iCarouselTypeLinear;
     self.carousel.scrollSpeed = 0.4;
     self.carousel.decelerationRate = 0.5;
-    
-    self.index = self.index;
 }
+
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
@@ -64,13 +62,7 @@
 
 - (void)setIndex:(NSInteger)value {
     _index = value;
-    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%ld", _index+1, _carousel.numberOfItems];
-}
-
-- (void)initWithRecipeAtIndex:(NSInteger)recipeIndex from:(NSArray *)recipes {
-    self.availableRecipes = [NSMutableArray arrayWithArray:recipes];
-    self.index = recipeIndex;
-    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%ld", _index+1, _carousel.numberOfItems];
+    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%d/%d", _index+1, _carousel.numberOfItems];
 }
 
 - (IBAction)googlePlusShareButton:(id)sender {
@@ -247,7 +239,7 @@
     return itemWidth;
 }
 
-
+#pragma mark Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"reminderSegue"]) {

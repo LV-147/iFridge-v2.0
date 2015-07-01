@@ -177,7 +177,7 @@
     if ([sender.currentTitle isEqualToString:@"Web"]) {
         self.dataSource = @"Search results";
         [self searchForRecipesForQuery:self.query];
-        [self.dataSourceButton setTitle:@"Book" forState:UIControlStateNormal];
+        [self.dataSourceButton setTitle:@"My recipes" forState:UIControlStateNormal];
     } else {
         self.dataSource = @"My recipes";
         [self getRecipesFromCoreData];
@@ -279,7 +279,9 @@
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         UIStoryboard *iPad = [UIStoryboard storyboardWithName:@"iPad" bundle:nil];
         RecipeWithImage *detailRecipeController = [iPad instantiateViewControllerWithIdentifier:@"detailController"];
-        [detailRecipeController initWithRecipeAtIndex:indexPath.row from:self.recipes];
+        detailRecipeController.index = indexPath.row;
+        detailRecipeController.availableRecipes = self.recipes;
+        [detailRecipeController.carousel reloadData];
     }
 }
 
@@ -295,8 +297,8 @@
         fromManagedObjectContext:self.currentContext];
             [availableRecipes removeObjectAtIndex:indexPath.row];
             self.recipes = availableRecipes;
-        }
-        [self.recipes removeObjectAtIndex:indexPath.row];
+        }else
+            [self.recipes removeObjectAtIndex:indexPath.row];
         [tableView reloadData]; // tell table to refresh now
     }
 }
@@ -310,8 +312,7 @@
         NSInteger recipeIndex = [self.tableView indexPathForCell:recipeCell].row;
         RecipeWithImage *newController = segue.destinationViewController;
         newController.index = recipeIndex;
-        [newController initWithRecipeAtIndex:recipeIndex from:self.recipes];
-        [self.tableView.tableHeaderView resignFirstResponder];
+        newController.availableRecipes = self.recipes;
     }
 }
 
@@ -321,12 +322,12 @@
     NSNumber *weight = [NSNumber numberWithDouble:[addRecipeController.weight.text doubleValue]];
     NSNumber *cookingTime = [NSNumber numberWithDouble:[addRecipeController.cookingTime.text doubleValue]];
     NSDictionary *recipeDict = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                addRecipeController.recipeLabel.text, @"label",
-                                addRecipeController.ingredients, @"ingredients",
-                                weight, @"totalWeight",
-                                cookingTime, @"cookingTime",
+                                addRecipeController.recipeLabel.text, RECIPE_LABEL_KEYPATH,
+                                addRecipeController.ingredients, RECIPE_INGREDIENTS_KEYPATH,
+                                weight, RECIPE_WEIGHT_KEYPATH,
+                                cookingTime, RECIPE_COOKING_TIME_KEYPATH,
                                 nil];
-    [self.recipes addObject:[Recipe createRecipeWithInfo:[NSDictionary dictionaryWithObject:recipeDict forKey:@"recipe"]
+    [self.recipes addObject:[Recipe createRecipeWithInfo:recipeDict
                                   inManagedObiectContext:self.currentContext]];
     [self.tableView reloadData];
 }

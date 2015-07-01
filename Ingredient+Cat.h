@@ -9,6 +9,10 @@
 #import "Ingredient.h"
 #import "Recipe.h"
 
+#define INGREDIENT_LABEL_KEY @"text"
+#define INGREDIENT_QUANTITY_KEY @"quantity"
+#define INGREDIENT_MEASURE_KEY @"measure"
+
 @interface Ingredient (Cat)
 + (Ingredient *)addIngredientForRecipe:(Recipe *)recipe
                               withInfo:(NSDictionary *)ingredienteDict
