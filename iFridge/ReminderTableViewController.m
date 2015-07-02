@@ -64,8 +64,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+
     self.navigationController.toolbarHidden = NO;
+    
 
     
     self.title = @"To Buy!";
@@ -94,6 +95,7 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.navigationController.toolbar.hidden = NO;
 }
 -(void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -162,9 +164,14 @@
         NSString *eventForCalendarTitle = [NSString stringWithFormat:@"To buy for %@", _nameOfEventForCalendar];
         event.title = eventForCalendarTitle;
         event.notes = [self.todoItems componentsJoinedByString:@"\n"];
-//        event.startDate = [NSDate date]; //today
-        event.startDate = self.pickedDate;
-        event.endDate = event.startDate;
+//      event.startDate = [NSDate date]; //today
+        if (!self.pickedDate) {
+            event.startDate = [NSDate date];
+            event.endDate = [event.startDate dateByAddingTimeInterval:60*60]; //set 1 hour meeting
+        } else {
+            event.startDate = self.pickedDate;
+            event.endDate = event.startDate;
+        }
         
         
 //        [event.startDate dateByAddingTimeInterval:60*60];  //set 1 hour meeting

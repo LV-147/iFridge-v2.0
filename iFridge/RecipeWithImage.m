@@ -59,6 +59,8 @@
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
+//    self.recipeCountIndicator.userInteractionEnabled = YES;
+    self.navigationController.toolbar.hidden = YES;
     
     self.carousel.currentItemIndex = self.index;
     self.carousel.scrollSpeed = 0.5;
