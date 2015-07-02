@@ -20,9 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]]];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
-  
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,9 +33,28 @@
     [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
 }
 
+- (IBAction)done {
+    if (![self.ingredientLabel.text isEqualToString:@""] ||
+        ![self.ingredientLabel.text isEqualToString:@"Label"]) {
+        [self performSegueWithIdentifier:@"ingredientAddedSegue" sender:nil];
+    }else{
+        UIAlertView *emptyLabel = [[UIAlertView alloc] initWithTitle:@"Empty label"
+                                                             message:@"Please enter ingredient label at least"
+                                                            delegate:self
+                                                   cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [emptyLabel show];
+    }
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
+    return YES;
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    textField.text = @"";
     return YES;
 }
 

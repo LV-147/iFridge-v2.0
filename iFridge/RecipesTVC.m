@@ -8,7 +8,6 @@
 
 #import "RecipesTVC.h"
 #import "RecipeWithImage.h"
-#import "Recipe.h"
 #import "Ingredient.h"
 #import "UIViewController+Context.h"
 #import <QuartzCore/QuartzCore.h>
@@ -23,8 +22,9 @@
 @import CoreGraphics;
 
 
-@interface RecipesTVC () <UIAlertViewDelegate, UISearchBarDelegate>
+@interface RecipesTVC () <UIAlertViewDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UISegmentedControl *selectDataSourceController;
+@property (weak, nonatomic) IBOutlet UIButton *dataSourceButton;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSArray *allRecipes;
 @end
@@ -33,11 +33,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    self.navigationController.navigationBar.tintColor = [UIColor redColor];
     self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     self.tableView.backgroundColor = [UIColor clearColor];
     
-    self.dataSource =  @"Search results";
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        self.dataSource = @"Search results";
     
     if ([self.dataSource isEqualToString:@"Search results"]){
         [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
@@ -46,8 +47,6 @@
         self.selectDataSourceController.selectedSegmentIndex = 1;
         [self getRecipesFromCoreData];
     }
-    self.navigationController.toolbarHidden = NO;
-    self.navigationController.toolbar.tintColor=[UIColor redColor];
 }
 
 #pragma mark - search bar delegate
@@ -84,6 +83,10 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    else
+        [[self navigationController] setNavigationBarHidden:NO animated:YES];
     self.searchBar.text = self.query;
     if ([self.dataSource isEqualToString:@"My recipes"]) {
         [self getRecipesFromCoreData];
@@ -141,17 +144,16 @@
 
 - (void)searchForRecipesForQuery:(NSString *)newQuery
 {
-        self.selectDataSourceController.selectedSegmentIndex = 0;
-        [self showLoadingViewInView:self.view];
-        [DataDownloader downloadRecipesForQuery:newQuery withCompletionHandler:^(NSArray *recipes){
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.recipes = [[NSMutableArray alloc]initWithArray:recipes];
-                //self.recipes = recipes;
-                [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
-                [self.tableView reloadData];
-                [self performSelector:@selector(hideLoadingViewThreadSave) withObject:nil afterDelay:0];
-            });
-        }];
+    [self showLoadingViewInView:self.view];
+    [DataDownloader downloadRecipesForQuery:newQuery withCompletionHandler:^(NSArray *recipes){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.recipes = [[NSMutableArray alloc]initWithArray:recipes];
+            //self.recipes = recipes;
+            [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
+            [self.tableView reloadData];
+            [self performSelector:@selector(hideLoadingViewThreadSave) withObject:nil afterDelay:0];
+        });
+    }];
 }
 
 - (void)getRecipesFromCoreData
@@ -171,7 +173,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)selectDataSource:(UISegmentedControl *)sender {
+- (IBAction)selectDataSource:(UIButton *)sender {
+    if ([sender.currentTitle isEqualToString:@"Web"]) {
+        self.dataSource = @"Search results";
+        [self searchForRecipesForQuery:self.query];
+        [self.dataSourceButton setTitle:@"Book" forState:UIControlStateNormal];
+    } else {
+        self.dataSource = @"My recipes";
+        [self getRecipesFromCoreData];
+        [self.tableView reloadData];
+        [self.dataSourceButton setTitle:@"Web" forState:UIControlStateNormal];
+    }
+}
+
+- (IBAction)changeDataSource:(UISegmentedControl *)sender {
     switch (sender.selectedSegmentIndex) {
         case 0:
             self.dataSource = @"Search results";
@@ -184,15 +199,8 @@
             break;
         default:
             break;
-    }    
+    }
 }
-
--(IBAction)sortByTime:(id)sender{
-    self.allRecipes = [self.allRecipes sortedArrayUsingSelector: @selector(compare:)];
-    
-
-}
-
 
 #pragma mark - Table view data source
 
@@ -208,9 +216,10 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    RecipesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myCell"];
-
-
+//    RecipesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Recipe cell"];
+    RecipesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Recipe cell" forIndexPath:indexPath];
+    
+    
     NSString *urlImageString = [[NSString alloc] init];
     if ([self.dataSource isEqualToString:@"Search results"]) {
         urlImageString = [[self.recipes objectAtIndex:indexPath.row] valueForKeyPath:@"recipe.image"];
@@ -222,7 +231,7 @@
     UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     activityIndicator.center = cell.recipeImageCell.center;
     activityIndicator.hidesWhenStopped = YES;
-
+    
     [cell.recipeImageCell addSubview:activityIndicator];
     [activityIndicator startAnimating];
     
@@ -232,7 +241,7 @@
                     withCompletionHandler:^{
                         [activityIndicator removeFromSuperview];
                     }];
-
+    
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
     [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
     [numberFormatter setMaximumFractionDigits:0];
@@ -264,6 +273,15 @@
         
         return cell;
     }
+    
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        UIStoryboard *iPad = [UIStoryboard storyboardWithName:@"iPad" bundle:nil];
+        RecipeWithImage *detailRecipeController = [iPad instantiateViewControllerWithIdentifier:@"detailController"];
+        [detailRecipeController initWithRecipeAtIndex:indexPath.row from:self.recipes];
+    }
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -275,12 +293,11 @@
         if([self.dataSource  isEqual: @"My recipes"]){
             NSMutableArray *availableRecipes = [[NSMutableArray alloc] initWithArray:self.recipes];
             [Recipe deleteRecipe:[availableRecipes objectAtIndex:indexPath.row]
-                                          fromManagedObjectContext:self.currentContext];
+        fromManagedObjectContext:self.currentContext];
             [availableRecipes removeObjectAtIndex:indexPath.row];
             self.recipes = availableRecipes;
         }
-        else
-            [self.recipes removeObjectAtIndex:indexPath.row];
+        [self.recipes removeObjectAtIndex:indexPath.row];
         [tableView reloadData]; // tell table to refresh now
     }
 }
@@ -302,39 +319,108 @@
 - (IBAction)recipeAdded:(UIStoryboardSegue *)segue
 {
     AddRecipeViewController *addRecipeController = segue.sourceViewController;
+    NSNumber *weight = [NSNumber numberWithDouble:[addRecipeController.weight.text doubleValue]];
+    NSNumber *cookingTime = [NSNumber numberWithDouble:[addRecipeController.cookingTime.text doubleValue]];
     NSDictionary *recipeDict = [[NSDictionary alloc] initWithObjectsAndKeys:
                                 addRecipeController.recipeLabel.text, @"label",
                                 addRecipeController.ingredients, @"ingredients",
-                                addRecipeController.weight, @"weight",
-                                addRecipeController.cookingTime, @"cooking time",
+                                weight, @"totalWeight",
+                                cookingTime, @"cookingTime",
                                 nil];
-    [self.recipes addObject:[Recipe createRecipeWithInfo:[NSDictionary dictionaryWithObject:recipeDict forKey:@"recipe"] inManagedObiectContext:self.currentContext]];
+    [self.recipes addObject:[Recipe createRecipeWithInfo:[NSDictionary dictionaryWithObject:recipeDict forKey:@"recipe"]
+                                  inManagedObiectContext:self.currentContext]];
     [self.tableView reloadData];
 }
+
+
 - (IBAction)saveAllRecipesToParse:(id)sender {
     
     self.saveAllRecipes.hidden = YES;
+    
     for (int i=0; i < self.recipes.count; i++) {
-        PFObject *SomeProduct = [PFObject objectWithClassName:@"SavedProducts"];
-        SomeProduct[@"UserEmail"] = _userEmail;
-        SomeProduct[@"UserId"] = _userId;
-        SomeProduct[@"DishName"] = self.recipes[i][@"recipe"][@"label"];
-        SomeProduct[@"DishIngredients"] = self.recipes[i][@"recipe"][@"ingredientLines"];
-        SomeProduct[@"Calories"] = self.recipes[i][@"recipe"][@"calories"];
-        SomeProduct[@"CookingLevel"] = self.recipes[i][@"recipe"][@"level"];
-        SomeProduct[@"CookingTime"] = [NSString stringWithFormat:@"Cooking time: %@ min", self.recipes[i][@"recipe"][@"cookingTime"]];
-        SomeProduct[@"Fat"] = self.recipes[i][@"recipe"][@"totalNutrients"][@"FAT"][@"quantity"];
-        SomeProduct[@"Weight"] = self.recipes[i][@"recipe"][@"totalWeight"];
-        SomeProduct[@"Sugars"] = self.recipes[i][@"recipe"][@"totalNutrients"][@"SUGAR"][@"quantity"];
-        SomeProduct[@"ImageUrl"] = self.recipes[i][@"recipe"][@"image"];
-        SomeProduct[@"UserName"] = _userName;
-        SomeProduct[@"SocialNetwork"] = _userSocialNetwork;
-        
-        
-        [SomeProduct saveInBackground];
+        if( _userEmail != nil &&
+           _userId != nil &&
+           self.recipes[i][@"recipe"][@"ingredientLines"] != nil &&
+           self.recipes[i][@"recipe"][@"label"] != nil &&
+           self.recipes[i][@"recipe"][@"calories"] != nil &&
+           self.recipes[i][@"recipe"][@"totalNutrients"][@"FAT"][@"quantity"] != nil &&
+           self.recipes[i][@"recipe"][@"totalWeight"] != nil &&
+           self.recipes[i][@"recipe"][@"totalNutrients"][@"SUGAR"][@"quantity"] != nil &&
+           self.recipes[i][@"recipe"][@"image"] != nil &&
+           _userName != nil &&
+           _userSocialNetwork != nil ){
+            
+            //        NSLog(@"%@", _userEmail);
+            //        NSLog(@"%@", _userId);
+            //        NSLog(@"%@", self.recipes[i][@"recipe"][@"label"]);
+            //        NSLog(@"%@", self.recipes[i][@"recipe"][@"ingredientLines"]);
+            //        NSLog(@"%@", self.recipes[i][@"recipe"][@"calories"]);
+            //        NSLog(@"%@", self.recipes[i][@"recipe"][@"level"]);
+            //        NSLog(@"%@", [NSString stringWithFormat:@"Cooking time: %@ min", self.recipes[i][@"recipe"][@"cookingTime"]]);
+            //        NSLog(@"%@", self.recipes[i][@"recipe"][@"totalNutrients"][@"FAT"][@"quantity"]);
+            //        NSLog(@"%@", self.recipes[i][@"recipe"][@"totalWeight"]);
+            //        NSLog(@"%@", self.recipes[i][@"recipe"][@"totalNutrients"][@"SUGAR"][@"quantity"]);
+            //        NSLog(@"%@", self.recipes[i][@"recipe"][@"image"]);
+            //        NSLog(@"%@", _userName);
+            //        NSLog(@"%@", _userSocialNetwork);
+            
+            PFObject *SomeProduct = [PFObject objectWithClassName:@"SavedProducts"];
+            SomeProduct[@"UserEmail"] = _userEmail;
+            SomeProduct[@"UserId"] = _userId;
+            SomeProduct[@"DishName"] = self.recipes[i][@"recipe"][@"label"];
+            SomeProduct[@"DishIngredients"] = self.recipes[i][@"recipe"][@"ingredientLines"];
+            SomeProduct[@"Calories"] = self.recipes[i][@"recipe"][@"calories"];
+            SomeProduct[@"CookingLevel"] = @"Cooking Level Not Allowed For This Recipe";
+            SomeProduct[@"CookingTime"] = @"Cooking Time Not Allowed For This Recipe";
+            SomeProduct[@"Fat"] = self.recipes[i][@"recipe"][@"totalNutrients"][@"FAT"][@"quantity"];
+            SomeProduct[@"Weight"] = self.recipes[i][@"recipe"][@"totalWeight"];
+            SomeProduct[@"Sugars"] = self.recipes[i][@"recipe"][@"totalNutrients"][@"SUGAR"][@"quantity"];
+            SomeProduct[@"ImageUrl"] = self.recipes[i][@"recipe"][@"image"];
+            SomeProduct[@"UserName"] = _userName;
+            SomeProduct[@"SocialNetwork"] = _userSocialNetwork;
+            
+            
+            [SomeProduct saveInBackground];
+        }
     }
-
 }
 
-@end
+- (IBAction)sortByName:(id)sender {
+    
 
+
+   /* NSSortDescriptor *sortDescriptor;
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"calories"
+                                                 ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    NSArray *sortedArray;
+    sortedArray = [self.allRecipes sortedArrayUsingDescriptors:sortDescriptors];
+  
+    self.allRecipes=sortedArray;
+    */
+    
+    NSMutableArray *unsortedNames = [[NSMutableArray alloc]init];
+    for (int i=0; i< self.allRecipes.count; i++) {
+        Recipe *temp = self.allRecipes[i];
+        NSString *name = temp.label;
+        [unsortedNames addObject:name];
+    }
+    NSArray *sortedNames  = [ unsortedNames sortedArrayUsingSelector:@selector(compare:)];
+    NSMutableArray *sortedRecipes = [[NSMutableArray alloc]init];
+    /*
+    for (int i=0; i < sortedNames.count; i++) {
+        for (int j=0; j < self.allRecipes.count; j++) {
+            if (self.allRecipes[j][@"label"] == sortedNames[i]) {
+                [sortedRecipes addObject:self.allRecipes[j]];
+            }
+        }
+    }
+    */
+    
+   // self.allRecipes = sortedRecipes;
+    
+    [self.tableView reloadData];
+    
+
+}
+@end
