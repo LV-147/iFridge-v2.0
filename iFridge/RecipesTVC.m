@@ -279,7 +279,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (UIUserInterfaceIdiomPad)
-        [self updateDetailRecipesControllerWithIndex:indexPath.row];
+        [self.detailRecipeController.carousel scrollToItemAtIndex:indexPath.row animated:YES];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
