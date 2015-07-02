@@ -18,5 +18,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *googleButton;
 @property (strong, nonatomic) IBOutlet FBSDKLikeButton *facebookButton;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
+@property (strong, nonatomic) IBOutlet UIView *visualEffect;
 
 @end

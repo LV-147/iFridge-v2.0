@@ -169,7 +169,7 @@
         NSArray *a = [n instantiateWithOwner:self options:nil];
         recipeCarouselItem = [a firstObject];
         
-        [recipeCarouselItem layoutSubviews];
+        [recipeCarouselItem layoutIfNeeded];
     }
     else
     {
