@@ -140,8 +140,11 @@
             [self performSelector:@selector(hideLoadingViewThreadSave) withObject:nil afterDelay:0];
         });
     }];
+<<<<<<< HEAD
     self.byNameButton.hidden = YES;
     self.byCaloriesButton.hidden = YES;
+=======
+>>>>>>> 0fbc5f768003a1d8305c5988a5f013ddd6a54db6
 }
 
 - (void)getRecipesFromCoreData
@@ -318,6 +321,7 @@
                                 nil];
     [self.recipes addObject:[Recipe createRecipeWithInfo:recipeDict
                                   inManagedObiectContext:self.currentContext]];
+<<<<<<< HEAD
     [self.tableView reloadData];
 }
 
@@ -424,6 +428,61 @@
     
     self.recipes = sortedRecipes;
     
+=======
+>>>>>>> 0fbc5f768003a1d8305c5988a5f013ddd6a54db6
     [self.tableView reloadData];
+}
+
+
+- (IBAction)saveAllRecipesToParse:(id)sender {
+    
+    self.saveAllRecipes.hidden = YES;
+    
+    for (int i=0; i < self.recipes.count; i++) {
+        if( _userEmail != nil &&
+           _userId != nil &&
+           self.recipes[i][@"recipe"][@"ingredientLines"] != nil &&
+           self.recipes[i][@"recipe"][@"label"] != nil &&
+           self.recipes[i][@"recipe"][@"calories"] != nil &&
+           self.recipes[i][@"recipe"][@"totalNutrients"][@"FAT"][@"quantity"] != nil &&
+           self.recipes[i][@"recipe"][@"totalWeight"] != nil &&
+           self.recipes[i][@"recipe"][@"totalNutrients"][@"SUGAR"][@"quantity"] != nil &&
+           self.recipes[i][@"recipe"][@"image"] != nil &&
+           _userName != nil &&
+           _userSocialNetwork != nil ){
+            
+            //        NSLog(@"%@", _userEmail);
+            //        NSLog(@"%@", _userId);
+            //        NSLog(@"%@", self.recipes[i][@"recipe"][@"label"]);
+            //        NSLog(@"%@", self.recipes[i][@"recipe"][@"ingredientLines"]);
+            //        NSLog(@"%@", self.recipes[i][@"recipe"][@"calories"]);
+            //        NSLog(@"%@", self.recipes[i][@"recipe"][@"level"]);
+            //        NSLog(@"%@", [NSString stringWithFormat:@"Cooking time: %@ min", self.recipes[i][@"recipe"][@"cookingTime"]]);
+            //        NSLog(@"%@", self.recipes[i][@"recipe"][@"totalNutrients"][@"FAT"][@"quantity"]);
+            //        NSLog(@"%@", self.recipes[i][@"recipe"][@"totalWeight"]);
+            //        NSLog(@"%@", self.recipes[i][@"recipe"][@"totalNutrients"][@"SUGAR"][@"quantity"]);
+            //        NSLog(@"%@", self.recipes[i][@"recipe"][@"image"]);
+            //        NSLog(@"%@", _userName);
+            //        NSLog(@"%@", _userSocialNetwork);
+            
+            PFObject *SomeProduct = [PFObject objectWithClassName:@"SavedProducts"];
+            SomeProduct[@"UserEmail"] = _userEmail;
+            SomeProduct[@"UserId"] = _userId;
+            SomeProduct[@"DishName"] = self.recipes[i][@"recipe"][@"label"];
+            SomeProduct[@"DishIngredients"] = self.recipes[i][@"recipe"][@"ingredientLines"];
+            SomeProduct[@"Calories"] = self.recipes[i][@"recipe"][@"calories"];
+            SomeProduct[@"CookingLevel"] = @"Cooking Level Not Allowed For This Recipe";
+            SomeProduct[@"CookingTime"] = @"Cooking Time Not Allowed For This Recipe";
+            SomeProduct[@"Fat"] = self.recipes[i][@"recipe"][@"totalNutrients"][@"FAT"][@"quantity"];
+            SomeProduct[@"Weight"] = self.recipes[i][@"recipe"][@"totalWeight"];
+            SomeProduct[@"Sugars"] = self.recipes[i][@"recipe"][@"totalNutrients"][@"SUGAR"][@"quantity"];
+            SomeProduct[@"ImageUrl"] = self.recipes[i][@"recipe"][@"image"];
+            SomeProduct[@"UserName"] = _userName;
+            SomeProduct[@"SocialNetwork"] = _userSocialNetwork;
+            
+            
+            [SomeProduct saveInBackground];
+        }
+    }
 }
 @end
