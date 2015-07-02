@@ -41,7 +41,6 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="ingredient-list" translatesAutoresizingMaskIntoConstraints="NO" id="O2w-vf-8gG">
                     <rect key="frame" x="16" y="334" width="343" height="290"/>
                 </imageView>
-<<<<<<< HEAD
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="photo-frame" translatesAutoresizingMaskIntoConstraints="NO" id="7z1-Jd-XRq">
                     <rect key="frame" x="49" y="50" width="277" height="304"/>
                     <constraints>
@@ -66,10 +65,6 @@
                             <include reference="YaE-cA-wef"/>
                         </mask>
                     </variation>
-=======
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo-frame" translatesAutoresizingMaskIntoConstraints="NO" id="ZWu-MP-GeX">
-                    <rect key="frame" x="49" y="52" width="277" height="341"/>
->>>>>>> 0fbc5f768003a1d8305c5988a5f013ddd6a54db6
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSn-Gb-psf" customClass="FBSDKLikeButton">
                     <rect key="frame" x="16" y="624" width="49" height="46"/>
@@ -146,7 +141,6 @@
                         </mask>
                     </variation>
                 </label>
-<<<<<<< HEAD
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" pagingEnabled="YES" editable="NO" text="bgfdb" translatesAutoresizingMaskIntoConstraints="NO" id="Tlf-se-ZBw">
                     <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -155,36 +149,9 @@
                         <rect key="frame" x="228" y="60" width="127" height="557"/>
                     </variation>
                 </textView>
-=======
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jES-Z5-FmC">
-                    <rect key="frame" x="95" y="590" width="49" height="46"/>
-                    <state key="normal" image="330273-64">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4PK-dY-zTv" customClass="FBSDKLikeButton">
-                    <rect key="frame" x="28" y="590" width="49" height="46"/>
-                    <state key="normal" image="330273-64">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qoG-by-0d5">
-                    <rect key="frame" x="309" y="532" width="50" height="50"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="50" id="BER-Ub-ddD"/>
-                        <constraint firstAttribute="height" constant="50" id="dCi-sE-MmC"/>
-                    </constraints>
-                    <state key="normal" backgroundImage="save-icon">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
->>>>>>> 0fbc5f768003a1d8305c5988a5f013ddd6a54db6
             </subviews>
             <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
             <constraints>
-<<<<<<< HEAD
                 <constraint firstAttribute="bottom" secondItem="jSn-Gb-psf" secondAttribute="bottom" constant="-3" id="113-jE-I96"/>
                 <constraint firstAttribute="trailing" secondItem="aQR-aP-Chw" secondAttribute="trailing" constant="16" id="1Zj-Ef-JaN"/>
                 <constraint firstAttribute="bottom" secondItem="4Gb-qu-rld" secondAttribute="bottom" constant="-3" id="1nm-SR-Gm9"/>
@@ -266,24 +233,6 @@
                 <constraint firstItem="7z1-Jd-XRq" firstAttribute="top" secondItem="eNb-48-BbU" secondAttribute="top" constant="50" id="xSP-fR-W7E"/>
                 <constraint firstAttribute="trailing" secondItem="O2w-vf-8gG" secondAttribute="trailing" constant="16" id="yb4-Uq-d9n"/>
                 <constraint firstItem="qYv-zk-w9f" firstAttribute="bottom" secondItem="Tlf-se-ZBw" secondAttribute="top" constant="-20" id="yuE-jP-NdF"/>
-=======
-                <constraint firstAttribute="bottom" secondItem="Shd-ta-eAd" secondAttribute="bottom" constant="303" id="60k-wF-DUY"/>
-                <constraint firstAttribute="bottom" secondItem="a3l-dS-ufE" secondAttribute="bottom" constant="85" id="7iZ-Zc-XF0"/>
-                <constraint firstItem="Shd-ta-eAd" firstAttribute="top" secondItem="ZWu-MP-GeX" secondAttribute="bottom" constant="-71" id="Aor-EE-Wrm"/>
-                <constraint firstItem="a3l-dS-ufE" firstAttribute="top" secondItem="Shd-ta-eAd" secondAttribute="bottom" constant="25" id="DAA-v2-ZyT"/>
-                <constraint firstAttribute="trailing" secondItem="ZWu-MP-GeX" secondAttribute="trailing" constant="49" id="WGL-zm-eG0"/>
-                <constraint firstItem="ZWu-MP-GeX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="49" id="XX8-w4-nnz"/>
-                <constraint firstAttribute="trailing" secondItem="a3l-dS-ufE" secondAttribute="trailing" constant="16" id="bpz-4Z-4V8"/>
-                <constraint firstItem="qoG-by-0d5" firstAttribute="bottom" secondItem="a3l-dS-ufE" secondAttribute="bottom" id="fjQ-Z6-sdK"/>
-                <constraint firstItem="a3l-dS-ufE" firstAttribute="top" secondItem="ZWu-MP-GeX" secondAttribute="bottom" constant="-4" id="g5E-yZ-bmn"/>
-                <constraint firstItem="Shd-ta-eAd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="322" id="gYh-fZ-tDn"/>
-                <constraint firstItem="qoG-by-0d5" firstAttribute="trailing" secondItem="a3l-dS-ufE" secondAttribute="trailing" id="gsU-W3-qYg"/>
-                <constraint firstItem="ZWu-MP-GeX" firstAttribute="leading" secondItem="Shd-ta-eAd" secondAttribute="trailing" constant="-263" id="l2P-Nf-GkD"/>
-                <constraint firstItem="a3l-dS-ufE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="pUQ-97-owN"/>
-                <constraint firstItem="Shd-ta-eAd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="63" id="rXw-Y4-G3h"/>
-                <constraint firstAttribute="trailing" secondItem="Shd-ta-eAd" secondAttribute="trailing" constant="63" id="rZm-A9-ih0"/>
-                <constraint firstItem="ZWu-MP-GeX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="52" id="skQ-We-9EL"/>
->>>>>>> 0fbc5f768003a1d8305c5988a5f013ddd6a54db6
             </constraints>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -402,7 +351,6 @@
                 </mask>
             </variation>
             <connections>
-<<<<<<< HEAD
                 <outlet property="facebookButton" destination="jSn-Gb-psf" id="fRt-s6-JWB"/>
                 <outlet property="googleButton" destination="4Gb-qu-rld" id="O6g-9t-nYa"/>
                 <outlet property="recipeItemFrame" destination="7z1-Jd-XRq" id="PsM-8M-0Qo"/>
@@ -410,25 +358,13 @@
                 <outlet property="recipeItemName" destination="qYv-zk-w9f" id="zEH-6H-kbC"/>
                 <outlet property="recipeItemTextField" destination="Tlf-se-ZBw" id="QNB-kq-6Jw"/>
                 <outlet property="saveButton" destination="aQR-aP-Chw" id="gDr-Dp-d13"/>
-=======
-                <outlet property="facebookButton" destination="4PK-dY-zTv" id="EGy-wo-wM3"/>
-                <outlet property="googleButton" destination="jES-Z5-FmC" id="cMw-sD-POX"/>
-                <outlet property="recipeItemFrame" destination="ZWu-MP-GeX" id="dDG-yj-mOp"/>
-                <outlet property="recipeItemImage" destination="fIL-2V-Tlu" id="NJM-jQ-eHl"/>
-                <outlet property="recipeItemName" destination="Shd-ta-eAd" id="Bhc-KG-DpI"/>
-                <outlet property="recipeItemTextField" destination="a3l-dS-ufE" id="5Kh-RT-avh"/>
-                <outlet property="saveButton" destination="qoG-by-0d5" id="9eH-B2-mFG"/>
->>>>>>> 0fbc5f768003a1d8305c5988a5f013ddd6a54db6
             </connections>
             <point key="canvasLocation" x="201.5" y="178.5"/>
         </view>
     </objects>
     <resources>
         <image name="330273-64" width="64" height="64"/>
-<<<<<<< HEAD
         <image name="ingredient-list" width="894" height="563"/>
-=======
->>>>>>> 0fbc5f768003a1d8305c5988a5f013ddd6a54db6
         <image name="photo-frame" width="1291" height="1600"/>
         <image name="save-icon" width="170" height="170"/>
     </resources>

@@ -21,7 +21,6 @@
 @property (strong, nonatomic) NSString *userId;
 @property (strong, nonatomic) NSString *userName;
 @property (strong, nonatomic) NSString *userSocialNetwork;
-<<<<<<< HEAD
 @property (weak, nonatomic) IBOutlet UIButton *byNameButton;
 @property (weak, nonatomic) IBOutlet UIButton *byCaloriesButton;
 
@@ -29,11 +28,5 @@
 - (IBAction)saveAllRecipesToParse:(id)sender;
 - (IBAction)sortByName:(id)sender;
 - (IBAction)sortByCalories:(id)sender;
-=======
-
-@property (strong, nonatomic) IBOutlet UIButton *saveAllRecipes;
-- (IBAction)saveAllRecipesToParse:(id)sender;
-
->>>>>>> 0fbc5f768003a1d8305c5988a5f013ddd6a54db6
 
 @end
