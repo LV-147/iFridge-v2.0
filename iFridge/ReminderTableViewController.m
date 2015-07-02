@@ -43,9 +43,6 @@
     return _eventStore;
 }
 
-
-
-
 - (NSArray *)todoItems {
     if (!_todoItems) {
         _todoItems = [@[@"You need to do smth!"] mutableCopy];
@@ -155,6 +152,9 @@
 }
 
 #pragma mark - IBActions
+- (IBAction)cancel:(UIBarButtonItem *)sender {
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
+}
 
 
 - (IBAction)sendToCalendar:(id)sender {
@@ -211,6 +211,8 @@
     {
         [sender setEnabled:NO];
     }
+    if (UIUserInterfaceIdiomPad)
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
 }
 
 

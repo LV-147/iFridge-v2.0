@@ -39,16 +39,16 @@
 }
 
 - (IBAction)done {
-    if ((![self.recipeLabel.text isEqualToString:@""] ||
-        ![self.recipeLabel.text isEqualToString:@"Recipe label"]) &&
-        self.ingredients.count) {
-        [self performSegueWithIdentifier:@"recipeAdded" sender:nil];
-    }else{
+    if ([self.recipeLabel.text isEqualToString:@""] ||
+        [self.recipeLabel.text isEqualToString:@"Recipe label"] ||
+        !self.ingredients.count) {
         UIAlertView *emptyLabel = [[UIAlertView alloc] initWithTitle:@"Empty label"
                                                              message:@"Please enter ingredient label and add one ingredient at least"
                                                             delegate:self
                                                    cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [emptyLabel show];
+    }else{
+        [self performSegueWithIdentifier:@"recipeAdded" sender:nil];
     }
 }
 
