@@ -388,6 +388,7 @@
                                                 <constraint firstAttribute="centerX" secondItem="51Q-to-g44" secondAttribute="centerX" constant="-26.5" id="z2P-c0-a5l"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="ingredientLabel" destination="TzS-wK-YVX" id="BVA-j4-nQD"/>
                                             <outlet property="measure" destination="cew-Wq-7yV" id="8sk-AU-jdC"/>
@@ -443,6 +444,7 @@
                         <outlet property="cookingTime" destination="BKg-Rr-9Ha" id="Dhl-MK-VAO"/>
                         <outlet property="recipeImage" destination="byZ-6Q-cEN" id="d10-0K-gBh"/>
                         <outlet property="recipeLabel" destination="uFC-nK-k6T" id="8Sq-h7-FEH"/>
+                        <outlet property="tableView" destination="00C-u2-O6W" id="NSO-eo-ptd"/>
                         <outlet property="weight" destination="WTA-gr-9vw" id="C9J-Um-aLB"/>
                         <segue destination="ECc-JW-drH" kind="unwind" identifier="recipeAdded" unwindAction="recipeAdded:" id="cZH-Ze-2g3"/>
                     </connections>

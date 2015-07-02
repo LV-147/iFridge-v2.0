@@ -60,7 +60,6 @@
 		D926FC231B2B3FC1003FB68C /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = D926FC221B2B3FC1003FB68C /* Ingredient.m */; };
 		D94ACC351B441CB80065ABF6 /* IngredientCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D94ACC341B441CB80065ABF6 /* IngredientCell.m */; };
 		D95A8DA71B3C3EF000881225 /* RecipeCarouselItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = D95A8DA61B3C3EF000881225 /* RecipeCarouselItem.xib */; };
-		D95A8DA91B3C60E000881225 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D95A8DA81B3C60E000881225 /* Main.storyboard */; };
 		D96D9ECA1B2F0A5F00D89452 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D96D9EC91B2F0A5F00D89452 /* iPhone.storyboard */; };
 		D984A5D01B3EA4FF00F83CB4 /* RecipesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D984A5CF1B3EA4FF00F83CB4 /* RecipesTVC.m */; };
 		D984A5D31B3EB99D00F83CB4 /* Main menu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D984A5D21B3EB99D00F83CB4 /* Main menu.xib */; };
@@ -168,7 +167,6 @@
 		D94ACC331B441CB80065ABF6 /* IngredientCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngredientCell.h; sourceTree = "<group>"; };
 		D94ACC341B441CB80065ABF6 /* IngredientCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngredientCell.m; sourceTree = "<group>"; };
 		D95A8DA61B3C3EF000881225 /* RecipeCarouselItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeCarouselItem.xib; sourceTree = "<group>"; };
-		D95A8DA81B3C60E000881225 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D96D9EC91B2F0A5F00D89452 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
 		D984A5CE1B3EA4FF00F83CB4 /* RecipesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesTVC.h; sourceTree = "<group>"; };
 		D984A5CF1B3EA4FF00F83CB4 /* RecipesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesTVC.m; sourceTree = "<group>"; };
@@ -467,7 +465,6 @@
 			children = (
 				D96D9EC91B2F0A5F00D89452 /* iPhone.storyboard */,
 				D9267F531B3AE36B00A551BA /* iPad.storyboard */,
-				D95A8DA81B3C60E000881225 /* Main.storyboard */,
 				D984A5D21B3EB99D00F83CB4 /* Main menu.xib */,
 			);
 			name = "Main UI";
@@ -618,7 +615,6 @@
 				357A59041AFFDF3C0094B0AC /* LaunchScreen.xib in Resources */,
 				357A59011AFFDF3C0094B0AC /* Images.xcassets in Resources */,
 				D96D9ECA1B2F0A5F00D89452 /* iPhone.storyboard in Resources */,
-				D95A8DA91B3C60E000881225 /* Main.storyboard in Resources */,
 				D984A5D31B3EB99D00F83CB4 /* Main menu.xib in Resources */,
 				D95A8DA71B3C3EF000881225 /* RecipeCarouselItem.xib in Resources */,
 				35A9D7101B08F1B7005EF9BF /* GooglePlus.bundle in Resources */,

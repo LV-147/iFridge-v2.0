@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *dataSourceButton;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSArray *allRecipes;
+@property (strong, nonatomic) RecipeWithImage *detailRecipeController;
 @end
 
 @implementation RecipesTVC
@@ -36,9 +37,11 @@
     self.navigationController.navigationBar.tintColor = [UIColor redColor];
     self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     self.tableView.backgroundColor = [UIColor clearColor];
-    
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    self.recipes = [[NSMutableArray alloc] init];
+    if (UIUserInterfaceIdiomPad) {
         self.dataSource = @"Search results";
+        self.detailRecipeController = [self.splitViewController.viewControllers objectAtIndex:1];
+    }
     
     if ([self.dataSource isEqualToString:@"Search results"]){
         [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
@@ -65,7 +68,7 @@
 {
     if ([self.dataSource isEqualToString:@"My recipes"]) {
         if ([searchText isEqualToString:@""]) {
-            self.recipes = [[NSMutableArray alloc]initWithArray:self.allRecipes];
+            self.recipes = [NSMutableArray arrayWithArray:self.allRecipes];
             [searchBar resignFirstResponder];
         }else{
             NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Recipe *evaluatedObject, NSDictionary *bindings) {
@@ -77,7 +80,7 @@
             }];
             
             NSArray *filteredRecipes = [self.allRecipes filteredArrayUsingPredicate:predicate];
-            self.recipes = [[NSMutableArray alloc]initWithArray:filteredRecipes];
+            self.recipes = [NSMutableArray arrayWithArray:filteredRecipes];
         }
         [self.tableView reloadData];
     }
@@ -133,10 +136,10 @@
     [self showLoadingViewInView:self.view];
     [DataDownloader downloadRecipesForQuery:newQuery withCompletionHandler:^(NSArray *recipes){
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.recipes = [[NSMutableArray alloc]initWithArray:recipes];
-            //self.recipes = recipes;
+            self.recipes = [NSMutableArray arrayWithArray:recipes];
             [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
             [self.tableView reloadData];
+            [self updateDetailRecipesControllerWithIndex:0];
             [self performSelector:@selector(hideLoadingViewThreadSave) withObject:nil afterDelay:0];
         });
     }];
@@ -147,10 +150,12 @@
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Recipe"];
     request.predicate = nil;
     NSError *error;
-    self.recipes = [[NSMutableArray alloc]initWithArray:[self.currentContext executeFetchRequest:request error:&error]];
+    self.recipes = [NSMutableArray arrayWithArray:[self.currentContext executeFetchRequest:request error:&error]];
     //self.recipes = [self.currentContext executeFetchRequest:request error:&error];
     self.allRecipes = self.recipes;
     [self.tableView reloadData];
+    [self updateDetailRecipesControllerWithIndex:0];
+
 }
 
 
@@ -185,6 +190,14 @@
             break;
         default:
             break;
+    }
+}
+
+- (void)updateDetailRecipesControllerWithIndex:(NSUInteger)index {
+    if (UIUserInterfaceIdiomPad) {
+        self.detailRecipeController.availableRecipes = self.recipes;
+        self.detailRecipeController.index = index;
+        [self.detailRecipeController.carousel reloadData];
     }
 }
 
@@ -262,12 +275,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        RecipeWithImage *detailRecipeController = [self.splitViewController.viewControllers objectAtIndex:1];
-        detailRecipeController.index = indexPath.row;
-        detailRecipeController.availableRecipes = self.recipes;
-        [detailRecipeController.carousel reloadData];
-    }
+    if (UIUserInterfaceIdiomPad)
+        [self updateDetailRecipesControllerWithIndex:indexPath.row];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -276,15 +285,11 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        if([self.dataSource  isEqual: @"My recipes"]){
-            NSMutableArray *availableRecipes = [[NSMutableArray alloc] initWithArray:self.recipes];
-            [Recipe deleteRecipe:[availableRecipes objectAtIndex:indexPath.row]
-        fromManagedObjectContext:self.currentContext];
-            [availableRecipes removeObjectAtIndex:indexPath.row];
-            self.recipes = availableRecipes;
-        }else
-            [self.recipes removeObjectAtIndex:indexPath.row];
+        if([self.dataSource  isEqual: @"My recipes"])
+            [Recipe deleteRecipe:[self.recipes objectAtIndex:indexPath.row] fromManagedObjectContext:self.currentContext];
+        [self.recipes removeObjectAtIndex:indexPath.row];
         [tableView reloadData]; // tell table to refresh now
+        [self updateDetailRecipesControllerWithIndex:indexPath.row];
     }
 }
 

@@ -16,11 +16,12 @@
 #import <GooglePlus/GPPShare.h>
 #import <FBSDKShareKit/FBSDKLikeControl.h>
 #import "RecipeCarouselItem.h"
+#import "RecipesTVC.h"
 
 @interface RecipeWithImage () <UIAlertViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *recipeCountIndicator;
-
+@property (strong, nonatomic) RecipesTVC *masterRecipeController;
 @property (nonatomic, assign) NSInteger recipeRow;
 @end
 
@@ -29,12 +30,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationController.view.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     self.carousel.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     
     self.title = @"Recipe";
-
-    self.view.backgroundColor = [UIColor clearColor];
     
     self.recipeCountIndicator.text = @"";
     
@@ -44,6 +42,9 @@
     self.carousel.scrollSpeed = 0.5;
     self.carousel.decelerationRate = 0.7;
     
+    if (UIUserInterfaceIdiomPad)
+        self.masterRecipeController = (RecipesTVC *)((UINavigationController *)[self.splitViewController.viewControllers objectAtIndex:0]).topViewController;
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -52,8 +53,6 @@
     
     self.carousel.currentItemIndex = self.index;
     self.carousel.scrollSpeed = 0.5;
-    
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
 }
 
 - (void)awakeFromNib
@@ -115,7 +114,11 @@
         [Recipe deleteRecipe:[self.availableRecipes objectAtIndex:self.index] fromManagedObjectContext:self.currentContext];
         [self.availableRecipes removeObjectAtIndex:_index];
         [self.carousel reloadData];
-        self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%ld", _index+1, (long)_carousel.numberOfItems];
+        self.recipeCountIndicator.text = [NSString stringWithFormat:@"%d/%d", _index+1, _carousel.numberOfItems];
+        if (UIUserInterfaceIdiomPad) {
+            self.masterRecipeController.recipes = self.availableRecipes;
+            [self.masterRecipeController.tableView reloadData];
+        }
     }
     
     if (!self.availableRecipes.count) {
@@ -232,7 +235,9 @@
 
 - (void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel {
     self.index = carousel.currentItemIndex;
-//    [self ifRecipeAtIndexSaved:self.index];
+    [self.masterRecipeController.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:self.index inSection:0]
+                                                       animated:YES
+                                                 scrollPosition:UITableViewScrollPositionNone];
 }
 
 - (CGFloat)carouselItemWidth:(iCarousel *)carousel {
