@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1802C40D1B457E6600713E41 /* OnePasswordExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1802C40C1B457E6600713E41 /* OnePasswordExtension.m */; };
+		1802C4101B457E7C00713E41 /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1802C40F1B457E7C00713E41 /* KeychainWrapper.m */; };
+		1802C4121B457E9600713E41 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1802C4111B457E9600713E41 /* LoginViewController.swift */; };
+		1802C4141B457EB800713E41 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1802C4131B457EB800713E41 /* MasterViewController.swift */; };
 		3508A0821B3AC2E7005F4D30 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3508A0801B3AC2E7005F4D30 /* Bolts.framework */; };
 		3508A0831B3AC2E7005F4D30 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3508A0811B3AC2E7005F4D30 /* Parse.framework */; };
 		3508A0851B3AC2FC005F4D30 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3508A0841B3AC2FC005F4D30 /* Social.framework */; };
@@ -90,6 +94,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1802C40B1B457E6600713E41 /* OnePasswordExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnePasswordExtension.h; sourceTree = "<group>"; };
+		1802C40C1B457E6600713E41 /* OnePasswordExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnePasswordExtension.m; sourceTree = "<group>"; };
+		1802C40E1B457E7C00713E41 /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainWrapper.h; sourceTree = "<group>"; };
+		1802C40F1B457E7C00713E41 /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
+		1802C4111B457E9600713E41 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1802C4131B457EB800713E41 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		3508A0801B3AC2E7005F4D30 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		3508A0811B3AC2E7005F4D30 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		3508A0841B3AC2FC005F4D30 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -246,6 +256,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1802C40A1B457E4000713E41 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				1802C40B1B457E6600713E41 /* OnePasswordExtension.h */,
+				1802C40C1B457E6600713E41 /* OnePasswordExtension.m */,
+				1802C40E1B457E7C00713E41 /* KeychainWrapper.h */,
+				1802C40F1B457E7C00713E41 /* KeychainWrapper.m */,
+				1802C4111B457E9600713E41 /* LoginViewController.swift */,
+				1802C4131B457EB800713E41 /* MasterViewController.swift */,
+			);
+			name = Swift;
+			sourceTree = "<group>";
+		};
 		2148CB0A076F4DE6CA217E2F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,6 +338,7 @@
 		357A58E41AFFDF3C0094B0AC = {
 			isa = PBXGroup;
 			children = (
+				1802C40A1B457E4000713E41 /* Swift */,
 				D992EE3D1B0B651E0093B3F7 /* Categories */,
 				357A58EF1AFFDF3C0094B0AC /* iFridge */,
 				357A590C1AFFDF3D0094B0AC /* iFridgeTests */,
@@ -677,13 +701,16 @@
 				D984A5D01B3EA4FF00F83CB4 /* RecipesTVC.m in Sources */,
 				BFEA482A1B13475C008F5BEF /* UIViewController+LoadingView.m in Sources */,
 				3584A2301B19F99800D21AF8 /* iCarousel.m in Sources */,
+				1802C40D1B457E6600713E41 /* OnePasswordExtension.m in Sources */,
 				D992EE441B0B73090093B3F7 /* Recipe.m in Sources */,
+				1802C4101B457E7C00713E41 /* KeychainWrapper.m in Sources */,
 				D992EE3C1B0B54090093B3F7 /* UIViewController+Context.m in Sources */,
 				35AFA34D1B1C728F006013AC /* FridgeTableViewController.m in Sources */,
 				357A58F61AFFDF3C0094B0AC /* AppDelegate.m in Sources */,
 				D992EE4D1B0B9D220093B3F7 /* iFridge.xcdatamodeld in Sources */,
 				D9180D4B1B21CFE0005854C6 /* ReminderTableViewController.m in Sources */,
 				BFDD51761B21DCCE0039A630 /* RecipeCarouselItem.m in Sources */,
+				1802C4141B457EB800713E41 /* MasterViewController.swift in Sources */,
 				D94ACC351B441CB80065ABF6 /* IngredientCell.m in Sources */,
 				D926FC201B2B2EA5003FB68C /* AddIngredientsViewController.m in Sources */,
 				F3948BFB1B138AE600D149D0 /* UIButton+ReminderBlock.m in Sources */,
@@ -692,6 +719,7 @@
 				D992EE2A1B0A339A0093B3F7 /* Fridge.m in Sources */,
 				3597096F1B04FD98005064C0 /* RecipesCell.m in Sources */,
 				D992EE4E1B0B9D220093B3F7 /* Ingredient+Cat.m in Sources */,
+				1802C4121B457E9600713E41 /* LoginViewController.swift in Sources */,
 				F3948BEF1B137BDB00D149D0 /* UIAlertView+FridgeBlock.m in Sources */,
 				D992EE331B0A34DA0093B3F7 /* Fridge+Cat.m in Sources */,
 				F3948BEC1B137BB300D149D0 /* UIButton+FridgeBlock.m in Sources */,
