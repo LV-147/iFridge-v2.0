@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F1077" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="h2X-tC-U0S">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="h2X-tC-U0S">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -78,6 +78,45 @@
             </objects>
             <point key="canvasLocation" x="978.5" y="-2053.5"/>
         </scene>
+        <!--Select Date-->
+        <scene sceneID="YUx-u0-Chu">
+            <objects>
+                <viewController id="bwe-Ih-6tt" customClass="SelectDate" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="R1t-Xl-iQ7"/>
+                        <viewControllerLayoutGuide type="bottom" id="QJh-Yx-9ws"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5u4-Gz-fD4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="c0z-eo-vpr">
+                                <rect key="frame" x="16" y="295" width="343" height="180"/>
+                                <date key="date" timeIntervalSinceReferenceDate="457538998.13900697">
+                                    <!--2015-07-02 14:09:58 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="datePicked:" destination="bwe-Ih-6tt" eventType="valueChanged" id="Cqs-ll-bb9"/>
+                                </connections>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ae4-bg-WFf">
+                                <rect key="frame" x="94" y="123" width="186" height="54"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="c0z-eo-vpr" id="Xb2-bt-pTj"/>
+                        <outlet property="selectDate" destination="Ae4-bg-WFf" id="HCz-7v-ulf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s5a-ra-01Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2058.5" y="-2069.5"/>
+        </scene>
         <!--Reminder Table View Controller-->
         <scene sceneID="zCW-zh-Q2R">
             <objects>
@@ -110,6 +149,13 @@
                             <outlet property="delegate" destination="KUQ-L5-Ki6" id="L8q-m0-RI1"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Selecte Date" id="bb0-2R-peM">
+                            <connections>
+                                <segue destination="bwe-Ih-6tt" kind="show" identifier="dateSegue" id="ZLh-7m-fyG"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="6Mr-67-8TL">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Jo1-M3-Zqy">
                             <connections>
@@ -117,6 +163,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="sendToCalendar" destination="Uie-0F-aFS" id="UqN-EN-d8E"/>
                     </connections>
