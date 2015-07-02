@@ -24,8 +24,11 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *saveAllRecipes;
 - (IBAction)saveAllRecipesToParse:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *byNameButton;
+@property (weak, nonatomic) IBOutlet UIButton *byCaloriesButton;
 
 - (IBAction)sortByName:(id)sender;
+- (IBAction)sortByCalories:(id)sender;
 
 
 @end

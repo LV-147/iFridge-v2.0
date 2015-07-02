@@ -154,6 +154,8 @@
             [self performSelector:@selector(hideLoadingViewThreadSave) withObject:nil afterDelay:0];
         });
     }];
+    self.byNameButton.hidden = YES;
+    self.byCaloriesButton.hidden = YES;
 }
 
 - (void)getRecipesFromCoreData
@@ -165,6 +167,8 @@
     //self.recipes = [self.currentContext executeFetchRequest:request error:&error];
     self.allRecipes = self.recipes;
     [self.tableView reloadData];
+    self.byNameButton.hidden = NO;
+    self.byCaloriesButton.hidden = NO;
 }
 
 
@@ -386,19 +390,7 @@
 }
 
 - (IBAction)sortByName:(id)sender {
-    
 
-
-   /* NSSortDescriptor *sortDescriptor;
-    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"calories"
-                                                 ascending:YES];
-    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-    NSArray *sortedArray;
-    sortedArray = [self.allRecipes sortedArrayUsingDescriptors:sortDescriptors];
-  
-    self.allRecipes=sortedArray;
-    */
-    
     NSMutableArray *unsortedNames = [[NSMutableArray alloc]init];
     for (int i=0; i< self.allRecipes.count; i++) {
         Recipe *temp = self.allRecipes[i];
@@ -407,20 +399,48 @@
     }
     NSArray *sortedNames  = [ unsortedNames sortedArrayUsingSelector:@selector(compare:)];
     NSMutableArray *sortedRecipes = [[NSMutableArray alloc]init];
-    /*
-    for (int i=0; i < sortedNames.count; i++) {
-        for (int j=0; j < self.allRecipes.count; j++) {
-            if (self.allRecipes[j][@"label"] == sortedNames[i]) {
-                [sortedRecipes addObject:self.allRecipes[j]];
+    
+    for (NSString *dishName in sortedNames) {
+        for (int i=0; i< self.allRecipes.count; i++) {
+            Recipe *temp = self.allRecipes[i];
+            NSString *name = temp.label;
+            if(name == dishName){
+                [sortedRecipes addObject:temp];
             }
         }
     }
-    */
-    
-   // self.allRecipes = sortedRecipes;
+
+    self.recipes = sortedRecipes;
     
     [self.tableView reloadData];
-    
-
 }
+
+- (IBAction)sortByCalories:(id)sender {
+    NSMutableArray *unsortedCalories = [[NSMutableArray alloc]init];
+    for (int i=0; i< self.allRecipes.count; i++) {
+        Recipe *temp = self.allRecipes[i];
+        NSNumber *calories = temp.calories;
+        [unsortedCalories addObject:calories];
+    }
+    
+    NSArray *sortedCalories  = [ unsortedCalories sortedArrayUsingSelector:@selector(compare:)];
+    NSMutableArray *sortedRecipes = [[NSMutableArray alloc]init];
+    
+    for (NSNumber *calories in sortedCalories) {
+        for (int i=0; i< self.allRecipes.count; i++) {
+            Recipe *temp = self.allRecipes[i];
+            NSNumber *call = temp.calories;
+            if(([call doubleValue] == [calories doubleValue])){
+                
+                [sortedRecipes addObject:temp];
+            }
+        }
+    }
+    
+    self.recipes = sortedRecipes;
+   
+    [self.tableView reloadData];
+}
+
+
 @end
