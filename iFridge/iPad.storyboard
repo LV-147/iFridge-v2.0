@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<<<<<<< HEAD
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F1077" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CYb-dP-gza">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+=======
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CYb-dP-gza">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+>>>>>>> 1db69f38cd81b81e379d741bee01bfaa99e88ea1
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -1409,7 +1415,11 @@
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLz-ow-SsZ">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+<<<<<<< HEAD
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+=======
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+>>>>>>> 1db69f38cd81b81e379d741bee01bfaa99e88ea1
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
@@ -1418,7 +1428,11 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAJ-yo-xZN">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+<<<<<<< HEAD
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+=======
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+>>>>>>> 1db69f38cd81b81e379d741bee01bfaa99e88ea1
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
@@ -1467,7 +1481,11 @@
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Units" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xlx-mD-eea">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+<<<<<<< HEAD
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+=======
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+>>>>>>> 1db69f38cd81b81e379d741bee01bfaa99e88ea1
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
