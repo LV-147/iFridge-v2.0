@@ -9,6 +9,7 @@
 #import "DataDownloader.h"
 #import <AFNetworking/AFNetworking.h>
 #import <SDWebImage/SDWebImageManager.h>
+#import "Ingredient.h"
 
 @interface DataDownloader()
 
@@ -88,4 +89,17 @@ NSString *app_key = @"e6f6e485b0222cf1b48439a164562270";//@"e1309c8e747bdd4d7363
     
     [manager.reachabilityManager startMonitoring];
 }
+
++ (NSString *)getQueryStringFromArray:(NSMutableArray *)array {
+    NSString *queryString = @"";
+    for (Ingredient *ing in array) {
+        queryString = [queryString stringByAppendingString:ing.label];
+        if(!(ing == [array lastObject])){
+            queryString = [queryString stringByAppendingString:@", "];
+        }
+    }
+    
+    return queryString;
+}
+
 @end
