@@ -263,8 +263,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        UIStoryboard *iPad = [UIStoryboard storyboardWithName:@"iPad" bundle:nil];
-        RecipeWithImage *detailRecipeController = [iPad instantiateViewControllerWithIdentifier:@"detailController"];
+        RecipeWithImage *detailRecipeController = [self.splitViewController.viewControllers objectAtIndex:1];
         detailRecipeController.index = indexPath.row;
         detailRecipeController.availableRecipes = self.recipes;
         [detailRecipeController.carousel reloadData];
