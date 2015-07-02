@@ -72,6 +72,7 @@
 		D9B7D82D1B21C64200D5787E /* DataDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B7D82C1B21C64200D5787E /* DataDownloader.m */; };
 		EF56840EE7AA6C558D3C459C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4825B68449CDFCB0DC868FD /* libPods.a */; };
 		F32029F11B31DB9F0017FCA0 /* AddProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F32029F01B31DB9F0017FCA0 /* AddProductViewController.m */; };
+		F325DDF01B457E0000CBF32B /* SelectDate.m in Sources */ = {isa = PBXBuildFile; fileRef = F325DDEF1B457E0000CBF32B /* SelectDate.m */; };
 		F3948BEC1B137BB300D149D0 /* UIButton+FridgeBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = F3948BEB1B137BB300D149D0 /* UIButton+FridgeBlock.m */; };
 		F3948BEF1B137BDB00D149D0 /* UIAlertView+FridgeBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = F3948BEE1B137BDB00D149D0 /* UIAlertView+FridgeBlock.m */; };
 		F3948BF81B138AC900D149D0 /* UIAlertView+ReminderBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = F3948BF71B138AC900D149D0 /* UIAlertView+ReminderBlock.m */; };
@@ -187,6 +188,8 @@
 		E4825B68449CDFCB0DC868FD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F32029EF1B31DB9F0017FCA0 /* AddProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddProductViewController.h; sourceTree = "<group>"; };
 		F32029F01B31DB9F0017FCA0 /* AddProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProductViewController.m; sourceTree = "<group>"; };
+		F325DDEE1B457E0000CBF32B /* SelectDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectDate.h; sourceTree = "<group>"; };
+		F325DDEF1B457E0000CBF32B /* SelectDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectDate.m; sourceTree = "<group>"; };
 		F3948BE71B137AE500D149D0 /* FridgeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FridgeTableViewController.h; sourceTree = "<group>"; };
 		F3948BEA1B137BB300D149D0 /* UIButton+FridgeBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+FridgeBlock.h"; sourceTree = "<group>"; };
 		F3948BEB1B137BB300D149D0 /* UIButton+FridgeBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+FridgeBlock.m"; sourceTree = "<group>"; };
@@ -526,6 +529,8 @@
 				F3948BF71B138AC900D149D0 /* UIAlertView+ReminderBlock.m */,
 				F3948BF91B138AE600D149D0 /* UIButton+ReminderBlock.h */,
 				F3948BFA1B138AE600D149D0 /* UIButton+ReminderBlock.m */,
+				F325DDEE1B457E0000CBF32B /* SelectDate.h */,
+				F325DDEF1B457E0000CBF32B /* SelectDate.m */,
 			);
 			name = Reminder;
 			sourceTree = "<group>";
@@ -701,6 +706,7 @@
 				3584A22D1B19E00400D21AF8 /* RegExCategories.m in Sources */,
 				3559BA821B064EB30040DCB6 /* SearchViewController.m in Sources */,
 				35AFA3451B1C5FC1006013AC /* PopAnimator.m in Sources */,
+				F325DDF01B457E0000CBF32B /* SelectDate.m in Sources */,
 				F3948BF81B138AC900D149D0 /* UIAlertView+ReminderBlock.m in Sources */,
 				F32029F11B31DB9F0017FCA0 /* AddProductViewController.m in Sources */,
 				F3CFAFF11B371046003F8D53 /* FridgeTableViewCell.m in Sources */,
