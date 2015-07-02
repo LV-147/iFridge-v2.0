@@ -47,6 +47,7 @@
 		35AFA3451B1C5FC1006013AC /* PopAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AFA3411B1C5FC1006013AC /* PopAnimator.m */; };
 		35AFA3461B1C5FC1006013AC /* PushAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AFA3421B1C5FC1006013AC /* PushAnimator.m */; };
 		35AFA34D1B1C728F006013AC /* FridgeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AFA34C1B1C728F006013AC /* FridgeTableViewController.m */; };
+		43186DE61B457520002ED189 /* RecipeCarouselItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43186DE51B457520002ED189 /* RecipeCarouselItem.xib */; };
 		BFDD51761B21DCCE0039A630 /* RecipeCarouselItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDD51751B21DCCE0039A630 /* RecipeCarouselItem.m */; };
 		BFEA48281B13475C008F5BEF /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFEA48241B13475C008F5BEF /* LoadingView.m */; };
 		BFEA48291B13475C008F5BEF /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFEA48251B13475C008F5BEF /* LoadingView.xib */; };
@@ -59,8 +60,6 @@
 		D926FC201B2B2EA5003FB68C /* AddIngredientsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D926FC1F1B2B2EA5003FB68C /* AddIngredientsViewController.m */; };
 		D926FC231B2B3FC1003FB68C /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = D926FC221B2B3FC1003FB68C /* Ingredient.m */; };
 		D94ACC351B441CB80065ABF6 /* IngredientCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D94ACC341B441CB80065ABF6 /* IngredientCell.m */; };
-		D95A8DA71B3C3EF000881225 /* RecipeCarouselItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = D95A8DA61B3C3EF000881225 /* RecipeCarouselItem.xib */; };
-		D95A8DA91B3C60E000881225 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D95A8DA81B3C60E000881225 /* Main.storyboard */; };
 		D96D9ECA1B2F0A5F00D89452 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D96D9EC91B2F0A5F00D89452 /* iPhone.storyboard */; };
 		D984A5D01B3EA4FF00F83CB4 /* RecipesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D984A5CF1B3EA4FF00F83CB4 /* RecipesTVC.m */; };
 		D984A5D31B3EB99D00F83CB4 /* Main menu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D984A5D21B3EB99D00F83CB4 /* Main menu.xib */; };
@@ -145,6 +144,7 @@
 		35AFA3441B1C5FC1006013AC /* PopAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopAnimator.h; sourceTree = "<group>"; };
 		35AFA3491B1C7279006013AC /* ReminderTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReminderTableViewController.h; sourceTree = "<group>"; };
 		35AFA34C1B1C728F006013AC /* FridgeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FridgeTableViewController.m; sourceTree = "<group>"; };
+		43186DE51B457520002ED189 /* RecipeCarouselItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeCarouselItem.xib; sourceTree = "<group>"; };
 		7B6D530F70A59FB7713BE0D2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		BFDD51741B21DCCE0039A630 /* RecipeCarouselItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecipeCarouselItem.h; path = iFridge/RecipeCarouselItem.h; sourceTree = "<group>"; };
 		BFDD51751B21DCCE0039A630 /* RecipeCarouselItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecipeCarouselItem.m; path = iFridge/RecipeCarouselItem.m; sourceTree = "<group>"; };
@@ -167,8 +167,6 @@
 		D926FC221B2B3FC1003FB68C /* Ingredient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ingredient.m; sourceTree = "<group>"; };
 		D94ACC331B441CB80065ABF6 /* IngredientCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngredientCell.h; sourceTree = "<group>"; };
 		D94ACC341B441CB80065ABF6 /* IngredientCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngredientCell.m; sourceTree = "<group>"; };
-		D95A8DA61B3C3EF000881225 /* RecipeCarouselItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeCarouselItem.xib; sourceTree = "<group>"; };
-		D95A8DA81B3C60E000881225 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D96D9EC91B2F0A5F00D89452 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
 		D984A5CE1B3EA4FF00F83CB4 /* RecipesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesTVC.h; sourceTree = "<group>"; };
 		D984A5CF1B3EA4FF00F83CB4 /* RecipesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesTVC.m; sourceTree = "<group>"; };
@@ -441,7 +439,7 @@
 		BFDD51771B21DCE30039A630 /* RecipeCarouselItem */ = {
 			isa = PBXGroup;
 			children = (
-				D95A8DA61B3C3EF000881225 /* RecipeCarouselItem.xib */,
+				43186DE51B457520002ED189 /* RecipeCarouselItem.xib */,
 				BFDD51741B21DCCE0039A630 /* RecipeCarouselItem.h */,
 				BFDD51751B21DCCE0039A630 /* RecipeCarouselItem.m */,
 			);
@@ -467,7 +465,6 @@
 			children = (
 				D96D9EC91B2F0A5F00D89452 /* iPhone.storyboard */,
 				D9267F531B3AE36B00A551BA /* iPad.storyboard */,
-				D95A8DA81B3C60E000881225 /* Main.storyboard */,
 				D984A5D21B3EB99D00F83CB4 /* Main menu.xib */,
 			);
 			name = "Main UI";
@@ -617,10 +614,9 @@
 			files = (
 				357A59041AFFDF3C0094B0AC /* LaunchScreen.xib in Resources */,
 				357A59011AFFDF3C0094B0AC /* Images.xcassets in Resources */,
+				43186DE61B457520002ED189 /* RecipeCarouselItem.xib in Resources */,
 				D96D9ECA1B2F0A5F00D89452 /* iPhone.storyboard in Resources */,
-				D95A8DA91B3C60E000881225 /* Main.storyboard in Resources */,
 				D984A5D31B3EB99D00F83CB4 /* Main menu.xib in Resources */,
-				D95A8DA71B3C3EF000881225 /* RecipeCarouselItem.xib in Resources */,
 				35A9D7101B08F1B7005EF9BF /* GooglePlus.bundle in Resources */,
 				BFEA48291B13475C008F5BEF /* LoadingView.xib in Resources */,
 				D9267F541B3AE36B00A551BA /* iPad.storyboard in Resources */,

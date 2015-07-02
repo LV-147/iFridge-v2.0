@@ -21,14 +21,12 @@
 @property (strong, nonatomic) NSString *userId;
 @property (strong, nonatomic) NSString *userName;
 @property (strong, nonatomic) NSString *userSocialNetwork;
-
-@property (strong, nonatomic) IBOutlet UIButton *saveAllRecipes;
-- (IBAction)saveAllRecipesToParse:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *byNameButton;
 @property (weak, nonatomic) IBOutlet UIButton *byCaloriesButton;
 
+@property (strong, nonatomic) IBOutlet UIButton *saveAllRecipes;
+- (IBAction)saveAllRecipesToParse:(id)sender;
 - (IBAction)sortByName:(id)sender;
 - (IBAction)sortByCalories:(id)sender;
-
 
 @end

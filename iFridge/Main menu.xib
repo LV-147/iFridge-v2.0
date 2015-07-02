@@ -10,8 +10,8 @@
             <rect key="frame" x="5" y="0.0" width="584" height="98"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nht-ij-B5j">
-                    <rect key="frame" x="0.0" y="8" width="140" height="90"/>
+                <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nht-ij-B5j">
+                    <rect key="frame" x="8" y="8" width="140" height="90"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="90" id="DT3-dM-ORC"/>
                         <constraint firstAttribute="width" constant="140" id="KKW-PP-MMN"/>
@@ -22,8 +22,8 @@
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2D9-xJ-Psa">
-                    <rect key="frame" x="148" y="8" width="140" height="90"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2D9-xJ-Psa">
+                    <rect key="frame" x="156" y="8" width="140" height="90"/>
                     <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="26"/>
                     <inset key="contentEdgeInsets" minX="0.0" minY="-15" maxX="-8" maxY="0.0"/>
                     <state key="normal" title="My recipes" backgroundImage="note">
@@ -34,8 +34,8 @@
                         <rect key="frame" x="62" y="355" width="250" height="130"/>
                     </variation>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iyF-Bv-hNK">
-                    <rect key="frame" x="296" y="8" width="140" height="90"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iyF-Bv-hNK">
+                    <rect key="frame" x="304" y="8" width="140" height="90"/>
                     <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="26"/>
                     <inset key="contentEdgeInsets" minX="0.0" minY="-15" maxX="-8" maxY="0.0"/>
                     <state key="normal" title="Sign in" backgroundImage="note">
@@ -46,8 +46,8 @@
                         <rect key="frame" x="62" y="355" width="250" height="130"/>
                     </variation>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wkt-Ec-L5b">
-                    <rect key="frame" x="444" y="8" width="140" height="90"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wkt-Ec-L5b">
+                    <rect key="frame" x="436" y="8" width="140" height="90"/>
                     <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="26"/>
                     <inset key="contentEdgeInsets" minX="0.0" minY="-15" maxX="-8" maxY="0.0"/>
                     <state key="normal" title="About us" backgroundImage="note">
@@ -80,15 +80,15 @@
             <point key="canvasLocation" x="125" y="255"/>
         </view>
         <view contentMode="scaleToFill" id="0wR-HT-rWv" userLabel="About us menu">
-            <rect key="frame" x="-8" y="0.0" width="229" height="208"/>
+            <rect key="frame" x="-5" y="0.0" width="155" height="150"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Re2-Cz-rK2" userLabel="g+Button">
-                    <rect key="frame" x="171" y="158" width="50" height="50"/>
+                    <rect key="frame" x="122" y="125" width="25" height="25"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="jSc-nF-TK3"/>
-                        <constraint firstAttribute="width" constant="50" id="vOo-ox-C8z"/>
+                        <constraint firstAttribute="height" constant="25" id="jSc-nF-TK3"/>
+                        <constraint firstAttribute="width" constant="25" id="vOo-ox-C8z"/>
                     </constraints>
                     <state key="normal" image="google__round_logo">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -101,7 +101,7 @@
                     </userDefinedRuntimeAttributes>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vyc-UM-w6Z" userLabel="vkButton">
-                    <rect key="frame" x="0.0" y="158" width="50" height="50"/>
+                    <rect key="frame" x="0.0" y="125" width="25" height="25"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                     <state key="normal" image="vk">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -114,27 +114,27 @@
                     </userDefinedRuntimeAttributes>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ai1-s1-Cgt">
-                    <rect key="frame" x="30" y="62" width="191" height="46"/>
-                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="21"/>
+                    <rect key="frame" x="20" y="51" width="127" height="35"/>
+                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="14"/>
                     <state key="normal" title="email us: info@ifridge.tk">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2m-KL-yEV">
-                    <rect key="frame" x="8" y="8" width="213" height="46"/>
-                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="21"/>
+                    <rect key="frame" x="5" y="8" width="142" height="35"/>
+                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="14"/>
                     <state key="normal" title="visit us on: www.ifridge.tk/">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or check one of our groups" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2lA-A7-h9i">
-                    <rect key="frame" x="0.0" y="116" width="221" height="34"/>
-                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="21"/>
+                    <rect key="frame" x="0.0" y="94" width="147" height="23"/>
+                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="14"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvE-LQ-tbX" userLabel="FbButton">
-                    <rect key="frame" x="86" y="158" width="50" height="50"/>
+                    <rect key="frame" x="61" y="125" width="25" height="25"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                     <state key="normal" image="facebook">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -167,18 +167,18 @@
                 <constraint firstItem="2lA-A7-h9i" firstAttribute="centerX" secondItem="yvE-LQ-tbX" secondAttribute="centerX" id="xsy-9v-NlC"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="598.5" y="255"/>
+            <point key="canvasLocation" x="575.5" y="281"/>
         </view>
         <view contentMode="scaleToFill" id="sH6-kb-v1S" userLabel="Sign in menu">
-            <rect key="frame" x="0.0" y="0.0" width="246" height="150"/>
+            <rect key="frame" x="0.0" y="0.0" width="220" height="145"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pML-Iv-l6g" customClass="GPPSignInButton">
-                    <rect key="frame" x="196" y="100" width="50" height="50"/>
+                    <rect key="frame" x="170" y="94" width="50" height="50"/>
                     <color key="backgroundColor" red="0.83921568629999999" green="0.20000000000000001" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ecy-yl-6dy" customClass="FBSDKLoginButton">
-                    <rect key="frame" x="95" y="100" width="50" height="50"/>
+                    <rect key="frame" x="69" y="94" width="50" height="50"/>
                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="Nqr-ut-aTJ"/>
@@ -189,24 +189,24 @@
                     </state>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="login:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyV-ia-fqj">
-                    <rect key="frame" x="46" y="8" width="41" height="34"/>
-                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="21"/>
+                    <rect key="frame" x="34" y="8" width="27" height="23"/>
+                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="14"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="password:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSt-QI-94l">
-                    <rect key="frame" x="8" y="50" width="79" height="44"/>
-                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="21"/>
+                    <rect key="frame" x="8" y="39" width="53" height="55"/>
+                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="14"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AfF-4v-0fY">
-                    <rect key="frame" x="95" y="14" width="151" height="30"/>
+                    <rect key="frame" x="69" y="8" width="151" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0OD-l5-ho3">
-                    <rect key="frame" x="95" y="58" width="151" height="30"/>
+                    <rect key="frame" x="69" y="52" width="151" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="151" id="TxJ-ac-G2f"/>
                     </constraints>
@@ -214,14 +214,14 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="login with" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8h-GQ-3TN">
-                    <rect key="frame" x="8" y="107" width="79" height="34"/>
-                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="21"/>
+                    <rect key="frame" x="8" y="107" width="53" height="23"/>
+                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="14"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RkO-XH-USB">
-                    <rect key="frame" x="160" y="107" width="21" height="34"/>
-                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="21"/>
+                    <rect key="frame" x="134" y="106" width="21" height="23"/>
+                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="14"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -253,7 +253,7 @@
                 <constraint firstItem="AfF-4v-0fY" firstAttribute="leading" secondItem="zyV-ia-fqj" secondAttribute="trailing" constant="8" id="wuY-my-ECS"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="125" y="448"/>
+            <point key="canvasLocation" x="112" y="445.5"/>
         </view>
     </objects>
     <resources>

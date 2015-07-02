@@ -47,6 +47,8 @@
         self.selectDataSourceController.selectedSegmentIndex = 1;
         [self getRecipesFromCoreData];
     }
+    
+    self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
 }
 
 #pragma mark - search bar delegate
@@ -92,6 +94,11 @@
         [self getRecipesFromCoreData];
         [self.tableView reloadData];
     }
+    
+    NSString *deviceType = [UIDevice currentDevice].model;
+    
+    if([deviceType isEqualToString:@"iPad"]  || [deviceType isEqualToString:@"iPad Simulator"])
+        [DataDownloader networkIsReachable];
 }
 
 -(void) viewWillDisappear:(BOOL)animated {
@@ -104,41 +111,20 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     cell.backgroundColor = [UIColor clearColor];
-    
-    //cell.accessoryView = [UIImage]//[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"accessory.png"]];
 }
 
-//-(void)loading{
-//    if (self.recipes.count <= 100 && self.recipes.count != 0) {
-//        [activityIndicator stopAnimating];
-//        activityIndicator.hidesWhenStopped = YES;
-//    }
-//    else{
-//        [activityIndicator startAnimating];
-//    }
-//}
-
 -(void) doAnimation:(RecipesCell*) cell{
-    //    [cell.layer setBackgroundColor:[UIColor blackColor].CGColor];
-    //    [UIView beginAnimations:nil context:NULL];
-    //    [UIView setAnimationDuration:0.1];
-    //    [cell.layer setBackgroundColor:[UIColor whiteColor].CGColor];
-    //    [UIView commitAnimations];
+
     [cell setBackgroundColor:[UIColor blackColor]];
     
     [UIView animateWithDuration:0.2
                           delay:0.0
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^(void) {
-                         //Leave it empty
                          [cell setBackgroundColor:[UIColor whiteColor]];
                      }
                      completion:^(BOOL finished){
                          
-                         //                         // Your code goes here
-                         //                         [UIView animateWithDuration:1.0 delay:0.0 options:
-                         //                          UIViewAnimationOptionCurveEaseIn animations:^{
-                         //                          } completion:^ (BOOL completed) {}];
                      }];
 }
 
@@ -181,7 +167,7 @@
     if ([sender.currentTitle isEqualToString:@"Web"]) {
         self.dataSource = @"Search results";
         [self searchForRecipesForQuery:self.query];
-        [self.dataSourceButton setTitle:@"Book" forState:UIControlStateNormal];
+        [self.dataSourceButton setTitle:@"My recipes" forState:UIControlStateNormal];
     } else {
         self.dataSource = @"My recipes";
         [self getRecipesFromCoreData];
@@ -277,14 +263,14 @@
         
         return cell;
     }
-    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        UIStoryboard *iPad = [UIStoryboard storyboardWithName:@"iPad" bundle:nil];
-        RecipeWithImage *detailRecipeController = [iPad instantiateViewControllerWithIdentifier:@"detailController"];
-        [detailRecipeController initWithRecipeAtIndex:indexPath.row from:self.recipes];
+        RecipeWithImage *detailRecipeController = [self.splitViewController.viewControllers objectAtIndex:1];
+        detailRecipeController.index = indexPath.row;
+        detailRecipeController.availableRecipes = self.recipes;
+        [detailRecipeController.carousel reloadData];
     }
 }
 
@@ -300,8 +286,8 @@
         fromManagedObjectContext:self.currentContext];
             [availableRecipes removeObjectAtIndex:indexPath.row];
             self.recipes = availableRecipes;
-        }
-        [self.recipes removeObjectAtIndex:indexPath.row];
+        }else
+            [self.recipes removeObjectAtIndex:indexPath.row];
         [tableView reloadData]; // tell table to refresh now
     }
 }
@@ -315,8 +301,7 @@
         NSInteger recipeIndex = [self.tableView indexPathForCell:recipeCell].row;
         RecipeWithImage *newController = segue.destinationViewController;
         newController.index = recipeIndex;
-        [newController initWithRecipeAtIndex:recipeIndex from:self.recipes];
-        [self.tableView.tableHeaderView resignFirstResponder];
+        newController.availableRecipes = self.recipes;
     }
 }
 
@@ -326,12 +311,12 @@
     NSNumber *weight = [NSNumber numberWithDouble:[addRecipeController.weight.text doubleValue]];
     NSNumber *cookingTime = [NSNumber numberWithDouble:[addRecipeController.cookingTime.text doubleValue]];
     NSDictionary *recipeDict = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                addRecipeController.recipeLabel.text, @"label",
-                                addRecipeController.ingredients, @"ingredients",
-                                weight, @"totalWeight",
-                                cookingTime, @"cookingTime",
+                                addRecipeController.recipeLabel.text, RECIPE_LABEL_KEYPATH,
+                                addRecipeController.ingredients, RECIPE_INGREDIENTS_KEYPATH,
+                                weight, RECIPE_WEIGHT_KEYPATH,
+                                cookingTime, RECIPE_COOKING_TIME_KEYPATH,
                                 nil];
-    [self.recipes addObject:[Recipe createRecipeWithInfo:[NSDictionary dictionaryWithObject:recipeDict forKey:@"recipe"]
+    [self.recipes addObject:[Recipe createRecipeWithInfo:recipeDict
                                   inManagedObiectContext:self.currentContext]];
     [self.tableView reloadData];
 }
@@ -390,7 +375,7 @@
 }
 
 - (IBAction)sortByName:(id)sender {
-
+    
     NSMutableArray *unsortedNames = [[NSMutableArray alloc]init];
     for (int i=0; i< self.allRecipes.count; i++) {
         Recipe *temp = self.allRecipes[i];
@@ -409,7 +394,7 @@
             }
         }
     }
-
+    
     self.recipes = sortedRecipes;
     
     [self.tableView reloadData];
@@ -438,9 +423,7 @@
     }
     
     self.recipes = sortedRecipes;
-   
+    
     [self.tableView reloadData];
 }
-
-
 @end

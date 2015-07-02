@@ -17,7 +17,7 @@
     Recipe *recipe = nil;
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Recipe"];
-    request.predicate = [NSPredicate predicateWithFormat:@"label = %@", [recipeDict valueForKeyPath:@"recipe.label"]];
+    request.predicate = [NSPredicate predicateWithFormat:@"%@ = %@", RECIPE_LABEL_KEYPATH, [recipeDict valueForKeyPath:RECIPE_LABEL_KEYPATH]];
     
     NSError *error;
     NSArray *mathes = [context executeFetchRequest:request error:&error];
@@ -30,13 +30,13 @@
         
     }else{
         recipe = [NSEntityDescription insertNewObjectForEntityForName:@"Recipe" inManagedObjectContext:context];
-        recipe.label = [recipeDict valueForKeyPath:@"recipe.label"];
-        recipe.imageUrl = [recipeDict valueForKeyPath:@"recipe.image"];
-        recipe.cookingTime = [recipeDict valueForKeyPath:@"recipe.cookingTime"];
-        recipe.weight = [recipeDict valueForKeyPath:@"recipe.totalWeight"];
-        recipe.calories = [recipeDict valueForKeyPath:@"recipe.calories"];
+        recipe.label = [recipeDict valueForKeyPath:RECIPE_LABEL_KEYPATH];
+        recipe.imageUrl = [recipeDict valueForKeyPath:RECIPE_IMAGE_KEYPATH];
+        recipe.cookingTime = [recipeDict valueForKeyPath:RECIPE_COOKING_TIME_KEYPATH];
+        recipe.weight = [recipeDict valueForKeyPath:RECIPE_WEIGHT_KEYPATH];
+        recipe.calories = [recipeDict valueForKeyPath:RECIPE_CALORIES_KEYPATH];
         NSMutableSet *ingredients = [[NSMutableSet alloc]init];
-        NSArray *recipeIngredients = [recipeDict valueForKeyPath:@"recipe.ingredients"];
+        NSArray *recipeIngredients = [recipeDict valueForKeyPath:RECIPE_INGREDIENTS_KEYPATH];
         for(NSDictionary* ingredient in recipeIngredients){
             [ingredients addObject:[Ingredient addIngredientForRecipe:recipe
                                                              withInfo:ingredient

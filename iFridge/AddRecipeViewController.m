@@ -23,6 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]]];
+    [self.tableView setBackgroundColor:[UIColor clearColor]];
     self.ingredients = [[NSMutableArray alloc] init];
     // Do any additional setup after loading the view.
 }
@@ -111,9 +112,9 @@
     IngredientCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Ingredient cell" forIndexPath:indexPath];
     
     NSDictionary *ingredient = [self.ingredients objectAtIndex:indexPath.row];
-    cell.ingredientLabel.text = [ingredient valueForKey:@"label"];
-    cell.quantity.text = [[ingredient valueForKey:@"quantity"] stringValue];
-    cell.measure.text = [ingredient valueForKey:@"units"];
+    cell.ingredientLabel.text = [ingredient valueForKey:INGREDIENT_LABEL_KEY];
+    cell.quantity.text = [[ingredient valueForKey:INGREDIENT_QUANTITY_KEY] stringValue];
+    cell.measure.text = [ingredient valueForKey:INGREDIENT_MEASURE_KEY];
     return cell;
 }
 
@@ -125,9 +126,9 @@
     if (addIngredientsController.ingredientLabel.text) {
         NSNumber *quantity = [NSNumber numberWithDouble:[addIngredientsController.quantityOfIngredient.text doubleValue]];
         NSDictionary *ingredient = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                    addIngredientsController.ingredientLabel.text, @"label",
-                                    quantity, @"quantity",
-                                    addIngredientsController.units.text, @"units",
+                                    addIngredientsController.ingredientLabel.text, INGREDIENT_LABEL_KEY,
+                                    quantity, INGREDIENT_QUANTITY_KEY,
+                                    addIngredientsController.units.text, INGREDIENT_MEASURE_KEY,
                                     nil];
         [self.ingredients addObject:ingredient];
         
