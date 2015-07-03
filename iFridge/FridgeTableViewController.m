@@ -57,14 +57,9 @@
     self.toaddItems = [[NSMutableArray alloc] initWithArray:[self.currentContext executeFetchRequest:request error:&error]];
     
       [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    self.navigationController.navigationBar.tintColor = [UIColor redColor];
     
-//    if (!self.fridge)
-//        self.fridge = [Fridge addFridgeWithName:@"MyFridge" inManagedObjectContext:self.currentContext];
-//    self.toaddItems = [NSMutableArray arrayWithArray:[self.fridge.ingredient allObjects]];
-//    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Ingredient"];
-//    request.predicate = [NSPredicate predicateWithFormat:@"fromFridge = %@", self.fridge];
-//    NSError *error;
-//    self.toaddItems = [[NSMutableArray alloc] initWithArray:[self.currentContext executeFetchRequest:request error:&error]];
+
     
   
     
@@ -151,13 +146,13 @@
 - (void)editAction:(id)sender
 {
     [self performSegueWithIdentifier:@"EditProduct" sender:self];
-//    NSLog(@"edit button clicked");
+    NSLog(@"edit button clicked");
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSString *query = [DataDownloader getQueryStringFromArray:self.toaddItems];
-    RecipesTVC *newController = segue.destinationViewController;
-    newController.query = query;
+//    NSString *query = [DataDownloader getQueryStringFromArray:self.toaddItems];
+//    RecipesTVC *newController = segue.destinationViewController;
+//    newController.query = query;
 }
 
 
