@@ -177,7 +177,7 @@
             UITextField *textField = [alertView textFieldAtIndex:0];
             NSString *string = [textField.text capitalizedString];
             NSMutableDictionary *ingredientDict = [[NSMutableDictionary alloc] init];
-            [ingredientDict setObject:string forKey:@"label"];
+            [ingredientDict setObject:string forKey:INGREDIENT_LABEL_KEY];
             [weakSelf.toaddItems addObject:[Ingredient addIngredientForRecipe:self.recipe
                                                                      withInfo:ingredientDict
                                                                      toFridge:self.fridge
