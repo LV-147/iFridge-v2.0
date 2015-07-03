@@ -31,10 +31,6 @@
 @implementation FridgeTableViewController
 #pragma mark - Custom accessors
 
-//- (NSMutableArray *)toaddItems {
-//
-//    return _toaddItems;
-//}
 
 #pragma mark - View life cycle
 
@@ -49,6 +45,7 @@
     UIBarButtonItem *addBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addProduct:)];
     UIBarButtonItem *flexibleSpaceButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:NULL];
     self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:editBarButtonItem, flexibleSpaceButton, addBarButtonItem, nil];
+    
 
     //products are allready fridge
     self.fridge = [Fridge addFridgeWithName:@"MyFridge" inManagedObjectContext:self.currentContext];
@@ -286,9 +283,9 @@
     AddProductViewController *addProductViewController = segue.sourceViewController;
     if (addProductViewController.nameTextField.text) {
         NSDictionary *ingredient = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                    addProductViewController.nameTextField.text, @"label",
-                                    [NSNumber numberWithDouble:[addProductViewController.quantityTextField.text doubleValue]], @"quantity",
-                                    addProductViewController.unitsTextField.text, @"units",
+                                    addProductViewController.nameTextField.text, INGREDIENT_LABEL_KEY,
+                                    [NSNumber numberWithDouble:[addProductViewController.quantityTextField.text doubleValue]], INGREDIENT_QUANTITY_KEY,
+                                    addProductViewController.unitsTextField.text, INGREDIENT_MEASURE_KEY,
                                     nil];
         [self.toaddItems addObject:[Ingredient addIngredientForRecipe:nil
                                                              withInfo:ingredient
