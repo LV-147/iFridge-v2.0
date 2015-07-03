@@ -35,6 +35,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // 1.
+       self.view.backgroundColor = UIColor(patternImage: UIImage(named: "image.jpg")!)
         let hasLogin = NSUserDefaults.standardUserDefaults().boolForKey("hasLoginKey")
         
         // 2.
@@ -68,7 +69,7 @@ class LoginViewController: UIViewController {
         let storedUsername : NSString? = NSUserDefaults.standardUserDefaults().valueForKey("username") as? NSString
         self.usernameTextField.text = storedUsername as? String
         
-        self.touchIDButton.hidden = true
+    
         
         if context.canEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, error: &error) {
             self.touchIDButton.hidden = false
