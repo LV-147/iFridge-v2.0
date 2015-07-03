@@ -163,7 +163,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSString *query = [DataDownloader getQueryStringFromArray:self.toaddItems];
     RecipesTVC *newController = segue.destinationViewController;
-    newController.query = query;
+    //newController.query = query;
 }
 
 - (IBAction)buttonForTaras:(id)sender {
