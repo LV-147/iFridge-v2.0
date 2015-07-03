@@ -77,30 +77,22 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    self.recipeImage.image = info[UIImagePickerControllerEditedImage];
-    self.recipeImageURL = [[NSString alloc] initWithString:[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]];
-    [self saveImage:self.recipeImage.image
-       withFileName:[NSString stringWithFormat:@"%@_image", self.recipeLabel.text]
-             ofType:@"png"
-        inDirectory:self.recipeImageURL];
-    [self dismissViewControllerAnimated:YES completion:NULL];
-}
-
--(void) saveImage:(UIImage *)image
-     withFileName:(NSString *)imageName
-           ofType:(NSString *)extension
-      inDirectory:(NSString *)directoryPath
-{
-    if ([[extension lowercaseString] isEqualToString:@"png"]) {
-        [UIImagePNGRepresentation(image) writeToFile:[directoryPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.%@", imageName, @"png"]]
-                                             options:NSAtomicWrite error:nil];
-    } else if ([[extension lowercaseString] isEqualToString:@"jpg"] ||
-               [[extension lowercaseString] isEqualToString:@"jpeg"]) {
-        [UIImageJPEGRepresentation(image, 1.0) writeToFile:[directoryPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.%@", imageName, @"jpg"]]
-                                                   options:NSAtomicWrite error:nil];
-    } else {
-        NSLog(@"Image Save Failed\nExtension: (%@) is not recognized, use (PNG/JPG)", extension);
+    //obtaining saving path
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *imagePath = [documentsDirectory stringByAppendingPathComponent:@"latest_photo.png"];
+    
+    //extracting image from the picker and saving it
+    NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+    if ([mediaType isEqualToString:@"public.image"]){
+        UIImage *editedImage = [info objectForKey:UIImagePickerControllerEditedImage];
+        NSData *webData = UIImagePNGRepresentation(editedImage);
+        [webData writeToFile:imagePath atomically:YES];
+        self.recipeImage.image = editedImage;
+        self.recipeImageURL = imagePath;
     }
+    
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 #pragma mark text field delegate
