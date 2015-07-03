@@ -839,7 +839,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell Identifier" id="yxR-Vg-G6Q">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FridgeCell" id="yxR-Vg-G6Q" customClass="FridgeTableViewCell">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yxR-Vg-G6Q" id="TpA-38-2jU">
@@ -856,7 +856,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="jII-sL-oyI">
                             <connections>
                                 <action selector="addProduct:" destination="VEq-Eo-elA" id="CSs-7m-bru"/>
-                                <segue destination="vhE-RG-r5c" kind="presentation" id="kmM-A8-gXN"/>
+                                <segue destination="vhE-RG-r5c" kind="presentation" identifier="EditProduct" id="kmM-A8-gXN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

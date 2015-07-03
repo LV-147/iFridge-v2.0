@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *recipeImage;
 @property (weak, nonatomic) IBOutlet UITextField *cookingTime;
 @property (weak, nonatomic) IBOutlet UITextField *weight;
+@property (strong, nonatomic) NSString *recipeImageURL;
 
 @end
