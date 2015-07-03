@@ -153,7 +153,6 @@
     request.predicate = nil;
     NSError *error;
     self.recipes = [NSMutableArray arrayWithArray:[self.currentContext executeFetchRequest:request error:&error]];
-    //self.recipes = [self.currentContext executeFetchRequest:request error:&error];
     self.allRecipes = self.recipes;
     [self.tableView reloadData];
     self.byNameButton.hidden = NO;
@@ -161,11 +160,6 @@
     [self updateDetailRecipesControllerWithIndex:0];
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 - (IBAction)selectDataSource:(UIButton *)sender {
     if ([sender.currentTitle isEqualToString:@"Web"]) {
@@ -319,6 +313,7 @@
                                 addRecipeController.ingredients, RECIPE_INGREDIENTS_KEYPATH,
                                 weight, RECIPE_WEIGHT_KEYPATH,
                                 cookingTime, RECIPE_COOKING_TIME_KEYPATH,
+                                addRecipeController.recipeImageURL, RECIPE_IMAGE_KEYPATH,
                                 nil];
     [self.recipes addObject:[Recipe createRecipeWithInfo:recipeDict
                                   inManagedObiectContext:self.currentContext]];
