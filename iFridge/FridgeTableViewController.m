@@ -26,6 +26,7 @@
 @property (strong, nonatomic) Fridge *fridge;
 @property (strong, nonatomic) Recipe *recipe;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *buttonForTaras;
 
 @end
 
@@ -59,10 +60,6 @@
       [[self navigationController] setNavigationBarHidden:NO animated:YES];
     self.navigationController.navigationBar.tintColor = [UIColor redColor];
     
-
-    
-  
-    
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureRecognized:)];
     [self.tableView addGestureRecognizer:longPress];
     
@@ -72,6 +69,8 @@
     self.tableView.backgroundView.alpha = 0.2f;
     
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
+    self.navigationController.toolbarHidden = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -85,6 +84,8 @@
     [super viewWillAppear:animated];
     if(self.toaddItems) self.title = @"My Fridge";
     else self.title = @"My Fridge (empty)";
+    self.navigationController.toolbarHidden = NO;
+    [self.navigationController setNavigationBarHidden:NO];
 }
 
 #pragma mark - UITableView data source and delegate methods
@@ -153,6 +154,10 @@
 //    NSString *query = [DataDownloader getQueryStringFromArray:self.toaddItems];
 //    RecipesTVC *newController = segue.destinationViewController;
 //    newController.query = query;
+}
+
+- (IBAction)buttonForTaras:(id)sender {
+    
 }
 
 
