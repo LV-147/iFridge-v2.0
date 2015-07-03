@@ -17,7 +17,6 @@
 #import "Recipe+Cat.h"
 #import "AddRecipeViewController.h"
 #import <Parse/Parse.h>
-//#import <SDWebImage/UIImageView+WebCache.h>
 
 @import CoreGraphics;
 
@@ -52,6 +51,8 @@
     }
     
     self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
+    if ([self.dataSource isEqualToString:@"My recipes"])
+        self.selectDataSourceController.selectedSegmentIndex = 1;
 }
 
 #pragma mark - search bar delegate
@@ -217,7 +218,7 @@
     
     
     NSString *urlImageString = [[NSString alloc] init];
-    if ([self.dataSource isEqualToString:@"Search results"]) {
+    if ([[self.recipes objectAtIndex:indexPath.row] isKindOfClass:[NSDictionary class]]) {
         urlImageString = [[self.recipes objectAtIndex:indexPath.row] valueForKeyPath:@"recipe.image"];
     }
     else {
