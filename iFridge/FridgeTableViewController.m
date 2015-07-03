@@ -24,6 +24,7 @@
 @property (strong, nonatomic) NSMutableArray *toaddItems;
 @property (strong, nonatomic) Fridge *fridge;
 @property (strong, nonatomic) Recipe *recipe;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
