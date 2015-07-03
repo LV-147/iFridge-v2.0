@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CYb-dP-gza">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CYb-dP-gza">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -844,7 +844,32 @@
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yxR-Vg-G6Q" id="TpA-38-2jU">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="quantity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3V-Jt-RVE">
+                                            <rect key="frame" x="152" y="14" width="109" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="units" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZaB-ob-a40">
+                                            <rect key="frame" x="240" y="14" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vps-L1-6AQ">
+                                            <rect key="frame" x="19" y="14" width="113" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameOfProduct" destination="Vps-L1-6AQ" id="iie-t7-odW"/>
+                                    <outlet property="quantityOfProduct" destination="t3V-Jt-RVE" id="u4J-uT-Hd4"/>
+                                    <outlet property="units" destination="ZaB-ob-a40" id="3YC-eR-U2l"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -852,6 +877,13 @@
                             <outlet property="delegate" destination="VEq-Eo-elA" id="fdg-09-tfh"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="ButtonForTaras" width="110" id="72Z-3j-crJ">
+                            <connections>
+                                <segue destination="tIU-3P-KDZ" kind="show" id="OCG-J2-EzJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="qE2-qd-omf">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="jII-sL-oyI">
                             <connections>
@@ -860,10 +892,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="72N-94-Ptv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="627" y="-3170"/>
+            <point key="canvasLocation" x="627" y="-3173"/>
         </scene>
         <!--RecipesTVC-->
         <scene sceneID="kZp-jv-JCV">
@@ -1491,4 +1524,7 @@
         <image name="user_info" width="128" height="128"/>
         <image name="vk" width="256" height="256"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="OCG-J2-EzJ"/>
+    </inferredMetricsTieBreakers>
 </document>
