@@ -28,7 +28,7 @@
 @property (strong, nonatomic) Fridge *fridge;
 @property (strong, nonatomic) Recipe *recipe;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *buttonForTaras;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *buttonForTaras;
 @property (strong, nonatomic) RecipeWithImage *detailRecipeController;
 
 @end
@@ -77,6 +77,7 @@
     [self.navigationController setNavigationBarHidden:NO];
     
     
+    
     if (UIUserInterfaceIdiomPad) {
        
         self.detailRecipeController = [self.splitViewController.viewControllers objectAtIndex:1];
@@ -97,6 +98,9 @@
     else self.title = @"My Fridge (empty)";
     self.navigationController.toolbarHidden = NO;
     [self.navigationController setNavigationBarHidden:NO];
+    
+    
+    
 }
 
 #pragma mark - UITableView data source and delegate methods

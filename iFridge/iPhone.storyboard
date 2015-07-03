@@ -151,6 +151,7 @@
                     </tableView>
                     <toolbarItems>
                         <barButtonItem title="Selecte Date" id="bb0-2R-peM">
+                            <color key="tintColor" red="1" green="0.0098948884979999999" blue="0.029187735570000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="bwe-Ih-6tt" kind="show" identifier="dateSegue" id="ZLh-7m-fyG"/>
                             </connections>
@@ -256,6 +257,7 @@
                     </tableView>
                     <toolbarItems>
                         <barButtonItem title="ButtonForTaras" id="pRC-Fg-3z4">
+                            <color key="tintColor" red="1" green="0.0098948884979999999" blue="0.029187735570000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="buttonForTaras:" destination="DDj-R3-GaC" id="CM4-WC-X5D"/>
                                 <segue destination="A3m-wf-HII" kind="show" identifier="TarasSegue" id="Hzn-Ng-QPe"/>
