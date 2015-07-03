@@ -74,6 +74,7 @@
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     self.navigationController.toolbarHidden = NO;
+    [self.navigationController setNavigationBarHidden:NO];
     
     
     if (UIUserInterfaceIdiomPad) {
