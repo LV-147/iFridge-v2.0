@@ -25,16 +25,13 @@
 @property (strong, nonatomic) NSMutableArray *toaddItems;
 @property (strong, nonatomic) Fridge *fridge;
 @property (strong, nonatomic) Recipe *recipe;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
 @implementation FridgeTableViewController
 #pragma mark - Custom accessors
 
-//- (NSMutableArray *)toaddItems {
-//
-//    return _toaddItems;
-//}
 
 #pragma mark - View life cycle
 
@@ -49,17 +46,27 @@
     UIBarButtonItem *addBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addProduct:)];
     UIBarButtonItem *flexibleSpaceButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:NULL];
     self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:editBarButtonItem, flexibleSpaceButton, addBarButtonItem, nil];
+    
 
     //products are allready fridge
-    if (!self.fridge)
-        self.fridge = [Fridge addFridgeWithName:@"MyFridge" inManagedObjectContext:self.currentContext];
-    self.toaddItems = [NSMutableArray arrayWithArray:[self.fridge.ingredient allObjects]];
+    self.fridge = [Fridge addFridgeWithName:@"MyFridge" inManagedObjectContext:self.currentContext];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Ingredient"];
+    request.predicate = [NSPredicate predicateWithFormat:@"fromFridge = %@", self.fridge];
+    
+    NSError *error;
+    self.toaddItems = [[NSMutableArray alloc] initWithArray:[self.currentContext executeFetchRequest:request error:&error]];
+    
+      [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    
+//    if (!self.fridge)
+//        self.fridge = [Fridge addFridgeWithName:@"MyFridge" inManagedObjectContext:self.currentContext];
+//    self.toaddItems = [NSMutableArray arrayWithArray:[self.fridge.ingredient allObjects]];
 //    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Ingredient"];
 //    request.predicate = [NSPredicate predicateWithFormat:@"fromFridge = %@", self.fridge];
 //    NSError *error;
 //    self.toaddItems = [[NSMutableArray alloc] initWithArray:[self.currentContext executeFetchRequest:request error:&error]];
     
-    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+  
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureRecognized:)];
     [self.tableView addGestureRecognizer:longPress];
@@ -109,22 +116,9 @@
     cell.nameOfProduct.text = ingr.label;
     cell.quantityOfProduct.text = [ingr.quantity stringValue];
     cell.units.text = ingr.unitOfMeasure;
-
-    
-    
-    
-//    NSDictionary *ingredient = [self.toaddItems objectAtIndex:indexPath.row];
-//    
-//    cell.nameOfProduct.text = [ingredient valueForKey:@"label"];
-//    cell.quantityOfProduct.text = [ingredient valueForKey:@"quantity"];
-//    cell.units.text = [ingredient valueForKey:@"unitOfMeasure"];
     
     cell.backgroundColor = [UIColor clearColor];
     
-//    Ingredient *object = self.toaddItems[indexPath.row];
-//    cell.textLabel.text = object.label;
-    
-
     return cell;
 }
 
@@ -157,7 +151,7 @@
 - (void)editAction:(id)sender
 {
     [self performSegueWithIdentifier:@"EditProduct" sender:self];
-    NSLog(@"edit button clicked");
+//    NSLog(@"edit button clicked");
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -187,7 +181,7 @@
             UITextField *textField = [alertView textFieldAtIndex:0];
             NSString *string = [textField.text capitalizedString];
             NSMutableDictionary *ingredientDict = [[NSMutableDictionary alloc] init];
-            [ingredientDict setObject:string forKey:@"label"];
+            [ingredientDict setObject:string forKey:INGREDIENT_LABEL_KEY];
             [weakSelf.toaddItems addObject:[Ingredient addIngredientForRecipe:self.recipe
                                                                      withInfo:ingredientDict
                                                                      toFridge:self.fridge
@@ -292,9 +286,9 @@
     AddProductViewController *addProductViewController = segue.sourceViewController;
     if (addProductViewController.nameTextField.text) {
         NSDictionary *ingredient = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                    addProductViewController.nameTextField.text, @"label",
-                                    [NSNumber numberWithDouble:[addProductViewController.quantityTextField.text doubleValue]], @"quantity",
-                                    addProductViewController.unitsTextField.text, @"units",
+                                    addProductViewController.nameTextField.text, INGREDIENT_LABEL_KEY,
+                                    [NSNumber numberWithDouble:[addProductViewController.quantityTextField.text doubleValue]], INGREDIENT_QUANTITY_KEY,
+                                    addProductViewController.unitsTextField.text, INGREDIENT_MEASURE_KEY,
                                     nil];
         [self.toaddItems addObject:[Ingredient addIngredientForRecipe:nil
                                                              withInfo:ingredient
