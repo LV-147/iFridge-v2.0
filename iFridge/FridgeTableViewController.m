@@ -14,7 +14,8 @@
 #import "UIViewController+Context.h"
 #import "AddProductViewController.h"
 #import "FridgeTableViewCell.h"
-
+#import "DataDownloader.h"
+#import "RecipesTVC.h"
 
 @class UITableView;
 
@@ -158,8 +159,11 @@
     [self performSegueWithIdentifier:@"EditProduct" sender:self];
     NSLog(@"edit button clicked");
 }
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
+    NSString *query = [DataDownloader getQueryStringFromArray:self.toaddItems];
+    RecipesTVC *newController = segue.destinationViewController;
+    newController.query = query;
 }
 
 
@@ -282,7 +286,6 @@
         }
     }
 }
-
 
 - (IBAction)ingredientAddedToFridge:(UIStoryboardSegue *)segue
 {
