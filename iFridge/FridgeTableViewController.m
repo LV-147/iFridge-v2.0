@@ -26,6 +26,7 @@
 @property (strong, nonatomic) Fridge *fridge;
 @property (strong, nonatomic) Recipe *recipe;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *buttonForTaras;
 
 @end
 
@@ -57,16 +58,7 @@
     self.toaddItems = [[NSMutableArray alloc] initWithArray:[self.currentContext executeFetchRequest:request error:&error]];
     
       [[self navigationController] setNavigationBarHidden:NO animated:YES];
-    
-//    if (!self.fridge)
-//        self.fridge = [Fridge addFridgeWithName:@"MyFridge" inManagedObjectContext:self.currentContext];
-//    self.toaddItems = [NSMutableArray arrayWithArray:[self.fridge.ingredient allObjects]];
-//    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Ingredient"];
-//    request.predicate = [NSPredicate predicateWithFormat:@"fromFridge = %@", self.fridge];
-//    NSError *error;
-//    self.toaddItems = [[NSMutableArray alloc] initWithArray:[self.currentContext executeFetchRequest:request error:&error]];
-    
-  
+    self.navigationController.navigationBar.tintColor = [UIColor redColor];
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureRecognized:)];
     [self.tableView addGestureRecognizer:longPress];
@@ -77,6 +69,8 @@
     self.tableView.backgroundView.alpha = 0.2f;
     
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
+    self.navigationController.toolbarHidden = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -90,6 +84,8 @@
     [super viewWillAppear:animated];
     if(self.toaddItems) self.title = @"My Fridge";
     else self.title = @"My Fridge (empty)";
+    self.navigationController.toolbarHidden = NO;
+    [self.navigationController setNavigationBarHidden:NO];
 }
 
 #pragma mark - UITableView data source and delegate methods
@@ -151,13 +147,17 @@
 - (void)editAction:(id)sender
 {
     [self performSegueWithIdentifier:@"EditProduct" sender:self];
-//    NSLog(@"edit button clicked");
+    NSLog(@"edit button clicked");
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSString *query = [DataDownloader getQueryStringFromArray:self.toaddItems];
-    RecipesTVC *newController = segue.destinationViewController;
-    newController.query = query;
+//    NSString *query = [DataDownloader getQueryStringFromArray:self.toaddItems];
+//    RecipesTVC *newController = segue.destinationViewController;
+//    newController.query = query;
+}
+
+- (IBAction)buttonForTaras:(id)sender {
+    
 }
 
 

@@ -254,6 +254,15 @@
                             <outlet property="delegate" destination="DDj-R3-GaC" id="4VF-XN-FLx"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="buttonForTaras" id="OPy-v2-JLE">
+                            <color key="tintColor" red="1" green="0.0098948884979999999" blue="0.029187735570000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="buttonForTaras:" destination="DDj-R3-GaC" id="YWK-MJ-3n1"/>
+                                <segue destination="A3m-wf-HII" kind="show" identifier="TarasSegue" id="vSs-oI-frG"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="pg3-Ek-920">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="GFx-cD-Zuh">
                             <connections>
@@ -261,7 +270,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="buttonForTaras" destination="OPy-v2-JLE" id="cUY-gV-Y8p"/>
                         <outlet property="tableView" destination="U8C-rq-w14" id="olz-9n-zuj"/>
                         <segue destination="vLg-dX-IXd" kind="presentation" identifier="EditProduct" id="sof-Zr-Cub"/>
                     </connections>
@@ -3609,6 +3620,6 @@
         <image name="vk" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0D4-pi-Qfu"/>
+        <segue reference="vSs-oI-frG"/>
     </inferredMetricsTieBreakers>
 </document>
