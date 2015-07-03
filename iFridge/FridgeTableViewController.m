@@ -16,6 +16,8 @@
 #import "FridgeTableViewCell.h"
 #import "DataDownloader.h"
 #import "RecipesTVC.h"
+#import "RecipeWithImage.h"
+
 
 @class UITableView;
 
@@ -27,6 +29,7 @@
 @property (strong, nonatomic) Recipe *recipe;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *buttonForTaras;
+@property (strong, nonatomic) RecipeWithImage *detailRecipeController;
 
 @end
 
@@ -71,6 +74,13 @@
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     self.navigationController.toolbarHidden = NO;
+    
+    
+    if (UIUserInterfaceIdiomPad) {
+       
+        self.detailRecipeController = [self.splitViewController.viewControllers objectAtIndex:1];
+    }
+
 }
 
 - (void)didReceiveMemoryWarning {
