@@ -13,6 +13,7 @@
 #import "UIViewController+Context.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "IngredientCell.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 
 @interface AddRecipeViewController () <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate>
 
@@ -77,22 +78,43 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    //obtaining saving path
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *imagePath = [documentsDirectory stringByAppendingPathComponent:@"latest_photo.png"];
+    self.recipeImage.image = [info objectForKey:UIImagePickerControllerEditedImage];
     
-    //extracting image from the picker and saving it
-    NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
-    if ([mediaType isEqualToString:@"public.image"]){
-        UIImage *editedImage = [info objectForKey:UIImagePickerControllerEditedImage];
-        NSData *webData = UIImagePNGRepresentation(editedImage);
-        [webData writeToFile:imagePath atomically:YES];
-        self.recipeImage.image = editedImage;
-        self.recipeImageURL = imagePath;
-    }
+    //UIImageWriteToSavedPhotosAlbum(self.recipeImage.image, nil, nil, nil);
     
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    UIImage *viewImage = self.recipeImage.image;  // --- mine was made from drawing context
+    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+    // Request to save the image to camera roll
+    [library writeImageToSavedPhotosAlbum:[viewImage CGImage] orientation:(ALAssetOrientation)[viewImage imageOrientation] completionBlock:^(NSURL *assetURL, NSError *error){
+        if (error) {
+            NSLog(@"error");
+        } else {
+            NSLog(@"url %@", assetURL);
+        }
+    }];
+    
+    //NSString *path = [documentsDirectory stringByAppendingPathComponent:@"myimage.png"];
+    
+    //[data writeToFile:path atomically:YES];
+    //getting the image
+    //self.recipeImage.image = [UIImage imageWithContentsOfFile:path];
+    
+//    //obtaining saving path
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    NSString *documentsDirectory = [paths objectAtIndex:0];
+//    NSString *imagePath = [documentsDirectory stringByAppendingPathComponent:@"latest_photo.png"];
+//    
+//    //extracting image from the picker and saving it
+//    NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+//    if ([mediaType isEqualToString:@"public.image"]){
+//        UIImage *editedImage = [info objectForKey:UIImagePickerControllerEditedImage];
+//        NSData *webData = UIImagePNGRepresentation(editedImage);
+//        [webData writeToFile:imagePath atomically:YES];
+//        
+//        self.recipeImageURL = imagePath;
+//    }
+//    
+   [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 #pragma mark text field delegate
