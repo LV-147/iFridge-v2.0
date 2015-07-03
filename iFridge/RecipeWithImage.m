@@ -63,7 +63,7 @@
 
 - (void)setIndex:(NSInteger)value {
     _index = value;
-    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%d/%d", _index+1, _carousel.numberOfItems];
+    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%ld", _index+1, (long)_carousel.numberOfItems];
 }
 
 - (IBAction)googlePlusShareButton:(id)sender {
@@ -115,7 +115,7 @@
         [Recipe deleteRecipe:[self.availableRecipes objectAtIndex:self.index] fromManagedObjectContext:self.currentContext];
         [self.availableRecipes removeObjectAtIndex:_index];
         [self.carousel reloadData];
-        self.recipeCountIndicator.text = [NSString stringWithFormat:@"%d/%d", _index+1, _carousel.numberOfItems];
+        self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%ld", _index+1, (long)_carousel.numberOfItems];
         if (UIUserInterfaceIdiomPad) {
             self.masterRecipeController.recipes = self.availableRecipes;
             [self.masterRecipeController.tableView reloadData];
@@ -212,7 +212,7 @@
             int value = [numb intValue];
             numb = [NSNumber numberWithInt:value + 1];
         }
-        
+    
         recipeCarouselItem.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", [ingredientLines allValues]];
     }
     
@@ -231,6 +231,11 @@
     [recipeCarouselItem.saveButton addTarget:self
                                       action:@selector(saveRecipeToCoreData:)
                             forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.masterRecipeController.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.index inSection:0]
+                                                 atScrollPosition:UITableViewScrollPositionMiddle
+                                                         animated:YES];
+    
     return recipeCarouselItem;
 }
 
