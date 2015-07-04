@@ -66,25 +66,10 @@ static NSString *const kClientID =
     loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
 }
 
-<<<<<<< HEAD
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
   [self refreshInterfaceBasedOnSignIn];
   [[self navigationController] setNavigationBarHidden:YES animated:YES];
-=======
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self refreshInterfaceBasedOnSignIn];
-    [[self navigationController] setNavigationBarHidden:YES animated:YES];
-    
-    NSString *deviceType = [UIDevice currentDevice].model;
-    
-    if([deviceType isEqualToString:@"iPhone"] || [deviceType isEqualToString:@"iPhone Simulator"])
-        [DataDownloader networkIsReachable];
-}
-
-#pragma mark - UITextFieldDelegate
->>>>>>> 6b16d99142424c696f52bf0dc0fcea63f100ab58
 
   NSString *deviceType = [UIDevice currentDevice].model;
 
@@ -130,18 +115,12 @@ animationControllerForOperation:(UINavigationControllerOperation)operation
     return NO;
 }
 
-<<<<<<< HEAD
 - (void)didReceiveMemoryWarning {
   [super didReceiveMemoryWarning];
 }
 
 - (void)disconnect {
   [[GPPSignIn sharedInstance] disconnect];
-=======
--(void) viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    [self refreshInterfaceBasedOnSignIn];
->>>>>>> 6b16d99142424c696f52bf0dc0fcea63f100ab58
 }
 
 - (void)viewDidAppear:(BOOL)animated {

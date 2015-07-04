@@ -15,15 +15,8 @@
     : UIViewController <iCarouselDataSource, iCarouselDelegate>
 
 - (IBAction)googlePlusShareButton:(id)sender;
-<<<<<<< HEAD
 @property(strong, nonatomic) NSMutableArray *availableRecipes;
 @property(strong, nonatomic) IBOutlet iCarousel *carousel;
 @property(assign, nonatomic) NSInteger index;
-=======
-@property (strong, nonatomic) NSMutableArray *availableRecipes;
-@property (strong, nonatomic) IBOutlet iCarousel *carousel;
-@property (assign, nonatomic) NSInteger index;
-
->>>>>>> 6b16d99142424c696f52bf0dc0fcea63f100ab58
 
 @end

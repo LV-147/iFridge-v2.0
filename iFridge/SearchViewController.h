@@ -6,10 +6,6 @@
 //  Copyright (c) 2015 Alexey Pelekh. All rights reserved.
 //
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 6b16d99142424c696f52bf0dc0fcea63f100ab58
 #import <GooglePlus/GPPSignIn.h>
 
 @class GPPSignInButton;
@@ -33,11 +29,6 @@
 - (IBAction)goToGooglePlusGroup:(id)sender;
 - (IBAction)goToOurWebSite:(id)sender;
 - (IBAction)emailUsButton:(id)sender;
-<<<<<<< HEAD
 // fucking changes
-=======
-//fucking changes
-
->>>>>>> 6b16d99142424c696f52bf0dc0fcea63f100ab58
 
 @end

@@ -12,7 +12,6 @@
 
 @interface RecipesTVC : UIViewController
 
-<<<<<<< HEAD
 @property(weak, nonatomic) IBOutlet UITableView *tableView;
 @property(strong, nonatomic) NSString *query;
 @property(strong, nonatomic) NSMutableArray *recipes;
@@ -25,22 +24,6 @@
 @property(weak, nonatomic) IBOutlet UIButton *byCaloriesButton;
 
 @property(strong, nonatomic) IBOutlet UIButton *saveAllRecipes;
-=======
-@interface RecipesTVC : UIViewController
-
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSString *query;
-@property (strong, nonatomic) NSMutableArray *recipes;
-@property (strong, nonatomic) NSString *dataSource;
-@property (strong, nonatomic) NSString *userEmail;
-@property (strong, nonatomic) NSString *userId;
-@property (strong, nonatomic) NSString *userName;
-@property (strong, nonatomic) NSString *userSocialNetwork;
-@property (weak, nonatomic) IBOutlet UIButton *byNameButton;
-@property (weak, nonatomic) IBOutlet UIButton *byCaloriesButton;
-
-@property (strong, nonatomic) IBOutlet UIButton *saveAllRecipes;
->>>>>>> 6b16d99142424c696f52bf0dc0fcea63f100ab58
 - (IBAction)saveAllRecipesToParse:(id)sender;
 - (IBAction)sortByName:(id)sender;
 - (IBAction)sortByCalories:(id)sender;

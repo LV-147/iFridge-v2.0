@@ -20,7 +20,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iFridge/ReminderTableViewController.m"
-<<<<<<< HEAD
             timestampString = "457703746.064673"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -43,14 +42,6 @@
             startingLineNumber = "66"
             endingLineNumber = "66"
             landmarkName = "-viewDidLoad"
-=======
-            timestampString = "457699292.066391"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
-            landmarkName = "-viewWillAppear:"
->>>>>>> 6b16d99142424c696f52bf0dc0fcea63f100ab58
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -61,7 +52,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iFridge/ReminderTableViewController.m"
-<<<<<<< HEAD
             timestampString = "457703818.232881"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -69,15 +59,6 @@
             endingLineNumber = "103"
             landmarkName = "@implementation ReminderTableViewController"
             landmarkType = "3">
-=======
-            timestampString = "457699292.961522"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
-            landmarkName = "-viewDidAppear:"
-            landmarkType = "5">
->>>>>>> 6b16d99142424c696f52bf0dc0fcea63f100ab58
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

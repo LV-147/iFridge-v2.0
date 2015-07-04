@@ -38,12 +38,6 @@
 		357A59101AFFDF3D0094B0AC /* iFridgeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 357A590F1AFFDF3D0094B0AC /* iFridgeTests.m */; };
 		3584A22D1B19E00400D21AF8 /* RegExCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 3584A22C1B19E00400D21AF8 /* RegExCategories.m */; };
 		3584A2301B19F99800D21AF8 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3584A22F1B19F99800D21AF8 /* iCarousel.m */; };
-<<<<<<< HEAD
-=======
-		3588CEF31B48134B00D3CD22 /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3588CEEF1B48134B00D3CD22 /* LoadingView.m */; };
-		3588CEF41B48134B00D3CD22 /* UIViewController+LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3588CEF11B48134B00D3CD22 /* UIViewController+LoadingView.m */; };
-		3588CEF51B48134B00D3CD22 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3588CEF21B48134B00D3CD22 /* LoadingView.xib */; };
->>>>>>> 6b16d99142424c696f52bf0dc0fcea63f100ab58
 		3597096F1B04FD98005064C0 /* RecipesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3597096E1B04FD98005064C0 /* RecipesCell.m */; };
 		35A8704B1B061CD8006343B5 /* RecipeWithImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A8704A1B061CD8006343B5 /* RecipeWithImage.m */; };
 		35A9D7091B08F16F005EF9BF /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35A9D7061B08F16E005EF9BF /* FBSDKCoreKit.framework */; };
@@ -64,12 +58,9 @@
 		D926FC1B1B2B0F01003FB68C /* AddRecipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D926FC1A1B2B0F01003FB68C /* AddRecipeViewController.m */; };
 		D926FC201B2B2EA5003FB68C /* AddIngredientsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D926FC1F1B2B2EA5003FB68C /* AddIngredientsViewController.m */; };
 		D926FC231B2B3FC1003FB68C /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = D926FC221B2B3FC1003FB68C /* Ingredient.m */; };
-<<<<<<< HEAD
 		D92C06681B48171E000FA91E /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = D92C06631B48171E000FA91E /* LoadingView.m */; };
 		D92C06691B48171E000FA91E /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D92C06641B48171E000FA91E /* LoadingView.xib */; };
 		D92C066A1B48171E000FA91E /* UIViewController+LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = D92C06651B48171E000FA91E /* UIViewController+LoadingView.m */; };
-=======
->>>>>>> 6b16d99142424c696f52bf0dc0fcea63f100ab58
 		D94ACC351B441CB80065ABF6 /* IngredientCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D94ACC341B441CB80065ABF6 /* IngredientCell.m */; };
 		D96D9ECA1B2F0A5F00D89452 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D96D9EC91B2F0A5F00D89452 /* iPhone.storyboard */; };
 		D984A5D01B3EA4FF00F83CB4 /* RecipesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D984A5CF1B3EA4FF00F83CB4 /* RecipesTVC.m */; };
@@ -143,14 +134,6 @@
 		3584A22C1B19E00400D21AF8 /* RegExCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegExCategories.m; sourceTree = "<group>"; };
 		3584A22E1B19F99800D21AF8 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		3584A22F1B19F99800D21AF8 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
-<<<<<<< HEAD
-=======
-		3588CEEE1B48134B00D3CD22 /* LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
-		3588CEEF1B48134B00D3CD22 /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
-		3588CEF01B48134B00D3CD22 /* UIViewController+LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LoadingView.h"; sourceTree = "<group>"; };
-		3588CEF11B48134B00D3CD22 /* UIViewController+LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+LoadingView.m"; sourceTree = "<group>"; };
-		3588CEF21B48134B00D3CD22 /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
->>>>>>> 6b16d99142424c696f52bf0dc0fcea63f100ab58
 		3597096D1B04FD98005064C0 /* RecipesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesCell.h; sourceTree = "<group>"; };
 		3597096E1B04FD98005064C0 /* RecipesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesCell.m; sourceTree = "<group>"; };
 		35A870491B061CD8006343B5 /* RecipeWithImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeWithImage.h; sourceTree = "<group>"; };
@@ -183,14 +166,11 @@
 		D926FC1F1B2B2EA5003FB68C /* AddIngredientsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddIngredientsViewController.m; sourceTree = "<group>"; };
 		D926FC211B2B3FC1003FB68C /* Ingredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ingredient.h; sourceTree = "<group>"; };
 		D926FC221B2B3FC1003FB68C /* Ingredient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ingredient.m; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		D92C06631B48171E000FA91E /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
 		D92C06641B48171E000FA91E /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		D92C06651B48171E000FA91E /* UIViewController+LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+LoadingView.m"; sourceTree = "<group>"; };
 		D92C06661B48171E000FA91E /* LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
 		D92C06671B48171E000FA91E /* UIViewController+LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LoadingView.h"; sourceTree = "<group>"; };
-=======
->>>>>>> 6b16d99142424c696f52bf0dc0fcea63f100ab58
 		D94ACC331B441CB80065ABF6 /* IngredientCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngredientCell.h; sourceTree = "<group>"; };
 		D94ACC341B441CB80065ABF6 /* IngredientCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngredientCell.m; sourceTree = "<group>"; };
 		D96D9EC91B2F0A5F00D89452 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
@@ -545,11 +525,6 @@
 				F37E16881B32DA7800BEBACE /* AddProductModalSegue */,
 				F3948BE71B137AE500D149D0 /* FridgeTableViewController.h */,
 				35AFA34C1B1C728F006013AC /* FridgeTableViewController.m */,
-				3588CEEE1B48134B00D3CD22 /* LoadingView.h */,
-				3588CEEF1B48134B00D3CD22 /* LoadingView.m */,
-				3588CEF01B48134B00D3CD22 /* UIViewController+LoadingView.h */,
-				3588CEF11B48134B00D3CD22 /* UIViewController+LoadingView.m */,
-				3588CEF21B48134B00D3CD22 /* LoadingView.xib */,
 				F3948BEA1B137BB300D149D0 /* UIButton+FridgeBlock.h */,
 				F3948BEB1B137BB300D149D0 /* UIButton+FridgeBlock.m */,
 				F3948BED1B137BDB00D149D0 /* UIAlertView+FridgeBlock.h */,
@@ -658,17 +633,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				357A59041AFFDF3C0094B0AC /* LaunchScreen.xib in Resources */,
-<<<<<<< HEAD
 				D92C06691B48171E000FA91E /* LoadingView.xib in Resources */,
 				357A59011AFFDF3C0094B0AC /* Images.xcassets in Resources */,
 				43186DE61B457520002ED189 /* RecipeCarouselItem.xib in Resources */,
 				D96D9ECA1B2F0A5F00D89452 /* iPhone.storyboard in Resources */,
-=======
-				357A59011AFFDF3C0094B0AC /* Images.xcassets in Resources */,
-				43186DE61B457520002ED189 /* RecipeCarouselItem.xib in Resources */,
-				D96D9ECA1B2F0A5F00D89452 /* iPhone.storyboard in Resources */,
-				3588CEF51B48134B00D3CD22 /* LoadingView.xib in Resources */,
->>>>>>> 6b16d99142424c696f52bf0dc0fcea63f100ab58
 				35A9D7101B08F1B7005EF9BF /* GooglePlus.bundle in Resources */,
 				D9267F541B3AE36B00A551BA /* iPad.storyboard in Resources */,
 			);
@@ -744,17 +712,10 @@
 				3597096F1B04FD98005064C0 /* RecipesCell.m in Sources */,
 				D992EE4E1B0B9D220093B3F7 /* Ingredient+Cat.m in Sources */,
 				F3948BEF1B137BDB00D149D0 /* UIAlertView+FridgeBlock.m in Sources */,
-<<<<<<< HEAD
 				D92C066A1B48171E000FA91E /* UIViewController+LoadingView.m in Sources */,
 				D992EE331B0A34DA0093B3F7 /* Fridge+Cat.m in Sources */,
 				F3948BEC1B137BB300D149D0 /* UIButton+FridgeBlock.m in Sources */,
 				D92C06681B48171E000FA91E /* LoadingView.m in Sources */,
-=======
-				3588CEF41B48134B00D3CD22 /* UIViewController+LoadingView.m in Sources */,
-				D992EE331B0A34DA0093B3F7 /* Fridge+Cat.m in Sources */,
-				F3948BEC1B137BB300D149D0 /* UIButton+FridgeBlock.m in Sources */,
-				3588CEF31B48134B00D3CD22 /* LoadingView.m in Sources */,
->>>>>>> 6b16d99142424c696f52bf0dc0fcea63f100ab58
 				BFF69BBD1B2860500085736A /* SortingStringClass.swift in Sources */,
 				357A58F31AFFDF3C0094B0AC /* main.m in Sources */,
 				D926FC231B2B3FC1003FB68C /* Ingredient.m in Sources */,
