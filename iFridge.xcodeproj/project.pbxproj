@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1802C40D1B457E6600713E41 /* OnePasswordExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1802C40C1B457E6600713E41 /* OnePasswordExtension.m */; };
 		1802C4101B457E7C00713E41 /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1802C40F1B457E7C00713E41 /* KeychainWrapper.m */; };
+		18DBD6951B482CE7007C061E /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DBD6941B482CE7007C061E /* MasterViewController.swift */; };
+		18DBD6971B482D2C007C061E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DBD6961B482D2C007C061E /* LoginViewController.swift */; };
 		3508A0821B3AC2E7005F4D30 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3508A0801B3AC2E7005F4D30 /* Bolts.framework */; };
 		3508A0831B3AC2E7005F4D30 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3508A0811B3AC2E7005F4D30 /* Parse.framework */; };
 		3508A0851B3AC2FC005F4D30 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3508A0841B3AC2FC005F4D30 /* Social.framework */; };
@@ -96,6 +98,8 @@
 		1802C40C1B457E6600713E41 /* OnePasswordExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnePasswordExtension.m; sourceTree = "<group>"; };
 		1802C40E1B457E7C00713E41 /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainWrapper.h; sourceTree = "<group>"; };
 		1802C40F1B457E7C00713E41 /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
+		18DBD6941B482CE7007C061E /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		18DBD6961B482D2C007C061E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3508A0801B3AC2E7005F4D30 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		3508A0811B3AC2E7005F4D30 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		3508A0841B3AC2FC005F4D30 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -260,6 +264,8 @@
 				1802C40C1B457E6600713E41 /* OnePasswordExtension.m */,
 				1802C40E1B457E7C00713E41 /* KeychainWrapper.h */,
 				1802C40F1B457E7C00713E41 /* KeychainWrapper.m */,
+				18DBD6941B482CE7007C061E /* MasterViewController.swift */,
+				18DBD6961B482D2C007C061E /* LoginViewController.swift */,
 			);
 			name = Swift;
 			sourceTree = "<group>";
@@ -705,6 +711,7 @@
 				BFDD51761B21DCCE0039A630 /* RecipeCarouselItem.m in Sources */,
 				D94ACC351B441CB80065ABF6 /* IngredientCell.m in Sources */,
 				D926FC201B2B2EA5003FB68C /* AddIngredientsViewController.m in Sources */,
+				18DBD6951B482CE7007C061E /* MasterViewController.swift in Sources */,
 				F3948BFB1B138AE600D149D0 /* UIButton+ReminderBlock.m in Sources */,
 				D926FC1B1B2B0F01003FB68C /* AddRecipeViewController.m in Sources */,
 				D9B7D82D1B21C64200D5787E /* DataDownloader.m in Sources */,
@@ -712,6 +719,7 @@
 				3597096F1B04FD98005064C0 /* RecipesCell.m in Sources */,
 				D992EE4E1B0B9D220093B3F7 /* Ingredient+Cat.m in Sources */,
 				F3948BEF1B137BDB00D149D0 /* UIAlertView+FridgeBlock.m in Sources */,
+				18DBD6971B482D2C007C061E /* LoginViewController.swift in Sources */,
 				D92C066A1B48171E000FA91E /* UIViewController+LoadingView.m in Sources */,
 				D992EE331B0A34DA0093B3F7 /* Fridge+Cat.m in Sources */,
 				F3948BEC1B137BB300D149D0 /* UIButton+FridgeBlock.m in Sources */,

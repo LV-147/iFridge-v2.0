@@ -2,10 +2,9 @@
 //  LoginViewController.swift
 //  iFridge
 //
-//  Created by apple on 03.06.15.
+//  Created by apple on 04.07.15.
 //  Copyright (c) 2015 Alexey Pelekh. All rights reserved.
 //
-
 import UIKit
 import CoreData
 import LocalAuthentication

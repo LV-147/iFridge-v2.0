@@ -2,7 +2,7 @@
 //  MasterViewController.swift
 //  iFridge
 //
-//  Created by apple on 03.07.15.
+//  Created by apple on 04.07.15.
 //  Copyright (c) 2015 Alexey Pelekh. All rights reserved.
 //
 
@@ -133,7 +133,7 @@ class MasterViewController: UIViewController,UITextViewDelegate{
         //    segue destinationViewController setManagedObjectContext:self.managedObjectContext
     }
     
-   
+    
     
     
 }
