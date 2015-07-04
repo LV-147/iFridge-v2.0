@@ -16,7 +16,7 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo-frame" translatesAutoresizingMaskIntoConstraints="NO" id="7z1-Jd-XRq">
                     <rect key="frame" x="49" y="50" width="277" height="304"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSn-Gb-psf" customClass="FBSDKLikeButton">
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSn-Gb-psf" customClass="FBSDKLikeButton">
                     <rect key="frame" x="16" y="624" width="49" height="46"/>
                     <state key="normal" image="330273-64">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -45,7 +45,12 @@
                         <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="40"/>
                     </variation>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" directionalLockEnabled="YES" pagingEnabled="YES" editable="NO" text="bgfdb" translatesAutoresizingMaskIntoConstraints="NO" id="Tlf-se-ZBw">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TsH-OL-8fQ">
+                    <rect key="frame" x="72" y="81" width="229" height="203"/>
+                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </imageView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" directionalLockEnabled="YES" pagingEnabled="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tlf-se-ZBw">
+                    <rect key="frame" x="63" y="342" width="296" height="274"/>
                     <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
@@ -53,16 +58,8 @@
                         <rect key="frame" x="228" y="60" width="127" height="557"/>
                     </variation>
                 </textView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TsH-OL-8fQ">
-                    <rect key="frame" x="72" y="81" width="229" height="203"/>
-                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                </imageView>
             </subviews>
             <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
-            <constraints>
-                <constraint firstAttribute="bottom" secondItem="jSn-Gb-psf" secondAttribute="bottom" constant="-3" id="DBc-ck-ubY"/>
-                <constraint firstItem="jSn-Gb-psf" firstAttribute="leading" secondItem="eNb-48-BbU" secondAttribute="leading" constant="16" id="xDT-Zw-o6r"/>
-            </constraints>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

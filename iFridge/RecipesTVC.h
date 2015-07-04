@@ -28,5 +28,6 @@
 - (IBAction)saveAllRecipesToParse:(id)sender;
 - (IBAction)sortByName:(id)sender;
 - (IBAction)sortByCalories:(id)sender;
+- (void)searchForRecipesForQuery:(NSString *)newQuery;
 
 @end

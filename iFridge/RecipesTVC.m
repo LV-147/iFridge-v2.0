@@ -37,7 +37,7 @@
     self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     self.tableView.backgroundColor = [UIColor clearColor];
     self.recipes = [[NSMutableArray alloc] init];
-    if (UIUserInterfaceIdiomPad) {
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         self.dataSource = @"Search results";
         self.detailRecipeController = [self.splitViewController.viewControllers objectAtIndex:1];
     }
@@ -192,7 +192,7 @@
 }
 
 - (void)updateDetailRecipesControllerWithIndex:(NSUInteger)index {
-    if (UIUserInterfaceIdiomPad) {
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         self.detailRecipeController.availableRecipes = self.recipes;
         self.detailRecipeController.index = index;
         [self.detailRecipeController.carousel reloadData];
@@ -273,7 +273,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (UIUserInterfaceIdiomPad)
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
         [self.detailRecipeController.carousel scrollToItemAtIndex:indexPath.row animated:YES];
 }
 

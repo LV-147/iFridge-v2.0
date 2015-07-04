@@ -211,7 +211,7 @@
     {
         [sender setEnabled:NO];
     }
-    if (UIUserInterfaceIdiomPad)
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
         [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
 }
 
