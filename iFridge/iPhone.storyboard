@@ -314,10 +314,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.49999999999999994" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fridge2" translatesAutoresizingMaskIntoConstraints="NO" id="Toc-wJ-wsb">
+                            <imageView userInteractionEnabled="NO" alpha="0.49999999999999994" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="fridge2" translatesAutoresizingMaskIntoConstraints="NO" id="Toc-wJ-wsb">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="674"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="667" id="hjc-Qm-cyG"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="hjc-Qm-cyG"/>
+                                    </mask>
+                                </variation>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="667" height="674"/>
+                                    <mask key="constraints">
+                                        <include reference="hjc-Qm-cyG"/>
+                                    </mask>
                                 </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5dv-xX-iQD">
@@ -413,6 +427,10 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Toc-wJ-wsb" secondAttribute="trailing" constant="-16" id="Qfc-wk-0PV"/>
+                            <constraint firstItem="Toc-wJ-wsb" firstAttribute="leading" secondItem="gVe-HH-8ys" secondAttribute="leadingMargin" constant="-16" id="n2b-zR-Iv9"/>
+                        </constraints>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="Toc-wJ-wsb"/>
@@ -424,6 +442,11 @@
                                 <include reference="oht-2q-vXi"/>
                                 <include reference="fLJ-pi-SKd"/>
                                 <include reference="uEE-Pt-mPm"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="Toc-wJ-wsb"/>
                             </mask>
                         </variation>
                     </view>
@@ -2344,6 +2367,9 @@
                                 </variation>
                                 <variation key="heightClass=compact-widthClass=compact" ambiguous="YES">
                                     <rect key="frame" x="67" y="357" width="98" height="30"/>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=regular" misplaced="YES">
+                                    <rect key="frame" x="120" y="213" width="98" height="30"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="139" y="222" width="98" height="44"/>
