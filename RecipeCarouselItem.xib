@@ -119,12 +119,6 @@
             </connections>
             <point key="canvasLocation" x="104.5" y="163.5"/>
         </view>
-        <view contentMode="scaleToFill" id="Oaw-lz-M5x">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            <point key="canvasLocation" x="798" y="170"/>
-        </view>
     </objects>
     <resources>
         <image name="330273-64" width="64" height="64"/>
