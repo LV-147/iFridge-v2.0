@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RecipesTVC.h"
 
 @interface LoadingView : UIView {
     UIActivityIndicatorViewStyle loadIndicatorStyle; //default is UIActivityIndicatorViewStyleWhiteLarge
@@ -14,6 +15,17 @@
 
 @property (nonatomic, assign) UIActivityIndicatorViewStyle loadIndicatorStyle;
 @property (nonatomic, weak) IBOutlet UIImageView *animImageView;
+
+@property (strong, nonatomic) IBOutlet UIView *viewWithImage;
+
+@property (strong, nonatomic) IBOutlet UIImageView *imageView1;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView2;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView3;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView4;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView5;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView6;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView7;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView8;
 
 - (id)initWithLoadIndicatorStyle:(UIActivityIndicatorViewStyle)aStyle;
 
