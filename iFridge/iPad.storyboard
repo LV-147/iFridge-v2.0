@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CYb-dP-gza">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CYb-dP-gza">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -514,7 +514,7 @@
                                             <rect key="frame" x="276" y="630" width="83" height="30"/>
                                         </variation>
                                         <connections>
-                                            <segue destination="WxR-3Z-hFb" kind="presentation" identifier="reminderSegue" id="t0d-cP-XYn"/>
+                                            <segue destination="PDN-eo-KPX" kind="presentation" identifier="reminderSegue" id="CMt-Ge-gUU"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8J-Ps-BQB">
@@ -586,59 +586,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d0J-IE-nj6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1122" y="-1602"/>
-        </scene>
-        <!--Reminder Table View Controller-->
-        <scene sceneID="l1O-ff-mdm">
-            <objects>
-                <tableViewController id="WxR-3Z-hFb" customClass="ReminderTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ixU-Si-d0i">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <button key="tableFooterView" opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="roO-Mj-Az0">
-                            <rect key="frame" x="0.0" y="66" width="600" height="62"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="20"/>
-                            <inset key="contentEdgeInsets" minX="0.0" minY="-7" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="Send to calendar" backgroundImage="note">
-                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
-                            <connections>
-                                <action selector="sendToCalendar:" destination="WxR-3Z-hFb" eventType="touchUpInside" id="MAv-29-KqU"/>
-                            </connections>
-                        </button>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell Identifier" id="pc0-TR-sck">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pc0-TR-sck" id="EgT-rb-i4j">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="WxR-3Z-hFb" id="qMn-dr-hDG"/>
-                            <outlet property="delegate" destination="WxR-3Z-hFb" id="NQ7-6u-qb3"/>
-                        </connections>
-                    </tableView>
-                    <toolbarItems>
-                        <barButtonItem title="Select Date" id="tIX-3B-Z4l">
-                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="cancel:" destination="WxR-3Z-hFb" id="vct-Mb-5Na"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="sendToCalendar" destination="roO-Mj-Az0" id="tcp-av-piR"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BMf-sq-bqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-257" y="-1602"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="Ewa-pd-nnq">
@@ -1414,6 +1361,163 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T8Q-fZ-11Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1122" y="-800"/>
+        </scene>
+        <!--Reminder Table View Controller-->
+        <scene sceneID="3pj-7V-SQj">
+            <objects>
+                <viewController id="PDN-eo-KPX" customClass="ReminderTableViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Pya-Oj-WFX"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wfc-5D-DbE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aEx-bp-lsP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.89999997615814209" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Cb-le-AyT" userLabel="Top toolbar">
+                                <rect key="frame" x="-4" y="0.0" width="608" height="84"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="clG-Bu-J34">
+                                        <rect key="frame" x="490" y="38" width="72" height="30"/>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="28"/>
+                                        <state key="normal" title="Add">
+                                            <color key="titleColor" red="1" green="0.0098948884979999999" blue="0.029187735570000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addButtonPressed:" destination="PDN-eo-KPX" eventType="touchUpInside" id="mNg-Wf-qkV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="84" id="Xub-57-Crf"/>
+                                </constraints>
+                            </view>
+                            <view alpha="0.89999997615814209" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h3E-d9-q5J" userLabel="Bottom toolbar">
+                                <rect key="frame" x="-4" y="506" width="608" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z8e-GG-q5l">
+                                        <rect key="frame" x="16" y="8" width="153" height="42"/>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="28"/>
+                                        <state key="normal" title="Select Date">
+                                            <color key="titleColor" red="1" green="0.0098948884979999999" blue="0.029187735570000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="s3r-lg-ta3" kind="presentation" identifier="dateSegue" id="yeG-M1-JBr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ozP-TT-K5v"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="8jz-bE-MDo">
+                                <rect key="frame" x="0.0" y="92" width="600" height="420"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <button key="tableFooterView" opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5lW-mJ-Epz">
+                                    <rect key="frame" x="0.0" y="66" width="600" height="62"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="20"/>
+                                    <inset key="contentEdgeInsets" minX="0.0" minY="-7" maxX="0.0" maxY="0.0"/>
+                                    <state key="normal" title="Send to calendar" backgroundImage="note">
+                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="sendToCalendar:" destination="PDN-eo-KPX" eventType="touchUpInside" id="f7T-63-P79"/>
+                                    </connections>
+                                </button>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell Identifier" id="CyU-Vb-pPx">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CyU-Vb-pPx" id="4Oo-q9-3Ut">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="PDN-eo-KPX" id="VPG-C2-tR1"/>
+                                    <outlet property="delegate" destination="PDN-eo-KPX" id="61C-No-cjf"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="h3E-d9-q5J" firstAttribute="leading" secondItem="aEx-bp-lsP" secondAttribute="leadingMargin" constant="-20" id="0sR-9e-8LS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8jz-bE-MDo" secondAttribute="trailing" constant="-16" id="DbA-kL-0dc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="h3E-d9-q5J" secondAttribute="trailing" constant="-20" id="QQg-O1-h5f"/>
+                            <constraint firstItem="Wfc-5D-DbE" firstAttribute="top" secondItem="h3E-d9-q5J" secondAttribute="bottom" id="RjI-3K-Qsz"/>
+                            <constraint firstItem="3Cb-le-AyT" firstAttribute="top" secondItem="Pya-Oj-WFX" secondAttribute="bottom" constant="-20" id="SKa-my-4OI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3Cb-le-AyT" secondAttribute="trailing" constant="-20" id="UBC-Y2-FOM"/>
+                            <constraint firstItem="8jz-bE-MDo" firstAttribute="top" secondItem="3Cb-le-AyT" secondAttribute="bottom" constant="8" id="XpE-QN-WxP"/>
+                            <constraint firstItem="8jz-bE-MDo" firstAttribute="leading" secondItem="aEx-bp-lsP" secondAttribute="leadingMargin" constant="-16" id="XwN-59-hE0"/>
+                            <constraint firstItem="h3E-d9-q5J" firstAttribute="top" secondItem="8jz-bE-MDo" secondAttribute="bottom" constant="-6" id="duK-Tq-J7B"/>
+                            <constraint firstItem="3Cb-le-AyT" firstAttribute="leading" secondItem="aEx-bp-lsP" secondAttribute="leadingMargin" constant="-20" id="us4-k9-zyN"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="sendToCalendar" destination="5lW-mJ-Epz" id="069-PK-BUG"/>
+                        <outlet property="tableView" destination="8jz-bE-MDo" id="JzQ-p3-Vjd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S96-zf-fY9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-249" y="-1592"/>
+        </scene>
+        <!--Select Date-->
+        <scene sceneID="G2w-iA-P8a">
+            <objects>
+                <viewController id="s3r-lg-ta3" customClass="SelectDate" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Pqn-ta-8Qb"/>
+                        <viewControllerLayoutGuide type="bottom" id="XQC-fY-wJy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uF2-22-fb7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ELt-fQ-drI">
+                                <rect key="frame" x="0.0" y="247" width="600" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="457709120.84193498">
+                                    <!--2015-07-04 13:25:20 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="datePicked:" destination="s3r-lg-ta3" eventType="valueChanged" id="jHi-zv-4dJ"/>
+                                </connections>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jf7-Y8-4dm">
+                                <rect key="frame" x="457" y="35" width="107" height="44"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="28"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="1" green="0.0098948884979999999" blue="0.029187735570000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="done:" destination="s3r-lg-ta3" eventType="touchUpInside" id="CZE-OH-lBn"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6c-Mj-cQu">
+                                <rect key="frame" x="159" y="97" width="282" height="66"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="28"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="ELt-fQ-drI" id="fGI-eS-7DV"/>
+                        <outlet property="selectDate" destination="V6c-Mj-cQu" id="TyA-eV-vcn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rPJ-u0-3ap" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="619" y="-1592"/>
         </scene>
     </scenes>
     <resources>
