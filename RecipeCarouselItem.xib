@@ -10,57 +10,34 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ingredient-list" translatesAutoresizingMaskIntoConstraints="NO" id="O2w-vf-8gG">
-                    <rect key="frame" x="16" y="316" width="343" height="290"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="290" id="tCo-RJ-1jp"/>
-                    </constraints>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ingredient-list" translatesAutoresizingMaskIntoConstraints="NO" id="O2w-vf-8gG">
+                    <rect key="frame" x="16" y="334" width="343" height="290"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQR-aP-Chw">
-                    <rect key="frame" x="314" y="614" width="45" height="45"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="45" id="1gr-lr-Oi1"/>
-                        <constraint firstAttribute="width" constant="45" id="KIz-oH-8pi"/>
-                    </constraints>
-                    <state key="normal" backgroundImage="save-icon">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Gb-qu-rld">
-                    <rect key="frame" x="73" y="608" width="49" height="46"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="46" id="mv1-10-A9H"/>
-                        <constraint firstAttribute="width" constant="49" id="op9-0S-8Mc"/>
-                    </constraints>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo-frame" translatesAutoresizingMaskIntoConstraints="NO" id="7z1-Jd-XRq">
+                    <rect key="frame" x="49" y="50" width="277" height="304"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSn-Gb-psf" customClass="FBSDKLikeButton">
+                    <rect key="frame" x="16" y="624" width="49" height="46"/>
                     <state key="normal" image="330273-64">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSn-Gb-psf" customClass="FBSDKLikeButton">
-                    <rect key="frame" x="16" y="608" width="49" height="46"/>
-                    <state key="normal" image="Facebook_icon.101114329_std">
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Gb-qu-rld">
+                    <rect key="frame" x="73" y="624" width="49" height="46"/>
+                    <state key="normal" image="330273-64">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TsH-OL-8fQ">
-                    <rect key="frame" x="63" y="34" width="249" height="243"/>
-                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="249" id="AlY-31-lrh"/>
-                        <constraint firstAttribute="height" constant="243" id="SrY-FR-dm4"/>
-                    </constraints>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo-frame" translatesAutoresizingMaskIntoConstraints="NO" id="7z1-Jd-XRq">
-                    <rect key="frame" x="49" y="4" width="277" height="304"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="304" id="MVh-md-5rQ"/>
-                        <constraint firstAttribute="width" constant="277" id="fQk-xD-zhO"/>
-                    </constraints>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="qYv-zk-w9f">
-                    <rect key="frame" x="63" y="240" width="249" height="37"/>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQR-aP-Chw">
+                    <rect key="frame" x="329" y="632" width="30" height="30"/>
+                    <state key="normal" backgroundImage="save-icon">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="qYv-zk-w9f">
+                    <rect key="frame" x="63" y="292" width="249" height="42"/>
                     <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="23"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -68,31 +45,21 @@
                         <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="40"/>
                     </variation>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TsH-OL-8fQ">
+                    <rect key="frame" x="72" y="81" width="229" height="203"/>
+                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </imageView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" directionalLockEnabled="YES" pagingEnabled="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tlf-se-ZBw">
+                    <rect key="frame" x="63" y="342" width="296" height="274"/>
+                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
+                    <variation key="heightClass=compact" ambiguous="YES" misplaced="YES">
+                        <rect key="frame" x="228" y="60" width="127" height="557"/>
+                    </variation>
+                </textView>
             </subviews>
             <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
-            <constraints>
-                <constraint firstItem="aQR-aP-Chw" firstAttribute="trailing" secondItem="O2w-vf-8gG" secondAttribute="trailing" id="Ar3-5N-zVC"/>
-                <constraint firstItem="7z1-Jd-XRq" firstAttribute="centerX" secondItem="O2w-vf-8gG" secondAttribute="centerX" id="GMh-f2-k1n"/>
-                <constraint firstAttribute="trailing" secondItem="O2w-vf-8gG" secondAttribute="trailing" constant="16" id="IL3-Ho-jAK"/>
-                <constraint firstItem="O2w-vf-8gG" firstAttribute="leading" secondItem="jSn-Gb-psf" secondAttribute="leading" id="P2j-dM-y0j"/>
-                <constraint firstAttribute="bottom" secondItem="aQR-aP-Chw" secondAttribute="bottom" constant="8" id="Pak-wd-RhS"/>
-                <constraint firstItem="jSn-Gb-psf" firstAttribute="top" secondItem="O2w-vf-8gG" secondAttribute="bottom" constant="2" id="R5d-CE-3K0"/>
-                <constraint firstItem="4Gb-qu-rld" firstAttribute="leading" secondItem="jSn-Gb-psf" secondAttribute="trailing" constant="8" id="R6e-Rc-4bH"/>
-                <constraint firstItem="aQR-aP-Chw" firstAttribute="top" secondItem="O2w-vf-8gG" secondAttribute="bottom" constant="8" id="TrM-v7-BOr"/>
-                <constraint firstItem="O2w-vf-8gG" firstAttribute="leading" secondItem="eNb-48-BbU" secondAttribute="leading" constant="16" id="Ujx-l4-bW5"/>
-                <constraint firstItem="4Gb-qu-rld" firstAttribute="centerY" secondItem="jSn-Gb-psf" secondAttribute="centerY" id="VQJ-Fz-zTr"/>
-                <constraint firstItem="TsH-OL-8fQ" firstAttribute="centerX" secondItem="qYv-zk-w9f" secondAttribute="centerX" id="biW-Ha-YjW"/>
-                <constraint firstAttribute="centerX" secondItem="O2w-vf-8gG" secondAttribute="centerX" id="bmI-ga-dIR"/>
-                <constraint firstItem="O2w-vf-8gG" firstAttribute="top" secondItem="7z1-Jd-XRq" secondAttribute="bottom" constant="8" id="cdH-3H-fjJ"/>
-                <constraint firstItem="4Gb-qu-rld" firstAttribute="height" secondItem="jSn-Gb-psf" secondAttribute="height" id="d9k-FI-tfR"/>
-                <constraint firstItem="7z1-Jd-XRq" firstAttribute="centerX" secondItem="TsH-OL-8fQ" secondAttribute="centerX" id="dO1-xT-bwL"/>
-                <constraint firstItem="TsH-OL-8fQ" firstAttribute="bottom" secondItem="qYv-zk-w9f" secondAttribute="bottom" id="hkQ-dz-PYX"/>
-                <constraint firstItem="7z1-Jd-XRq" firstAttribute="top" secondItem="eNb-48-BbU" secondAttribute="top" priority="750" constant="4" id="iuK-9H-Gzd"/>
-                <constraint firstItem="4Gb-qu-rld" firstAttribute="width" secondItem="jSn-Gb-psf" secondAttribute="width" id="iwr-MX-PR1"/>
-                <constraint firstItem="TsH-OL-8fQ" firstAttribute="width" secondItem="qYv-zk-w9f" secondAttribute="width" id="lr2-kK-dyH"/>
-                <constraint firstItem="7z1-Jd-XRq" firstAttribute="centerY" secondItem="TsH-OL-8fQ" secondAttribute="centerY" constant="0.5" id="n3O-fx-s6w"/>
-                <constraint firstItem="7z1-Jd-XRq" firstAttribute="width" relation="lessThanOrEqual" secondItem="O2w-vf-8gG" secondAttribute="width" id="qKi-d7-Gvf"/>
-            </constraints>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
@@ -104,29 +71,11 @@
                 <outlet property="recipeItemTextField" destination="Tlf-se-ZBw" id="QNB-kq-6Jw"/>
                 <outlet property="saveButton" destination="aQR-aP-Chw" id="gDr-Dp-d13"/>
             </connections>
-            <point key="canvasLocation" x="104.5" y="163.5"/>
+            <point key="canvasLocation" x="201.5" y="178.5"/>
         </view>
-        <view contentMode="scaleToFill" id="Oaw-lz-M5x">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            <point key="canvasLocation" x="798" y="170"/>
-        </view>
-        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" pagingEnabled="YES" editable="NO" id="Tlf-se-ZBw">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="14"/>
-            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-            <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
-            <variation key="heightClass=compact" ambiguous="YES" misplaced="YES">
-                <rect key="frame" x="228" y="60" width="127" height="557"/>
-            </variation>
-            <point key="canvasLocation" x="855" y="393"/>
-        </textView>
     </objects>
     <resources>
         <image name="330273-64" width="64" height="64"/>
-        <image name="Facebook_icon.101114329_std" width="256" height="256"/>
         <image name="ingredient-list" width="894" height="563"/>
         <image name="photo-frame" width="1291" height="1600"/>
         <image name="save-icon" width="170" height="170"/>

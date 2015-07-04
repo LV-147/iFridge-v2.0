@@ -30,7 +30,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.carousel.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
+    self.carousel.backgroundColor =[UIColor clearColor];
     
     self.title = @"Recipe";
     
