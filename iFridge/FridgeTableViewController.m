@@ -27,7 +27,6 @@
 @property (strong, nonatomic) NSMutableArray *toaddItems;
 @property (strong, nonatomic) Fridge *fridge;
 @property (strong, nonatomic) Recipe *recipe;
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *buttonForTaras;
 @property (strong, nonatomic) RecipeWithImage *detailRecipeController;
 
@@ -78,7 +77,7 @@
     
     
     
-    if (UIUserInterfaceIdiomPad) {
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
        
         self.detailRecipeController = [self.splitViewController.viewControllers objectAtIndex:1];
     }
@@ -98,9 +97,11 @@
     else self.title = @"My Fridge (empty)";
     self.navigationController.toolbarHidden = NO;
     [self.navigationController setNavigationBarHidden:NO];
-    
-    
-    
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.navigationController setToolbarHidden:YES animated:animated];
 }
 
 #pragma mark - UITableView data source and delegate methods
@@ -165,14 +166,14 @@
     NSLog(@"edit button clicked");
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSString *query = [DataDownloader getQueryStringFromArray:self.toaddItems];
-    RecipesTVC *newController = segue.destinationViewController;
-    //newController.query = query;
-}
-
 - (IBAction)buttonForTaras:(id)sender {
-    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        NSString *query = [DataDownloader getQueryStringFromArray:self.toaddItems];
+        RecipesTVC *newController = (RecipesTVC *)[self.navigationController.viewControllers objectAtIndex:0];
+        newController.query = query;
+        [newController searchForRecipesForQuery:query];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 
@@ -338,6 +339,16 @@
     snapshot.layer.shadowOpacity = 0.4;
     
     return snapshot;
+}
+
+#pragma Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"recipecTVC"]) {
+        NSString *query = [DataDownloader getQueryStringFromArray:self.toaddItems];
+        RecipesTVC *newController = segue.destinationViewController;
+        newController.query = query;
+    }
 }
 
 

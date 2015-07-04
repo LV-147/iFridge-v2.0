@@ -42,7 +42,7 @@
     self.carousel.scrollSpeed = 0.5;
     self.carousel.decelerationRate = 0.7;
     
-    if (UIUserInterfaceIdiomPad)
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
         self.masterRecipeController = (RecipesTVC *)((UINavigationController *)[self.splitViewController.viewControllers objectAtIndex:0]).topViewController;
     
 }
@@ -115,8 +115,8 @@
         [Recipe deleteRecipe:[self.availableRecipes objectAtIndex:self.index] fromManagedObjectContext:self.currentContext];
         [self.availableRecipes removeObjectAtIndex:_index];
         [self.carousel reloadData];
-        self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%ld", _index+1, (long)_carousel.numberOfItems];
-        if (UIUserInterfaceIdiomPad) {
+        self.recipeCountIndicator.text = [NSString stringWithFormat:@"%d/%d", _index+1, _carousel.numberOfItems];
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
             self.masterRecipeController.recipes = self.availableRecipes;
             [self.masterRecipeController.tableView reloadData];
         }

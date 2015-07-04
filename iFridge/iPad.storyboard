@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CYb-dP-gza">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CYb-dP-gza">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -285,93 +285,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AwL-d7-CRN" userLabel="Main menu">
-                                <rect key="frame" x="0.0" y="20" width="600" height="53"/>
-                                <subviews>
-                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6z-3G-CUh">
-                                        <rect key="frame" x="8" y="4" width="137" height="45"/>
-                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="14"/>
-                                        <inset key="titleEdgeInsets" minX="0.0" minY="-14" maxX="0.0" maxY="1"/>
-                                        <state key="normal" title="Fridge" backgroundImage="note">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="VEq-Eo-elA" kind="show" id="5pW-ke-v4m"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2wO-Pm-5B1">
-                                        <rect key="frame" x="153" y="4" width="137" height="45"/>
-                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="14"/>
-                                        <inset key="contentEdgeInsets" minX="0.0" minY="-15" maxX="-8" maxY="0.0"/>
-                                        <state key="normal" title="My recipes" backgroundImage="note">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="62" y="355" width="250" height="130"/>
-                                        </variation>
-                                        <connections>
-                                            <action selector="selectDataSource:" destination="tIU-3P-KDZ" eventType="touchUpInside" id="hIM-d2-qbT"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OtF-lU-iuX">
-                                        <rect key="frame" x="298" y="4" width="137" height="45"/>
-                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="14"/>
-                                        <inset key="contentEdgeInsets" minX="0.0" minY="-15" maxX="-8" maxY="0.0"/>
-                                        <state key="normal" title="Sign in" backgroundImage="note">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="62" y="355" width="250" height="130"/>
-                                        </variation>
-                                        <connections>
-                                            <segue destination="XQ8-24-bfO" kind="popoverPresentation" popoverAnchorView="OtF-lU-iuX" id="9Og-yY-pRn">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                            </segue>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P0s-lI-cbX">
-                                        <rect key="frame" x="443" y="4" width="137" height="45"/>
-                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="14"/>
-                                        <inset key="contentEdgeInsets" minX="0.0" minY="-15" maxX="-8" maxY="0.0"/>
-                                        <state key="normal" title="About us" backgroundImage="note">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="62" y="355" width="250" height="130"/>
-                                        </variation>
-                                        <connections>
-                                            <segue destination="8Ds-BV-6lA" kind="popoverPresentation" popoverAnchorView="P0s-lI-cbX" id="Wgz-2E-e00">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                            </segue>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="m6z-3G-CUh" firstAttribute="centerY" secondItem="2wO-Pm-5B1" secondAttribute="centerY" id="0rg-jN-SiA"/>
-                                    <constraint firstItem="2wO-Pm-5B1" firstAttribute="width" secondItem="m6z-3G-CUh" secondAttribute="width" id="2MK-U3-elF"/>
-                                    <constraint firstItem="2wO-Pm-5B1" firstAttribute="leading" secondItem="m6z-3G-CUh" secondAttribute="trailing" constant="8" id="37E-vq-o2b"/>
-                                    <constraint firstAttribute="trailing" secondItem="P0s-lI-cbX" secondAttribute="trailing" priority="999" constant="20" symbolic="YES" id="3RG-Tq-csH"/>
-                                    <constraint firstItem="2wO-Pm-5B1" firstAttribute="height" secondItem="m6z-3G-CUh" secondAttribute="height" id="A3f-M4-Oyz"/>
-                                    <constraint firstAttribute="height" constant="53" id="Ifb-Y6-e7X"/>
-                                    <constraint firstItem="OtF-lU-iuX" firstAttribute="centerY" secondItem="P0s-lI-cbX" secondAttribute="centerY" id="Mia-b3-eDK"/>
-                                    <constraint firstItem="OtF-lU-iuX" firstAttribute="leading" secondItem="2wO-Pm-5B1" secondAttribute="trailing" constant="8" id="Rw9-uU-sHR"/>
-                                    <constraint firstAttribute="centerY" secondItem="P0s-lI-cbX" secondAttribute="centerY" id="S1h-Fs-YGO"/>
-                                    <constraint firstItem="P0s-lI-cbX" firstAttribute="leading" secondItem="OtF-lU-iuX" secondAttribute="trailing" constant="8" id="TRO-3B-4AX"/>
-                                    <constraint firstItem="2wO-Pm-5B1" firstAttribute="width" secondItem="OtF-lU-iuX" secondAttribute="width" id="bPr-Q0-Iae"/>
-                                    <constraint firstItem="2wO-Pm-5B1" firstAttribute="height" secondItem="P0s-lI-cbX" secondAttribute="height" id="dWB-oH-gBS"/>
-                                    <constraint firstAttribute="centerY" secondItem="m6z-3G-CUh" secondAttribute="centerY" id="emJ-vr-crK"/>
-                                    <constraint firstItem="2wO-Pm-5B1" firstAttribute="height" secondItem="OtF-lU-iuX" secondAttribute="height" id="jhT-gr-6OL"/>
-                                    <constraint firstItem="m6z-3G-CUh" firstAttribute="top" secondItem="AwL-d7-CRN" secondAttribute="top" constant="4" id="lQx-9C-B4I"/>
-                                    <constraint firstItem="2wO-Pm-5B1" firstAttribute="width" secondItem="P0s-lI-cbX" secondAttribute="width" id="r3U-Fc-Vkx"/>
-                                    <constraint firstItem="m6z-3G-CUh" firstAttribute="leading" secondItem="AwL-d7-CRN" secondAttribute="leading" constant="8" id="zHu-7G-LF3"/>
-                                </constraints>
-                            </view>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="C7r-ib-XNL">
-                                <rect key="frame" x="0.0" y="73" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="137" width="600" height="44"/>
                                 <color key="barTintColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -379,7 +294,7 @@
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kt7-cV-rxw">
-                                <rect key="frame" x="0.0" y="117" width="600" height="483"/>
+                                <rect key="frame" x="0.0" y="181" width="600" height="377"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Recipe cell" rowHeight="120" id="RWD-LI-leg" customClass="RecipesCell">
@@ -432,57 +347,192 @@
                                     <outlet property="delegate" destination="tIU-3P-KDZ" id="7F0-ai-rw8"/>
                                 </connections>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HP5-LP-rpi">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UZW-iO-TFA">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <items>
-                                    <barButtonItem style="plain" id="pMQ-57-uUf">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Qux-n0-eUq">
-                                            <rect key="frame" x="324" y="5" width="35" height="35"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" image="blue_cloud">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                        </button>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" id="1KX-aG-nTA">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Okn-A4-1cD">
-                                            <rect key="frame" x="10" y="566" width="55" height="24"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
-                                            <state key="normal" title="+Recipe">
-                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <segue destination="97e-ij-deQ" kind="presentation" id="1R4-eZ-wlV"/>
-                                            </connections>
-                                        </button>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0b-A1-m5U">
+                                        <rect key="frame" x="513" y="4" width="79" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="bjt-6r-Erq"/>
+                                            <constraint firstAttribute="width" constant="79" id="w0T-Vd-oKK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
+                                        <inset key="contentEdgeInsets" minX="1" minY="-4" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="by name" backgroundImage="note">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H2i-tA-HaS">
+                                        <rect key="frame" x="71" y="4" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="9Yy-Ap-P0w"/>
+                                            <constraint firstAttribute="width" constant="35" id="PrA-XJ-4hE"/>
+                                        </constraints>
+                                        <state key="normal" image="blue_cloud">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="saveAllRecipesToParse:" destination="tIU-3P-KDZ" eventType="touchUpInside" id="idF-wJ-eVn"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwL-aT-Lb0">
+                                        <rect key="frame" x="8" y="10" width="55" height="24"/>
+                                        <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="FKd-n9-eco"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
+                                        <state key="normal" title="+Recipe">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keZ-Bq-gdR">
+                                        <rect key="frame" x="415" y="2" width="90" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="5nf-Zy-FO9"/>
+                                            <constraint firstAttribute="width" constant="90" id="MyI-0W-1d0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
+                                        <inset key="contentEdgeInsets" minX="5" minY="-4" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="by calories" backgroundImage="note">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="gwL-aT-Lb0" firstAttribute="leading" secondItem="UZW-iO-TFA" secondAttribute="leading" constant="8" id="8De-Kn-7Ff"/>
+                                    <constraint firstItem="j0b-A1-m5U" firstAttribute="leading" secondItem="keZ-Bq-gdR" secondAttribute="trailing" constant="8" id="Sda-TP-2R9"/>
+                                    <constraint firstItem="H2i-tA-HaS" firstAttribute="leading" secondItem="gwL-aT-Lb0" secondAttribute="trailing" constant="8" id="VYU-V2-x5f"/>
+                                    <constraint firstAttribute="height" constant="44" id="Zbp-D6-f3C"/>
+                                    <constraint firstAttribute="trailing" secondItem="j0b-A1-m5U" secondAttribute="trailing" constant="8" id="a0U-ux-wQ1"/>
+                                    <constraint firstItem="gwL-aT-Lb0" firstAttribute="centerY" secondItem="j0b-A1-m5U" secondAttribute="centerY" constant="-2" id="f4L-RQ-ObS"/>
+                                    <constraint firstItem="H2i-tA-HaS" firstAttribute="centerY" secondItem="keZ-Bq-gdR" secondAttribute="centerY" constant="-0.5" id="gMr-BJ-sjI"/>
+                                    <constraint firstAttribute="bottom" secondItem="j0b-A1-m5U" secondAttribute="bottom" id="jWP-1c-7J2"/>
+                                    <constraint firstItem="j0b-A1-m5U" firstAttribute="centerY" secondItem="keZ-Bq-gdR" secondAttribute="centerY" constant="2" id="wDP-wZ-Kv5"/>
+                                </constraints>
+                            </view>
+                            <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AwL-d7-CRN" userLabel="Main menu">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="137"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OtF-lU-iuX">
+                                        <rect key="frame" x="372" y="24" width="100" height="50"/>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="25"/>
+                                        <inset key="contentEdgeInsets" minX="0.0" minY="-15" maxX="-8" maxY="0.0"/>
+                                        <state key="normal" title="Sign in">
+                                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="62" y="355" width="250" height="130"/>
+                                        </variation>
+                                        <connections>
+                                            <segue destination="XQ8-24-bfO" kind="popoverPresentation" popoverAnchorView="OtF-lU-iuX" id="9Og-yY-pRn">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P0s-lI-cbX">
+                                        <rect key="frame" x="480" y="24" width="100" height="50"/>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="25"/>
+                                        <inset key="contentEdgeInsets" minX="0.0" minY="-15" maxX="-8" maxY="0.0"/>
+                                        <state key="normal" title="About us">
+                                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="62" y="355" width="250" height="130"/>
+                                        </variation>
+                                        <connections>
+                                            <segue destination="8Ds-BV-6lA" kind="popoverPresentation" popoverAnchorView="P0s-lI-cbX" id="Wgz-2E-e00">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </button>
+                                    <segmentedControl opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VO7-Ks-m6T">
+                                        <rect key="frame" x="200" y="88" width="201" height="29"/>
+                                        <segments>
+                                            <segment title="Search results"/>
+                                            <segment title="My recipes"/>
+                                        </segments>
+                                        <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </segmentedControl>
+                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6z-3G-CUh">
+                                        <rect key="frame" x="8" y="24" width="100" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="BJK-y9-8gZ"/>
+                                            <constraint firstAttribute="height" constant="50" id="dTO-8Q-Tqp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="25"/>
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="-14" maxX="0.0" maxY="1"/>
+                                        <state key="normal" title="Fridge">
+                                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="VEq-Eo-elA" kind="show" id="5pW-ke-v4m"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="P0s-lI-cbX" firstAttribute="width" secondItem="m6z-3G-CUh" secondAttribute="width" constant="37" id="2O5-IS-MDH"/>
+                                    <constraint firstAttribute="trailing" secondItem="P0s-lI-cbX" secondAttribute="trailing" constant="20" symbolic="YES" id="3RG-Tq-csH"/>
+                                    <constraint firstItem="P0s-lI-cbX" firstAttribute="height" secondItem="m6z-3G-CUh" secondAttribute="height" constant="24" id="ASP-GS-y44"/>
+                                    <constraint firstAttribute="centerX" secondItem="VO7-Ks-m6T" secondAttribute="centerX" constant="-0.5" id="G9C-xr-r08"/>
+                                    <constraint firstAttribute="height" constant="161" id="Ifb-Y6-e7X"/>
+                                    <constraint firstItem="m6z-3G-CUh" firstAttribute="height" secondItem="OtF-lU-iuX" secondAttribute="height" constant="-24" id="JZ0-BG-X88"/>
+                                    <constraint firstItem="OtF-lU-iuX" firstAttribute="centerY" secondItem="P0s-lI-cbX" secondAttribute="centerY" id="Mia-b3-eDK"/>
+                                    <constraint firstAttribute="centerY" secondItem="P0s-lI-cbX" secondAttribute="centerY" constant="19.5" id="S1h-Fs-YGO"/>
+                                    <constraint firstItem="P0s-lI-cbX" firstAttribute="leading" secondItem="OtF-lU-iuX" secondAttribute="trailing" constant="8" symbolic="YES" id="TRO-3B-4AX"/>
+                                    <constraint firstItem="P0s-lI-cbX" firstAttribute="height" secondItem="m6z-3G-CUh" secondAttribute="height" id="Tam-j1-uRd"/>
+                                    <constraint firstItem="m6z-3G-CUh" firstAttribute="height" secondItem="OtF-lU-iuX" secondAttribute="height" id="WZa-gQ-Guk"/>
+                                    <constraint firstAttribute="bottom" secondItem="VO7-Ks-m6T" secondAttribute="bottom" constant="21" id="dep-wU-5PL"/>
+                                    <constraint firstAttribute="centerY" secondItem="m6z-3G-CUh" secondAttribute="centerY" constant="19.5" id="emJ-vr-crK"/>
+                                    <constraint firstItem="m6z-3G-CUh" firstAttribute="width" secondItem="OtF-lU-iuX" secondAttribute="width" id="k6V-Xx-AaO"/>
+                                    <constraint firstItem="P0s-lI-cbX" firstAttribute="width" secondItem="m6z-3G-CUh" secondAttribute="width" id="krV-j0-vej"/>
+                                    <constraint firstItem="m6z-3G-CUh" firstAttribute="top" secondItem="AwL-d7-CRN" secondAttribute="top" constant="24" id="lQx-9C-B4I"/>
+                                    <constraint firstItem="m6z-3G-CUh" firstAttribute="height" secondItem="OtF-lU-iuX" secondAttribute="height" id="pmh-Ji-mHp"/>
+                                    <constraint firstItem="m6z-3G-CUh" firstAttribute="width" secondItem="OtF-lU-iuX" secondAttribute="width" id="q2q-SY-AbX"/>
+                                    <constraint firstItem="m6z-3G-CUh" firstAttribute="width" secondItem="OtF-lU-iuX" secondAttribute="width" constant="-37" id="vx4-mx-aZZ"/>
+                                    <constraint firstItem="m6z-3G-CUh" firstAttribute="leading" secondItem="AwL-d7-CRN" secondAttribute="leading" constant="8" id="zHu-7G-LF3"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Ifb-Y6-e7X"/>
+                                        <exclude reference="JZ0-BG-X88"/>
+                                        <exclude reference="WZa-gQ-Guk"/>
+                                        <exclude reference="k6V-Xx-AaO"/>
+                                        <exclude reference="vx4-mx-aZZ"/>
+                                        <exclude reference="2O5-IS-MDH"/>
+                                        <exclude reference="ASP-GS-y44"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="C7r-ib-XNL" firstAttribute="top" secondItem="AwL-d7-CRN" secondAttribute="bottom" id="10E-C5-hsG"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="HP5-LP-rpi" secondAttribute="trailing" constant="-16" id="4KX-cc-Rbh"/>
-                            <constraint firstItem="1sk-Vr-1Rr" firstAttribute="top" secondItem="kt7-cV-rxw" secondAttribute="bottom" id="BWn-1N-8LH"/>
+                            <constraint firstItem="1sk-Vr-1Rr" firstAttribute="top" secondItem="UZW-iO-TFA" secondAttribute="bottom" id="4cv-D5-3Zi"/>
                             <constraint firstItem="C7r-ib-XNL" firstAttribute="leading" secondItem="ebM-eQ-Fvx" secondAttribute="leadingMargin" constant="-16" id="HdF-Hr-eYz"/>
-                            <constraint firstItem="HP5-LP-rpi" firstAttribute="leading" secondItem="ebM-eQ-Fvx" secondAttribute="leadingMargin" constant="-16" id="Jxv-Wx-6E7"/>
+                            <constraint firstItem="UZW-iO-TFA" firstAttribute="top" secondItem="kt7-cV-rxw" secondAttribute="bottom" constant="-2" id="Kck-FU-gih"/>
                             <constraint firstItem="AwL-d7-CRN" firstAttribute="leading" secondItem="ebM-eQ-Fvx" secondAttribute="leadingMargin" constant="-16" id="KeR-e3-0C7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UZW-iO-TFA" secondAttribute="trailing" constant="-16" id="Lv4-IC-epe"/>
                             <constraint firstItem="kt7-cV-rxw" firstAttribute="top" secondItem="C7r-ib-XNL" secondAttribute="bottom" id="OsN-Ex-iHQ"/>
-                            <constraint firstItem="AwL-d7-CRN" firstAttribute="top" secondItem="4mV-0j-yd1" secondAttribute="bottom" id="PnS-ZT-lZM"/>
+                            <constraint firstItem="AwL-d7-CRN" firstAttribute="top" secondItem="4mV-0j-yd1" secondAttribute="bottom" constant="-20" id="PnS-ZT-lZM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kt7-cV-rxw" secondAttribute="trailing" constant="-16" id="QLz-LP-jmd"/>
-                            <constraint firstItem="1sk-Vr-1Rr" firstAttribute="top" secondItem="HP5-LP-rpi" secondAttribute="bottom" id="U6G-j6-bop"/>
                             <constraint firstItem="kt7-cV-rxw" firstAttribute="leading" secondItem="ebM-eQ-Fvx" secondAttribute="leadingMargin" constant="-16" id="Wsb-Qi-0i5"/>
-                            <constraint firstItem="AwL-d7-CRN" firstAttribute="top" secondItem="4mV-0j-yd1" secondAttribute="bottom" id="ZwT-w0-CJa"/>
+                            <constraint firstItem="AwL-d7-CRN" firstAttribute="top" secondItem="4mV-0j-yd1" secondAttribute="bottom" constant="-20" id="ZwT-w0-CJa"/>
+                            <constraint firstItem="UZW-iO-TFA" firstAttribute="top" secondItem="kt7-cV-rxw" secondAttribute="bottom" constant="-2" id="aJA-5y-12w"/>
+                            <constraint firstItem="UZW-iO-TFA" firstAttribute="leading" secondItem="ebM-eQ-Fvx" secondAttribute="leadingMargin" constant="-16" id="cak-q5-Eym"/>
                             <constraint firstAttribute="trailingMargin" secondItem="C7r-ib-XNL" secondAttribute="trailing" constant="-16" id="chF-wZ-81t"/>
                             <constraint firstAttribute="trailingMargin" secondItem="AwL-d7-CRN" secondAttribute="trailing" constant="-16" id="eRF-XC-7zh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gqN-Lq-qFy"/>
                     <connections>
-                        <outlet property="dataSourceButton" destination="2wO-Pm-5B1" id="lX6-kO-V6L"/>
                         <outlet property="searchBar" destination="C7r-ib-XNL" id="Npj-HF-rEJ"/>
                         <outlet property="tableView" destination="kt7-cV-rxw" id="yhp-lq-XAm"/>
                     </connections>
@@ -881,9 +931,10 @@
                         </connections>
                     </tableView>
                     <toolbarItems>
-                        <barButtonItem title="ButtonForTaras" width="110" id="72Z-3j-crJ">
+                        <barButtonItem title="What to cook" width="110" id="72Z-3j-crJ">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="tIU-3P-KDZ" kind="show" id="OCG-J2-EzJ"/>
+                                <action selector="buttonForTaras:" destination="VEq-Eo-elA" id="3qD-rL-NhP"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
@@ -1527,7 +1578,4 @@
         <image name="user_info" width="128" height="128"/>
         <image name="vk" width="256" height="256"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="OCG-J2-EzJ"/>
-    </inferredMetricsTieBreakers>
 </document>
