@@ -98,6 +98,7 @@
 }
 -(void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    self.navigationController.toolbar.hidden = NO;
 }
 
 

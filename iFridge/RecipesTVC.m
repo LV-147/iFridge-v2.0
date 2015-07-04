@@ -195,7 +195,7 @@
     [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
     [numberFormatter setMaximumFractionDigits:0];
     
-    if ([self.dataSource isEqualToString:@"Search results"]) {
+    if ([[self.recipes objectAtIndex:indexPath.row] isKindOfClass:[NSDictionary class]]) {
         cell.nameOfDish.text = self.recipes[indexPath.row][@"recipe"][@"label"];
         
         cell.cookingTime.text = [NSString stringWithFormat:@"cookingTime: %@", self.recipes[indexPath.row][@"recipe"][@"cookingTime"]];
