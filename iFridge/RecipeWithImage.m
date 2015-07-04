@@ -139,7 +139,7 @@
 
 - (BOOL)ifRecipeAtIndexSaved:(NSUInteger)index {
     //checking if current recipe is alredy in the data base
-    BOOL recipeSaved;
+    BOOL recipeSaved = NO;
     if ([[self.availableRecipes objectAtIndex:index] isKindOfClass:[NSDictionary class]]) {
         NSDictionary *currRecipe = [self.availableRecipes objectAtIndex:index];
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Recipe"];
@@ -245,10 +245,10 @@
                                                  scrollPosition:UITableViewScrollPositionNone];
 }
 
-- (CGFloat)carouselItemWidth:(iCarousel *)carousel {
-    CGFloat itemWidth = self.view.frame.size.width;
-    return itemWidth;
-}
+//- (CGFloat)carouselItemWidth:(iCarousel *)carousel {
+//    CGFloat itemWidth = self.view.frame.size.width;
+//    return itemWidth;
+//}
 
 #pragma mark Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

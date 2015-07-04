@@ -90,30 +90,9 @@
             NSLog(@"error");
         } else {
             NSLog(@"url %@", assetURL);
+            self.recipeImageURL = [assetURL absoluteString];
         }
     }];
-    
-    //NSString *path = [documentsDirectory stringByAppendingPathComponent:@"myimage.png"];
-    
-    //[data writeToFile:path atomically:YES];
-    //getting the image
-    //self.recipeImage.image = [UIImage imageWithContentsOfFile:path];
-    
-//    //obtaining saving path
-//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//    NSString *documentsDirectory = [paths objectAtIndex:0];
-//    NSString *imagePath = [documentsDirectory stringByAppendingPathComponent:@"latest_photo.png"];
-//    
-//    //extracting image from the picker and saving it
-//    NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
-//    if ([mediaType isEqualToString:@"public.image"]){
-//        UIImage *editedImage = [info objectForKey:UIImagePickerControllerEditedImage];
-//        NSData *webData = UIImagePNGRepresentation(editedImage);
-//        [webData writeToFile:imagePath atomically:YES];
-//        
-//        self.recipeImageURL = imagePath;
-//    }
-//    
    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
