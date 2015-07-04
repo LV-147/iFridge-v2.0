@@ -64,7 +64,6 @@
 		D94ACC351B441CB80065ABF6 /* IngredientCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D94ACC341B441CB80065ABF6 /* IngredientCell.m */; };
 		D96D9ECA1B2F0A5F00D89452 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D96D9EC91B2F0A5F00D89452 /* iPhone.storyboard */; };
 		D984A5D01B3EA4FF00F83CB4 /* RecipesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D984A5CF1B3EA4FF00F83CB4 /* RecipesTVC.m */; };
-		D984A5D31B3EB99D00F83CB4 /* Main menu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D984A5D21B3EB99D00F83CB4 /* Main menu.xib */; };
 		D992EE2A1B0A339A0093B3F7 /* Fridge.m in Sources */ = {isa = PBXBuildFile; fileRef = D992EE291B0A339A0093B3F7 /* Fridge.m */; };
 		D992EE331B0A34DA0093B3F7 /* Fridge+Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = D992EE321B0A34DA0093B3F7 /* Fridge+Cat.m */; };
 		D992EE3C1B0B54090093B3F7 /* UIViewController+Context.m in Sources */ = {isa = PBXBuildFile; fileRef = D992EE3B1B0B54090093B3F7 /* UIViewController+Context.m */; };
@@ -177,7 +176,6 @@
 		D96D9EC91B2F0A5F00D89452 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
 		D984A5CE1B3EA4FF00F83CB4 /* RecipesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesTVC.h; sourceTree = "<group>"; };
 		D984A5CF1B3EA4FF00F83CB4 /* RecipesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesTVC.m; sourceTree = "<group>"; };
-		D984A5D21B3EB99D00F83CB4 /* Main menu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Main menu.xib"; sourceTree = "<group>"; };
 		D992EE281B0A339A0093B3F7 /* Fridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fridge.h; sourceTree = "<group>"; };
 		D992EE291B0A339A0093B3F7 /* Fridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fridge.m; sourceTree = "<group>"; };
 		D992EE311B0A34DA0093B3F7 /* Fridge+Cat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Fridge+Cat.h"; sourceTree = "<group>"; };
@@ -486,7 +484,6 @@
 			children = (
 				D96D9EC91B2F0A5F00D89452 /* iPhone.storyboard */,
 				D9267F531B3AE36B00A551BA /* iPad.storyboard */,
-				D984A5D21B3EB99D00F83CB4 /* Main menu.xib */,
 			);
 			name = "Main UI";
 			sourceTree = "<group>";
@@ -639,7 +636,6 @@
 				357A59011AFFDF3C0094B0AC /* Images.xcassets in Resources */,
 				43186DE61B457520002ED189 /* RecipeCarouselItem.xib in Resources */,
 				D96D9ECA1B2F0A5F00D89452 /* iPhone.storyboard in Resources */,
-				D984A5D31B3EB99D00F83CB4 /* Main menu.xib in Resources */,
 				35A9D7101B08F1B7005EF9BF /* GooglePlus.bundle in Resources */,
 				BFEA48291B13475C008F5BEF /* LoadingView.xib in Resources */,
 				D9267F541B3AE36B00A551BA /* iPad.storyboard in Resources */,
