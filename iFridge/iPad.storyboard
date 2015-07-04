@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CYb-dP-gza">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CYb-dP-gza">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -598,8 +598,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oYM-c6-rrY" userLabel="Top toolbar">
+                                <rect key="frame" x="-4" y="0.0" width="608" height="84"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="84" id="rGX-pG-rUk"/>
+                                </constraints>
+                            </view>
+                            <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="csS-LP-Hy8" userLabel="Bottom toolbar">
+                                <rect key="frame" x="-4" y="506" width="608" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vKU-ZD-Lb8">
+                                        <rect key="frame" x="80" y="10" width="89" height="30"/>
+                                        <state key="normal" title="Select Date">
+                                            <color key="titleColor" red="1" green="0.0098948884979999999" blue="0.029187735570000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="LgY-zi-UWD"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ixU-Si-d0i">
-                                <rect key="frame" x="0.0" y="92" width="600" height="444"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="420"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <button key="tableFooterView" opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="roO-Mj-Az0">
                                     <rect key="frame" x="0.0" y="66" width="600" height="62"/>
@@ -610,6 +632,9 @@
                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
+                                    <connections>
+                                        <action selector="sendToCalendar:" destination="Pfc-Nt-8XN" eventType="touchUpInside" id="pGV-pU-3gl"/>
+                                    </connections>
                                 </button>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell Identifier" id="pc0-TR-sck">
@@ -625,20 +650,6 @@
                                     <outlet property="delegate" destination="Pfc-Nt-8XN" id="03J-ck-LIY"/>
                                 </connections>
                             </tableView>
-                            <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oYM-c6-rrY" userLabel="Top toolbar">
-                                <rect key="frame" x="-4" y="0.0" width="608" height="84"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="84" id="rGX-pG-rUk"/>
-                                </constraints>
-                            </view>
-                            <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="csS-LP-Hy8" userLabel="Bottom toolbar">
-                                <rect key="frame" x="-4" y="544" width="608" height="56"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="LgY-zi-UWD"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -649,11 +660,13 @@
                             <constraint firstItem="ixU-Si-d0i" firstAttribute="top" secondItem="oYM-c6-rrY" secondAttribute="bottom" constant="8" id="VHF-5d-0mB"/>
                             <constraint firstItem="oYM-c6-rrY" firstAttribute="leading" secondItem="De9-dF-Jws" secondAttribute="leadingMargin" constant="-20" id="YaK-BA-Hod"/>
                             <constraint firstItem="ixU-Si-d0i" firstAttribute="leading" secondItem="De9-dF-Jws" secondAttribute="leadingMargin" constant="-16" id="byF-LZ-XSO"/>
-                            <constraint firstItem="csS-LP-Hy8" firstAttribute="top" secondItem="ixU-Si-d0i" secondAttribute="bottom" constant="8" id="t12-Lr-dNL"/>
+                            <constraint firstItem="csS-LP-Hy8" firstAttribute="top" secondItem="ixU-Si-d0i" secondAttribute="bottom" constant="-6" id="t12-Lr-dNL"/>
                             <constraint firstItem="gTR-sa-70Y" firstAttribute="top" secondItem="csS-LP-Hy8" secondAttribute="bottom" id="tDO-kq-oys"/>
                             <constraint firstAttribute="trailingMargin" secondItem="csS-LP-Hy8" secondAttribute="trailing" constant="-20" id="xiS-RD-Mkk"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="sendToCalendar" destination="roO-Mj-Az0" id="9P0-WU-tf2"/>
                         <outlet property="tableView" destination="ixU-Si-d0i" id="dNe-qq-6D8"/>
@@ -1212,6 +1225,57 @@
                 <exit id="Xwn-rw-QhD" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="627" y="-2401"/>
+        </scene>
+        <!--Select Date-->
+        <scene sceneID="j4u-At-MZT">
+            <objects>
+                <viewController id="ZfJ-g6-aYA" customClass="SelectDate" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pg2-L6-BWd"/>
+                        <viewControllerLayoutGuide type="bottom" id="hVb-Wy-5Gi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WF5-A8-PQ1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="tN6-e1-dhD">
+                                <rect key="frame" x="0.0" y="247" width="600" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="457709120.84193498">
+                                    <!--2015-07-04 13:25:20 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="datePicked:" destination="ZfJ-g6-aYA" eventType="valueChanged" id="1lO-Ts-bsS"/>
+                                </connections>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wpu-Rz-iUd">
+                                <rect key="frame" x="229" y="97" width="142" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="62p-CB-Umw">
+                                <rect key="frame" x="44" y="35" width="103" height="30"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tyY-8h-iPf">
+                                <rect key="frame" x="516" y="35" width="48" height="30"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="tN6-e1-dhD" id="Tj9-rQ-uSR"/>
+                        <outlet property="selectDate" destination="Wpu-Rz-iUd" id="AXm-lf-yAI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FgM-8P-Kiq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="291" y="-1602"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="VZg-oS-N3Q">

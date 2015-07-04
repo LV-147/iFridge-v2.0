@@ -53,6 +53,9 @@
     return _todoItems;
 }
 
+
+
+
 -(void)pickDateWithSelectedDate:(NSDate *)selectedDate {
     self.pickedDate = selectedDate;
 }
@@ -91,6 +94,20 @@
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
+- (void)viewWillAppear:(BOOL)animated
+    {
+        [super viewWillAppear:animated];
+        self.navigationController.toolbarHidden = NO;
+        [self.navigationController setNavigationBarHidden:NO];
+    }
+    
+-(void)viewWillDisappear:(BOOL)animated {
+        [super viewWillDisappear:animated];
+        [self.navigationController setToolbarHidden:YES animated:animated];
+    }
+
+
 
 
 #pragma mark - UITableView data source and delegate methods
