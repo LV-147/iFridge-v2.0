@@ -35,43 +35,35 @@ static NSString *const kClientID =
 @implementation SearchViewController
 
 - (void)viewDidLoad {
-  [super viewDidLoad];
+    [super viewDidLoad];
+    
+    [self refreshInterfaceBasedOnSignIn];
+    self.navigationController.delegate = self;
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    self.navigationController.view.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
+    self.view.backgroundColor = [UIColor clearColor];
+    
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    
+    self.searchTextField.delegate = self;
+    UIImage *buttonImageForGooglePlusSignInButton = [UIImage imageNamed:@"gplus-128.png"];
+    UIImage *buttonImageForGooglePlusSignInButtonWhenPressed = [UIImage imageNamed:@"gplus-120.png"];
+    [self.googlePlusSignInButton setImage:buttonImageForGooglePlusSignInButton forState:UIControlStateNormal];
+    [self.googlePlusSignInButton setImage:buttonImageForGooglePlusSignInButtonWhenPressed forState:UIControlStateHighlighted];
 
-  [self refreshInterfaceBasedOnSignIn];
-  self.navigationController.delegate = self;
-  [[self navigationController] setNavigationBarHidden:YES animated:YES];
-  self.navigationController.view.backgroundColor =
-      [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
-  self.view.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:self.googlePlusSignInButton];
+    
+    GPPSignIn *signIn = [GPPSignIn sharedInstance];
+    signIn.clientID= kClientID;
+    signIn.scopes= [NSArray arrayWithObjects:kGTLAuthScopePlusLogin, nil];
+    signIn.shouldFetchGoogleUserID=YES;
+    signIn.shouldFetchGoogleUserEmail=YES;
+    signIn.shouldFetchGooglePlusUser=YES;
+    signIn.delegate=self;
+    [signIn trySilentAuthentication];
 
-  [[AFNetworkReachabilityManager sharedManager] startMonitoring];
-
-  self.searchTextField.delegate = self;
-  UIImage *buttonImageForGooglePlusSignInButton =
-      [UIImage imageNamed:@"gplus-128.png"];
-  UIImage *buttonImageForGooglePlusSignInButtonWhenPressed =
-      [UIImage imageNamed:@"gplus-120.png"];
-  [self.googlePlusSignInButton setImage:buttonImageForGooglePlusSignInButton
-                               forState:UIControlStateNormal];
-  [self.googlePlusSignInButton
-      setImage:buttonImageForGooglePlusSignInButtonWhenPressed
-      forState:UIControlStateHighlighted];
-
-  [self.view addSubview:self.googlePlusSignInButton];
-
-  GPPSignIn *signIn = [GPPSignIn sharedInstance];
-  signIn = [GPPSignIn sharedInstance];
-  signIn.clientID = kClientID;
-  signIn.scopes = [NSArray arrayWithObjects:kGTLAuthScopePlusLogin, nil];
-  signIn.shouldFetchGoogleUserID = YES;
-  signIn.shouldFetchGoogleUserEmail = YES;
-  signIn.shouldFetchGooglePlusUser = YES;
-  signIn.delegate = self;
-  [signIn trySilentAuthentication];
-
-  FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
-  loginButton.readPermissions =
-      @[ @"public_profile", @"email", @"user_friends" ];
+    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
+    loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
