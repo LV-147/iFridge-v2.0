@@ -50,10 +50,4 @@
 
 
 
-
-
-- (IBAction)takePhoto
-{
-}
-
 @end

@@ -14,6 +14,9 @@
 #import "UIViewController+Context.h"
 #import "AddProductViewController.h"
 #import "FridgeTableViewCell.h"
+#import "DataDownloader.h"
+#import "RecipesTVC.h"
+#import "RecipeWithImage.h"
 
 
 @class UITableView;
@@ -24,18 +27,14 @@
 @property (strong, nonatomic) NSMutableArray *toaddItems;
 @property (strong, nonatomic) Fridge *fridge;
 @property (strong, nonatomic) Recipe *recipe;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *buttonForTaras;
+@property (strong, nonatomic) RecipeWithImage *detailRecipeController;
 
 @end
 
 @implementation FridgeTableViewController
 #pragma mark - Custom accessors
 
-//- (NSMutableArray *)toaddItems {
-//
-//    return _toaddItems;
-//}
 
 #pragma mark - View life cycle
 
@@ -44,19 +43,15 @@
     // Do any additional setup after loading the view.
     self.toaddItems = [[NSMutableArray alloc] init];
     
-    
     //right barButtonItem
-
     
     UIBarButtonItem *editBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(editAction:)];
     UIBarButtonItem *addBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addProduct:)];
     UIBarButtonItem *flexibleSpaceButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:NULL];
     self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:editBarButtonItem, flexibleSpaceButton, addBarButtonItem, nil];
     
-    
 
-
-    //products is allready fridge
+    //products are allready fridge
     self.fridge = [Fridge addFridgeWithName:@"MyFridge" inManagedObjectContext:self.currentContext];
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Ingredient"];
     request.predicate = [NSPredicate predicateWithFormat:@"fromFridge = %@", self.fridge];
@@ -64,7 +59,8 @@
     NSError *error;
     self.toaddItems = [[NSMutableArray alloc] initWithArray:[self.currentContext executeFetchRequest:request error:&error]];
     
-    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+      [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    self.navigationController.navigationBar.tintColor = [UIColor redColor];
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureRecognized:)];
     [self.tableView addGestureRecognizer:longPress];
@@ -75,6 +71,17 @@
     self.tableView.backgroundView.alpha = 0.2f;
     
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
+    self.navigationController.toolbarHidden = NO;
+    [self.navigationController setNavigationBarHidden:NO];
+    
+    
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+       
+        self.detailRecipeController = [self.splitViewController.viewControllers objectAtIndex:1];
+    }
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,6 +95,13 @@
     [super viewWillAppear:animated];
     if(self.toaddItems) self.title = @"My Fridge";
     else self.title = @"My Fridge (empty)";
+    self.navigationController.toolbarHidden = NO;
+    [self.navigationController setNavigationBarHidden:NO];
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.navigationController setToolbarHidden:YES animated:animated];
 }
 
 #pragma mark - UITableView data source and delegate methods
@@ -114,22 +128,9 @@
     cell.nameOfProduct.text = ingr.label;
     cell.quantityOfProduct.text = [ingr.quantity stringValue];
     cell.units.text = ingr.unitOfMeasure;
-
-    
-    
-    
-//    NSDictionary *ingredient = [self.toaddItems objectAtIndex:indexPath.row];
-//    
-//    cell.nameOfProduct.text = [ingredient valueForKey:@"label"];
-//    cell.quantityOfProduct.text = [ingredient valueForKey:@"quantity"];
-//    cell.units.text = [ingredient valueForKey:@"unitOfMeasure"];
     
     cell.backgroundColor = [UIColor clearColor];
     
-//    Ingredient *object = self.toaddItems[indexPath.row];
-//    cell.textLabel.text = object.label;
-    
-
     return cell;
 }
 
@@ -164,8 +165,15 @@
     [self performSegueWithIdentifier:@"EditProduct" sender:self];
     NSLog(@"edit button clicked");
 }
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
+
+- (IBAction)buttonForTaras:(id)sender {
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        NSString *query = [DataDownloader getQueryStringFromArray:self.toaddItems];
+        RecipesTVC *newController = (RecipesTVC *)[self.navigationController.viewControllers objectAtIndex:0];
+        newController.query = query;
+        [newController searchForRecipesForQuery:query];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 
@@ -189,7 +197,7 @@
             UITextField *textField = [alertView textFieldAtIndex:0];
             NSString *string = [textField.text capitalizedString];
             NSMutableDictionary *ingredientDict = [[NSMutableDictionary alloc] init];
-            [ingredientDict setObject:string forKey:@"label"];
+            [ingredientDict setObject:string forKey:INGREDIENT_LABEL_KEY];
             [weakSelf.toaddItems addObject:[Ingredient addIngredientForRecipe:self.recipe
                                                                      withInfo:ingredientDict
                                                                      toFridge:self.fridge
@@ -289,15 +297,14 @@
     }
 }
 
-
 - (IBAction)ingredientAddedToFridge:(UIStoryboardSegue *)segue
 {
     AddProductViewController *addProductViewController = segue.sourceViewController;
     if (addProductViewController.nameTextField.text) {
         NSDictionary *ingredient = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                    addProductViewController.nameTextField.text, @"label",
-                                    [NSNumber numberWithDouble:[addProductViewController.quantityTextField.text doubleValue]], @"quantity",
-                                    addProductViewController.unitsTextField.text, @"units",
+                                    addProductViewController.nameTextField.text, INGREDIENT_LABEL_KEY,
+                                    [NSNumber numberWithDouble:[addProductViewController.quantityTextField.text doubleValue]], INGREDIENT_QUANTITY_KEY,
+                                    addProductViewController.unitsTextField.text, INGREDIENT_MEASURE_KEY,
                                     nil];
         [self.toaddItems addObject:[Ingredient addIngredientForRecipe:nil
                                                              withInfo:ingredient
@@ -332,6 +339,16 @@
     snapshot.layer.shadowOpacity = 0.4;
     
     return snapshot;
+}
+
+#pragma Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"recipecTVC"]) {
+        NSString *query = [DataDownloader getQueryStringFromArray:self.toaddItems];
+        RecipesTVC *newController = segue.destinationViewController;
+        newController.query = query;
+    }
 }
 
 

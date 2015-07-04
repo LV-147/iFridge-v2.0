@@ -7,7 +7,6 @@
 //
 
 #import "RecipeWithImage.h"
-#import "RecipesTVC.h"
 #import "Recipe+Cat.h"
 #import "UIViewController+Context.h"
 #import "AppDelegate.h"
@@ -17,13 +16,12 @@
 #import <GooglePlus/GPPShare.h>
 #import <FBSDKShareKit/FBSDKLikeControl.h>
 #import "RecipeCarouselItem.h"
+#import "RecipesTVC.h"
 
-@interface RecipeWithImage ()
+@interface RecipeWithImage () <UIAlertViewDelegate>
 
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 @property (strong, nonatomic) IBOutlet UILabel *recipeCountIndicator;
-@property (nonatomic) BOOL recipeSaved;
-@property (strong, nonatomic) NSArray *availableRecipes;
+@property (strong, nonatomic) RecipesTVC *masterRecipeController;
 @property (nonatomic, assign) NSInteger recipeRow;
 @end
 
@@ -32,38 +30,37 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationController.view.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
-    self.carousel.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
-    
-    FBSDKLikeControl *like = [[FBSDKLikeControl alloc] init];
-    like.frame = CGRectMake(16, 589, like.frame.size.width, like.frame.size.height);
-    like.objectID = @"https://www.facebook.com/{sub_url}";
-    like.likeControlStyle = FBSDKLikeControlStyleStandard;
-    like.objectType = FBSDKLikeObjectTypePage;
-    [self.view addSubview:like];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
+    self.carousel.backgroundColor =[UIColor clearColor];
     
     self.title = @"Recipe";
-
-    self.view.backgroundColor = [UIColor clearColor];
     
     self.recipeCountIndicator.text = @"";
     
-    [self ifCurrentRecipeSaved];
+    [self ifRecipeAtIndexSaved:self.index];
     
     self.carousel.type = iCarouselTypeLinear;
-    self.carousel.scrollSpeed = 0.4;
-    self.carousel.decelerationRate = 0.5;
+    self.carousel.scrollSpeed = 0.5;
+    self.carousel.decelerationRate = 0.7;
     
-    self.index = self.index;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        self.masterRecipeController = (RecipesTVC *)((UINavigationController *)[self.splitViewController.viewControllers objectAtIndex:0]).topViewController;
+    
 }
+
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
+    self.navigationController.toolbar.hidden = YES;
     
     self.carousel.currentItemIndex = self.index;
     self.carousel.scrollSpeed = 0.5;
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
+    [[NSNotificationCenter defaultCenter] addObserver:self  selector:@selector(orientationChanged:)    name:UIDeviceOrientationDidChangeNotification  object:nil];
+}
+
+- (void)orientationChanged:(UIDeviceOrientation *)ori{
+    [self.carousel scrollToItemAtIndex:self.index animated:YES];
 }
 
 - (void)awakeFromNib
@@ -73,13 +70,7 @@
 
 - (void)setIndex:(NSInteger)value {
     _index = value;
-    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%ld", _index+1, _carousel.numberOfItems];
-}
-
-- (void)initWithRecipeAtIndex:(NSInteger)recipeIndex from:(NSArray *)recipes {
-    self.availableRecipes = recipes;
-    self.index = recipeIndex;
-    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%ld", _index+1, _carousel.numberOfItems];
+    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%d/%d", _index+1, _carousel.numberOfItems];
 }
 
 - (IBAction)googlePlusShareButton:(id)sender {
@@ -119,96 +110,59 @@
     [shareBuilder open];
 }
 
-- (void) setRecipeForIndex:(NSInteger)index usingICaruselItem:(RecipeCarouselItem *)item
-{
+- (void)saveRecipeToCoreData:(UIButton *)sender {
     
-    NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.ingredientLines"];
-    //        item.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
-    //        item.recipeItemName.text = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.label"];
-    item.recipeItemTextField.text = @"Ingredient needed:";
-    for(NSString* str in ingredientLines){
-        item.recipeItemTextField.text = [NSString stringWithFormat:@"%@ \n\t \"%@\"", item.recipeItemTextField.text, str];
-    }
-    if ([[self.availableRecipes objectAtIndex:self.index] isKindOfClass:[NSDictionary class]]) {
-        [DataDownloader setRecipeImageWithURL:[[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.image"]
-                               usingImageView:item.recipeItemImage
-                        withCompletionHandler:^{
-                        //stop activity indicator
-                        }];
-        NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.ingredientLines"];
-//        item.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
-//        item.recipeItemName.text = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.label"];
-        item.recipeItemTextField.text = @"Ingredient needed:";
-        for(NSString* str in ingredientLines){
-            item.recipeItemTextField.text = [NSString stringWithFormat:@"%@ \n\t \"%@\"", item.recipeItemTextField.text, str];
-        }
-
-        
-    }else if ([[self.availableRecipes objectAtIndex:self.index] isKindOfClass:[Recipe class]]){
-        Recipe *currentRecipe = [self.availableRecipes objectAtIndex:self.index];
-        
-        [DataDownloader setRecipeImageWithURL:currentRecipe.imageUrl
-                               usingImageView:item.recipeItemImage
-                        withCompletionHandler:^{
-                           //don't forget stop activity indicator!!
-                        }];
-        item.recipeItemName.text = currentRecipe.label;
-        
-        NSMutableDictionary *ingredientLines = [[NSMutableDictionary alloc] init];
-        NSNumber *numb = [[NSNumber alloc] initWithInt:0];
-        for (Ingredient *ingredient in currentRecipe.ingredients) {
-            [ingredientLines setObject:ingredient.label forKey:numb];
-            int value = [numb intValue];
-            numb = [NSNumber numberWithInt:value + 1];
-            
-            
-        }
-        item.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", [ingredientLines allValues]];
-    }
-}
-
-
-- (IBAction)saveRecipeToCoreData:(UIBarButtonItem *)sender {
-    
-    NSMutableArray *availibleRecipes = [[NSMutableArray alloc] initWithArray:self.availableRecipes];
-    
-    if (![self ifCurrentRecipeSaved]){
+    if (![self ifRecipeAtIndexSaved:self.index]){
         NSDictionary *recipeDict = [self.availableRecipes objectAtIndex:_index ];
-        Recipe *currentRecipe = [Recipe createRecipeWithInfo:recipeDict inManagedObiectContext:self.currentContext];
-        [availibleRecipes replaceObjectAtIndex:_index withObject:currentRecipe];
-        sender.title = @"Delete";
+        Recipe *currRecipe = [Recipe createRecipeWithInfo:recipeDict inManagedObiectContext:self.currentContext];
+        [self.availableRecipes replaceObjectAtIndex:self.index withObject:currRecipe];
+        [sender setImage:[UIImage imageNamed:@"delete-icon.png"] forState:UIControlStateNormal];
         
     }else{
-        NSDictionary *currentRecipeDict = [Recipe deleteRecipe:[self.availableRecipes objectAtIndex:_index] fromManagedObjectContext:self.currentContext];
-        [availibleRecipes replaceObjectAtIndex:_index withObject:currentRecipeDict];
-        sender.title = @"Save";
+        [Recipe deleteRecipe:[self.availableRecipes objectAtIndex:self.index] fromManagedObjectContext:self.currentContext];
+        [self.availableRecipes removeObjectAtIndex:_index];
+        [self.carousel reloadData];
+        self.recipeCountIndicator.text = [NSString stringWithFormat:@"%d/%d", _index+1, _carousel.numberOfItems];
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            self.masterRecipeController.recipes = self.availableRecipes;
+            [self.masterRecipeController.tableView reloadData];
+        }
     }
-    self.availableRecipes = availibleRecipes;
     
+    if (!self.availableRecipes.count) {
+
+        UIAlertView *noRecipecAvailible = [[UIAlertView alloc] initWithTitle:@"No recipes left"
+                                                                     message:@"You just have deleted the last of them."
+                                                                    delegate:self
+                                                           cancelButtonTitle:nil
+                                                           otherButtonTitles:@"OK", nil];
+        [noRecipecAvailible show];
+    }}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
-
-- (BOOL)ifCurrentRecipeSaved{
+- (BOOL)ifRecipeAtIndexSaved:(NSUInteger)index {
     //checking if current recipe is alredy in the data base
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Recipe"];
-    NSString *predicateString = [[NSString alloc] init];
-    if ([[self.availableRecipes objectAtIndex:_index] isKindOfClass:[NSDictionary class]]) {
-        predicateString = [[self.availableRecipes objectAtIndex:_index] valueForKeyPath:@"recipe.label"];
-    }else if ([[self.availableRecipes objectAtIndex:_index] isKindOfClass:[Recipe class]]) {
-        Recipe *currentRecipe = [self.availableRecipes objectAtIndex:_index];
-        predicateString = currentRecipe.label;
+    BOOL recipeSaved = NO;
+    if ([[self.availableRecipes objectAtIndex:index] isKindOfClass:[NSDictionary class]]) {
+        NSDictionary *currRecipe = [self.availableRecipes objectAtIndex:index];
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Recipe"];
+        request.predicate = [NSPredicate predicateWithFormat:@"label = %@", [currRecipe valueForKeyPath:@"recipe.label"]];
+        NSError *error;
+        NSArray *mathes = [self.currentContext executeFetchRequest:request error:&error];
+        if (mathes && !error && mathes.count == 1) {
+            [self.availableRecipes replaceObjectAtIndex:self.index withObject:[Recipe createRecipeWithInfo:currRecipe inManagedObiectContext:self.currentContext]];
+            recipeSaved = YES;
+        }else{
+            recipeSaved = NO;
+        }
+    }else if ([[self.availableRecipes objectAtIndex:index] isKindOfClass:[Recipe class]]) {
+        recipeSaved = YES;
     }
-    request.predicate = [NSPredicate predicateWithFormat:@"label = %@", predicateString];
-    
-    NSError *error;
-    NSArray *mathes = [self.currentContext executeFetchRequest:request error:&error];
-    if (mathes && !error && mathes.count == 1) {
-        self.saveButton.title = @"Delete";
-        return YES;
-    }else{
-        self.saveButton.title = @"Save";
-        return NO;
-    }
+    return recipeSaved;
 }
 
 - (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel
@@ -231,18 +185,17 @@
     else
     {
         recipeCarouselItem = (RecipeCarouselItem *)view;
-        self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld", carousel.currentItemIndex];
     }
     //присвоєння тексту і картинки
 
     if ([[self.availableRecipes objectAtIndex:index] isKindOfClass:[NSDictionary class]]) {
+        recipeCarouselItem.recipeItemImage.image = [UIImage imageNamed:@"noimage"];
         [DataDownloader setRecipeImageWithURL:[[self.availableRecipes objectAtIndex:index] valueForKeyPath:@"recipe.image"]
                                usingImageView:recipeCarouselItem.recipeItemImage
                         withCompletionHandler:nil];
+
         NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:index] valueForKeyPath:@"recipe.ingredientLines"];
 
-        //        item.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
-        //        item.recipeItemName.text = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.label"];
         recipeCarouselItem.recipeItemTextField.text = @"Ingredient needed:";
         for(NSString* str in ingredientLines){
             recipeCarouselItem.recipeItemTextField.text = [NSString stringWithFormat:@"%@ \n\t \"%@\"", recipeCarouselItem.recipeItemTextField.text, str];
@@ -252,6 +205,7 @@
     }else if ([[self.availableRecipes objectAtIndex:index] isKindOfClass:[Recipe class]]){
         Recipe *currentRecipe = [self.availableRecipes objectAtIndex:index];
         
+        recipeCarouselItem.recipeItemImage.image = [UIImage imageNamed:@"noimage"];
         [DataDownloader setRecipeImageWithURL:currentRecipe.imageUrl
                                usingImageView:recipeCarouselItem.recipeItemImage
                         withCompletionHandler:nil];
@@ -264,41 +218,65 @@
             int value = [numb intValue];
             numb = [NSNumber numberWithInt:value + 1];
         }
-        
+    
         recipeCarouselItem.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", [ingredientLines allValues]];
     }
+    
+    NSURL *url = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.url"];
+    NSString *urlString = [NSString stringWithString:(NSString *)url];
+    recipeCarouselItem.facebookButton.objectID = urlString;
+    recipeCarouselItem.facebookButton.objectType = FBSDKLikeObjectTypePage;
+    
     [recipeCarouselItem.googleButton addTarget:self
                                         action:@selector(shareOnGPlus)
                               forControlEvents:UIControlEventTouchUpInside];
+    //config save button
+    if ([self ifRecipeAtIndexSaved:index])
+        [recipeCarouselItem.saveButton setImage:[UIImage imageNamed:@"delete-icon.png"] forState:UIControlStateNormal];
+    else
+        [recipeCarouselItem.saveButton setImage:nil forState:UIControlStateNormal];
+
+    [recipeCarouselItem.saveButton addTarget:self
+                                      action:@selector(saveRecipeToCoreData:)
+                            forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.masterRecipeController.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.index inSection:0]
+                                                 atScrollPosition:UITableViewScrollPositionMiddle
+                                                         animated:YES];
+    
     return recipeCarouselItem;
 }
 
 - (void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel {
     self.index = carousel.currentItemIndex;
-    [self ifCurrentRecipeSaved];
+    [self.masterRecipeController.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:self.index inSection:0]
+                                                       animated:YES
+                                                 scrollPosition:UITableViewScrollPositionNone];
 }
 
-- (CGFloat)carouselItemWidth:(iCarousel *)carousel {
-    CGFloat itemWidth = self.view.frame.size.width;
-    return itemWidth;
-}
+//- (CGFloat)carouselItemWidth:(iCarousel *)carousel {
+//    CGFloat itemWidth = self.view.frame.size.width;
+//    return itemWidth;
+//}
 
-
+#pragma mark Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    ReminderTableViewController *newController = segue.destinationViewController;
-    if ([[self.availableRecipes objectAtIndex:_index] isKindOfClass:[NSDictionary class]]) {
-        newController.ingredientsForReminder = [[self.availableRecipes objectAtIndex:_index] valueForKeyPath:@"recipe.ingredientLines"];
-        newController.nameOfEventForCalendar = [[self.availableRecipes objectAtIndex:_index] valueForKeyPath:@"recipe.label"];
-
-    } else {
-        Recipe *currRecipe = [self.availableRecipes objectAtIndex:_index];
-        NSMutableArray *ingredient = [[NSMutableArray alloc] init];
-        for (Ingredient *ingr in currRecipe.ingredients) {
-            [ingredient addObject:ingr.label];
+    if ([segue.identifier isEqualToString:@"reminderSegue"]) {
+        ReminderTableViewController *newController = segue.destinationViewController;
+        if ([[self.availableRecipes objectAtIndex:_index] isKindOfClass:[NSDictionary class]]) {
+            newController.ingredientsForReminder = [[self.availableRecipes objectAtIndex:_index] valueForKeyPath:@"recipe.ingredientLines"];
+            newController.nameOfEventForCalendar = [[self.availableRecipes objectAtIndex:_index] valueForKeyPath:@"recipe.label"];
+            
+        } else {
+            Recipe *currRecipe = [self.availableRecipes objectAtIndex:_index];
+            NSMutableArray *ingredient = [[NSMutableArray alloc] init];
+            for (Ingredient *ingr in currRecipe.ingredients) {
+                [ingredient addObject:ingr.label];
+            }
+            newController.ingredientsForReminder = [NSArray arrayWithArray:ingredient];
+            newController.nameOfEventForCalendar = currRecipe.label;
         }
-        newController.ingredientsForReminder = [NSArray arrayWithArray:ingredient];
-        newController.nameOfEventForCalendar = currRecipe.label;
     }
     
 }

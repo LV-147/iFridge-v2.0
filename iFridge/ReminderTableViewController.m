@@ -11,11 +11,14 @@
 #import "UIButton+ReminderBlock.h"
 #import "Fridge+Cat.h"
 #import "UIViewController+Context.h"
+#import "SelectDate.h"
+
 
 
 @import EventKit;
 
-@interface ReminderTableViewController ()
+@interface ReminderTableViewController () <DatePickerDelegate>
+
 
 @property (strong, nonatomic) EKEventStore *eventStore;
 @property (strong, nonatomic) NSArray *todoItems;
@@ -24,6 +27,7 @@
 @property (nonatomic) BOOL isAccessToEventStoreGranted;
 @property (nonatomic, strong) NSString *savedEvent;
 @property (weak, nonatomic) IBOutlet UIButton *sendToCalendar;
+@property (strong, nonatomic) NSDate* pickedDate;
 
 @end
 
@@ -39,9 +43,6 @@
     return _eventStore;
 }
 
-
-
-
 - (NSArray *)todoItems {
     if (!_todoItems) {
         _todoItems = [@[@"You need to do smth!"] mutableCopy];
@@ -51,12 +52,20 @@
     return _todoItems;
 }
 
+-(void)pickDateWithSelectedDate:(NSDate *)selectedDate {
+    self.pickedDate = selectedDate;
+}
+
+
+
 #pragma mark - View life cycle
 
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationController.toolbarHidden = NO;
 
     
     self.title = @"To Buy!";
@@ -85,9 +94,11 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.navigationController.toolbar.hidden = NO;
 }
 -(void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    self.navigationController.toolbar.hidden = NO;
 }
 
 
@@ -142,6 +153,9 @@
 }
 
 #pragma mark - IBActions
+- (IBAction)cancel:(UIBarButtonItem *)sender {
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
+}
 
 
 - (IBAction)sendToCalendar:(id)sender {
@@ -153,8 +167,18 @@
         NSString *eventForCalendarTitle = [NSString stringWithFormat:@"To buy for %@", _nameOfEventForCalendar];
         event.title = eventForCalendarTitle;
         event.notes = [self.todoItems componentsJoinedByString:@"\n"];
-        event.startDate = [NSDate date]; //today
-        event.endDate = [event.startDate dateByAddingTimeInterval:60*60];  //set 1 hour meeting
+//        event.startDate = [NSDate date]; //today
+//        event.endDate = [event.startDate dateByAddingTimeInterval:60*60];  //set 1 hour meeting
+        if (!self.pickedDate) {
+            event.startDate = [NSDate date];
+            event.endDate = [event.startDate dateByAddingTimeInterval:60*60]; //set 1 hour meeting
+        } else {
+            event.startDate = self.pickedDate;
+            event.endDate = event.startDate;
+        }
+
+        
+        
         event.calendar = [eventStore defaultCalendarForNewEvents];
         NSError *err = nil;
         
@@ -188,6 +212,8 @@
     {
         [sender setEnabled:NO];
     }
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
 }
 
 
@@ -346,6 +372,13 @@
     return (self.isAccessToEventStoreGranted && [filtered count]);
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"dateSegue"]){
+    }
+    SelectDate *newController = segue.destinationViewController;
+    newController.delegate = self;
+}
 
 
 

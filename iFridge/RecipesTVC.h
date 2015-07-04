@@ -11,8 +11,9 @@
 #import <AFNetworking/AFNetworking.h>
 
 
-@interface RecipesTVC : UITableViewController
+@interface RecipesTVC : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSString *query;
 @property (strong, nonatomic) NSMutableArray *recipes;
 @property (strong, nonatomic) NSString *dataSource;
@@ -20,9 +21,13 @@
 @property (strong, nonatomic) NSString *userId;
 @property (strong, nonatomic) NSString *userName;
 @property (strong, nonatomic) NSString *userSocialNetwork;
+@property (weak, nonatomic) IBOutlet UIButton *byNameButton;
+@property (weak, nonatomic) IBOutlet UIButton *byCaloriesButton;
 
 @property (strong, nonatomic) IBOutlet UIButton *saveAllRecipes;
 - (IBAction)saveAllRecipesToParse:(id)sender;
-
+- (IBAction)sortByName:(id)sender;
+- (IBAction)sortByCalories:(id)sender;
+- (void)searchForRecipesForQuery:(NSString *)newQuery;
 
 @end

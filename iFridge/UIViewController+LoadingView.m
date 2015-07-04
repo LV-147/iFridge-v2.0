@@ -12,6 +12,7 @@
 #import "RecipesTVC.h"
 
 static const NSString *LoadingViewKey = @"LoadingViewKey";
+static int imgAngle=0;
 
 @implementation UIViewController (LoadingView)
 
@@ -29,17 +30,35 @@ static const NSString *LoadingViewKey = @"LoadingViewKey";
 //    [lv showWithView:superView];
     [lv showWithView:superView];
 
-    for (int i = 1; i<=63; i++) {
-        [UIView animateWithDuration:5.0
-                              delay:0.0
-                            options:UIViewAnimationOptionCurveEaseInOut
-                         animations:^{
-                             
-                             lv.animImageView.transform = CGAffineTransformMakeRotation(i * 0.2);
-                             
-                         } completion:nil];
-        
-        
+    CABasicAnimation *animation = [CABasicAnimation   animationWithKeyPath:@"transform.rotation.z"];
+    animation.duration = 120;
+    animation.additive = YES;
+    animation.removedOnCompletion = NO;
+    animation.fillMode = kCAFillModeForwards;
+    animation.fromValue = [NSNumber numberWithFloat:0];
+    animation.toValue = [NSNumber numberWithFloat:240];
+    [lv.viewWithImage.layer addAnimation:animation forKey:@"90rotation"];
+    
+    CABasicAnimation *animationForSingleProduct = [CABasicAnimation   animationWithKeyPath:@"transform.rotation.z"];
+    animationForSingleProduct.duration = 120;
+    animationForSingleProduct.additive = YES;
+    animationForSingleProduct.removedOnCompletion = NO;
+    animationForSingleProduct.fillMode = kCAFillModeForwards;
+    animationForSingleProduct.fromValue = [NSNumber numberWithFloat:0];
+    animationForSingleProduct.toValue = [NSNumber numberWithFloat:480];
+    
+    [lv.imageView1.layer addAnimation:animationForSingleProduct forKey:@"90rotation"];
+    [lv.imageView2.layer addAnimation:animationForSingleProduct forKey:@"90rotation"];
+    [lv.imageView3.layer addAnimation:animationForSingleProduct forKey:@"90rotation"];
+    [lv.imageView4.layer addAnimation:animationForSingleProduct forKey:@"90rotation"];
+    [lv.imageView5.layer addAnimation:animationForSingleProduct forKey:@"90rotation"];
+    [lv.imageView6.layer addAnimation:animationForSingleProduct forKey:@"90rotation"];
+    [lv.imageView7.layer addAnimation:animationForSingleProduct forKey:@"90rotation"];
+    [lv.imageView8.layer addAnimation:animationForSingleProduct forKey:@"90rotation"];
+    
+    imgAngle+=90;
+    if (imgAngle>360) {
+        imgAngle = 0;
     }
 }
 

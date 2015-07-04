@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -10,26 +10,63 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ZZg-ge-7lV">
+                <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image1" translatesAutoresizingMaskIntoConstraints="NO" id="ZZg-ge-7lV">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="3.png" translatesAutoresizingMaskIntoConstraints="NO" id="McH-VQ-9es">
-                    <rect key="frame" x="37" y="184" width="300" height="300"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="300" id="Als-mW-thy"/>
-                        <constraint firstAttribute="height" constant="300" id="oBh-Sd-kxX"/>
-                    </constraints>
-                </imageView>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z20-9U-GUL">
+                    <rect key="frame" x="25" y="163" width="325" height="341"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Untitled1" translatesAutoresizingMaskIntoConstraints="NO" id="Jxa-Jr-Stb">
+                            <rect key="frame" x="132" y="0.0" width="70" height="70"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Untitled3" translatesAutoresizingMaskIntoConstraints="NO" id="2zv-sf-YFv">
+                            <rect key="frame" x="255" y="130" width="70" height="70"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Untitled7" translatesAutoresizingMaskIntoConstraints="NO" id="SpV-Gq-Uw8">
+                            <rect key="frame" x="0.0" y="130" width="70" height="70"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Untitled2" translatesAutoresizingMaskIntoConstraints="NO" id="JJc-FH-CcL">
+                            <rect key="frame" x="223" y="38" width="70" height="70"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Untitled6" translatesAutoresizingMaskIntoConstraints="NO" id="6hB-oe-IKr">
+                            <rect key="frame" x="35" y="218" width="70" height="70"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Untitled8" translatesAutoresizingMaskIntoConstraints="NO" id="HTD-7C-8cF">
+                            <rect key="frame" x="35" y="38" width="70" height="70"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Untitled4" translatesAutoresizingMaskIntoConstraints="NO" id="SwV-mV-Hqj">
+                            <rect key="frame" x="223" y="218" width="70" height="70"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Untitled5" translatesAutoresizingMaskIntoConstraints="NO" id="K0K-UR-0mb">
+                            <rect key="frame" x="132" y="251" width="70" height="70"/>
+                        </imageView>
+                    </subviews>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <connections>
-                <outlet property="animImageView" destination="McH-VQ-9es" id="2wC-tM-mHr"/>
+                <outlet property="imageView1" destination="Jxa-Jr-Stb" id="dUm-Ss-cgd"/>
+                <outlet property="imageView2" destination="JJc-FH-CcL" id="gld-SN-twt"/>
+                <outlet property="imageView3" destination="2zv-sf-YFv" id="rtA-WM-pec"/>
+                <outlet property="imageView4" destination="SwV-mV-Hqj" id="qjV-dW-Do9"/>
+                <outlet property="imageView5" destination="K0K-UR-0mb" id="omy-iv-Bxs"/>
+                <outlet property="imageView6" destination="6hB-oe-IKr" id="KVs-ct-uLE"/>
+                <outlet property="imageView7" destination="SpV-Gq-Uw8" id="mbM-hV-xr0"/>
+                <outlet property="imageView8" destination="HTD-7C-8cF" id="Io7-lU-DpY"/>
+                <outlet property="viewWithImage" destination="Z20-9U-GUL" id="yDv-oy-ZU0"/>
             </connections>
         </view>
     </objects>
     <resources>
-        <image name="3.png" width="500" height="500"/>
-        <image name="image1.jpg" width="2000" height="1231"/>
+        <image name="Untitled1" width="50" height="50"/>
+        <image name="Untitled2" width="50" height="50"/>
+        <image name="Untitled3" width="50" height="50"/>
+        <image name="Untitled4" width="50" height="50"/>
+        <image name="Untitled5" width="50" height="50"/>
+        <image name="Untitled6" width="50" height="50"/>
+        <image name="Untitled7" width="50" height="50"/>
+        <image name="Untitled8" width="50" height="50"/>
+        <image name="image1" width="2000" height="1231"/>
     </resources>
 </document>

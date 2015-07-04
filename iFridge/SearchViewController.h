@@ -7,7 +7,6 @@
 //
 
 
-#import "RecipesTVC.h"
 #import <GooglePlus/GPPSignIn.h>
 
 @class GPPSignInButton;
@@ -31,7 +30,7 @@
 - (IBAction)goToGooglePlusGroup:(id)sender;
 - (IBAction)goToOurWebSite:(id)sender;
 - (IBAction)emailUsButton:(id)sender;
-
+//fucking changes
 
 
 @end

@@ -11,8 +11,11 @@
 #import "Ingredient+Cat.h"
 #import "Recipe+Cat.h"
 #import "UIViewController+Context.h"
+#import <MobileCoreServices/MobileCoreServices.h>
+#import "IngredientCell.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 
-@interface AddRecipeViewController () <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface AddRecipeViewController () <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate>
 
 @end
 
@@ -20,6 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]]];
+    [self.tableView setBackgroundColor:[UIColor clearColor]];
     self.ingredients = [[NSMutableArray alloc] init];
     // Do any additional setup after loading the view.
 }
@@ -34,7 +39,61 @@
     [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
 }
 
+- (IBAction)done {
+    if ([self.recipeLabel.text isEqualToString:@""] ||
+        [self.recipeLabel.text isEqualToString:@"Recipe label"] ||
+        !self.ingredients.count) {
+        UIAlertView *emptyLabel = [[UIAlertView alloc] initWithTitle:@"Empty label"
+                                                             message:@"Please enter ingredient label and add one ingredient at least"
+                                                            delegate:self
+                                                   cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [emptyLabel show];
+    }else{
+        [self performSegueWithIdentifier:@"recipeAdded" sender:nil];
+    }
+}
+
 - (IBAction)takePicture {
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+        UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+        imagePicker.delegate = self;
+        imagePicker.mediaTypes = @[(NSString *)kUTTypeImage];
+        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        imagePicker.allowsEditing = YES;
+        [self presentViewController:imagePicker animated:YES completion:NULL];
+    }else{
+        UIAlertView *noCamera = [[UIAlertView alloc] initWithTitle:@"Sorry, this devise doesn't have camera"
+                                                           message:nil
+                                                          delegate:self
+                                                 cancelButtonTitle:@"OK"
+                                                 otherButtonTitles:nil];
+        [noCamera show];
+    }
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    self.recipeImage.image = [info objectForKey:UIImagePickerControllerEditedImage];
+    
+    //UIImageWriteToSavedPhotosAlbum(self.recipeImage.image, nil, nil, nil);
+    
+    UIImage *viewImage = self.recipeImage.image;  // --- mine was made from drawing context
+    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+    // Request to save the image to camera roll
+    [library writeImageToSavedPhotosAlbum:[viewImage CGImage] orientation:(ALAssetOrientation)[viewImage imageOrientation] completionBlock:^(NSURL *assetURL, NSError *error){
+        if (error) {
+            NSLog(@"error");
+        } else {
+            NSLog(@"url %@", assetURL);
+            self.recipeImageURL = [assetURL absoluteString];
+        }
+    }];
+   [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 #pragma mark text field delegate
@@ -42,6 +101,12 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
+    return YES;
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    textField.text = @"";
     return YES;
 }
 
@@ -59,11 +124,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Ingredient cell" forIndexPath:indexPath];
+    IngredientCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Ingredient cell" forIndexPath:indexPath];
     
     NSDictionary *ingredient = [self.ingredients objectAtIndex:indexPath.row];
-    cell.textLabel.text = [ingredient valueForKey:@"label"];
-    cell.detailTextLabel.text = [ingredient valueForKey:@"quantity"];
+    cell.ingredientLabel.text = [ingredient valueForKey:INGREDIENT_LABEL_KEY];
+    cell.quantity.text = [[ingredient valueForKey:INGREDIENT_QUANTITY_KEY] stringValue];
+    cell.measure.text = [ingredient valueForKey:INGREDIENT_MEASURE_KEY];
     return cell;
 }
 
@@ -73,10 +139,11 @@
 {
     AddIngredientsViewController *addIngredientsController = segue.sourceViewController;
     if (addIngredientsController.ingredientLabel.text) {
+        NSNumber *quantity = [NSNumber numberWithDouble:[addIngredientsController.quantityOfIngredient.text doubleValue]];
         NSDictionary *ingredient = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                    addIngredientsController.ingredientLabel.text, @"label",
-                                    addIngredientsController.quantityOfIngredient.text, @"quantity",
-                                    addIngredientsController.units.text, @"units",
+                                    addIngredientsController.ingredientLabel.text, INGREDIENT_LABEL_KEY,
+                                    quantity, INGREDIENT_QUANTITY_KEY,
+                                    addIngredientsController.units.text, INGREDIENT_MEASURE_KEY,
                                     nil];
         [self.ingredients addObject:ingredient];
         
