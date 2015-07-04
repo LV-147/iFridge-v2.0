@@ -914,30 +914,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ingredient-list" translatesAutoresizingMaskIntoConstraints="NO" id="wNq-cR-Is6">
-                                <rect key="frame" x="106" y="282" width="388" height="266"/>
-                            </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Weight" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JKb-Sx-Z8c">
-                                <rect key="frame" x="342" y="20" width="102" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Recipe label" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vcj-49-k5T">
+                                <rect key="frame" x="16" y="20" width="288" height="30"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <outlet property="delegate" destination="97e-ij-deQ" id="1G7-Cg-TV8"/>
+                                    <outlet property="delegate" destination="97e-ij-deQ" id="y5B-tl-TIX"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Calories" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B7o-0a-d2z">
+                                <rect key="frame" x="452" y="20" width="132" height="30"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="97e-ij-deQ" id="nQQ-C2-iCf"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pGR-Hv-2qd">
-                                <rect key="frame" x="267" y="149" width="67" height="36"/>
-                                <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="15"/>
+                                <rect key="frame" x="245" y="141" width="111" height="52"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="25"/>
                                 <state key="normal" title="Take picture">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="takePicture" destination="97e-ij-deQ" eventType="touchUpInside" id="aUz-ht-ITl"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="hjE-TH-qWh">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ingredient-list" translatesAutoresizingMaskIntoConstraints="NO" id="wNq-cR-Is6">
+                                <rect key="frame" x="106" y="282" width="388" height="266"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="hjE-TH-qWh">
                                 <rect key="frame" x="156" y="308" width="288" height="216"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -990,10 +997,14 @@
                                     <outlet property="delegate" destination="97e-ij-deQ" id="Ajw-8l-SLT"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eh0-VJ-jcs" userLabel="Bottom toolbar">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S0j-o2-3rt">
+                                <rect key="frame" x="156" y="58" width="288" height="216"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <view alpha="0.90000000000000002" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eh0-VJ-jcs" userLabel="Bottom toolbar">
                                 <rect key="frame" x="-4" y="556" width="608" height="44"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ITZ-y7-FIn">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ITZ-y7-FIn">
                                         <rect key="frame" x="8" y="-4" width="65" height="52"/>
                                         <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="25"/>
                                         <state key="normal" title="Cancel">
@@ -1004,7 +1015,7 @@
                                             <action selector="cancel" destination="97e-ij-deQ" eventType="touchUpInside" id="aRa-Ns-beF"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dws-0O-Jgc">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dws-0O-Jgc">
                                         <rect key="frame" x="550" y="-8" width="50" height="52"/>
                                         <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="25"/>
                                         <state key="normal" title="Done">
@@ -1015,7 +1026,7 @@
                                             <action selector="done" destination="97e-ij-deQ" eventType="touchUpInside" id="mjJ-rp-KHH"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hTE-4X-r0W">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hTE-4X-r0W">
                                         <rect key="frame" x="247" y="-8" width="115" height="52"/>
                                         <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="25"/>
                                         <state key="normal" title="Ingredient +">
@@ -1028,82 +1039,27 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="centerY" secondItem="hTE-4X-r0W" secondAttribute="centerY" constant="4" id="8gO-Xv-Kjr"/>
-                                    <constraint firstAttribute="centerX" secondItem="hTE-4X-r0W" secondAttribute="centerX" constant="-0.5" id="I3h-9M-0L2"/>
-                                    <constraint firstAttribute="centerY" secondItem="Dws-0O-Jgc" secondAttribute="centerY" constant="4" id="K6N-MQ-pWG"/>
-                                    <constraint firstItem="ITZ-y7-FIn" firstAttribute="leading" secondItem="eh0-VJ-jcs" secondAttribute="leading" constant="8" id="Lfg-BG-5D8"/>
-                                    <constraint firstAttribute="centerY" secondItem="ITZ-y7-FIn" secondAttribute="centerY" id="Pvu-J2-zjH"/>
-                                    <constraint firstAttribute="trailing" secondItem="Dws-0O-Jgc" secondAttribute="trailing" constant="8" id="smg-1c-3XS"/>
-                                    <constraint firstItem="Dws-0O-Jgc" firstAttribute="centerY" secondItem="hTE-4X-r0W" secondAttribute="centerY" id="zIt-v9-AXv"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="zIt-v9-AXv"/>
-                                    </mask>
-                                </variation>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S0j-o2-3rt">
-                                <rect key="frame" x="156" y="58" width="288" height="216"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="2N7-lU-xtw"/>
-                                    <constraint firstAttribute="width" constant="300" id="wqI-NO-HCl"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="2N7-lU-xtw"/>
-                                        <exclude reference="wqI-NO-HCl"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Recipe label" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vcj-49-k5T">
-                                <rect key="frame" x="156" y="20" width="178" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Weight" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JKb-Sx-Z8c">
+                                <rect key="frame" x="312" y="20" width="132" height="30"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <outlet property="delegate" destination="97e-ij-deQ" id="y5B-tl-TIX"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Calories" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B7o-0a-d2z">
-                                <rect key="frame" x="452" y="20" width="132" height="30"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="97e-ij-deQ" id="nQQ-C2-iCf"/>
+                                    <outlet property="delegate" destination="97e-ij-deQ" id="1G7-Cg-TV8"/>
                                 </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="eh0-VJ-jcs" firstAttribute="top" secondItem="wNq-cR-Is6" secondAttribute="bottom" constant="8" id="10E-aN-G03"/>
-                            <constraint firstItem="wNq-cR-Is6" firstAttribute="trailing" secondItem="dHg-xG-usz" secondAttribute="trailingMargin" id="50g-pv-ZRD"/>
-                            <constraint firstItem="vcj-49-k5T" firstAttribute="top" secondItem="MDd-vk-6cl" secondAttribute="bottom" id="996-6Q-y57"/>
-                            <constraint firstItem="hjE-TH-qWh" firstAttribute="centerX" secondItem="wNq-cR-Is6" secondAttribute="centerX" id="J7H-e5-sp9"/>
-                            <constraint firstItem="hjE-TH-qWh" firstAttribute="centerY" secondItem="wNq-cR-Is6" secondAttribute="centerY" constant="1" id="JlR-aJ-yYU"/>
-                            <constraint firstItem="wNq-cR-Is6" firstAttribute="top" secondItem="S0j-o2-3rt" secondAttribute="bottom" constant="8" id="NRN-84-doH"/>
-                            <constraint firstAttribute="centerX" secondItem="S0j-o2-3rt" secondAttribute="centerX" id="QYD-gJ-Cym"/>
-                            <constraint firstItem="eh0-VJ-jcs" firstAttribute="leading" secondItem="dHg-xG-usz" secondAttribute="leadingMargin" constant="-20" id="Y1F-nh-eJA"/>
-                            <constraint firstItem="wNq-cR-Is6" firstAttribute="centerX" secondItem="S0j-o2-3rt" secondAttribute="centerX" id="c1y-37-fdw"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="eh0-VJ-jcs" secondAttribute="trailing" constant="-20" id="eBE-2N-Vvq"/>
-                            <constraint firstItem="vcj-49-k5T" firstAttribute="leading" secondItem="S0j-o2-3rt" secondAttribute="leading" id="hL2-jx-fxS"/>
-                            <constraint firstItem="S0j-o2-3rt" firstAttribute="top" secondItem="vcj-49-k5T" secondAttribute="bottom" constant="8" id="kDj-Eb-jIS"/>
-                            <constraint firstItem="wNq-cR-Is6" firstAttribute="height" secondItem="S0j-o2-3rt" secondAttribute="height" id="n7V-SH-Xrk"/>
-                            <constraint firstItem="hjE-TH-qWh" firstAttribute="centerX" secondItem="wNq-cR-Is6" secondAttribute="centerX" id="noU-0O-LmU"/>
-                            <constraint firstAttribute="centerX" secondItem="hjE-TH-qWh" secondAttribute="centerX" id="tWh-72-Gc2"/>
-                            <constraint firstItem="hzR-f2-mRS" firstAttribute="top" secondItem="eh0-VJ-jcs" secondAttribute="bottom" id="tdF-Xp-jKw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eh0-VJ-jcs" secondAttribute="trailing" constant="-20" id="7i3-yM-jbK"/>
+                            <constraint firstItem="hzR-f2-mRS" firstAttribute="top" secondItem="eh0-VJ-jcs" secondAttribute="bottom" id="KW7-fN-GM0"/>
+                            <constraint firstItem="eh0-VJ-jcs" firstAttribute="leading" secondItem="dHg-xG-usz" secondAttribute="leadingMargin" constant="-20" id="gAh-Cq-lbP"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="50g-pv-ZRD"/>
-                                <exclude reference="J7H-e5-sp9"/>
-                                <exclude reference="tWh-72-Gc2"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="cookingTime" destination="B7o-0a-d2z" id="1Vi-mb-4Jj"/>
                         <outlet property="recipeImage" destination="S0j-o2-3rt" id="qMJ-t0-sYn"/>
+                        <outlet property="recipeLabel" destination="vcj-49-k5T" id="jtm-f6-fYz"/>
                         <outlet property="tableView" destination="hjE-TH-qWh" id="Ps5-pv-fLc"/>
                         <outlet property="weight" destination="JKb-Sx-Z8c" id="aCP-vx-rTf"/>
                         <segue destination="E6u-dO-lMQ" kind="unwind" identifier="recipeAdded" unwindAction="recipeAdded:" id="dhO-PR-BF4"/>

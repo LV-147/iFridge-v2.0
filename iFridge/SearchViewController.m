@@ -52,7 +52,6 @@ static NSString * const kClientID = @"479226462698-nuoqkaoi6c79be4ghh4he3ov05bb1
     [self.view addSubview:self.googlePlusSignInButton];
     
     GPPSignIn *signIn = [GPPSignIn sharedInstance];
-    signIn = [GPPSignIn sharedInstance];
     signIn.clientID= kClientID;
     signIn.scopes= [NSArray arrayWithObjects:kGTLAuthScopePlusLogin, nil];
     signIn.shouldFetchGoogleUserID=YES;

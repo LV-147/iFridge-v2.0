@@ -169,7 +169,7 @@
     RecipesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Recipe cell" forIndexPath:indexPath];
     
     
-    NSString *urlImageString = [[NSString alloc] init];
+    NSString *urlImageString;
     if ([[self.recipes objectAtIndex:indexPath.row] isKindOfClass:[NSDictionary class]]) {
         urlImageString = [[self.recipes objectAtIndex:indexPath.row] valueForKeyPath:@"recipe.image"];
     }

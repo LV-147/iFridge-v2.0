@@ -51,9 +51,6 @@
 		35AFA34D1B1C728F006013AC /* FridgeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AFA34C1B1C728F006013AC /* FridgeTableViewController.m */; };
 		43186DE61B457520002ED189 /* RecipeCarouselItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43186DE51B457520002ED189 /* RecipeCarouselItem.xib */; };
 		BFDD51761B21DCCE0039A630 /* RecipeCarouselItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDD51751B21DCCE0039A630 /* RecipeCarouselItem.m */; };
-		BFEA48281B13475C008F5BEF /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFEA48241B13475C008F5BEF /* LoadingView.m */; };
-		BFEA48291B13475C008F5BEF /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFEA48251B13475C008F5BEF /* LoadingView.xib */; };
-		BFEA482A1B13475C008F5BEF /* UIViewController+LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFEA48271B13475C008F5BEF /* UIViewController+LoadingView.m */; };
 		BFF69BBD1B2860500085736A /* SortingStringClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF69BBC1B2860500085736A /* SortingStringClass.swift */; };
 		D9180D4B1B21CFE0005854C6 /* ReminderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9180D4A1B21CFE0005854C6 /* ReminderTableViewController.m */; };
 		D9267F541B3AE36B00A551BA /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9267F531B3AE36B00A551BA /* iPad.storyboard */; };
@@ -61,6 +58,9 @@
 		D926FC1B1B2B0F01003FB68C /* AddRecipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D926FC1A1B2B0F01003FB68C /* AddRecipeViewController.m */; };
 		D926FC201B2B2EA5003FB68C /* AddIngredientsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D926FC1F1B2B2EA5003FB68C /* AddIngredientsViewController.m */; };
 		D926FC231B2B3FC1003FB68C /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = D926FC221B2B3FC1003FB68C /* Ingredient.m */; };
+		D92C06681B48171E000FA91E /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = D92C06631B48171E000FA91E /* LoadingView.m */; };
+		D92C06691B48171E000FA91E /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D92C06641B48171E000FA91E /* LoadingView.xib */; };
+		D92C066A1B48171E000FA91E /* UIViewController+LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = D92C06651B48171E000FA91E /* UIViewController+LoadingView.m */; };
 		D94ACC351B441CB80065ABF6 /* IngredientCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D94ACC341B441CB80065ABF6 /* IngredientCell.m */; };
 		D96D9ECA1B2F0A5F00D89452 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D96D9EC91B2F0A5F00D89452 /* iPhone.storyboard */; };
 		D984A5D01B3EA4FF00F83CB4 /* RecipesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D984A5CF1B3EA4FF00F83CB4 /* RecipesTVC.m */; };
@@ -155,11 +155,6 @@
 		7B6D530F70A59FB7713BE0D2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		BFDD51741B21DCCE0039A630 /* RecipeCarouselItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecipeCarouselItem.h; path = iFridge/RecipeCarouselItem.h; sourceTree = "<group>"; };
 		BFDD51751B21DCCE0039A630 /* RecipeCarouselItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecipeCarouselItem.m; path = iFridge/RecipeCarouselItem.m; sourceTree = "<group>"; };
-		BFEA48231B13475C008F5BEF /* LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
-		BFEA48241B13475C008F5BEF /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
-		BFEA48251B13475C008F5BEF /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
-		BFEA48261B13475C008F5BEF /* UIViewController+LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LoadingView.h"; sourceTree = "<group>"; };
-		BFEA48271B13475C008F5BEF /* UIViewController+LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+LoadingView.m"; sourceTree = "<group>"; };
 		BFF69BBB1B28604F0085736A /* iFridge-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iFridge-Bridging-Header.h"; sourceTree = "<group>"; };
 		BFF69BBC1B2860500085736A /* SortingStringClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortingStringClass.swift; sourceTree = "<group>"; };
 		D9180D4A1B21CFE0005854C6 /* ReminderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderTableViewController.m; sourceTree = "<group>"; };
@@ -172,6 +167,11 @@
 		D926FC1F1B2B2EA5003FB68C /* AddIngredientsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddIngredientsViewController.m; sourceTree = "<group>"; };
 		D926FC211B2B3FC1003FB68C /* Ingredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ingredient.h; sourceTree = "<group>"; };
 		D926FC221B2B3FC1003FB68C /* Ingredient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ingredient.m; sourceTree = "<group>"; };
+		D92C06631B48171E000FA91E /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
+		D92C06641B48171E000FA91E /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		D92C06651B48171E000FA91E /* UIViewController+LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+LoadingView.m"; sourceTree = "<group>"; };
+		D92C06661B48171E000FA91E /* LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
+		D92C06671B48171E000FA91E /* UIViewController+LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LoadingView.h"; sourceTree = "<group>"; };
 		D94ACC331B441CB80065ABF6 /* IngredientCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngredientCell.h; sourceTree = "<group>"; };
 		D94ACC341B441CB80065ABF6 /* IngredientCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngredientCell.m; sourceTree = "<group>"; };
 		D96D9EC91B2F0A5F00D89452 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
@@ -357,14 +357,15 @@
 		357A58EF1AFFDF3C0094B0AC /* iFridge */ = {
 			isa = PBXGroup;
 			children = (
+				D92C06631B48171E000FA91E /* LoadingView.m */,
+				D92C06641B48171E000FA91E /* LoadingView.xib */,
+				D92C06651B48171E000FA91E /* UIViewController+LoadingView.m */,
+				D92C06661B48171E000FA91E /* LoadingView.h */,
+				D92C06671B48171E000FA91E /* UIViewController+LoadingView.h */,
 				3584A22E1B19F99800D21AF8 /* iCarousel.h */,
 				3584A22F1B19F99800D21AF8 /* iCarousel.m */,
 				3584A22B1B19E00400D21AF8 /* RegExCategories.h */,
 				3584A22C1B19E00400D21AF8 /* RegExCategories.m */,
-				BFEA48231B13475C008F5BEF /* LoadingView.h */,
-				BFEA48241B13475C008F5BEF /* LoadingView.m */,
-				BFEA48261B13475C008F5BEF /* UIViewController+LoadingView.h */,
-				BFEA48271B13475C008F5BEF /* UIViewController+LoadingView.m */,
 				D9B7D82B1B21C64200D5787E /* DataDownloader.h */,
 				D9B7D82C1B21C64200D5787E /* DataDownloader.m */,
 				357A58F41AFFDF3C0094B0AC /* AppDelegate.h */,
@@ -373,7 +374,6 @@
 				359709681B04E9E4005064C0 /* ViewControllers */,
 				359709691B04E9F8005064C0 /* Core Data */,
 				357A59001AFFDF3C0094B0AC /* Images.xcassets */,
-				BFEA48251B13475C008F5BEF /* LoadingView.xib */,
 				357A58F01AFFDF3C0094B0AC /* Supporting Files */,
 				BFF69BBC1B2860500085736A /* SortingStringClass.swift */,
 				357A59021AFFDF3C0094B0AC /* LaunchScreen.xib */,
@@ -636,12 +636,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				357A59041AFFDF3C0094B0AC /* LaunchScreen.xib in Resources */,
+				D92C06691B48171E000FA91E /* LoadingView.xib in Resources */,
 				357A59011AFFDF3C0094B0AC /* Images.xcassets in Resources */,
 				43186DE61B457520002ED189 /* RecipeCarouselItem.xib in Resources */,
 				D96D9ECA1B2F0A5F00D89452 /* iPhone.storyboard in Resources */,
 				D984A5D31B3EB99D00F83CB4 /* Main menu.xib in Resources */,
 				35A9D7101B08F1B7005EF9BF /* GooglePlus.bundle in Resources */,
-				BFEA48291B13475C008F5BEF /* LoadingView.xib in Resources */,
 				D9267F541B3AE36B00A551BA /* iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -696,9 +696,7 @@
 				35A8704B1B061CD8006343B5 /* RecipeWithImage.m in Sources */,
 				35AFA3461B1C5FC1006013AC /* PushAnimator.m in Sources */,
 				D9267F591B3AF16E00A551BA /* Recipe+Cat.m in Sources */,
-				BFEA48281B13475C008F5BEF /* LoadingView.m in Sources */,
 				D984A5D01B3EA4FF00F83CB4 /* RecipesTVC.m in Sources */,
-				BFEA482A1B13475C008F5BEF /* UIViewController+LoadingView.m in Sources */,
 				3584A2301B19F99800D21AF8 /* iCarousel.m in Sources */,
 				1802C40D1B457E6600713E41 /* OnePasswordExtension.m in Sources */,
 				D992EE441B0B73090093B3F7 /* Recipe.m in Sources */,
@@ -718,8 +716,10 @@
 				3597096F1B04FD98005064C0 /* RecipesCell.m in Sources */,
 				D992EE4E1B0B9D220093B3F7 /* Ingredient+Cat.m in Sources */,
 				F3948BEF1B137BDB00D149D0 /* UIAlertView+FridgeBlock.m in Sources */,
+				D92C066A1B48171E000FA91E /* UIViewController+LoadingView.m in Sources */,
 				D992EE331B0A34DA0093B3F7 /* Fridge+Cat.m in Sources */,
 				F3948BEC1B137BB300D149D0 /* UIButton+FridgeBlock.m in Sources */,
+				D92C06681B48171E000FA91E /* LoadingView.m in Sources */,
 				BFF69BBD1B2860500085736A /* SortingStringClass.swift in Sources */,
 				357A58F31AFFDF3C0094B0AC /* main.m in Sources */,
 				D926FC231B2B3FC1003FB68C /* Ingredient.m in Sources */,

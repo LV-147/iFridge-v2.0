@@ -98,7 +98,7 @@
     NSURL *url = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.image"];
     NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.ingredientLines"];
     NSString * result = [[ingredientLines valueForKey:@"description"] componentsJoinedByString:@"\n"];
-    [shareBuilder setPrefillText:[NSString stringWithFormat:@"Look for such a great recipe from iFridge \n\n Ingredient needed \n %@%@", result, @"\n\n #говно_код"]];
+    [shareBuilder setPrefillText:[NSString stringWithFormat:@"Look for such a great recipe from iFridge \n\n Ingredient needed \n %@%@", result, @"\n\n #meal"]];
     NSString *urlString = [NSString stringWithString:(NSString *)url];
     [shareBuilder setURLToShare:[NSURL URLWithString:urlString]];
     [shareBuilder open];
@@ -216,8 +216,10 @@
         recipeCarouselItem.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", [ingredientLines allValues]];
     }
     
-    recipeCarouselItem.facebookButton.objectID = @"https://www.facebook.com/{sub_url}";
-    recipeCarouselItem.facebookButton.objectType = FBSDKLikeObjectTypePage;
+//    NSURL *url = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.url"];
+//    NSString *urlString = [NSString stringWithString:(NSString *)url];
+//    recipeCarouselItem.facebookButton.objectID = urlString;
+//    recipeCarouselItem.facebookButton.objectType = FBSDKLikeObjectTypePage;
     
     [recipeCarouselItem.googleButton addTarget:self
                                         action:@selector(shareOnGPlus)
