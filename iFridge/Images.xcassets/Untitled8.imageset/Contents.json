@@ -2,12 +2,21 @@
   "images" : [
     {
       "idiom" : "universal",
+<<<<<<< HEAD
       "scale" : "1x",
       "filename" : "Untitled8.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x"
+=======
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x",
+      "filename" : "Untitled8.png"
+>>>>>>> 6b16d99142424c696f52bf0dc0fcea63f100ab58
     },
     {
       "idiom" : "universal",
