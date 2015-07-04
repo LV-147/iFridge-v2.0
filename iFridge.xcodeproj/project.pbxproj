@@ -372,7 +372,6 @@
 				D984A5D11B3EB96400F83CB4 /* Main UI */,
 				359709681B04E9E4005064C0 /* ViewControllers */,
 				359709691B04E9F8005064C0 /* Core Data */,
-				BFDD51771B21DCE30039A630 /* RecipeCarouselItem */,
 				357A59001AFFDF3C0094B0AC /* Images.xcassets */,
 				BFEA48251B13475C008F5BEF /* LoadingView.xib */,
 				357A58F01AFFDF3C0094B0AC /* Supporting Files */,
@@ -418,6 +417,7 @@
 				353567C31B131CAD00B7E0FD /* Search */,
 				353567C41B131CD800B7E0FD /* Recipes */,
 				353567C51B131CE600B7E0FD /* RecipesWithImage */,
+				BFDD51771B21DCE30039A630 /* RecipeCarouselItem */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";

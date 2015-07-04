@@ -190,7 +190,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xYM-oz-AIP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-829.5" y="-2377.5"/>
+            <point key="canvasLocation" x="-884.5" y="-2463.5"/>
         </scene>
         <!--Fridge Table View Controller-->
         <scene sceneID="1E0-cP-tbY">

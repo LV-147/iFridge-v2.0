@@ -23,7 +23,6 @@
 
 @interface RecipesTVC () <UIAlertViewDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UISegmentedControl *selectDataSourceController;
-@property (weak, nonatomic) IBOutlet UIButton *dataSourceButton;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSArray *allRecipes;
 @property (strong, nonatomic) RecipeWithImage *detailRecipeController;
@@ -31,6 +30,7 @@
 
 @implementation RecipesTVC
 
+#pragma View Controller life cikle
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBar.tintColor = [UIColor redColor];
@@ -38,7 +38,7 @@
     self.tableView.backgroundColor = [UIColor clearColor];
     self.recipes = [[NSMutableArray alloc] init];
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        self.dataSource = @"Search results";
+        self.dataSource = @"My recipes";
         self.detailRecipeController = [self.splitViewController.viewControllers objectAtIndex:1];
     }
     
@@ -54,6 +54,32 @@
     if ([self.dataSource isEqualToString:@"My recipes"])
         self.selectDataSourceController.selectedSegmentIndex = 1;
 }
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    else
+        [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    self.searchBar.text = self.query;
+    if ([self.dataSource isEqualToString:@"My recipes"]) {
+        [self getRecipesFromCoreData];
+        [self.tableView reloadData];
+    }
+    
+    NSString *deviceType = [UIDevice currentDevice].model;
+    
+    if([deviceType isEqualToString:@"iPad"]  || [deviceType isEqualToString:@"iPad Simulator"])
+        [DataDownloader networkIsReachable];
+}
+
+-(void) viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
+        [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    }
+}
+
 
 #pragma mark - search bar delegate
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
@@ -87,51 +113,7 @@
     }
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-        [[self navigationController] setNavigationBarHidden:YES animated:YES];
-    else
-        [[self navigationController] setNavigationBarHidden:NO animated:YES];
-    self.searchBar.text = self.query;
-    if ([self.dataSource isEqualToString:@"My recipes"]) {
-        [self getRecipesFromCoreData];
-        [self.tableView reloadData];
-    }
-    
-    NSString *deviceType = [UIDevice currentDevice].model;
-    
-    if([deviceType isEqualToString:@"iPad"]  || [deviceType isEqualToString:@"iPad Simulator"])
-        [DataDownloader networkIsReachable];
-}
-
--(void) viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
-        [[self navigationController] setNavigationBarHidden:YES animated:YES];
-    }
-}
-
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    cell.backgroundColor = [UIColor clearColor];
-}
-
--(void) doAnimation:(RecipesCell*) cell{
-
-    [cell setBackgroundColor:[UIColor blackColor]];
-    
-    [UIView animateWithDuration:0.2
-                          delay:0.0
-                        options:UIViewAnimationOptionCurveEaseInOut
-                     animations:^(void) {
-                         [cell setBackgroundColor:[UIColor whiteColor]];
-                     }
-                     completion:^(BOOL finished){
-                         
-                     }];
-}
-
+#pragma Self functions
 - (void)searchForRecipesForQuery:(NSString *)newQuery
 {
     [self showLoadingViewInView:self.view];
@@ -159,36 +141,6 @@
     self.byNameButton.hidden = NO;
     self.byCaloriesButton.hidden = NO;
     [self updateDetailRecipesControllerWithIndex:0];
-}
-
-
-- (IBAction)selectDataSource:(UIButton *)sender {
-    if ([sender.currentTitle isEqualToString:@"Web"]) {
-        self.dataSource = @"Search results";
-        [self searchForRecipesForQuery:self.query];
-        [self.dataSourceButton setTitle:@"My recipes" forState:UIControlStateNormal];
-    } else {
-        self.dataSource = @"My recipes";
-        [self getRecipesFromCoreData];
-        [self.tableView reloadData];
-        [self.dataSourceButton setTitle:@"Web" forState:UIControlStateNormal];
-    }
-}
-
-- (IBAction)changeDataSource:(UISegmentedControl *)sender {
-    switch (sender.selectedSegmentIndex) {
-        case 0:
-            self.dataSource = @"Search results";
-            [self searchForRecipesForQuery:self.query];
-            break;
-        case 1:
-            self.dataSource = @"My recipes";
-            [self getRecipesFromCoreData];
-            [self.tableView reloadData];
-            break;
-        default:
-            break;
-    }
 }
 
 - (void)updateDetailRecipesControllerWithIndex:(NSUInteger)index {
@@ -291,19 +243,27 @@
     }
 }
 
-#pragma mark - Navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([segue.identifier isEqualToString:@"SegueToRecipeWithImage"])
-    {
-        RecipesCell *recipeCell = (RecipesCell *)sender;
-        NSInteger recipeIndex = [self.tableView indexPathForCell:recipeCell].row;
-        RecipeWithImage *newController = segue.destinationViewController;
-        newController.index = recipeIndex;
-        newController.availableRecipes = self.recipes;
-    }
+    cell.backgroundColor = [UIColor clearColor];
 }
 
+-(void) doAnimation:(RecipesCell*) cell{
+    
+    [cell setBackgroundColor:[UIColor blackColor]];
+    
+    [UIView animateWithDuration:0.2
+                          delay:0.0
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^(void) {
+                         [cell setBackgroundColor:[UIColor whiteColor]];
+                     }
+                     completion:^(BOOL finished){
+                         
+                     }];
+}
+
+#pragma Actions
 - (IBAction)recipeAdded:(UIStoryboardSegue *)segue
 {
     AddRecipeViewController *addRecipeController = segue.sourceViewController;
@@ -374,6 +334,22 @@
     }
 }
 
+- (IBAction)changeDataSource:(UISegmentedControl *)sender {
+    switch (sender.selectedSegmentIndex) {
+        case 0:
+            self.dataSource = @"Search results";
+            [self searchForRecipesForQuery:self.query];
+            break;
+        case 1:
+            self.dataSource = @"My recipes";
+            [self getRecipesFromCoreData];
+            [self.tableView reloadData];
+            break;
+        default:
+            break;
+    }
+}
+
 - (IBAction)sortByName:(id)sender {
     
     NSMutableArray *unsortedNames = [[NSMutableArray alloc]init];
@@ -426,4 +402,18 @@
     
     [self.tableView reloadData];
 }
+
+#pragma mark - Navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"SegueToRecipeWithImage"])
+    {
+        RecipesCell *recipeCell = (RecipesCell *)sender;
+        NSInteger recipeIndex = [self.tableView indexPathForCell:recipeCell].row;
+        RecipeWithImage *newController = segue.destinationViewController;
+        newController.index = recipeIndex;
+        newController.availableRecipes = self.recipes;
+    }
+}
+
 @end
