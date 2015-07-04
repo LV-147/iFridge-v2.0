@@ -261,6 +261,7 @@
   if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
     [self.detailRecipeController.carousel scrollToItemAtIndex:indexPath.row
                                                      animated:YES];
+  self.detailRecipeController.index = indexPath.row;
 }
 
 - (BOOL)tableView:(UITableView *)tableView

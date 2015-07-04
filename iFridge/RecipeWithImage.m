@@ -77,9 +77,14 @@
 }
 
 - (void)setIndex:(NSInteger)value {
-  _index = value;
-  self.recipeCountIndicator.text = [NSString
-      stringWithFormat:@"%d/%d", (int)_index + 1, (int)_carousel.numberOfItems];
+  if (value == -1) {
+    _index = 0;
+  } else {
+    _index = value;
+    self.recipeCountIndicator.text =
+        [NSString stringWithFormat:@"%d/%d", (int)_index + 1,
+                                   (int)_carousel.numberOfItems];
+  }
 }
 
 - (IBAction)googlePlusShareButton:(id)sender {
@@ -306,10 +311,13 @@
 
 - (void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel {
   self.index = carousel.currentItemIndex;
-  [self.masterRecipeController.tableView
-      selectRowAtIndexPath:[NSIndexPath indexPathForRow:self.index inSection:0]
-                  animated:NO
-            scrollPosition:UITableViewScrollPositionMiddle];
+  if ([self.availableRecipes count])
+    [self.masterRecipeController.tableView
+        selectRowAtIndexPath:[NSIndexPath indexPathForRow:self.index
+                                                inSection:0]
+                    animated:NO
+              scrollPosition:UITableViewScrollPositionBottom |
+                             UITableViewScrollPositionTop];
 }
 
 #pragma mark Navigation
