@@ -10,10 +10,10 @@
 
 @implementation RecipesCell
 
-- (id)initWithCoder:(NSCoder *)aDecoder{
-    self = [super initWithCoder:aDecoder];
+- (id)initWithCoder:(NSCoder *)aDecoder {
+  self = [super initWithCoder:aDecoder];
 
-    return self;
+  return self;
 }
 
 @end
