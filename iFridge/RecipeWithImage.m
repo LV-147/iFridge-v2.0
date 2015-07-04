@@ -55,6 +55,12 @@
     
     self.carousel.currentItemIndex = self.index;
     self.carousel.scrollSpeed = 0.5;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self  selector:@selector(orientationChanged:)    name:UIDeviceOrientationDidChangeNotification  object:nil];
+}
+
+- (void)orientationChanged:(UIDeviceOrientation *)ori{
+    [self.carousel scrollToItemAtIndex:self.index animated:YES];
 }
 
 - (void)awakeFromNib
