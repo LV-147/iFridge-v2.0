@@ -513,7 +513,7 @@
                                             <rect key="frame" x="276" y="630" width="83" height="30"/>
                                         </variation>
                                         <connections>
-                                            <segue destination="WxR-3Z-hFb" kind="presentation" identifier="reminderSegue" id="t0d-cP-XYn"/>
+                                            <segue destination="Pfc-Nt-8XN" kind="presentation" identifier="reminderSegue" id="2Ys-z3-glW"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8J-Ps-BQB">
@@ -587,57 +587,81 @@
             <point key="canvasLocation" x="-1122" y="-1602"/>
         </scene>
         <!--Reminder Table View Controller-->
-        <scene sceneID="l1O-ff-mdm">
+        <scene sceneID="3yf-8h-Cme">
             <objects>
-                <tableViewController id="WxR-3Z-hFb" customClass="ReminderTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ixU-Si-d0i">
+                <viewController id="Pfc-Nt-8XN" customClass="ReminderTableViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mUk-Wj-Kkd"/>
+                        <viewControllerLayoutGuide type="bottom" id="gTR-sa-70Y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="De9-dF-Jws">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ixU-Si-d0i">
+                                <rect key="frame" x="0.0" y="92" width="600" height="444"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <button key="tableFooterView" opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="roO-Mj-Az0">
+                                    <rect key="frame" x="0.0" y="66" width="600" height="62"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="20"/>
+                                    <inset key="contentEdgeInsets" minX="0.0" minY="-7" maxX="0.0" maxY="0.0"/>
+                                    <state key="normal" title="Send to calendar" backgroundImage="note">
+                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                </button>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell Identifier" id="pc0-TR-sck">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pc0-TR-sck" id="EgT-rb-i4j">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Pfc-Nt-8XN" id="SMg-Rb-WX0"/>
+                                    <outlet property="delegate" destination="Pfc-Nt-8XN" id="03J-ck-LIY"/>
+                                </connections>
+                            </tableView>
+                            <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oYM-c6-rrY" userLabel="Top toolbar">
+                                <rect key="frame" x="-4" y="0.0" width="608" height="84"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="84" id="rGX-pG-rUk"/>
+                                </constraints>
+                            </view>
+                            <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="csS-LP-Hy8" userLabel="Bottom toolbar">
+                                <rect key="frame" x="-4" y="544" width="608" height="56"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="LgY-zi-UWD"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <button key="tableFooterView" opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="roO-Mj-Az0">
-                            <rect key="frame" x="0.0" y="66" width="600" height="62"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="20"/>
-                            <inset key="contentEdgeInsets" minX="0.0" minY="-7" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="Send to calendar" backgroundImage="note">
-                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
-                            <connections>
-                                <action selector="sendToCalendar:" destination="WxR-3Z-hFb" eventType="touchUpInside" id="MAv-29-KqU"/>
-                            </connections>
-                        </button>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell Identifier" id="pc0-TR-sck">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pc0-TR-sck" id="EgT-rb-i4j">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="WxR-3Z-hFb" id="qMn-dr-hDG"/>
-                            <outlet property="delegate" destination="WxR-3Z-hFb" id="NQ7-6u-qb3"/>
-                        </connections>
-                    </tableView>
-                    <toolbarItems>
-                        <barButtonItem title="Select Date" id="tIX-3B-Z4l">
-                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="cancel:" destination="WxR-3Z-hFb" id="vct-Mb-5Na"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="oYM-c6-rrY" secondAttribute="trailing" constant="-20" id="Hbr-et-Rmr"/>
+                            <constraint firstItem="oYM-c6-rrY" firstAttribute="top" secondItem="mUk-Wj-Kkd" secondAttribute="bottom" constant="-20" id="Pg6-Ia-LKz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ixU-Si-d0i" secondAttribute="trailing" constant="-16" id="QSR-VQ-lsL"/>
+                            <constraint firstItem="csS-LP-Hy8" firstAttribute="leading" secondItem="De9-dF-Jws" secondAttribute="leadingMargin" constant="-20" id="Qr0-nl-aAP"/>
+                            <constraint firstItem="ixU-Si-d0i" firstAttribute="top" secondItem="oYM-c6-rrY" secondAttribute="bottom" constant="8" id="VHF-5d-0mB"/>
+                            <constraint firstItem="oYM-c6-rrY" firstAttribute="leading" secondItem="De9-dF-Jws" secondAttribute="leadingMargin" constant="-20" id="YaK-BA-Hod"/>
+                            <constraint firstItem="ixU-Si-d0i" firstAttribute="leading" secondItem="De9-dF-Jws" secondAttribute="leadingMargin" constant="-16" id="byF-LZ-XSO"/>
+                            <constraint firstItem="csS-LP-Hy8" firstAttribute="top" secondItem="ixU-Si-d0i" secondAttribute="bottom" constant="8" id="t12-Lr-dNL"/>
+                            <constraint firstItem="gTR-sa-70Y" firstAttribute="top" secondItem="csS-LP-Hy8" secondAttribute="bottom" id="tDO-kq-oys"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="csS-LP-Hy8" secondAttribute="trailing" constant="-20" id="xiS-RD-Mkk"/>
+                        </constraints>
+                    </view>
                     <connections>
-                        <outlet property="sendToCalendar" destination="roO-Mj-Az0" id="tcp-av-piR"/>
+                        <outlet property="sendToCalendar" destination="roO-Mj-Az0" id="9P0-WU-tf2"/>
+                        <outlet property="tableView" destination="ixU-Si-d0i" id="dNe-qq-6D8"/>
                     </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BMf-sq-bqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MXw-O8-ROg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-257" y="-1602"/>
+            <point key="canvasLocation" x="-371" y="-1602"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="Ewa-pd-nnq">

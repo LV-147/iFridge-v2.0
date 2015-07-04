@@ -17,7 +17,7 @@
 
 @import EventKit;
 
-@interface ReminderTableViewController () <DatePickerDelegate>
+@interface ReminderTableViewController () <DatePickerDelegate, UITableViewDataSource, UITableViewDelegate>
 
 
 @property (strong, nonatomic) EKEventStore *eventStore;
@@ -28,6 +28,7 @@
 @property (nonatomic, strong) NSString *savedEvent;
 @property (weak, nonatomic) IBOutlet UIButton *sendToCalendar;
 @property (strong, nonatomic) NSDate* pickedDate;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -64,7 +65,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     self.navigationController.toolbarHidden = NO;
 
     
@@ -74,7 +75,7 @@
     
     [self.tableView addGestureRecognizer:longPress];
     
-    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"image22.jpg"]];
+    self.tableView.backgroundColor = [UIColor clearColor];
     
     self.tableView.backgroundView.alpha = 0.2f;
     
@@ -91,16 +92,6 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
--(void) viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    self.navigationController.toolbar.hidden = NO;
-}
--(void) viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    self.navigationController.toolbar.hidden = NO;
-}
-
 
 #pragma mark - UITableView data source and delegate methods
 
@@ -108,8 +99,6 @@
     
     return 1;
 }
-
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.todoItems count];
