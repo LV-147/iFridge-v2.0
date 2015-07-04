@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="h2X-tC-U0S">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="h2X-tC-U0S">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -207,8 +207,12 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZR4-0L-60J" id="IGu-2v-YMw">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dv3-ZW-lnr">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dv3-ZW-lnr">
                                             <rect key="frame" x="26" y="22" width="67" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="67" id="Zln-NQ-r7M"/>
+                                                <constraint firstAttribute="height" constant="24" id="pHT-4F-pka"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -216,8 +220,12 @@
                                                 <rect key="frame" x="27" y="19" width="145" height="26"/>
                                             </variation>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="quantity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cY2-Jb-WKr">
-                                            <rect key="frame" x="123" y="25" width="81" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="quantity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cY2-Jb-WKr">
+                                            <rect key="frame" x="136" y="25" width="81" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="81" id="QeC-27-b49"/>
+                                                <constraint firstAttribute="height" constant="21" id="d4S-fX-KWT"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -225,8 +233,12 @@
                                                 <rect key="frame" x="180" y="21" width="77" height="21"/>
                                             </variation>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="units" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lgq-rS-78a">
-                                            <rect key="frame" x="255" y="26" width="86" height="20"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="units" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lgq-rS-78a">
+                                            <rect key="frame" x="257" y="26" width="86" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="86" id="1ed-nq-KrA"/>
+                                                <constraint firstAttribute="height" constant="20" id="Gjm-Wr-ZaA"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -235,6 +247,14 @@
                                             </variation>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Lgq-rS-78a" firstAttribute="top" secondItem="IGu-2v-YMw" secondAttribute="topMargin" constant="18" id="ECh-uw-CZ1"/>
+                                        <constraint firstAttribute="centerY" secondItem="cY2-Jb-WKr" secondAttribute="centerY" id="Z2I-nz-Zvq"/>
+                                        <constraint firstAttribute="centerX" secondItem="cY2-Jb-WKr" secondAttribute="centerX" id="ggb-d9-seG"/>
+                                        <constraint firstItem="dv3-ZW-lnr" firstAttribute="top" secondItem="IGu-2v-YMw" secondAttribute="topMargin" constant="14" id="msi-l1-IYk"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Lgq-rS-78a" secondAttribute="trailing" constant="24" id="pFh-T0-gJw"/>
+                                        <constraint firstItem="dv3-ZW-lnr" firstAttribute="leading" secondItem="IGu-2v-YMw" secondAttribute="leadingMargin" constant="18" id="wET-02-Mnn"/>
+                                    </constraints>
                                     <variation key="widthClass=compact">
                                         <mask key="subviews">
                                             <include reference="dv3-ZW-lnr"/>
@@ -3918,6 +3938,6 @@
         <image name="vk" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="96l-75-EyD"/>
+        <segue reference="Hzn-Ng-QPe"/>
     </inferredMetricsTieBreakers>
 </document>
