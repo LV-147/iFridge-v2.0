@@ -63,7 +63,7 @@
 
 - (void)setIndex:(NSInteger)value {
     _index = value;
-    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%ld/%ld", _index+1, (long)_carousel.numberOfItems];
+    self.recipeCountIndicator.text = [NSString stringWithFormat:@"%d/%d", _index+1, _carousel.numberOfItems];
 }
 
 - (IBAction)googlePlusShareButton:(id)sender {
@@ -188,8 +188,7 @@
                         withCompletionHandler:nil];
 
         NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:index] valueForKeyPath:@"recipe.ingredientLines"];
-        //        item.recipeItemTextField.text = [NSString stringWithFormat:@"Ingredient needed \n %@", ingredientLines];
-        //        item.recipeItemName.text = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.label"];
+
         recipeCarouselItem.recipeItemTextField.text = @"Ingredient needed:";
         for(NSString* str in ingredientLines){
             recipeCarouselItem.recipeItemTextField.text = [NSString stringWithFormat:@"%@ \n\t \"%@\"", recipeCarouselItem.recipeItemTextField.text, str];
