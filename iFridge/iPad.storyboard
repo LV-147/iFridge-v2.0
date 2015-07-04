@@ -1071,71 +1071,82 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Label" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yeu-nt-hiz">
-                                <rect key="frame" x="16" y="20" width="568" height="30"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="Rqh-Gx-xWR" id="kRZ-y9-mHs"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Quantity" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GOt-uh-dEB">
-                                <rect key="frame" x="16" y="58" width="280" height="30"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="Rqh-Gx-xWR" id="4kP-gF-zdt"/>
-                                </connections>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fhi-Db-FTi">
-                                <rect key="frame" x="554" y="91" width="30" height="36"/>
-                                <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="15"/>
-                                <state key="normal" title="Done">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="done" destination="Rqh-Gx-xWR" eventType="touchUpInside" id="9XK-ks-rrF"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Measure" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rbq-p5-sPB">
-                                <rect key="frame" x="304" y="58" width="280" height="30"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="Rqh-Gx-xWR" id="kRm-NP-Wbu"/>
-                                </connections>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YoM-O0-OSq">
-                                <rect key="frame" x="16" y="96" width="39" height="36"/>
-                                <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="15"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="Cancel" destination="Rqh-Gx-xWR" eventType="touchUpInside" id="CPa-dX-sTV"/>
-                                </connections>
-                            </button>
+                            <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qON-Md-hae">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Label" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yeu-nt-hiz">
+                                        <rect key="frame" x="16" y="32" width="568" height="30"/>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Rqh-Gx-xWR" id="kRZ-y9-mHs"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Quantity" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GOt-uh-dEB">
+                                        <rect key="frame" x="16" y="70" width="273" height="30"/>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Rqh-Gx-xWR" id="4kP-gF-zdt"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Measure" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rbq-p5-sPB">
+                                        <rect key="frame" x="312" y="70" width="272" height="30"/>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Rqh-Gx-xWR" id="kRm-NP-Wbu"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fhi-Db-FTi">
+                                        <rect key="frame" x="544" y="108" width="40" height="44"/>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="20"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="done" destination="Rqh-Gx-xWR" eventType="touchUpInside" id="9XK-ks-rrF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YoM-O0-OSq">
+                                        <rect key="frame" x="16" y="108" width="52" height="44"/>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="20"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="Cancel" destination="Rqh-Gx-xWR" eventType="touchUpInside" id="CPa-dX-sTV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Yeu-nt-hiz" firstAttribute="leading" secondItem="qON-Md-hae" secondAttribute="leading" constant="16" id="6O8-kC-2NB"/>
+                                    <constraint firstItem="Yeu-nt-hiz" firstAttribute="trailing" secondItem="Rbq-p5-sPB" secondAttribute="trailing" id="BWh-aY-t0P"/>
+                                    <constraint firstItem="YoM-O0-OSq" firstAttribute="top" secondItem="GOt-uh-dEB" secondAttribute="bottom" constant="8" id="Ggk-lC-mei"/>
+                                    <constraint firstItem="Fhi-Db-FTi" firstAttribute="trailing" secondItem="Rbq-p5-sPB" secondAttribute="trailing" id="IxC-u3-6Oz"/>
+                                    <constraint firstAttribute="trailing" secondItem="Yeu-nt-hiz" secondAttribute="trailing" constant="16" id="K8A-wC-Ojw"/>
+                                    <constraint firstItem="Yeu-nt-hiz" firstAttribute="height" secondItem="GOt-uh-dEB" secondAttribute="height" id="KGA-3u-xV7"/>
+                                    <constraint firstItem="YoM-O0-OSq" firstAttribute="leading" secondItem="GOt-uh-dEB" secondAttribute="leading" id="LYt-ZT-DCo"/>
+                                    <constraint firstItem="Yeu-nt-hiz" firstAttribute="top" secondItem="qON-Md-hae" secondAttribute="top" constant="32" id="Lyn-S3-ZHD"/>
+                                    <constraint firstItem="GOt-uh-dEB" firstAttribute="top" secondItem="Yeu-nt-hiz" secondAttribute="bottom" constant="8" id="Nr5-p2-qjH"/>
+                                    <constraint firstItem="Fhi-Db-FTi" firstAttribute="top" secondItem="Rbq-p5-sPB" secondAttribute="bottom" constant="8" id="Zqk-Mz-6mY"/>
+                                    <constraint firstItem="GOt-uh-dEB" firstAttribute="height" secondItem="Rbq-p5-sPB" secondAttribute="height" id="eSm-KC-8g1"/>
+                                    <constraint firstItem="Rbq-p5-sPB" firstAttribute="top" secondItem="Yeu-nt-hiz" secondAttribute="bottom" constant="8" id="fI1-cu-ZXN"/>
+                                    <constraint firstItem="Rbq-p5-sPB" firstAttribute="leading" secondItem="GOt-uh-dEB" secondAttribute="trailing" constant="23" id="n7f-of-abh"/>
+                                    <constraint firstItem="GOt-uh-dEB" firstAttribute="width" secondItem="Rbq-p5-sPB" secondAttribute="width" id="wJ9-BB-HQd"/>
+                                    <constraint firstItem="Yeu-nt-hiz" firstAttribute="leading" secondItem="GOt-uh-dEB" secondAttribute="leading" id="xOE-SI-rBI"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="YoM-O0-OSq" firstAttribute="leading" secondItem="vJG-RU-hgR" secondAttribute="leadingMargin" id="3Fc-YE-3XV"/>
-                            <constraint firstItem="Rbq-p5-sPB" firstAttribute="trailing" secondItem="vJG-RU-hgR" secondAttribute="trailingMargin" id="4Or-eK-Ds4"/>
-                            <constraint firstItem="Fhi-Db-FTi" firstAttribute="trailing" secondItem="vJG-RU-hgR" secondAttribute="trailingMargin" id="F8W-Sw-Rsq"/>
-                            <constraint firstItem="GOt-uh-dEB" firstAttribute="leading" secondItem="vJG-RU-hgR" secondAttribute="leadingMargin" id="SMi-cI-J3I"/>
-                            <constraint firstItem="Rbq-p5-sPB" firstAttribute="width" secondItem="GOt-uh-dEB" secondAttribute="width" id="TeC-CV-6VX"/>
-                            <constraint firstItem="Fhi-Db-FTi" firstAttribute="top" secondItem="Rbq-p5-sPB" secondAttribute="bottom" constant="3" id="V1k-zZ-4hM"/>
-                            <constraint firstItem="GOt-uh-dEB" firstAttribute="top" secondItem="Yeu-nt-hiz" secondAttribute="bottom" constant="8" id="XuW-d5-S4P"/>
-                            <constraint firstItem="Yeu-nt-hiz" firstAttribute="top" secondItem="Yxk-MH-av0" secondAttribute="bottom" id="aM5-Kf-wpJ"/>
-                            <constraint firstItem="Rbq-p5-sPB" firstAttribute="height" secondItem="GOt-uh-dEB" secondAttribute="height" id="byP-vT-wwn"/>
-                            <constraint firstItem="YoM-O0-OSq" firstAttribute="top" secondItem="GOt-uh-dEB" secondAttribute="bottom" constant="8" id="e8r-v6-Egu"/>
-                            <constraint firstItem="Yeu-nt-hiz" firstAttribute="leading" secondItem="vJG-RU-hgR" secondAttribute="leadingMargin" id="jXe-8k-lfZ"/>
-                            <constraint firstItem="Yeu-nt-hiz" firstAttribute="trailing" secondItem="vJG-RU-hgR" secondAttribute="trailingMargin" id="kFf-CT-eMs"/>
-                            <constraint firstItem="Rbq-p5-sPB" firstAttribute="top" secondItem="Yeu-nt-hiz" secondAttribute="bottom" constant="8" id="sqb-pM-7xN"/>
-                            <constraint firstItem="Rbq-p5-sPB" firstAttribute="leading" secondItem="GOt-uh-dEB" secondAttribute="trailing" constant="8" id="wSx-ER-Kf6"/>
+                            <constraint firstItem="qON-Md-hae" firstAttribute="height" secondItem="vJG-RU-hgR" secondAttribute="height" id="GUY-G4-Sgp"/>
+                            <constraint firstAttribute="centerY" secondItem="qON-Md-hae" secondAttribute="centerY" id="l4l-2R-40v"/>
+                            <constraint firstItem="qON-Md-hae" firstAttribute="width" secondItem="vJG-RU-hgR" secondAttribute="width" id="sXM-eO-PnM"/>
+                            <constraint firstAttribute="centerX" secondItem="qON-Md-hae" secondAttribute="centerX" id="vYm-6H-LaZ"/>
                         </constraints>
                     </view>
                     <connections>
