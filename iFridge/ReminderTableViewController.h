@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ReminderTableViewController : UITableViewController
+@interface ReminderTableViewController : UIViewController
 
 @property (strong, nonatomic) NSArray *ingredientsForReminder;
 @property (strong, nonatomic) NSString *nameOfEventForCalendar;

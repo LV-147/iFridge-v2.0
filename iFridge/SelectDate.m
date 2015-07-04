@@ -33,6 +33,10 @@
     [self.delegate pickDateWithSelectedDate:sender.date];
     
 }
+- (IBAction)done:(id)sender {
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
+}
+
 
 
 
