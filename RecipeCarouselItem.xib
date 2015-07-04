@@ -68,12 +68,24 @@
                         <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="40"/>
                     </variation>
                 </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" pagingEnabled="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tlf-se-ZBw">
+                    <rect key="frame" x="53" y="354" width="268" height="215"/>
+                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
+                    <variation key="heightClass=compact" ambiguous="YES" misplaced="YES">
+                        <rect key="frame" x="228" y="60" width="127" height="557"/>
+                    </variation>
+                </textView>
             </subviews>
             <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
             <constraints>
+                <constraint firstItem="Tlf-se-ZBw" firstAttribute="centerY" secondItem="O2w-vf-8gG" secondAttribute="centerY" id="1sU-AN-fgp"/>
                 <constraint firstItem="aQR-aP-Chw" firstAttribute="trailing" secondItem="O2w-vf-8gG" secondAttribute="trailing" id="Ar3-5N-zVC"/>
                 <constraint firstItem="7z1-Jd-XRq" firstAttribute="centerX" secondItem="O2w-vf-8gG" secondAttribute="centerX" id="GMh-f2-k1n"/>
                 <constraint firstAttribute="trailing" secondItem="O2w-vf-8gG" secondAttribute="trailing" constant="16" id="IL3-Ho-jAK"/>
+                <constraint firstItem="Tlf-se-ZBw" firstAttribute="height" secondItem="O2w-vf-8gG" secondAttribute="height" constant="-75" id="Oe0-tp-voi"/>
+                <constraint firstItem="Tlf-se-ZBw" firstAttribute="width" secondItem="O2w-vf-8gG" secondAttribute="width" constant="-75" id="Os2-kK-1ga"/>
                 <constraint firstItem="O2w-vf-8gG" firstAttribute="leading" secondItem="jSn-Gb-psf" secondAttribute="leading" id="P2j-dM-y0j"/>
                 <constraint firstAttribute="bottom" secondItem="aQR-aP-Chw" secondAttribute="bottom" constant="8" id="Pak-wd-RhS"/>
                 <constraint firstItem="jSn-Gb-psf" firstAttribute="top" secondItem="O2w-vf-8gG" secondAttribute="bottom" constant="2" id="R5d-CE-3K0"/>
@@ -92,6 +104,7 @@
                 <constraint firstItem="TsH-OL-8fQ" firstAttribute="width" secondItem="qYv-zk-w9f" secondAttribute="width" id="lr2-kK-dyH"/>
                 <constraint firstItem="7z1-Jd-XRq" firstAttribute="centerY" secondItem="TsH-OL-8fQ" secondAttribute="centerY" constant="0.5" id="n3O-fx-s6w"/>
                 <constraint firstItem="7z1-Jd-XRq" firstAttribute="width" relation="lessThanOrEqual" secondItem="O2w-vf-8gG" secondAttribute="width" id="qKi-d7-Gvf"/>
+                <constraint firstItem="Tlf-se-ZBw" firstAttribute="centerX" secondItem="O2w-vf-8gG" secondAttribute="centerX" id="zKN-pG-0yJ"/>
             </constraints>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -112,17 +125,6 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <point key="canvasLocation" x="798" y="170"/>
         </view>
-        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" pagingEnabled="YES" editable="NO" id="Tlf-se-ZBw">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="14"/>
-            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-            <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
-            <variation key="heightClass=compact" ambiguous="YES" misplaced="YES">
-                <rect key="frame" x="228" y="60" width="127" height="557"/>
-            </variation>
-            <point key="canvasLocation" x="855" y="393"/>
-        </textView>
     </objects>
     <resources>
         <image name="330273-64" width="64" height="64"/>
