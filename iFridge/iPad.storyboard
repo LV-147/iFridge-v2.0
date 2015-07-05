@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CYb-dP-gza">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CYb-dP-gza">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -532,7 +532,7 @@
                                             <rect key="frame" x="276" y="630" width="83" height="30"/>
                                         </variation>
                                         <connections>
-                                            <segue destination="Lw2-ak-3dK" kind="modal" id="nIz-UP-ogq"/>
+                                            <segue destination="Lw2-ak-3dK" kind="presentation" id="nIz-UP-ogq"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYE-1q-jLA">
@@ -940,6 +940,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="FpH-Hq-6KG" firstAttribute="leading" secondItem="Qf6-5H-nXa" secondAttribute="trailing" constant="8" id="H8l-84-FZi"/>
                                                 <constraint firstItem="FpH-Hq-6KG" firstAttribute="centerY" secondItem="Fyu-Sk-aT9" secondAttribute="centerY" id="WgG-b5-Uei"/>
@@ -951,7 +952,7 @@
                                                 <constraint firstItem="Qf6-5H-nXa" firstAttribute="top" secondItem="1cu-2Z-iZr" secondAttribute="topMargin" id="zHi-BN-EcX"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="1" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="ingredientLabel" destination="Qf6-5H-nXa" id="o3B-jr-rXC"/>
                                             <outlet property="measure" destination="Fyu-Sk-aT9" id="O1L-ob-F2D"/>
