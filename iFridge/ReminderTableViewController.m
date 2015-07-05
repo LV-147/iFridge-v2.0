@@ -69,12 +69,8 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
     self.navigationController.toolbarHidden = NO;
-
-    
     self.title = @"To Buy!";
-    
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureRecognized:)];
-    
     [self.tableView addGestureRecognizer:longPress];
     
     self.tableView.backgroundColor = [UIColor clearColor];
@@ -162,9 +158,9 @@
 }
 
 #pragma mark - IBActions
-- (IBAction)cancel:(UIBarButtonItem *)sender {
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
-}
+//- (IBAction)cancel:(UIBarButtonItem *)sender {
+//    [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
+//}
 
 
 - (IBAction)sendToCalendar:(id)sender {
