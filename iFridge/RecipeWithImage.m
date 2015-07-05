@@ -32,7 +32,7 @@
 
   self.view.backgroundColor =
       [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
-  self.carousel.backgroundColor = [UIColor clearColor];
+//  self.carousel.backgroundColor = [UIColor clearColor];
 
   self.title = @"Recipe";
 
@@ -259,15 +259,13 @@
                       withCompletionHandler:nil];
       recipeCarouselItem.recipeItemName.text = currentRecipe.label;
       
-      NSMutableDictionary *ingredientLines = [[NSMutableDictionary alloc] init];
-      NSNumber *numb = [[NSNumber alloc] initWithInt:0];
       for (Ingredient *ingredient in currentRecipe.ingredients) {
-          [ingredientLines setObject:ingredient.label forKey:numb];
-          int value = [numb intValue];
-          numb = [NSNumber numberWithInt:value + 1];
+          recipeCarouselItem.recipeItemTextField.text = [NSString
+                                                         stringWithFormat:@"%@ \n\t \"%@\"",
+                                                         recipeCarouselItem.recipeItemTextField.text, ingredient.label];
       }}
     
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+    if ([[self.availableRecipes objectAtIndex:self.index] isKindOfClass:[NSDictionary class]]) {
         NSURL *url = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.url"];
         NSString *urlString = [NSString stringWithString:(NSString *)url];
         recipeCarouselItem.facebookButton.objectID = urlString;
@@ -281,15 +279,7 @@
     [recipeCarouselItem.googleButton addTarget:self
                                         action:@selector(shareOnGPlus)
                               forControlEvents:UIControlEventTouchUpInside];
-    //config save button
-    if ([self ifRecipeAtIndexSaved:index])
-        [recipeCarouselItem.saveButton setImage:[UIImage imageNamed:@"delete-icon.png"] forState:UIControlStateNormal];
-    else
-        [recipeCarouselItem.saveButton setImage:nil forState:UIControlStateNormal];
 
-    [recipeCarouselItem.saveButton addTarget:self
-                                      action:@selector(saveRecipeToCoreData:)
-                                 forControlEvents:UIControlEventTouchUpInside];
   // config save button
   if ([self ifRecipeAtIndexSaved:index])
     [recipeCarouselItem.saveButton

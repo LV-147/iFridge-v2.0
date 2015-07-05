@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ifq-aU-mUE" customClass="iCarousel">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Oyr-fJ-N5i" id="f7b-3A-B9W"/>
@@ -41,11 +41,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="roz-Y8-Rqu" firstAttribute="top" secondItem="KiS-ua-e8m" secondAttribute="bottom" constant="8" id="1uT-Xv-XY8"/>
+                            <constraint firstItem="Ifq-aU-mUE" firstAttribute="top" secondItem="sQv-9K-rJ2" secondAttribute="bottom" id="2oc-cL-EdV"/>
                             <constraint firstAttribute="centerX" secondItem="KiS-ua-e8m" secondAttribute="centerX" id="NYV-6F-uDu"/>
+                            <constraint firstItem="KiS-ua-e8m" firstAttribute="top" secondItem="Ifq-aU-mUE" secondAttribute="bottom" constant="8" id="RhC-Uj-6tK"/>
                             <constraint firstItem="Ifq-aU-mUE" firstAttribute="leading" secondItem="Jee-6W-eg7" secondAttribute="leadingMargin" constant="-16" id="VVw-gg-Cxh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ifq-aU-mUE" secondAttribute="trailing" constant="-16" id="e1F-ng-6Dc"/>
-                            <constraint firstItem="roz-Y8-Rqu" firstAttribute="top" secondItem="Ifq-aU-mUE" secondAttribute="bottom" id="wWU-bJ-xHc"/>
-                            <constraint firstItem="Ifq-aU-mUE" firstAttribute="top" secondItem="Jee-6W-eg7" secondAttribute="topMargin" id="xjn-b6-B2S"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="CLk-Aa-Bis">
