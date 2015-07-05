@@ -16,7 +16,7 @@
                     <rect key="frame" x="75" y="48" width="225" height="224"/>
                     <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="TsH-OL-8fQ" secondAttribute="height" multiplier="1:1" id="BDl-Ee-c0y"/>
+                        <constraint firstAttribute="width" secondItem="TsH-OL-8fQ" secondAttribute="height" multiplier="1:1" constant="1" id="BDl-Ee-c0y"/>
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo-frame" translatesAutoresizingMaskIntoConstraints="NO" id="7z1-Jd-XRq">
@@ -54,14 +54,17 @@
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Gb-qu-rld">
-                    <rect key="frame" x="84" y="592" width="50" height="50"/>
+                    <rect key="frame" x="99" y="592" width="50" height="50"/>
                     <state key="normal" image="330273-64">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSn-Gb-psf" customClass="FBSDKLikeButton">
-                    <rect key="frame" x="26" y="592" width="50" height="50"/>
+                    <rect key="frame" x="26" y="599" width="65" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="sk7-Ys-F91"/>
+                    </constraints>
                     <state key="normal" image="Facebook_icon.101114329_std">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -72,17 +75,18 @@
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="7z1-Jd-XRq" secondAttribute="centerX" id="3pP-NS-s6a"/>
                 <constraint firstItem="aQR-aP-Chw" firstAttribute="top" secondItem="O2w-vf-8gG" secondAttribute="bottom" constant="8" id="4Cg-c3-oU1"/>
-                <constraint firstItem="4Gb-qu-rld" firstAttribute="height" secondItem="aQR-aP-Chw" secondAttribute="height" id="8Ac-oa-Keb"/>
                 <constraint firstItem="O2w-vf-8gG" firstAttribute="trailing" secondItem="aQR-aP-Chw" secondAttribute="trailing" id="92G-iX-ABb"/>
+                <constraint firstItem="jSn-Gb-psf" firstAttribute="height" secondItem="4Gb-qu-rld" secondAttribute="height" constant="-15" id="9H0-LX-s6v"/>
                 <constraint firstItem="O2w-vf-8gG" firstAttribute="width" secondItem="7z1-Jd-XRq" secondAttribute="width" multiplier="1.25" id="An3-3N-SFZ"/>
                 <constraint firstItem="7z1-Jd-XRq" firstAttribute="width" secondItem="qYv-zk-w9f" secondAttribute="width" multiplier="1.15" id="Dow-O2-igs"/>
-                <constraint firstItem="O2w-vf-8gG" firstAttribute="height" secondItem="7z1-Jd-XRq" secondAttribute="height" id="E47-gS-cWc"/>
+                <constraint firstItem="O2w-vf-8gG" firstAttribute="height" secondItem="7z1-Jd-XRq" secondAttribute="height" constant="-1" id="E47-gS-cWc"/>
                 <constraint firstItem="4Gb-qu-rld" firstAttribute="leading" secondItem="jSn-Gb-psf" secondAttribute="trailing" constant="8" id="F1x-Dx-Gnf"/>
                 <constraint firstItem="4Gb-qu-rld" firstAttribute="centerY" secondItem="aQR-aP-Chw" secondAttribute="centerY" constant="-5.5" id="IzH-Rw-SGZ"/>
                 <constraint firstItem="7z1-Jd-XRq" firstAttribute="centerY" secondItem="TsH-OL-8fQ" secondAttribute="centerY" constant="0.5" id="Kxx-B9-165"/>
                 <constraint firstItem="7z1-Jd-XRq" firstAttribute="centerX" secondItem="TsH-OL-8fQ" secondAttribute="centerX" id="Myb-g6-JOQ"/>
                 <constraint firstItem="O2w-vf-8gG" firstAttribute="centerY" secondItem="Tlf-se-ZBw" secondAttribute="centerY" id="OcH-go-Zxc"/>
                 <constraint firstItem="O2w-vf-8gG" firstAttribute="centerX" secondItem="Tlf-se-ZBw" secondAttribute="centerX" id="Rcp-Ez-YJd"/>
+                <constraint firstItem="jSn-Gb-psf" firstAttribute="width" secondItem="4Gb-qu-rld" secondAttribute="width" constant="15" id="X3J-tk-KgA"/>
                 <constraint firstItem="7z1-Jd-XRq" firstAttribute="top" secondItem="eNb-48-BbU" secondAttribute="top" constant="20" symbolic="YES" id="Yo4-9h-wdq"/>
                 <constraint firstItem="7z1-Jd-XRq" firstAttribute="width" secondItem="TsH-OL-8fQ" secondAttribute="width" multiplier="1.15" id="YpA-WN-oxz"/>
                 <constraint firstItem="7z1-Jd-XRq" firstAttribute="bottom" secondItem="qYv-zk-w9f" secondAttribute="bottom" constant="20" id="Ytl-rg-d8m"/>
@@ -90,12 +94,11 @@
                 <constraint firstAttribute="bottom" secondItem="aQR-aP-Chw" secondAttribute="bottom" constant="20" symbolic="YES" id="bKE-eb-Jze"/>
                 <constraint firstItem="O2w-vf-8gG" firstAttribute="height" secondItem="Tlf-se-ZBw" secondAttribute="height" multiplier="1.2" id="d53-F3-rd1"/>
                 <constraint firstItem="7z1-Jd-XRq" firstAttribute="centerX" secondItem="qYv-zk-w9f" secondAttribute="centerX" id="gZC-kA-sdd"/>
-                <constraint firstItem="jSn-Gb-psf" firstAttribute="height" secondItem="aQR-aP-Chw" secondAttribute="height" id="hLY-RA-HMW"/>
                 <constraint firstItem="O2w-vf-8gG" firstAttribute="centerX" secondItem="7z1-Jd-XRq" secondAttribute="centerX" id="n2i-uW-Bmn"/>
                 <constraint firstItem="O2w-vf-8gG" firstAttribute="top" secondItem="7z1-Jd-XRq" secondAttribute="bottom" constant="8" id="puB-Ej-LlU"/>
-                <constraint firstItem="jSn-Gb-psf" firstAttribute="width" secondItem="aQR-aP-Chw" secondAttribute="width" id="qbv-Sq-uZj"/>
+                <constraint firstItem="jSn-Gb-psf" firstAttribute="width" secondItem="aQR-aP-Chw" secondAttribute="width" constant="15" id="qbv-Sq-uZj"/>
                 <constraint firstItem="jSn-Gb-psf" firstAttribute="centerY" secondItem="aQR-aP-Chw" secondAttribute="centerY" constant="-5.5" id="qtk-qR-J2W"/>
-                <constraint firstItem="7z1-Jd-XRq" firstAttribute="height" secondItem="TsH-OL-8fQ" secondAttribute="height" multiplier="1.25" id="tT7-XP-g3c"/>
+                <constraint firstItem="7z1-Jd-XRq" firstAttribute="height" secondItem="TsH-OL-8fQ" secondAttribute="height" multiplier="1.25" constant="1" id="tT7-XP-g3c"/>
                 <constraint firstItem="4Gb-qu-rld" firstAttribute="width" secondItem="aQR-aP-Chw" secondAttribute="width" id="wMG-lK-6O9"/>
                 <constraint firstItem="O2w-vf-8gG" firstAttribute="width" secondItem="Tlf-se-ZBw" secondAttribute="width" multiplier="1.25" id="zZh-k6-lP2"/>
             </constraints>
