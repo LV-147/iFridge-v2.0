@@ -84,7 +84,7 @@
     
     
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    [self.tableView setSeparatorColor:[UIColor clearColor]];
+   
     
     [self.sendToCalendar setTitle:@"Send to Calendar" forState:UIControlStateNormal];
     _sendToCalendar.tintColor = [UIColor purpleColor];
@@ -101,8 +101,7 @@
         [super viewWillAppear:animated];
         self.navigationController.toolbarHidden = NO;
         [self.navigationController setNavigationBarHidden:NO];
-        [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-        [self.tableView setSeparatorColor:[UIColor clearColor]];
+   
 
     }
     
