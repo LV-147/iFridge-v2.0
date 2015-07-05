@@ -18,6 +18,7 @@
 		3508A08D1B3AC31B005F4D30 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3508A08C1B3AC31B005F4D30 /* StoreKit.framework */; };
 		3508A08F1B3AC322005F4D30 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3508A08E1B3AC322005F4D30 /* MobileCoreServices.framework */; };
 		3508A0911B3AC36F005F4D30 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3508A0901B3AC36F005F4D30 /* AudioToolbox.framework */; };
+		35326C201B49716C00566FA7 /* RecipeCarouselItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35326C1F1B49716C00566FA7 /* RecipeCarouselItem.xib */; };
 		354670DC1B08E1150016229C /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 354670DB1B08E1150016229C /* AddressBook.framework */; };
 		354670DE1B08E11D0016229C /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 354670DD1B08E11D0016229C /* AssetsLibrary.framework */; };
 		354670E01B08E1250016229C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 354670DF1B08E1250016229C /* Foundation.framework */; };
@@ -49,7 +50,6 @@
 		35AFA3451B1C5FC1006013AC /* PopAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AFA3411B1C5FC1006013AC /* PopAnimator.m */; };
 		35AFA3461B1C5FC1006013AC /* PushAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AFA3421B1C5FC1006013AC /* PushAnimator.m */; };
 		35AFA34D1B1C728F006013AC /* FridgeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AFA34C1B1C728F006013AC /* FridgeTableViewController.m */; };
-		43186DE61B457520002ED189 /* RecipeCarouselItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43186DE51B457520002ED189 /* RecipeCarouselItem.xib */; };
 		BFDD51761B21DCCE0039A630 /* RecipeCarouselItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDD51751B21DCCE0039A630 /* RecipeCarouselItem.m */; };
 		BFF69BBD1B2860500085736A /* SortingStringClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF69BBC1B2860500085736A /* SortingStringClass.swift */; };
 		D9180D4B1B21CFE0005854C6 /* ReminderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9180D4A1B21CFE0005854C6 /* ReminderTableViewController.m */; };
@@ -105,6 +105,7 @@
 		3508A08C1B3AC31B005F4D30 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		3508A08E1B3AC322005F4D30 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		3508A0901B3AC36F005F4D30 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		35326C1F1B49716C00566FA7 /* RecipeCarouselItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeCarouselItem.xib; sourceTree = "<group>"; };
 		35466FB81B08CE9A0016229C /* libPods-VK-ios-sdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-VK-ios-sdk.a"; path = "Pods/../build/Debug-iphoneos/libPods-VK-ios-sdk.a"; sourceTree = "<group>"; };
 		354670DB1B08E1150016229C /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		354670DD1B08E11D0016229C /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -150,7 +151,6 @@
 		35AFA3441B1C5FC1006013AC /* PopAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopAnimator.h; sourceTree = "<group>"; };
 		35AFA3491B1C7279006013AC /* ReminderTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReminderTableViewController.h; sourceTree = "<group>"; };
 		35AFA34C1B1C728F006013AC /* FridgeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FridgeTableViewController.m; sourceTree = "<group>"; };
-		43186DE51B457520002ED189 /* RecipeCarouselItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeCarouselItem.xib; sourceTree = "<group>"; };
 		7B6D530F70A59FB7713BE0D2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		BFDD51741B21DCCE0039A630 /* RecipeCarouselItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecipeCarouselItem.h; path = iFridge/RecipeCarouselItem.h; sourceTree = "<group>"; };
 		BFDD51751B21DCCE0039A630 /* RecipeCarouselItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecipeCarouselItem.m; path = iFridge/RecipeCarouselItem.m; sourceTree = "<group>"; };
@@ -458,7 +458,7 @@
 		BFDD51771B21DCE30039A630 /* RecipeCarouselItem */ = {
 			isa = PBXGroup;
 			children = (
-				43186DE51B457520002ED189 /* RecipeCarouselItem.xib */,
+				35326C1F1B49716C00566FA7 /* RecipeCarouselItem.xib */,
 				BFDD51741B21DCCE0039A630 /* RecipeCarouselItem.h */,
 				BFDD51751B21DCCE0039A630 /* RecipeCarouselItem.m */,
 			);
@@ -634,8 +634,8 @@
 			files = (
 				357A59041AFFDF3C0094B0AC /* LaunchScreen.xib in Resources */,
 				D92C06691B48171E000FA91E /* LoadingView.xib in Resources */,
+				35326C201B49716C00566FA7 /* RecipeCarouselItem.xib in Resources */,
 				357A59011AFFDF3C0094B0AC /* Images.xcassets in Resources */,
-				43186DE61B457520002ED189 /* RecipeCarouselItem.xib in Resources */,
 				D96D9ECA1B2F0A5F00D89452 /* iPhone.storyboard in Resources */,
 				35A9D7101B08F1B7005EF9BF /* GooglePlus.bundle in Resources */,
 				D9267F541B3AE36B00A551BA /* iPad.storyboard in Resources */,
