@@ -24,7 +24,6 @@
 @property (strong, nonatomic) NSArray *todoItems;
 @property (copy, nonatomic) NSArray *reminders;
 @property (strong, nonatomic) EKCalendar *calendar;
-//@property (nonatomic) BOOL isAccessToEventStoreGranted;
 @property (nonatomic, strong) NSString *savedEvent;
 @property (weak, nonatomic) IBOutlet UIButton *sendToCalendar;
 @property (strong, nonatomic) NSDate* pickedDate;
@@ -369,11 +368,6 @@
 
 
 
-//- (BOOL)itemHasReminder:(NSString *)item {
-//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title matches %@", item];
-//    NSArray *filtered = [self.reminders filteredArrayUsingPredicate:predicate];
-//    return (self.isAccessToEventStoreGranted && [filtered count]);
-//}
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
