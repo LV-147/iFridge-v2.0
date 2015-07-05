@@ -56,6 +56,7 @@
   self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
   if ([self.dataSource isEqualToString:@"My recipes"])
     self.selectDataSourceController.selectedSegmentIndex = 1;
+  self.splitViewController.presentsWithGesture = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
