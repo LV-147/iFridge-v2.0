@@ -45,7 +45,7 @@
     
     //right barButtonItem
     
-    UIBarButtonItem *editBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(editAction:)];
+    UIBarButtonItem *editBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(editAction:)];
     UIBarButtonItem *addBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addProduct:)];
     UIBarButtonItem *flexibleSpaceButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:NULL];
     self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:editBarButtonItem, flexibleSpaceButton, addBarButtonItem, nil];
@@ -159,12 +159,6 @@
 #pragma mark - IBActions
 
 
-//edit button
-- (void)editAction:(id)sender
-{
-    [self performSegueWithIdentifier:@"EditProduct" sender:self];
-    NSLog(@"edit button clicked");
-}
 
 - (IBAction)buttonForTaras:(id)sender {
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
@@ -342,6 +336,14 @@
 }
 
 #pragma Navigation
+
+//compose button
+- (void)editAction:(id)sender
+{
+    [self performSegueWithIdentifier:@"EditProduct" sender:self];
+    NSLog(@"edit button clicked");
+}
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"recipecTVC"]) {

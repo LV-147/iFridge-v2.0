@@ -207,8 +207,8 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZR4-0L-60J" id="IGu-2v-YMw">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="quantity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cY2-Jb-WKr">
-                                            <rect key="frame" x="158" y="25" width="81" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="quantity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cY2-Jb-WKr">
+                                            <rect key="frame" x="147" y="21" width="81" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="81" id="6I4-kK-uNc"/>
                                                 <constraint firstAttribute="height" constant="21" id="oRf-Tb-cXU"/>
@@ -4193,6 +4193,6 @@
         <image name="vk" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="96l-75-EyD"/>
+        <segue reference="Hzn-Ng-QPe"/>
     </inferredMetricsTieBreakers>
 </document>
