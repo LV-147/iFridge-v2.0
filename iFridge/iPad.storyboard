@@ -192,7 +192,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="saveAllRecipesToParse:" destination="tIU-3P-KDZ" eventType="touchUpInside" id="idF-wJ-eVn"/>
+                                            <action selector="saveAllRecipesToParse:" destination="tIU-3P-KDZ" eventType="touchUpInside" id="xVX-T2-evE"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwL-aT-Lb0">
@@ -259,6 +259,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="gqN-Lq-qFy"/>
                     <connections>
+                        <outlet property="saveAllRecipes" destination="H2i-tA-HaS" id="bkW-ee-b2N"/>
                         <outlet property="searchBar" destination="C7r-ib-XNL" id="Npj-HF-rEJ"/>
                         <outlet property="selectDataSourceController" destination="VO7-Ks-m6T" id="yup-PJ-xfv"/>
                         <outlet property="tableView" destination="kt7-cV-rxw" id="yhp-lq-XAm"/>
@@ -271,7 +272,7 @@
         <!--About us view controller-->
         <scene sceneID="ws8-eK-YwD">
             <objects>
-                <viewController title="About us view controller" id="8Ds-BV-6lA" sceneMemberID="viewController">
+                <viewController title="About us view controller" id="8Ds-BV-6lA" customClass="SearchViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6lq-cN-99Z"/>
                         <viewControllerLayoutGuide type="bottom" id="Dvd-ZK-KPC"/>
@@ -296,6 +297,9 @@
                                         <integer key="value" value="19"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="goToGooglePlusGroup:" destination="8Ds-BV-6lA" eventType="touchUpInside" id="EXJ-rZ-3je"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trV-Sw-ngE" userLabel="vkButton">
                                 <rect key="frame" x="53" y="134" width="50" height="50"/>
@@ -309,6 +313,9 @@
                                         <integer key="value" value="19"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="goToVkGroup:" destination="8Ds-BV-6lA" eventType="touchUpInside" id="cTA-oc-GMA"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y4V-hG-YE7">
                                 <rect key="frame" x="76" y="54" width="145" height="38"/>
@@ -316,6 +323,9 @@
                                 <state key="normal" title="email us: info@ifridge.tk">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="emailUsButton:" destination="8Ds-BV-6lA" eventType="touchUpInside" id="Zpj-Q1-i6j"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQv-NZ-rQd">
                                 <rect key="frame" x="59" y="8" width="162" height="38"/>
@@ -323,6 +333,9 @@
                                 <state key="normal" title="visit us on: www.ifridge.tk/">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="goToOurWebSite:" destination="8Ds-BV-6lA" eventType="touchUpInside" id="FGG-Xz-l0N"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or check one of our groups" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXH-XQ-Jb2">
                                 <rect key="frame" x="53" y="100" width="168" height="26"/>
@@ -342,6 +355,9 @@
                                         <integer key="value" value="19"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="goToFacebookGroup:" destination="8Ds-BV-6lA" eventType="touchUpInside" id="r5G-5J-T3J"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -441,6 +457,9 @@
                                 <state key="normal" image="user_info">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="getUserInformationButton:" destination="XQ8-24-bfO" eventType="touchUpInside" id="Yoi-oU-dlY"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ri2-pd-yut">
                                 <rect key="frame" x="183" y="149" width="50" height="38"/>
@@ -449,6 +468,9 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="signOutButton:" destination="XQ8-24-bfO" eventType="touchUpInside" id="0cf-2f-BlS"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -488,6 +510,10 @@
                     <value key="contentSizeForViewInPopover" type="size" width="246" height="200"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="246" height="200"/>
+                    <connections>
+                        <outlet property="facebookSignInButton" destination="YU5-rT-jgL" id="TtA-Tr-DVF"/>
+                        <outlet property="googlePlusSignInButton" destination="5Mn-sw-mqM" id="yhw-wO-V2u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vfE-QU-XBs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
