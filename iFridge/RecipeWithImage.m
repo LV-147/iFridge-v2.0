@@ -50,6 +50,12 @@
              *)((UINavigationController *)
                     [self.splitViewController.viewControllers objectAtIndex:0])
             .topViewController;
+
+  [[NSNotificationCenter defaultCenter]
+      addObserver:self
+         selector:@selector(orientationChanged:)
+             name:UIDeviceOrientationDidChangeNotification
+           object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -60,16 +66,10 @@
 
   self.carousel.currentItemIndex = self.index;
   self.carousel.scrollSpeed = 0.5;
-
-  [[NSNotificationCenter defaultCenter]
-      addObserver:self
-         selector:@selector(orientationChanged:)
-             name:UIDeviceOrientationDidChangeNotification
-           object:nil];
 }
 
 - (void)orientationChanged:(UIDeviceOrientation *)ori {
-  [self.carousel scrollToItemAtIndex:self.index animated:YES];
+  [self.carousel scrollToItemAtIndex:self.index animated:NO];
 }
 
 - (void)awakeFromNib {
@@ -77,14 +77,13 @@
 }
 
 - (void)setIndex:(NSInteger)value {
-  if (value == -1) {
-    _index = 0;
-  } else {
-    _index = value;
-    self.recipeCountIndicator.text =
-        [NSString stringWithFormat:@"%d/%d", (int)_index + 1,
-                                   (int)_carousel.numberOfItems];
-  }
+  //  if (value == -1) {
+  //    _index = 0;
+  //  } else {
+  _index = value;
+  self.recipeCountIndicator.text = [NSString
+      stringWithFormat:@"%d/%d", (int)_index + 1, (int)_carousel.numberOfItems];
+  //  }
 }
 
 - (IBAction)googlePlusShareButton:(id)sender {
@@ -142,6 +141,7 @@
   [shareBuilder open];
 }
 
+#pragma mark Save
 - (void)saveRecipeToCoreData:(UIButton *)sender {
 
   if (![self ifRecipeAtIndexSaved:self.index]) {
@@ -157,6 +157,10 @@
     [Recipe deleteRecipe:[self.availableRecipes objectAtIndex:self.index]
         fromManagedObjectContext:self.currentContext];
     [self.availableRecipes removeObjectAtIndex:_index];
+    if (self.availableRecipes.count != 0 && self.index != 0) {
+      self.index = self.index - 1;
+    }
+
     [self.carousel reloadData];
     self.recipeCountIndicator.text =
         [NSString stringWithFormat:@"%d/%d", (int)_index + 1,
@@ -308,7 +312,7 @@
       scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.index
                                                 inSection:0]
             atScrollPosition:UITableViewScrollPositionMiddle
-                    animated:YES];
+                    animated:NO];
 
   return recipeCarouselItem;
 }
