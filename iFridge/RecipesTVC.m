@@ -178,66 +178,83 @@
   return self.recipes.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    RecipesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Recipe cell"];
-    RecipesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Recipe cell" forIndexPath:indexPath];
-    
-    
-    NSString *urlImageString;
-    if ([[self.recipes objectAtIndex:indexPath.row] isKindOfClass:[NSDictionary class]]) {
-        urlImageString = [[self.recipes objectAtIndex:indexPath.row] valueForKeyPath:@"recipe.image"];
-    }
-    else {
-        Recipe *recipe = [self.recipes objectAtIndex:indexPath.row];
-        urlImageString = recipe.imageUrl;
-    }
-    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    activityIndicator.center = cell.recipeImageCell.center;
-    activityIndicator.hidesWhenStopped = YES;
-    
-    [cell.recipeImageCell addSubview:activityIndicator];
-    [activityIndicator startAnimating];
-    
-    cell.recipeImageCell.image = nil;
-    [DataDownloader setRecipeImageWithURL:urlImageString
-                           usingImageView:cell.recipeImageCell
-                    withCompletionHandler:^{
-                        [activityIndicator removeFromSuperview];
-                    }];
-    
-    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    [numberFormatter setMaximumFractionDigits:0];
-    
-    if ([[self.recipes objectAtIndex:indexPath.row] isKindOfClass:[NSDictionary class]]) {
-        cell.nameOfDish.text = self.recipes[indexPath.row][@"recipe"][@"label"];
-        
-        cell.cookingTime.text = [NSString stringWithFormat:@"cookingTime: %@", self.recipes[indexPath.row][@"recipe"][@"cookingTime"]];
-        
-        NSNumber *str1 = self.recipes[indexPath.row][@"recipe"][@"calories"];
-        NSString *caloriesTotal = [NSString stringWithFormat:@"calories: %@", [numberFormatter stringFromNumber:str1]];
-        cell.caloriesTotal.text = [NSString stringWithString:caloriesTotal];
-        
-        NSNumber *str3 = self.recipes[indexPath.row][@"recipe"][@"totalWeight"];
-        NSString *weightTotal = [NSString stringWithFormat:@"weight: %@ g", [numberFormatter stringFromNumber:str3]];
-        cell.weightTotal.text = [NSString stringWithString:weightTotal];
-        
-        [self doAnimation:cell];
-        
-        return cell;
-        
-    }else{
-        
-        Recipe *recipe = self.recipes[indexPath.row];
-        cell.nameOfDish.text = recipe.label;
-        cell.cookingTime.text = [NSString stringWithFormat:@"Cooking time: %@ s", [numberFormatter stringFromNumber:recipe.cookingTime]];
-        cell.caloriesTotal.text = [NSString stringWithFormat:@"Total calories %@", [numberFormatter stringFromNumber:recipe.calories]];
-        cell.weightTotal.text = [NSString stringWithFormat:@"Total weight: %@ g", [numberFormatter stringFromNumber:recipe.weight]];
-        
-        return cell;
-    }
-}
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  //    RecipesCell *cell = [tableView
+  //    dequeueReusableCellWithIdentifier:@"Recipe cell"];
+  RecipesCell *cell =
+      [tableView dequeueReusableCellWithIdentifier:@"Recipe cell"
+                                      forIndexPath:indexPath];
 
+  NSString *urlImageString;
+  if ([[self.recipes objectAtIndex:indexPath.row]
+          isKindOfClass:[NSDictionary class]]) {
+    urlImageString = [[self.recipes objectAtIndex:indexPath.row]
+        valueForKeyPath:@"recipe.image"];
+  } else {
+    Recipe *recipe = [self.recipes objectAtIndex:indexPath.row];
+    urlImageString = recipe.imageUrl;
+  }
+  UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc]
+      initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+  activityIndicator.center = cell.recipeImageCell.center;
+  activityIndicator.hidesWhenStopped = YES;
+
+  [cell.recipeImageCell addSubview:activityIndicator];
+  [activityIndicator startAnimating];
+
+  cell.recipeImageCell.image = nil;
+  [DataDownloader setRecipeImageWithURL:urlImageString
+                         usingImageView:cell.recipeImageCell
+                  withCompletionHandler:^{
+                    [activityIndicator stopAnimating];
+                  }];
+
+  NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+  [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+  [numberFormatter setMaximumFractionDigits:0];
+
+  if ([[self.recipes objectAtIndex:indexPath.row]
+          isKindOfClass:[NSDictionary class]]) {
+    cell.nameOfDish.text = self.recipes[indexPath.row][@"recipe"][@"label"];
+
+    cell.cookingTime.text = [NSString
+        stringWithFormat:@"cookingTime: %@", self.recipes[indexPath.row][
+                                                 @"recipe"][@"cookingTime"]];
+
+    NSNumber *str1 = self.recipes[indexPath.row][@"recipe"][@"calories"];
+    NSString *caloriesTotal =
+        [NSString stringWithFormat:@"calories: %@",
+                                   [numberFormatter stringFromNumber:str1]];
+    cell.caloriesTotal.text = [NSString stringWithString:caloriesTotal];
+
+    NSNumber *str3 = self.recipes[indexPath.row][@"recipe"][@"totalWeight"];
+    NSString *weightTotal =
+        [NSString stringWithFormat:@"weight: %@ g",
+                                   [numberFormatter stringFromNumber:str3]];
+    cell.weightTotal.text = [NSString stringWithString:weightTotal];
+
+    [self doAnimation:cell];
+
+    return cell;
+
+  } else {
+
+    Recipe *recipe = self.recipes[indexPath.row];
+    cell.nameOfDish.text = recipe.label;
+    cell.cookingTime.text = [NSString
+        stringWithFormat:@"Cooking time: %@ s",
+                         [numberFormatter stringFromNumber:recipe.cookingTime]];
+    cell.caloriesTotal.text = [NSString
+        stringWithFormat:@"Total calories %@",
+                         [numberFormatter stringFromNumber:recipe.calories]];
+    cell.weightTotal.text = [NSString
+        stringWithFormat:@"Total weight: %@ g",
+                         [numberFormatter stringFromNumber:recipe.weight]];
+
+    return cell;
+  }
+}
 
 - (void)tableView:(UITableView *)tableView
     didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
