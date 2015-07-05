@@ -216,7 +216,7 @@ animationControllerForOperation:(UINavigationControllerOperation)operation
     NSRange stringRange = NSMakeRange(0, strForJson.length);
 
     NSArray *matches = [regex matchesInString:strForJson
-                                      options:NSMatchingProgress
+                                      options:(NSMatchingOptions)NSMatchingProgress
                                         range:stringRange];
     NSRange matchRange = [matches[0] rangeAtIndex:0];
 
@@ -321,7 +321,7 @@ animationControllerForOperation:(UINavigationControllerOperation)operation
       NSRange stringRange = NSMakeRange(0, strForJson.length);
 
       NSArray *matches = [regex matchesInString:strForJson
-                                        options:NSMatchingProgress
+                                        options:(NSMatchingOptions)NSMatchingProgress
                                           range:stringRange];
       NSRange matchRange = [matches[0] rangeAtIndex:0];
 
