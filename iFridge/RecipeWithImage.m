@@ -232,8 +232,7 @@
     UINib *n = [UINib nibWithNibName:@"RecipeCarouselItem" bundle:nil];
     NSArray *a = [n instantiateWithOwner:self options:nil];
     recipeCarouselItem = [a firstObject];
-
-    //[recipeCarouselItem layoutSubviews];
+      
   } else {
     recipeCarouselItem = (RecipeCarouselItem *)view;
   }

@@ -115,7 +115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s5a-ra-01Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2058.5" y="-1965.5"/>
+            <point key="canvasLocation" x="2061.5" y="-1949.5"/>
         </scene>
         <!--Reminder Table View Controller-->
         <scene sceneID="zCW-zh-Q2R">
