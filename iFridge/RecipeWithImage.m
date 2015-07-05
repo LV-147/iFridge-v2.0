@@ -32,7 +32,7 @@
 
   self.view.backgroundColor =
       [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
-//  self.carousel.backgroundColor = [UIColor clearColor];
+  //  self.carousel.backgroundColor = [UIColor clearColor];
 
   self.title = @"Recipe";
 
@@ -124,14 +124,22 @@
 }
 
 - (void)shareOnGPlus {
-    id<GPPNativeShareBuilder> shareBuilder = [[GPPShare sharedInstance] nativeShareDialog];
-    NSURL *url = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.image"];
-    NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.ingredientLines"];
-    NSString * result = [[ingredientLines valueForKey:@"description"] componentsJoinedByString:@"\n"];
-    [shareBuilder setPrefillText:[NSString stringWithFormat:@"Look for such a great recipe from iFridge \n\n Ingredient needed \n %@%@", result, @"\n\n #meal"]];
-    NSString *urlString = [NSString stringWithString:(NSString *)url];
-    [shareBuilder setURLToShare:[NSURL URLWithString:urlString]];
-    [shareBuilder open];
+  id<GPPNativeShareBuilder> shareBuilder =
+      [[GPPShare sharedInstance] nativeShareDialog];
+  NSURL *url = [[self.availableRecipes objectAtIndex:self.index]
+      valueForKeyPath:@"recipe.image"];
+  NSArray *ingredientLines = [[self.availableRecipes objectAtIndex:self.index]
+      valueForKeyPath:@"recipe.ingredientLines"];
+  NSString *result = [[ingredientLines valueForKey:@"description"]
+      componentsJoinedByString:@"\n"];
+  [shareBuilder
+      setPrefillText:[NSString stringWithFormat:@"Look for such a great recipe "
+                                                @"from iFridge \n\n "
+                                                @"Ingredient needed \n %@%@",
+                                                result, @"\n\n #meal"]];
+  NSString *urlString = [NSString stringWithString:(NSString *)url];
+  [shareBuilder setURLToShare:[NSURL URLWithString:urlString]];
+  [shareBuilder open];
 }
 
 - (void)saveRecipeToCoreData:(UIButton *)sender {
@@ -229,7 +237,7 @@
 
   if ([[self.availableRecipes objectAtIndex:index]
           isKindOfClass:[NSDictionary class]]) {
-    recipeCarouselItem.recipeItemImage.image = [UIImage imageNamed:@"noimage"];
+
     [DataDownloader
         setRecipeImageWithURL:[[self.availableRecipes objectAtIndex:index]
                                   valueForKeyPath:@"recipe.image"]
@@ -253,32 +261,36 @@
                  isKindOfClass:[Recipe class]]) {
     Recipe *currentRecipe = [self.availableRecipes objectAtIndex:index];
 
-      recipeCarouselItem.recipeItemImage.image = [UIImage imageNamed:@"noimage"];
-      [DataDownloader setRecipeImageWithURL:currentRecipe.imageUrl
-                             usingImageView:recipeCarouselItem.recipeItemImage
-                      withCompletionHandler:nil];
-      recipeCarouselItem.recipeItemName.text = currentRecipe.label;
-      
-      for (Ingredient *ingredient in currentRecipe.ingredients) {
-          recipeCarouselItem.recipeItemTextField.text = [NSString
-                                                         stringWithFormat:@"%@ \n\t \"%@\"",
-                                                         recipeCarouselItem.recipeItemTextField.text, ingredient.label];
-      }}
-    
-    if ([[self.availableRecipes objectAtIndex:self.index] isKindOfClass:[NSDictionary class]]) {
-        NSURL *url = [[self.availableRecipes objectAtIndex:self.index] valueForKeyPath:@"recipe.url"];
-        NSString *urlString = [NSString stringWithString:(NSString *)url];
-        recipeCarouselItem.facebookButton.objectID = urlString;
-        recipeCarouselItem.facebookButton.objectType = FBSDKLikeObjectTypePage;
-    }else{  recipeCarouselItem.facebookButton.objectID =
-        @"https://www.facebook.com/groups/1599931206891002/";
-        recipeCarouselItem.facebookButton.objectType = FBSDKLikeObjectTypePage;
-        
+    recipeCarouselItem.recipeItemImage.image = [UIImage imageNamed:@"noimage"];
+    [DataDownloader setRecipeImageWithURL:currentRecipe.imageUrl
+                           usingImageView:recipeCarouselItem.recipeItemImage
+                    withCompletionHandler:nil];
+    recipeCarouselItem.recipeItemName.text = currentRecipe.label;
+
+    for (Ingredient *ingredient in currentRecipe.ingredients) {
+      recipeCarouselItem.recipeItemTextField.text = [NSString
+          stringWithFormat:@"%@ \n\t \"%@\"",
+                           recipeCarouselItem.recipeItemTextField.text,
+                           ingredient.label];
     }
-    
-    [recipeCarouselItem.googleButton addTarget:self
-                                        action:@selector(shareOnGPlus)
-                              forControlEvents:UIControlEventTouchUpInside];
+  }
+
+  if ([[self.availableRecipes objectAtIndex:self.index]
+          isKindOfClass:[NSDictionary class]]) {
+    NSURL *url = [[self.availableRecipes objectAtIndex:self.index]
+        valueForKeyPath:@"recipe.url"];
+    NSString *urlString = [NSString stringWithString:(NSString *)url];
+    recipeCarouselItem.facebookButton.objectID = urlString;
+    recipeCarouselItem.facebookButton.objectType = FBSDKLikeObjectTypePage;
+  } else {
+    recipeCarouselItem.facebookButton.objectID =
+        @"https://www.facebook.com/groups/1599931206891002/";
+    recipeCarouselItem.facebookButton.objectType = FBSDKLikeObjectTypePage;
+  }
+
+  [recipeCarouselItem.googleButton addTarget:self
+                                      action:@selector(shareOnGPlus)
+                            forControlEvents:UIControlEventTouchUpInside];
 
   // config save button
   if ([self ifRecipeAtIndexSaved:index])
