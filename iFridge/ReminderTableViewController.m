@@ -24,7 +24,7 @@
 @property (strong, nonatomic) NSArray *todoItems;
 @property (copy, nonatomic) NSArray *reminders;
 @property (strong, nonatomic) EKCalendar *calendar;
-@property (nonatomic) BOOL isAccessToEventStoreGranted;
+//@property (nonatomic) BOOL isAccessToEventStoreGranted;
 @property (nonatomic, strong) NSString *savedEvent;
 @property (weak, nonatomic) IBOutlet UIButton *sendToCalendar;
 @property (strong, nonatomic) NSDate* pickedDate;
@@ -193,8 +193,8 @@
         
         for (NSString *savedEvent in self.todoItems) {
             [eventStore saveEvent:event span:EKSpanThisEvent commit:YES error:&err];
-            NSLog(@"%@", savedEvent);
-        }        
+//            NSLog(@"%@", savedEvent);
+        }
         self.savedEvent = event.eventIdentifier;  //save the event id if you want to access this later
     }];
     
@@ -232,29 +232,23 @@
     UIAlertView *inputAlertView = [[UIAlertView alloc] initWithTitle:@"Add a new to-do item:" message:nil delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:@"Add", nil];
     
     inputAlertView.alertViewStyle = UIAlertViewStylePlainTextInput;
-    
-    __weak ReminderTableViewController *weakSelf = self;
-    
     // Add a completion block (using our category to UIAlertView).
     [inputAlertView setCompletionBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
         
         // If user pressed 'Add'...
         if (buttonIndex == 1) {
             
-            UITextField *textField = [alertView textFieldAtIndex:0];
-            NSString *string = [textField.text capitalizedString];
+            NSString *string = [alertView textFieldAtIndex:0].text;
             NSMutableArray *todoItems = [[NSMutableArray alloc] initWithArray:self.todoItems];
             [todoItems addObject:string];
-            weakSelf.todoItems = todoItems;
-            
-            NSUInteger row = [weakSelf.todoItems count] - 1;
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
-            [weakSelf.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            self.todoItems = todoItems;
+            [self.tableView reloadData];
         }
     }];
     
     [inputAlertView show];
 }
+
 - (IBAction)longPressGestureRecognized:(id)sender {
     
     UILongPressGestureRecognizer *longPress = (UILongPressGestureRecognizer *)sender;
@@ -375,11 +369,11 @@
 
 
 
-- (BOOL)itemHasReminder:(NSString *)item {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title matches %@", item];
-    NSArray *filtered = [self.reminders filteredArrayUsingPredicate:predicate];
-    return (self.isAccessToEventStoreGranted && [filtered count]);
-}
+//- (BOOL)itemHasReminder:(NSString *)item {
+//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title matches %@", item];
+//    NSArray *filtered = [self.reminders filteredArrayUsingPredicate:predicate];
+//    return (self.isAccessToEventStoreGranted && [filtered count]);
+//}
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

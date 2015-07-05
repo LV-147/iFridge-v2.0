@@ -341,7 +341,7 @@
 - (void)editAction:(id)sender
 {
     [self performSegueWithIdentifier:@"EditProduct" sender:self];
-    NSLog(@"edit button clicked");
+//    NSLog(@"edit button clicked");
 }
 
 
