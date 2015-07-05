@@ -23,7 +23,7 @@
                     <rect key="frame" x="58" y="20" width="259" height="281"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="qYv-zk-w9f">
-                    <rect key="frame" x="58" y="233" width="259" height="37"/>
+                    <rect key="frame" x="75" y="244" width="225" height="37"/>
                     <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="23"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -75,7 +75,7 @@
                 <constraint firstItem="4Gb-qu-rld" firstAttribute="height" secondItem="aQR-aP-Chw" secondAttribute="height" id="8Ac-oa-Keb"/>
                 <constraint firstItem="O2w-vf-8gG" firstAttribute="trailing" secondItem="aQR-aP-Chw" secondAttribute="trailing" id="92G-iX-ABb"/>
                 <constraint firstItem="O2w-vf-8gG" firstAttribute="width" secondItem="7z1-Jd-XRq" secondAttribute="width" multiplier="1.25" id="An3-3N-SFZ"/>
-                <constraint firstItem="7z1-Jd-XRq" firstAttribute="width" secondItem="qYv-zk-w9f" secondAttribute="width" id="Dow-O2-igs"/>
+                <constraint firstItem="7z1-Jd-XRq" firstAttribute="width" secondItem="qYv-zk-w9f" secondAttribute="width" multiplier="1.15" id="Dow-O2-igs"/>
                 <constraint firstItem="O2w-vf-8gG" firstAttribute="height" secondItem="7z1-Jd-XRq" secondAttribute="height" id="E47-gS-cWc"/>
                 <constraint firstItem="4Gb-qu-rld" firstAttribute="leading" secondItem="jSn-Gb-psf" secondAttribute="trailing" constant="8" id="F1x-Dx-Gnf"/>
                 <constraint firstItem="4Gb-qu-rld" firstAttribute="centerY" secondItem="aQR-aP-Chw" secondAttribute="centerY" constant="-5.5" id="IzH-Rw-SGZ"/>
@@ -85,7 +85,7 @@
                 <constraint firstItem="O2w-vf-8gG" firstAttribute="centerX" secondItem="Tlf-se-ZBw" secondAttribute="centerX" id="Rcp-Ez-YJd"/>
                 <constraint firstItem="7z1-Jd-XRq" firstAttribute="top" secondItem="eNb-48-BbU" secondAttribute="top" constant="20" symbolic="YES" id="Yo4-9h-wdq"/>
                 <constraint firstItem="7z1-Jd-XRq" firstAttribute="width" secondItem="TsH-OL-8fQ" secondAttribute="width" multiplier="1.15" id="YpA-WN-oxz"/>
-                <constraint firstItem="7z1-Jd-XRq" firstAttribute="bottom" secondItem="qYv-zk-w9f" secondAttribute="bottom" constant="31" id="Ytl-rg-d8m"/>
+                <constraint firstItem="7z1-Jd-XRq" firstAttribute="bottom" secondItem="qYv-zk-w9f" secondAttribute="bottom" constant="20" id="Ytl-rg-d8m"/>
                 <constraint firstItem="jSn-Gb-psf" firstAttribute="leading" secondItem="O2w-vf-8gG" secondAttribute="leading" id="bF3-iV-rS2"/>
                 <constraint firstAttribute="bottom" secondItem="aQR-aP-Chw" secondAttribute="bottom" constant="20" symbolic="YES" id="bKE-eb-Jze"/>
                 <constraint firstItem="O2w-vf-8gG" firstAttribute="height" secondItem="Tlf-se-ZBw" secondAttribute="height" multiplier="1.2" id="d53-F3-rd1"/>
