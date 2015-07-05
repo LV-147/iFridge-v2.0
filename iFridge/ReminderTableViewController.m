@@ -84,6 +84,7 @@
     
     
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [self.tableView setSeparatorColor:[UIColor clearColor]];
     
     [self.sendToCalendar setTitle:@"Send to Calendar" forState:UIControlStateNormal];
     _sendToCalendar.tintColor = [UIColor purpleColor];
@@ -100,6 +101,9 @@
         [super viewWillAppear:animated];
         self.navigationController.toolbarHidden = NO;
         [self.navigationController setNavigationBarHidden:NO];
+        [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+        [self.tableView setSeparatorColor:[UIColor clearColor]];
+
     }
     
 -(void)viewWillDisappear:(BOOL)animated {
@@ -133,7 +137,8 @@
     cell.backgroundColor = [UIColor clearColor];
     cell.textLabel.text = object;
     cell.textLabel.textColor = [UIColor blackColor];
-//    [self addReminderForToDoItem:object];
+    
+
     return cell;
 }
 
@@ -173,8 +178,7 @@
         NSString *eventForCalendarTitle = [NSString stringWithFormat:@"To buy for %@", _nameOfEventForCalendar];
         event.title = eventForCalendarTitle;
         event.notes = [self.todoItems componentsJoinedByString:@"\n"];
-//        event.startDate = [NSDate date]; //today
-//        event.endDate = [event.startDate dateByAddingTimeInterval:60*60];  //set 1 hour meeting
+
         if (!self.pickedDate) {
             event.startDate = [NSDate date];
             event.endDate = [event.startDate dateByAddingTimeInterval:60*60]; //set 1 hour meeting
