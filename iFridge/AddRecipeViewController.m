@@ -120,7 +120,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     IngredientCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Ingredient cell" forIndexPath:indexPath];
-    
+    cell.backgroundColor = [UIColor clearColor];
     NSDictionary *ingredient = [self.ingredients objectAtIndex:indexPath.row];
     cell.ingredientLabel.text = [ingredient valueForKey:INGREDIENT_LABEL_KEY];
     cell.quantity.text = [[ingredient valueForKey:INGREDIENT_QUANTITY_KEY] stringValue];
