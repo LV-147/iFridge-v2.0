@@ -103,7 +103,6 @@ animationControllerForOperation:(UINavigationControllerOperation)operation
                    error:(NSError *)error {
   self.googlePlusUserInfromation =
       (NSString *)([GPPSignIn sharedInstance].googlePlusUser);
-  NSLog(@"user %@", self.googlePlusUserInfromation);
 
   [self refreshInterfaceBasedOnSignIn];
 }
@@ -292,10 +291,8 @@ animationControllerForOperation:(UINavigationControllerOperation)operation
     // Пользователь вошел.
     self.googlePlusSignInButton.hidden = YES;
     self.facebookSignInButton.hidden = YES;
-    // self.signOutButton.hidden = NO;
     // Прочие действия, например отображение кнопки выхода
   } else {
-    // self.signOutButton.hidden = YES;
     self.googlePlusSignInButton.hidden = NO;
     self.facebookSignInButton.hidden = NO;
     // Прочие действия
@@ -354,10 +351,6 @@ animationControllerForOperation:(UINavigationControllerOperation)operation
     newController.userId = self.userId;
     newController.userName = self.userName;
     newController.userSocialNetwork = self.userSocialNetwork;
-    NSLog(@"%@", _userEmail);
-    NSLog(@"%@", _userId);
-    NSLog(@"%@", _userName);
-    NSLog(@"%@", _userSocialNetwork);
   }
   if ([segue.identifier isEqualToString:@"SegueToMyRecipes"]) {
     RecipesTVC *newController = segue.destinationViewController;

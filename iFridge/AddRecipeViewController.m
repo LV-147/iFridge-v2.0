@@ -26,7 +26,6 @@
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]]];
     [self.tableView setBackgroundColor:[UIColor clearColor]];
     self.ingredients = [[NSMutableArray alloc] init];
-    // Do any additional setup after loading the view.
 }
 
 #pragma mark Actions
@@ -75,16 +74,13 @@
 {
     self.recipeImage.image = [info objectForKey:UIImagePickerControllerEditedImage];
     
-    //UIImageWriteToSavedPhotosAlbum(self.recipeImage.image, nil, nil, nil);
-    
-    UIImage *viewImage = self.recipeImage.image;  // --- mine was made from drawing context
+    UIImage *viewImage = self.recipeImage.image;
     ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
     // Request to save the image to camera roll
     [library writeImageToSavedPhotosAlbum:[viewImage CGImage] orientation:(ALAssetOrientation)[viewImage imageOrientation] completionBlock:^(NSURL *assetURL, NSError *error){
         if (error) {
             NSLog(@"error");
         } else {
-            NSLog(@"url %@", assetURL);
             self.recipeImageURL = [assetURL absoluteString];
         }
     }];

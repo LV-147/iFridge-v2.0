@@ -193,13 +193,11 @@
         
         for (NSString *savedEvent in self.todoItems) {
             [eventStore saveEvent:event span:EKSpanThisEvent commit:YES error:&err];
-            NSLog(@"%@", savedEvent);
         }        
         self.savedEvent = event.eventIdentifier;  //save the event id if you want to access this later
     }];
     
     
-    //    EKEventStore* eventStore = [EKEventStore new];
     [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
         if (!granted) { return; }
         EKEvent* eventToRemove = [eventStore eventWithIdentifier:self.savedEvent];

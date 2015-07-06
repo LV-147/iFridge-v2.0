@@ -181,8 +181,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  //    RecipesCell *cell = [tableView
-  //    dequeueReusableCellWithIdentifier:@"Recipe cell"];
+
   RecipesCell *cell =
       [tableView dequeueReusableCellWithIdentifier:@"Recipe cell"
                                       forIndexPath:indexPath];
@@ -428,6 +427,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
   for (int i = 0; i < self.allRecipes.count; i++) {
     Recipe *temp = self.allRecipes[i];
     NSNumber *calories = temp.calories;
+      if (!calories)
+          calories = [[ NSNumber alloc] initWithInt:0];
     [unsortedCalories addObject:calories];
   }
 

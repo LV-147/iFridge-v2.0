@@ -171,6 +171,7 @@
                                             <outlet property="cookingTime" destination="JO6-a4-jJb" id="2eS-ww-aNr"/>
                                             <outlet property="nameOfDish" destination="t5g-BQ-7Y3" id="aau-Vf-AoY"/>
                                             <outlet property="recipeImageCell" destination="Wvm-AY-b8x" id="xcQ-yo-Ecs"/>
+                                            <outlet property="weightTotal" destination="J7U-Yy-ZP8" id="qSc-BZ-4iA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -214,6 +215,9 @@
                                             <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="sortByCalories:" destination="tIU-3P-KDZ" eventType="touchUpInside" id="BMx-oE-wUa"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0b-A1-m5U">
                                         <rect key="frame" x="528" y="16" width="64" height="28"/>
@@ -223,6 +227,9 @@
                                             <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="sortByName:" destination="tIU-3P-KDZ" eventType="touchUpInside" id="jir-UV-ABn"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -259,6 +266,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="gqN-Lq-qFy"/>
                     <connections>
+                        <outlet property="byCaloriesButton" destination="keZ-Bq-gdR" id="jKB-EN-WSY"/>
+                        <outlet property="byNameButton" destination="j0b-A1-m5U" id="TA1-QF-cVV"/>
                         <outlet property="saveAllRecipes" destination="H2i-tA-HaS" id="bkW-ee-b2N"/>
                         <outlet property="searchBar" destination="C7r-ib-XNL" id="Npj-HF-rEJ"/>
                         <outlet property="selectDataSourceController" destination="VO7-Ks-m6T" id="yup-PJ-xfv"/>

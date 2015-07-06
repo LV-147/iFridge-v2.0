@@ -32,7 +32,6 @@
 
   self.view.backgroundColor =
       [UIColor colorWithPatternImage:[UIImage imageNamed:@"image.jpg"]];
-  //  self.carousel.backgroundColor = [UIColor clearColor];
 
   self.title = @"Recipe";
 
@@ -77,13 +76,10 @@
 }
 
 - (void)setIndex:(NSInteger)value {
-  //  if (value == -1) {
-  //    _index = 0;
-  //  } else {
+
   _index = value;
   self.recipeCountIndicator.text = [NSString
       stringWithFormat:@"%d/%d", (int)_index + 1, (int)_carousel.numberOfItems];
-  //  }
 }
 
 - (IBAction)googlePlusShareButton:(id)sender {
@@ -102,22 +98,6 @@
                                                 result, @"\n\n #говно_код"]];
   NSString *urlString = [NSString stringWithString:(NSString *)url];
   [shareBuilder setURLToShare:[NSURL URLWithString:urlString]];
-
-  //    NSString *urlString = [url absoluteString];
-  //[shareBuilder setPrefillText:@"Look for such a great recipe from iFridge
-  //#говно_код"];
-  //[shareBuilder setURLToShare:url];
-
-  // if ([myUrl isKindOfClass:[NSString class]]) {
-  //    [shareBuilder setURLToShare:url];
-  //    [shareBuilder setPrefillText:@"Look for such a great recipe from iFridge
-  //    #"];
-  //[shareBuilder setTitle:@"Look for such a great recipe from iFridge #"
-  // description:@"Look for such a great recipe from iFridge #"
-  // thumbnailURL:url];
-  //    [shareBuilder setPrefillText:@"Look for such a great recipe from iFridge
-  //    #говно_код"];
-  //    [shareBuilder setURLToShare:url];
 
   [shareBuilder open];
 }

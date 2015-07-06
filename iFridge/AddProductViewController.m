@@ -17,12 +17,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
@@ -32,16 +30,6 @@
     [textField resignFirstResponder];
     return YES;
 }
-
-
-// - (void)setImageProduct:(UIImage *)image
-//{
-//    self.imageOfProduct.image = image;
-//}
-//- (UIImage *)image
-//{
-//    return self.imageOfProduct.image;
-//}
 
 - (IBAction)cancel
 {

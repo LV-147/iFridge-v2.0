@@ -19,9 +19,9 @@
 typedef void (^ALAssetsLibraryAssetForURLResultBlock)(ALAsset *asset);
 typedef void (^ALAssetsLibraryAccessFailureBlock)(NSError *error);
 
-NSString *app_id = @"098aa935"; //@"4e8543af";
-NSString *app_key =
-    @"e6f6e485b0222cf1b48439a164562270"; //@"e1309c8e747bdd4d7363587a4435f5ee";
+const NSString *app_id = @"098aa935";
+const NSString *app_key =
+    @"e6f6e485b0222cf1b48439a164562270";
 
 @implementation DataDownloader
 
@@ -37,7 +37,6 @@ NSString *app_key =
                      @"search?q=%@&app_id=%@&app_key=%@&from=0&to=100",
                      query, app_id, app_key];
 
-  //    NSLog(@"myLink: %@", myRequest);
 
   AFHTTPRequestOperationManager *manager =
       [AFHTTPRequestOperationManager manager];
@@ -47,7 +46,6 @@ NSString *app_key =
       success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSArray *recipes = [[NSArray alloc]
             initWithArray:((NSDictionary *)responseObject)[@"hits"]];
-        //             NSLog(@"JSON: %@", self.recipes);
         handler(recipes);
       }
       failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -59,7 +57,6 @@ NSString *app_key =
 + (void)setRecipeImageWithURL:(NSString *)imageLink
                usingImageView:(UIImageView *)imageView
         withCompletionHandler:(void (^)())handler {
-  NSLog(@"%@", [imageLink substringWithRange:NSMakeRange(0, 3)]);
   if ([[imageLink substringWithRange:NSMakeRange(0, 3)] isEqual:@"htt"]) {
     [[SDWebImageDownloader sharedDownloader]
         downloadImageWithURL:[NSURL URLWithString:imageLink]
