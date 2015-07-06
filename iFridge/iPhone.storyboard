@@ -90,8 +90,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="c0z-eo-vpr">
-                                <rect key="frame" x="16" y="295" width="343" height="180"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="c0z-eo-vpr">
+                                <rect key="frame" x="16" y="244" width="343" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="KRk-Xn-he4"/>
+                                    <constraint firstAttribute="width" constant="343" id="nkr-0s-bvH"/>
+                                </constraints>
                                 <date key="date" timeIntervalSinceReferenceDate="457538998.13900697">
                                     <!--2015-07-02 14:09:58 +0000-->
                                 </date>
@@ -99,14 +103,25 @@
                                     <action selector="datePicked:" destination="bwe-Ih-6tt" eventType="valueChanged" id="Cqs-ll-bb9"/>
                                 </connections>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ae4-bg-WFf">
-                                <rect key="frame" x="94" y="123" width="186" height="54"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Your Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ae4-bg-WFf">
+                                <rect key="frame" x="36" y="72" width="302" height="59"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="302" id="4Vx-hr-HC4"/>
+                                    <constraint firstAttribute="height" constant="59" id="uud-hQ-3Xx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="25"/>
+                                <color key="textColor" red="1" green="0.0098948884979999999" blue="0.029187735570000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="c0z-eo-vpr" secondAttribute="centerX" id="UbD-hy-3Gi"/>
+                            <constraint firstItem="Ae4-bg-WFf" firstAttribute="leading" secondItem="5u4-Gz-fD4" secondAttribute="leadingMargin" constant="20" id="Y8f-T1-8Jp"/>
+                            <constraint firstItem="Ae4-bg-WFf" firstAttribute="top" secondItem="R1t-Xl-iQ7" secondAttribute="bottom" constant="8" id="wQA-WH-V4E"/>
+                            <constraint firstAttribute="centerY" secondItem="c0z-eo-vpr" secondAttribute="centerY" id="ycp-QG-4KQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ae4-bg-WFf" secondAttribute="trailing" constant="21" id="zZa-YV-LYp"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="datePicker" destination="c0z-eo-vpr" id="Xb2-bt-pTj"/>
@@ -167,6 +182,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="sendToCalendar" destination="Uie-0F-aFS" id="UqN-EN-d8E"/>
+                        <outlet property="tableView" destination="wbK-4O-zro" id="UP3-ma-ydH"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C8e-ht-NOQ" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -1525,17 +1525,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ELt-fQ-drI">
-                                <rect key="frame" x="0.0" y="247" width="600" height="162"/>
-                                <date key="date" timeIntervalSinceReferenceDate="457709120.84193498">
-                                    <!--2015-07-04 13:25:20 +0000-->
-                                </date>
-                                <connections>
-                                    <action selector="datePicked:" destination="s3r-lg-ta3" eventType="valueChanged" id="jHi-zv-4dJ"/>
-                                </connections>
-                            </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jf7-Y8-4dm">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jf7-Y8-4dm">
                                 <rect key="frame" x="457" y="35" width="107" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="EnH-7Z-u6E"/>
+                                    <constraint firstAttribute="width" constant="107" id="UDK-G5-2XA"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="107" id="W1d-e6-Fg8"/>
+                                    <constraint firstAttribute="height" constant="44" id="l2g-i7-eQ7"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="28"/>
                                 <state key="normal" title="Done">
                                     <color key="titleColor" red="1" green="0.0098948884979999999" blue="0.029187735570000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1545,14 +1542,39 @@
                                     <action selector="done:" destination="s3r-lg-ta3" eventType="touchUpInside" id="CZE-OH-lBn"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6c-Mj-cQu">
-                                <rect key="frame" x="159" y="97" width="282" height="66"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6c-Mj-cQu">
+                                <rect key="frame" x="159" y="24" width="282" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="282" id="0eN-fN-34r"/>
+                                    <constraint firstAttribute="height" constant="66" id="ghB-A4-ZB0"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="28"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="0.0098948884979999999" blue="0.029187735570000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ELt-fQ-drI">
+                                <rect key="frame" x="0.0" y="167" width="600" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="457709120.84193498">
+                                    <!--2015-07-04 13:25:20 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="datePicked:" destination="s3r-lg-ta3" eventType="valueChanged" id="jHi-zv-4dJ"/>
+                                </connections>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="V6c-Mj-cQu" secondAttribute="centerX" id="2Rf-uj-HWq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jf7-Y8-4dm" secondAttribute="trailing" constant="20" id="Moh-Dm-3gg"/>
+                            <constraint firstItem="V6c-Mj-cQu" firstAttribute="top" secondItem="Pqn-ta-8Qb" secondAttribute="bottom" constant="4" id="Rqz-0H-wQw"/>
+                            <constraint firstItem="ELt-fQ-drI" firstAttribute="leading" secondItem="uF2-22-fb7" secondAttribute="leadingMargin" constant="-16" id="Y79-rI-D6b"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ELt-fQ-drI" secondAttribute="trailing" constant="-16" id="gCq-Q5-MQM"/>
+                            <constraint firstItem="jf7-Y8-4dm" firstAttribute="top" secondItem="Pqn-ta-8Qb" secondAttribute="bottom" constant="15" id="ix0-iA-vyO"/>
+                            <constraint firstItem="V6c-Mj-cQu" firstAttribute="leading" secondItem="uF2-22-fb7" secondAttribute="leadingMargin" constant="143" id="lrR-Ap-mqH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jf7-Y8-4dm" secondAttribute="trailing" constant="20" id="ret-ud-kKL"/>
+                            <constraint firstItem="ELt-fQ-drI" firstAttribute="top" secondItem="V6c-Mj-cQu" secondAttribute="bottom" constant="77" id="taQ-Vp-QP9"/>
+                            <constraint firstItem="jf7-Y8-4dm" firstAttribute="top" secondItem="Pqn-ta-8Qb" secondAttribute="bottom" constant="15" id="toa-2y-jAg"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="datePicker" destination="ELt-fQ-drI" id="fGI-eS-7DV"/>
