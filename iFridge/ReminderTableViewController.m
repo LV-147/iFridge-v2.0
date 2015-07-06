@@ -183,13 +183,7 @@
 
         
         
-        event.calendar = [eventStore defaultCalendarForNewEvents];
-        NSError *err = nil;
-        
-        for (NSString *savedEvent in self.todoItems) {
-            [eventStore saveEvent:event span:EKSpanThisEvent commit:YES error:&err];
-//            NSLog(@"%@", savedEvent);
-        }
+        event.calendar = [eventStore defaultCalendarForNewEvents];        
         self.savedEvent = event.eventIdentifier;  //save the event id if you want to access this later
     }];
     
